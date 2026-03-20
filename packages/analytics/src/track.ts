@@ -38,10 +38,16 @@ export async function trackEvent(domain: string, path: string): Promise<void> {
     // Get the first IP if there are multiple (proxy chain)
     const ip = forwardedFor.split(",")[0].trim();
     
-    const country = headersList.get("x-vercel-ip-country") || null;
-    const city = headersList.get("x-vercel-ip-city") || null;
-    const continent = headersList.get("x-vercel-ip-continent") || null;
+    // Decode URL-encoded values from Vercel headers
+    const countryRaw = headersList.get("x-vercel-ip-country") || null;
+    const cityRaw = headersList.get("x-vercel-ip-city") || null;
+    const continentRaw = headersList.get("x-vercel-ip-continent") || null;
     const userAgent = headersList.get("user-agent") || null;
+
+    // Decode URL-encoded strings (e.g., "Santa%20Clara" -> "Santa Clara")
+    const country = countryRaw ? decodeURIComponent(countryRaw) : null;
+    const city = cityRaw ? decodeURIComponent(cityRaw) : null;
+    const continent = continentRaw ? decodeURIComponent(continentRaw) : null;
 
     // Generate current date in YYYY-MM-DD format for daily visitor hash
     const today = new Date().toISOString().split("T")[0];

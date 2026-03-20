@@ -275,9 +275,14 @@ export function AdminDashboard() {
                     </code>
                   </td>
                   <td className="py-3 px-4 text-gray-600">
-                    {event.city && event.country
-                      ? `${event.city}, ${event.country}`
-                      : event.country || "Unknown"}
+                    {(() => {
+                      // Decode URL-encoded values if they exist (for old records)
+                      const city = event.city ? decodeURIComponent(event.city) : null;
+                      const country = event.country ? decodeURIComponent(event.country) : null;
+                      return city && country
+                        ? `${city}, ${country}`
+                        : country || "Unknown";
+                    })()}
                   </td>
                 </tr>
               ))}
