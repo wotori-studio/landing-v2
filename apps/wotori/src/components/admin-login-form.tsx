@@ -22,11 +22,12 @@ export function AdminLoginForm() {
         router.push("/admin/analytics");
         router.refresh();
       } else {
-        setError(result.message);
+        setError(result.message || "Authentication failed. Please try again.");
         setPassword("");
       }
     } catch (err) {
-      setError("An error occurred. Please try again.");
+      console.error("[Admin Login] Error:", err);
+      setError("An error occurred. Please check the console or try again later.");
       setPassword("");
     } finally {
       setIsLoading(false);

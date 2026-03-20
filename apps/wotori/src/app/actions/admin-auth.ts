@@ -14,8 +14,13 @@ const MAX_ATTEMPTS = 5; // Maximum failed attempts
 const WINDOW_MS = 15 * 60 * 1000; // 15 minutes window
 const BLOCK_DURATION_MS = 30 * 60 * 1000; // Block for 30 minutes after max attempts
 
-// Valid session tokens (in production, store in database)
-const validSessions = new Set<string>();
+// Session secret for signing tokens (derived from password for simplicity)
+// In production with multiple instances, this ensures tokens are verifiable across instances
+function getSessionSecret(): string {
+  return createHash("sha256")
+    .update(`${ADMIN_PASSWORD}_session_secret`)
+    .digest("hex");
+}
 
 /**
  * Get client IP address from headers
@@ -105,10 +110,12 @@ export async function authenticateAdmin(password: string): Promise<{
   message: string;
   retryAfter?: number;
 }> {
+  // Debug: Log if password is configured (without exposing the actual password)
   if (!ADMIN_PASSWORD) {
+    console.error("[Admin Auth] ADMIN_PASSWORD is not configured");
     return {
       success: false,
-      message: "Admin access is not configured",
+      message: "Admin access is not configured. Please check environment variables.",
     };
   }
 
@@ -141,23 +148,30 @@ export async function authenticateAdmin(password: string): Promise<{
   // Clear rate limit on successful login
   await clearRateLimit();
 
-  // Generate secure session token
+  // Generate secure session token with signature
+  // Format: timestamp.randomBytes.signature
   const cookieStore = await cookies();
   const timestamp = Date.now();
   const randomBytes = createHash("sha256")
-    .update(`${Math.random()}${timestamp}`)
-    .digest("hex");
-  const sessionToken = createHash("sha256")
-    .update(`${ADMIN_PASSWORD}${timestamp}${randomBytes}`)
-    .digest("hex");
-
-  // Store valid session token
-  validSessions.add(sessionToken);
+    .update(`${Math.random()}${timestamp}${Date.now()}`)
+    .digest("hex")
+    .substring(0, 32);
+  
+  const sessionSecret = getSessionSecret();
+  const tokenData = `${timestamp}.${randomBytes}`;
+  const signature = createHash("sha256")
+    .update(`${tokenData}.${sessionSecret}`)
+    .digest("hex")
+    .substring(0, 32);
+  
+  const sessionToken = `${tokenData}.${signature}`;
 
   // Set secure session cookie (expires in 24 hours)
+  // Always use secure in production (Vercel uses HTTPS)
+  const isProduction = process.env.VERCEL_ENV === "production" || process.env.NODE_ENV === "production";
   cookieStore.set("admin_session", sessionToken, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    secure: isProduction,
     sameSite: "lax",
     maxAge: 60 * 60 * 24, // 24 hours
     path: "/",
@@ -171,7 +185,8 @@ export async function authenticateAdmin(password: string): Promise<{
 
 /**
  * Verify admin session
- * Validates that the session token exists and is valid
+ * Validates that the session token exists and has valid signature
+ * Also checks token expiration (24 hours)
  */
 export async function verifyAdminSession(): Promise<boolean> {
   if (!ADMIN_PASSWORD) {
@@ -185,31 +200,60 @@ export async function verifyAdminSession(): Promise<boolean> {
     return false;
   }
 
-  // Verify session token is in the valid sessions set
-  // In production, you'd verify against a database with expiration times
-  const isValid = validSessions.has(session.value);
-  
-  if (!isValid) {
-    // Clean up invalid session cookie
+  try {
+    const token = session.value;
+    const parts = token.split(".");
+    
+    // Token format: timestamp.randomBytes.signature
+    if (parts.length !== 3) {
+      cookieStore.delete("admin_session");
+      return false;
+    }
+
+    const [timestampStr, randomBytes, signature] = parts;
+    const timestamp = parseInt(timestampStr, 10);
+
+    // Check token expiration (24 hours = 86400000 ms)
+    const now = Date.now();
+    const maxAge = 60 * 60 * 24 * 1000; // 24 hours in milliseconds
+    if (isNaN(timestamp) || now - timestamp > maxAge) {
+      cookieStore.delete("admin_session");
+      return false;
+    }
+
+    // Verify signature
+    const sessionSecret = getSessionSecret();
+    const tokenData = `${timestampStr}.${randomBytes}`;
+    const expectedSignature = createHash("sha256")
+      .update(`${tokenData}.${sessionSecret}`)
+      .digest("hex")
+      .substring(0, 32);
+
+    // Use timing-safe comparison for signature
+    const providedSig = Buffer.from(signature, "hex");
+    const expectedSig = Buffer.from(expectedSignature, "hex");
+    
+    if (
+      providedSig.length !== expectedSig.length ||
+      !timingSafeEqual(providedSig, expectedSig)
+    ) {
+      cookieStore.delete("admin_session");
+      return false;
+    }
+
+    return true;
+  } catch (error) {
+    // Invalid token format or other error
     cookieStore.delete("admin_session");
     return false;
   }
-
-  return true;
 }
 
 /**
  * Logout admin
- * Removes session token from valid sessions and deletes cookie
+ * Deletes session cookie
  */
 export async function logoutAdmin(): Promise<void> {
   const cookieStore = await cookies();
-  const session = cookieStore.get("admin_session");
-  
-  if (session?.value) {
-    // Remove from valid sessions
-    validSessions.delete(session.value);
-  }
-  
   cookieStore.delete("admin_session");
 }
