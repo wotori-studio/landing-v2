@@ -256,6 +256,9 @@ export function AdminDashboard() {
                 <th className="text-left py-3 px-4 font-medium text-gray-700">
                   Location
                 </th>
+                <th className="text-left py-3 px-4 font-medium text-gray-700">
+                  User Agent
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -283,6 +286,33 @@ export function AdminDashboard() {
                         ? `${city}, ${country}`
                         : country || "Unknown";
                     })()}
+                  </td>
+                  <td className="py-3 px-4 text-gray-600">
+                    {event.user_agent ? (
+                      <span className="text-xs" title={event.user_agent}>
+                        {(() => {
+                          // Parse user agent to show device/browser info
+                          const ua = event.user_agent;
+                          // Extract browser
+                          let browser = "Unknown";
+                          if (ua.includes("Chrome") && !ua.includes("Edg")) browser = "Chrome";
+                          else if (ua.includes("Firefox")) browser = "Firefox";
+                          else if (ua.includes("Safari") && !ua.includes("Chrome")) browser = "Safari";
+                          else if (ua.includes("Edg")) browser = "Edge";
+                          else if (ua.includes("Opera")) browser = "Opera";
+                          
+                          // Extract device
+                          let device = "";
+                          if (ua.includes("Mobile")) device = "Mobile";
+                          else if (ua.includes("Tablet")) device = "Tablet";
+                          else device = "Desktop";
+                          
+                          return `${browser} (${device})`;
+                        })()}
+                      </span>
+                    ) : (
+                      <span className="text-gray-400 text-xs">Unknown</span>
+                    )}
                   </td>
                 </tr>
               ))}

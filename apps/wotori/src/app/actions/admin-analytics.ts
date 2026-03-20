@@ -15,6 +15,7 @@ export interface AnalyticsStats {
     path: string;
     country: string | null;
     city: string | null;
+    user_agent: string | null;
     created_at: string;
   }>;
 }
@@ -132,6 +133,7 @@ export async function getAnalyticsStats(
       path: event.path,
       country: event.country,
       city: event.city,
+      user_agent: event.user_agent,
       created_at: event.created_at,
     }));
 
