@@ -262,10 +262,36 @@ export function AdminDashboard() {
               </tr>
             </thead>
             <tbody>
-              {stats.recentEvents.slice(0, 20).map((event) => (
+              {stats.recentEvents.slice(0, 20).map((event) => {
+                const eventDate = new Date(event.created_at);
+                const now = new Date();
+                const diffMs = now.getTime() - eventDate.getTime();
+                const diffMins = Math.floor(diffMs / 60000);
+                const diffHours = Math.floor(diffMs / 3600000);
+                const diffDays = Math.floor(diffMs / 86400000);
+                
+                let relativeTime = "";
+                if (diffMins < 1) relativeTime = "Just now";
+                else if (diffMins < 60) relativeTime = `${diffMins}m ago`;
+                else if (diffHours < 24) relativeTime = `${diffHours}h ago`;
+                else if (diffDays < 7) relativeTime = `${diffDays}d ago`;
+                else relativeTime = eventDate.toLocaleDateString();
+                
+                return (
                 <tr key={event.id} className="border-b border-gray-100">
-                  <td className="py-3 px-4 text-gray-600">
-                    {new Date(event.created_at).toLocaleString()}
+                  <td className="py-3 px-4">
+                    <div className="text-gray-900 font-medium text-sm">
+                      {eventDate.toLocaleString("en-US", {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
+                    </div>
+                    <div className="text-gray-500 text-xs mt-1">
+                      {relativeTime}
+                    </div>
                   </td>
                   <td className="py-3 px-4">
                     <code className="text-xs bg-gray-50 px-2 py-1 rounded">
@@ -315,7 +341,8 @@ export function AdminDashboard() {
                     )}
                   </td>
                 </tr>
-              ))}
+                );
+              })}
             </tbody>
           </table>
         </div>
