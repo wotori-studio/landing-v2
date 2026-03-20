@@ -187,6 +187,10 @@ export async function authenticateAdmin(password: string): Promise<{
  * Verify admin session
  * Validates that the session token exists and has valid signature
  * Also checks token expiration (24 hours)
+ * 
+ * Note: This function is called from Server Components, so it cannot delete cookies.
+ * Invalid cookies will be ignored (return false) and can be cleaned up by middleware
+ * or will expire naturally.
  */
 export async function verifyAdminSession(): Promise<boolean> {
   if (!ADMIN_PASSWORD) {
@@ -206,7 +210,7 @@ export async function verifyAdminSession(): Promise<boolean> {
     
     // Token format: timestamp.randomBytes.signature
     if (parts.length !== 3) {
-      cookieStore.delete("admin_session");
+      // Invalid format - return false (cannot delete cookie from Server Component)
       return false;
     }
 
@@ -217,7 +221,7 @@ export async function verifyAdminSession(): Promise<boolean> {
     const now = Date.now();
     const maxAge = 60 * 60 * 24 * 1000; // 24 hours in milliseconds
     if (isNaN(timestamp) || now - timestamp > maxAge) {
-      cookieStore.delete("admin_session");
+      // Expired - return false (cookie will be ignored, middleware can clean it up)
       return false;
     }
 
@@ -237,17 +241,17 @@ export async function verifyAdminSession(): Promise<boolean> {
       providedSig.length !== expectedSig.length ||
       !timingSafeEqual(providedSig, expectedSig)
     ) {
-      cookieStore.delete("admin_session");
+      // Invalid signature - return false
       return false;
     }
 
     return true;
   } catch (error) {
-    // Invalid token format or other error
-    cookieStore.delete("admin_session");
+    // Invalid token format or other error - return false
     return false;
   }
 }
+
 
 /**
  * Logout admin
