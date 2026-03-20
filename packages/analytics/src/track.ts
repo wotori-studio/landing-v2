@@ -50,11 +50,18 @@ export async function trackEvent(domain: string, path: string): Promise<void> {
     const continent = continentRaw ? decodeURIComponent(continentRaw) : null;
 
     // Generate current date in YYYY-MM-DD format for daily visitor hash
-    const today = new Date().toISOString().split("T")[0];
+    // Use server's local date (not UTC) to ensure consistent hashing throughout the day
+    // This ensures one user gets the same hash for the entire day regardless of timezone
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const day = String(now.getDate()).padStart(2, "0");
+    const today = `${year}-${month}-${day}`;
 
     // Create anonymized visitor hash: SHA-256(IP + User-Agent + date)
     // This creates a unique identifier per visitor per day
     // Raw IP is never stored (GDPR-compliant)
+    // Using local server date ensures same user has same hash throughout the day
     const hashInput = `${ip}${userAgent || ""}${today}`;
     const visitorHash = createHash("sha256").update(hashInput).digest("hex");
 
