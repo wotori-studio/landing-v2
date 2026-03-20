@@ -32,6 +32,9 @@ setup: install ## Setup project (install deps and create .env files)
 
 dev: ## Start both applications in development mode
 	@echo "$(GREEN)Starting development servers...$(NC)"
+	@echo "$(YELLOW)Checking for running processes on ports 3000 and 3001...$(NC)"
+	@lsof -ti:3000,3001 2>/dev/null | xargs kill -9 2>/dev/null || true
+	@sleep 1
 	@echo "$(YELLOW)Wotori will be available at http://localhost:3000$(NC)"
 	@echo "$(YELLOW)Ekza will be available at http://localhost:3001$(NC)"
 	pnpm dev

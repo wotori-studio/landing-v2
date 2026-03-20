@@ -7,10 +7,13 @@
     "build": "turbo run build",
     "lint": "turbo run lint",
     "clean": "turbo run clean && rm -rf node_modules",
-    "format": "prettier --write \"**/*.{ts,tsx,md,json}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
+    "migrate": "node scripts/migrate-supabase.js"
   },
   "devDependencies": {
+    "pg": "^8.20.0",
     "prettier": "^3.2.5",
+    "supabase": "^2.82.0",
     "turbo": "^2.0.0",
     "typescript": "^5.3.3"
   },

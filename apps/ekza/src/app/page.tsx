@@ -6,6 +6,7 @@ import ProjectCards from "../components/project-cards";
 import Footer from "../components/footer";
 import { SayHi } from "../components/say-hi";
 import Header from "../components/header";
+import { NewsletterForm } from "../components/newsletter-form";
 import { useI18n } from "../lib/i18n-provider";
 
 export default function EkzaLandingPage() {
@@ -170,6 +171,19 @@ export default function EkzaLandingPage() {
           <blockquote className="max-w-4xl mx-auto text-2xl md:text-3xl leading-relaxed font-light">
             {t("ekza.philosophy.quote")}
           </blockquote>
+        </div>
+      </section>
+
+      {/* Newsletter subscription section */}
+      <section id="newsletter" className="bg-white py-20">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+            Subscribe to Newsletter
+          </h2>
+          <p className="max-w-2xl mx-auto text-lg text-gray-600 mb-8">
+            Stay updated with the latest news and updates from Ekza Space
+          </p>
+          <NewsletterForm />
         </div>
       </section>
 

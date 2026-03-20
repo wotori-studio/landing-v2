@@ -42,3 +42,5 @@ pnpm-debug.log*
 *.swp
 *.swo
 *~
+apps/ekza/supabase/.temp/
+migration-output.txt

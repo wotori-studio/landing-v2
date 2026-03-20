@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useFormState, useFormStatus } from "react-dom";
 import { submitWaitlist, type WaitlistFormState } from "../app/actions/waitlist";
 
 const initialState: WaitlistFormState = {
@@ -9,10 +9,21 @@ const initialState: WaitlistFormState = {
 };
 
 export function WaitlistForm() {
-  const [state, formAction, isPending] = useActionState(
-    submitWaitlist,
-    initialState
-  );
+  const [state, formAction] = useFormState(submitWaitlist, initialState);
+  
+  // Submit button component to access pending state
+  function SubmitButton() {
+    const { pending } = useFormStatus();
+    return (
+      <button
+        type="submit"
+        disabled={pending}
+        className="w-full rounded-full px-8 py-3 text-base font-medium bg-white text-black border border-white hover:bg-gray-100 hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        {pending ? "Submitting..." : "Join Waitlist"}
+      </button>
+    );
+  }
 
   return (
     <form action={formAction} className="space-y-4">
@@ -61,13 +72,7 @@ export function WaitlistForm() {
         </div>
       )}
 
-      <button
-        type="submit"
-        disabled={isPending}
-        className="w-full rounded-full px-8 py-3 text-base font-medium bg-white text-black border border-white hover:bg-gray-100 hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        {isPending ? "Submitting..." : "Join Waitlist"}
-      </button>
+      <SubmitButton />
     </form>
   );
 }

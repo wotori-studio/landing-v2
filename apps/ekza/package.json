@@ -10,6 +10,7 @@
     "clean": "rm -rf .next"
   },
   "dependencies": {
+    "@repo/analytics": "workspace:*",
     "@repo/locales": "workspace:*",
     "@repo/ui": "workspace:*",
     "@supabase/supabase-js": "^2.39.0",
