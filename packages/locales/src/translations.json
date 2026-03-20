@@ -1,0 +1,413 @@
+{
+  "defaultLanguage": "en",
+  "supportedLanguages": ["en", "ru", "zh"],
+  "languageLabels": {
+    "en": "EN",
+    "ru": "RU",
+    "zh": "中文"
+  },
+  "translations": {
+    "en": {
+      "meta": {
+        "wotoriTitle": "Wotori Studio",
+        "ekzaTitle": "Ekza Space"
+      },
+      "common": {
+        "languageSwitcherLabel": "Language",
+        "open": "open ↗",
+        "projectOpenHint": "click to open the project"
+      },
+      "header": {
+        "brand": "ekza space",
+        "nav": {
+          "hero": "Hero",
+          "howItWorks": "How It Works",
+          "ecosystem": "Ecosystem",
+          "philosophy": "Philosophy"
+        }
+      },
+      "wotori": {
+        "intro": {
+          "title": "Wotori Studio - Decentralized Animation & Production Studio",
+          "subtitle": "We build platforms and content for cross-cultural collaboration in web3.",
+          "description": "Wotori is the umbrella studio behind creator-first products in gaming, media, and digital ownership. We partner with teams, investors, and communities to launch connected ecosystems at global scale."
+        },
+        "portfolio": {
+          "label": "Portfolio",
+          "heading": "Our projects",
+          "description": "Wotori Studio develops interconnected products, each with its own audience and role. Together they form one creator-focused ecosystem.",
+          "projects": {
+            "ekza": {
+              "name": "Ekza Space",
+              "description": "A collaboration and monetization ecosystem for 3D assets. Think GitHub for 3D artists, where contributors co-build reusable assets and keep ownership of their work.",
+              "cta": "Open ekza.io"
+            },
+            "omoba": {
+              "name": "Omoba",
+              "description": "An open MOBA where players can bring custom avatars and game-ready assets. Omoba demonstrates how creator assets from Ekza can move from design to live gameplay.",
+              "cta": "Follow project updates"
+            },
+            "opusprism": {
+              "name": "Opusprism.app",
+              "description": "A social network for musicians to publish live performances and connect with audiences. The platform focuses on direct creator visibility and fan engagement.",
+              "cta": "Visit Opusprism"
+            }
+          }
+        },
+        "investors": {
+          "label": "Investor Materials",
+          "heading": "For investors and partners",
+          "description": "Explore our strategic documents to understand the thesis, product roadmap, and opportunity around our creator infrastructure.",
+          "lightPaper": {
+            "title": "Light Paper",
+            "text": "Our philosophy, long-term vision, and strategic direction for creator economies in web3.",
+            "cta": "Open Light Paper"
+          },
+          "pitchdeck": {
+            "title": "Pitchdeck",
+            "text": "An overview of the products and infrastructure tools we are bringing to the web3 ecosystem.",
+            "cta": "Open Pitchdeck"
+          }
+        },
+        "channels": {
+          "label": "Contacts & Socials",
+          "heading": "Connect with Wotori Studio",
+          "studioTag": "studio",
+          "links": {
+            "twitter": "X (Twitter)",
+            "instagram": "Instagram",
+            "discord": "Discord",
+            "telegram": "Telegram",
+            "email": "Email"
+          }
+        }
+      },
+      "ekza": {
+        "hero": {
+          "title": "Ekza Space - GitHub for 3D artists.",
+          "subtitle": "Co-create, integrate, and monetize 3D content across games and virtual worlds.",
+          "description": "Build once, reuse everywhere. Ekza helps artists and studios co-create 3D assets, ship them to games through SDK tooling, and keep royalty flows on Solana when assets are reused.",
+          "buttons": {
+            "joinWaitlist": "Join Waitlist",
+            "openApp": "Open App",
+            "readDocs": "Read Docs"
+          },
+          "footerCenter": "Creator infrastructure for web3 games"
+        },
+        "howItWorks": {
+          "heading": "How it works",
+          "description": "Ekza is built as a practical stack for creators and game teams. Each layer compounds the value of your assets over time.",
+          "layers": {
+            "coCreate": {
+              "title": "Co-create",
+              "description": "Collaborate on 3D assets with transparent contribution history across distributed teams."
+            },
+            "marketplace": {
+              "title": "Marketplace",
+              "description": "Publish avatars and objects into a reusable ecosystem for developers, studios, and creators."
+            },
+            "integrate": {
+              "title": "Integrate (SDK)",
+              "description": "Move assets into games quickly with Ekza SDK tooling. Omoba is a core use-case for this flow."
+            },
+            "monetize": {
+              "title": "Monetize (Solana)",
+              "description": "Protect ownership and automate royalties on Solana every time content is used in connected worlds."
+            }
+          }
+        },
+        "ecosystem": {
+          "heading": "Ecosystem modules",
+          "description": "The current Ekza modules remain active and interconnected. This foundation is preserved while the platform expands into a clearer product journey.",
+          "statusNote": "Ekza is still at an early stage and is currently running as an early alpha on devnet.",
+          "projects": {
+            "stellar": "Stellar is the collaboration layer where teams co-create digital assets for games and virtual worlds. It is evolving toward the Solana ecosystem to align with Ekza's creator-first ownership and royalty model.",
+            "avatar": "Avatar gives creators a way to design, mint, and monetize customizable 3D identities. With Solana-native ownership, avatars are portable, reusable, and ready for multiverse distribution.",
+            "space": "Space turns collaborative assets into playable and interactive 3D environments. It already connects with Avatar, so creators can move identities and assets across supported experiences without rebuilding from scratch."
+          }
+        },
+        "philosophy": {
+          "label": "Creator philosophy",
+          "heading": "Your work stays yours",
+          "quote": "\"Do not lose rights to your work. Plug into a system where your contribution lives on and generates income forever.\""
+        },
+        "footer": {
+          "documentation": "Documentation",
+          "twitter": "X (Twitter)",
+          "discord": "Discord",
+          "telegram": "Telegram",
+          "creditText": "Created and backed by",
+          "creditLabel": "Wotori Studio"
+        }
+      }
+    },
+    "ru": {
+      "meta": {
+        "wotoriTitle": "Wotori Studio",
+        "ekzaTitle": "Ekza Space"
+      },
+      "common": {
+        "languageSwitcherLabel": "Язык",
+        "open": "открыть ↗",
+        "projectOpenHint": "нажмите, чтобы открыть проект"
+      },
+      "header": {
+        "brand": "ekza space",
+        "nav": {
+          "hero": "Главная",
+          "howItWorks": "Как это работает",
+          "ecosystem": "Экосистема",
+          "philosophy": "Философия"
+        }
+      },
+      "wotori": {
+        "intro": {
+          "title": "Wotori Studio - децентрализованная анимационная и продакшн-студия",
+          "subtitle": "Мы создаем платформы и контент для кросс-культурного сотрудничества в web3.",
+          "description": "Wotori - зонтичная студия, которая развивает продукты для создателей в геймдеве, медиа и цифровой собственности. Мы работаем с командами, инвесторами и сообществами, чтобы запускать связанные экосистемы на глобальном уровне."
+        },
+        "portfolio": {
+          "label": "Портфолио",
+          "heading": "Наши проекты",
+          "description": "Wotori Studio развивает взаимосвязанные продукты, у каждого из которых своя аудитория и роль. Вместе они формируют единую экосистему для создателей.",
+          "projects": {
+            "ekza": {
+              "name": "Ekza Space",
+              "description": "Экосистема для совместного создания и монетизации 3D-ассетов. Это GitHub для 3D-художников, где авторы вместе развивают ассеты и сохраняют права на свой вклад.",
+              "cta": "Открыть ekza.io"
+            },
+            "omoba": {
+              "name": "Omoba",
+              "description": "Open MOBA, где игроки могут использовать собственные аватары и игровые ассеты. Omoba показывает, как ассеты из Ekza переходят из дизайна в живой геймплей.",
+              "cta": "Следить за обновлениями"
+            },
+            "opusprism": {
+              "name": "Opusprism.app",
+              "description": "Социальная сеть для музыкантов, где можно публиковать live-выступления и взаимодействовать с аудиторией. Платформа фокусируется на прямой видимости автора и вовлечении фанатов.",
+              "cta": "Перейти в Opusprism"
+            }
+          }
+        },
+        "investors": {
+          "label": "Материалы для инвесторов",
+          "heading": "Для инвесторов и партнеров",
+          "description": "Изучите стратегические материалы, чтобы понять нашу философию, продуктовый вектор и рыночную возможность в инфраструктуре для создателей.",
+          "lightPaper": {
+            "title": "Light Paper",
+            "text": "Наша философия, долгосрочное видение и стратегическое направление развития creator economy в web3.",
+            "cta": "Открыть Light Paper"
+          },
+          "pitchdeck": {
+            "title": "Pitchdeck",
+            "text": "Презентация продуктов и инфраструктурных инструментов, которые мы выводим в web3-экосистему.",
+            "cta": "Открыть Pitchdeck"
+          }
+        },
+        "channels": {
+          "label": "Контакты и соцсети",
+          "heading": "Связаться с Wotori Studio",
+          "studioTag": "студия",
+          "links": {
+            "twitter": "X (Twitter)",
+            "instagram": "Instagram",
+            "discord": "Discord",
+            "telegram": "Telegram",
+            "email": "Email"
+          }
+        }
+      },
+      "ekza": {
+        "hero": {
+          "title": "Ekza Space - GitHub для 3D-художников.",
+          "subtitle": "Совместно создавайте, интегрируйте и монетизируйте 3D-контент для игр и цифровых миров.",
+          "description": "Создал один раз - используй везде. Ekza помогает художникам и студиям вместе создавать 3D-ассеты, переносить их в игры через SDK и получать роялти в Solana при каждом повторном использовании.",
+          "buttons": {
+            "joinWaitlist": "Вступить в вейтлист",
+            "openApp": "Открыть приложение",
+            "readDocs": "Документация"
+          },
+          "footerCenter": "Инфраструктура для создателей web3-игр"
+        },
+        "howItWorks": {
+          "heading": "Как это работает",
+          "description": "Ekza построена как практический стек для создателей и игровых команд. Каждый слой усиливает ценность ваших ассетов со временем.",
+          "layers": {
+            "coCreate": {
+              "title": "Co-create",
+              "description": "Совместная работа над 3D-ассетами с прозрачной историей вкладов распределенных команд."
+            },
+            "marketplace": {
+              "title": "Marketplace",
+              "description": "Публикация аватаров и объектов в переиспользуемую экосистему для разработчиков, студий и создателей."
+            },
+            "integrate": {
+              "title": "Integrate (SDK)",
+              "description": "Быстрый перенос ассетов в игры с помощью SDK от Ekza. Omoba выступает ключевым примером такого сценария."
+            },
+            "monetize": {
+              "title": "Monetize (Solana)",
+              "description": "Защищайте права владения и автоматически получайте роялти в Solana каждый раз, когда контент используется в связанных мирах."
+            }
+          }
+        },
+        "ecosystem": {
+          "heading": "Модули экосистемы",
+          "description": "Текущие модули Ekza остаются активными и взаимосвязанными. Эта база сохраняется, пока платформа развивается в более четкий продуктовый путь.",
+          "statusNote": "Ekza все еще на ранней стадии и сейчас работает как early alpha в devnet.",
+          "projects": {
+            "stellar": "Stellar - слой совместной работы, где команды вместе создают цифровые ассеты для игр и виртуальных миров. Сейчас он развивается в сторону экосистемы Solana, чтобы соответствовать модели Ekza с правом собственности и роялти для авторов.",
+            "avatar": "Avatar дает авторам возможность создавать, минтить и монетизировать кастомные 3D-идентичности. Благодаря Solana-native собственности аватары становятся переносимыми, переиспользуемыми и готовыми к распространению в разных метавселенных.",
+            "space": "Space превращает совместно созданные ассеты в игровые и интерактивные 3D-пространства. Модуль уже связан с Avatar, поэтому авторы могут переносить идентичности и ассеты между поддерживаемыми средами без пересборки."
+          }
+        },
+        "philosophy": {
+          "label": "Философия создателей",
+          "heading": "Ваша работа остается вашей",
+          "quote": "\"Не теряй права на свою работу. Встройся в систему, где твой вклад живет и приносит доход бесконечно.\""
+        },
+        "footer": {
+          "documentation": "Документация",
+          "twitter": "X (Twitter)",
+          "discord": "Discord",
+          "telegram": "Telegram",
+          "creditText": "Создано и поддерживается",
+          "creditLabel": "Wotori Studio"
+        }
+      }
+    },
+    "zh": {
+      "meta": {
+        "wotoriTitle": "Wotori Studio",
+        "ekzaTitle": "Ekza Space"
+      },
+      "common": {
+        "languageSwitcherLabel": "语言",
+        "open": "打开 ↗",
+        "projectOpenHint": "点击打开项目"
+      },
+      "header": {
+        "brand": "ekza space",
+        "nav": {
+          "hero": "首页",
+          "howItWorks": "运作方式",
+          "ecosystem": "生态",
+          "philosophy": "理念"
+        }
+      },
+      "wotori": {
+        "intro": {
+          "title": "Wotori Studio - 去中心化动画与制作工作室",
+          "subtitle": "我们为 web3 跨文化协作打造平台与内容。",
+          "description": "Wotori 是一个面向创作者的母品牌工作室，覆盖游戏、媒体与数字所有权产品。我们与团队、投资者及社区合作，在全球范围构建可联动的生态体系。"
+        },
+        "portfolio": {
+          "label": "项目组合",
+          "heading": "我们的项目",
+          "description": "Wotori Studio 构建了多个相互连接的产品，每个产品都有独立受众与定位。它们共同组成一个以创作者为中心的生态。",
+          "projects": {
+            "ekza": {
+              "name": "Ekza Space",
+              "description": "一个用于 3D 资产协作与变现的生态系统。可理解为 3D 艺术家的 GitHub，贡献者可共建资产并保留作品权益。",
+              "cta": "打开 ekza.io"
+            },
+            "omoba": {
+              "name": "Omoba",
+              "description": "一款开放式 MOBA，玩家可导入自定义头像与游戏资产。Omoba 展示了 Ekza 资产从设计到实战玩法的完整流转。",
+              "cta": "查看项目动态"
+            },
+            "opusprism": {
+              "name": "Opusprism.app",
+              "description": "面向音乐人的社交网络，用于发布现场演出并连接观众。平台强调创作者的直接曝光与粉丝互动。",
+              "cta": "访问 Opusprism"
+            }
+          }
+        },
+        "investors": {
+          "label": "投资者资料",
+          "heading": "面向投资者与合作伙伴",
+          "description": "查看我们的战略文档，了解项目论点、产品路线图以及创作者基础设施的市场机会。",
+          "lightPaper": {
+            "title": "Light Paper",
+            "text": "我们的理念、长期愿景以及在 web3 创作者经济中的战略方向。",
+            "cta": "打开 Light Paper"
+          },
+          "pitchdeck": {
+            "title": "Pitchdeck",
+            "text": "我们正在为 web3 生态构建的产品与基础设施工具概览。",
+            "cta": "打开 Pitchdeck"
+          }
+        },
+        "channels": {
+          "label": "联系方式与社媒",
+          "heading": "联系 Wotori Studio",
+          "studioTag": "工作室",
+          "links": {
+            "twitter": "X (Twitter)",
+            "instagram": "Instagram",
+            "discord": "Discord",
+            "telegram": "Telegram",
+            "email": "Email"
+          }
+        }
+      },
+      "ekza": {
+        "hero": {
+          "title": "Ekza Space - 3D 艺术家的 GitHub。",
+          "subtitle": "在游戏与数字世界中协同创作、集成并变现 3D 内容。",
+          "description": "一次创建，到处复用。Ekza 帮助艺术家与工作室共同构建 3D 资产，通过 SDK 接入游戏，并在资产复用时通过 Solana 持续获得版税。",
+          "buttons": {
+            "joinWaitlist": "加入候补名单",
+            "openApp": "打开应用",
+            "readDocs": "阅读文档"
+          },
+          "footerCenter": "面向 web3 游戏的创作者基础设施"
+        },
+        "howItWorks": {
+          "heading": "如何运作",
+          "description": "Ekza 是为创作者与游戏团队打造的实用技术栈。每一层都会持续放大你资产的价值。",
+          "layers": {
+            "coCreate": {
+              "title": "共创",
+              "description": "分布式团队可在统一流程中协作 3D 资产，并保留透明的贡献历史。"
+            },
+            "marketplace": {
+              "title": "市场",
+              "description": "将头像与对象发布到可复用生态，供开发者、工作室与创作者使用。"
+            },
+            "integrate": {
+              "title": "集成（SDK）",
+              "description": "借助 Ekza SDK 快速将资产接入游戏。Omoba 是该流程的核心用例。"
+            },
+            "monetize": {
+              "title": "变现（Solana）",
+              "description": "在 Solana 上保护资产所有权，并在内容被复用时自动获得版税。"
+            }
+          }
+        },
+        "ecosystem": {
+          "heading": "生态模块",
+          "description": "当前 Ekza 模块保持活跃且彼此联动。在不破坏既有基础的前提下，平台将持续进化为更清晰的产品路径。",
+          "statusNote": "Ekza 仍处于早期阶段，目前在 devnet 上以 early alpha 形式运行。",
+          "projects": {
+            "stellar": "Stellar 是协作层，团队可在其中共创用于游戏与虚拟世界的数字资产。它正向 Solana 生态迁移，以匹配 Ekza 以创作者所有权与版税为核心的模型。",
+            "avatar": "Avatar 让创作者能够设计、铸造并变现可定制 3D 身份。依托 Solana 原生所有权，头像可跨场景迁移、复用并分发。",
+            "space": "Space 将协作资产转化为可游玩、可交互的 3D 空间。它已与 Avatar 联动，创作者无需重复构建即可跨环境迁移身份与资产。"
+          }
+        },
+        "philosophy": {
+          "label": "创作者理念",
+          "heading": "你的作品属于你",
+          "quote": "\"不要失去你作品的权利。加入一个让你的贡献长期存在并持续产生收益的体系。\""
+        },
+        "footer": {
+          "documentation": "文档",
+          "twitter": "X (Twitter)",
+          "discord": "Discord",
+          "telegram": "Telegram",
+          "creditText": "创建并支持方：",
+          "creditLabel": "Wotori Studio"
+        }
+      }
+    }
+  }
+}
