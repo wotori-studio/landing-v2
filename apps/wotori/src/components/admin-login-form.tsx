@@ -26,8 +26,8 @@ export function AdminLoginForm() {
       };
 
       if (res.ok && data.ok) {
-        // Set-Cookie is on this response; full navigation loads /admin/analytics with the cookie.
-        window.location.assign("/admin/analytics");
+        // Set-Cookie is on this response; full navigation loads /admin with the cookie.
+        window.location.assign("/admin");
         return;
       }
 
@@ -51,7 +51,7 @@ export function AdminLoginForm() {
     <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Access</h1>
-        <p className="text-gray-600">Enter password to view analytics</p>
+        <p className="text-gray-600">Enter password to open the admin area</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getAnalyticsStats, type AnalyticsStats } from "../app/actions/admin-analytics";
-import { logoutAdmin } from "../app/actions/admin-auth";
+import { AdminNav } from "./admin-nav";
 
 export function AdminDashboard() {
   const [stats, setStats] = useState<AnalyticsStats | null>(null);
@@ -27,7 +27,7 @@ export function AdminDashboard() {
       if (data === null) {
         setError("Failed to load analytics. You may need to log in again.");
         setTimeout(() => {
-          router.push("/admin/login");
+          router.push("/admin");
         }, 2000);
         return;
       }
@@ -39,12 +39,6 @@ export function AdminDashboard() {
     } finally {
       setIsLoading(false);
     }
-  }
-
-  async function handleLogout() {
-    await logoutAdmin();
-    router.push("/admin/login");
-    router.refresh();
   }
 
   if (isLoading) {
@@ -78,8 +72,9 @@ export function AdminDashboard() {
 
   return (
     <div className="min-h-screen p-6 bg-gray-50">
+      <AdminNav />
       {/* Header */}
-      <div className="mb-8 flex justify-between items-center">
+      <div className="mb-8 flex flex-wrap justify-between items-center gap-4">
         <div>
           <h1 className="text-4xl font-bold text-gray-900 mb-2">
             Analytics Dashboard
@@ -96,12 +91,6 @@ export function AdminDashboard() {
             <option value={30}>Last 30 days</option>
             <option value={90}>Last 90 days</option>
           </select>
-          <button
-            onClick={handleLogout}
-            className="px-4 py-2 text-gray-700 hover:text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
-          >
-            Logout
-          </button>
         </div>
       </div>
 

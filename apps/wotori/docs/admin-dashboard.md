@@ -4,12 +4,10 @@ Secure admin dashboard for viewing website analytics and visitor statistics.
 
 ## Access
 
-The admin dashboard is available at:
-```
-https://your-domain.com/admin/analytics
-```
+- **Admin hub (login + overview):** `https://your-domain.com/admin` — if not authenticated, you see the password form; after login, the hub with links to sub-sections.
+- **Analytics:** `https://your-domain.com/admin/analytics` — middleware requires a valid session; without it you are redirected to `/admin`.
 
-**Access is password-protected.** You'll be redirected to `/admin/login` if not authenticated.
+**Access is password-protected.** `/admin/login` redirects to `/admin` (legacy URL).
 
 ## Setup
 
@@ -33,7 +31,7 @@ ADMIN_PASSWORD=your_secure_password_here
 - **Session Management**: Secure HTTP-only cookies (24-hour expiration)
 - **Session Token Validation**: Session tokens are validated on every request
 - **Timing-Safe Comparison**: Prevents timing attacks on password verification
-- **Middleware Protection**: Routes are protected at the middleware level
+- **Middleware Protection**: `/admin/analytics` (and nested paths) are protected at the middleware level; `/admin` itself is not, so the login UI can load without a cookie
 - **Server-Side Only**: All authentication logic runs on the server (password never exposed to client)
 - **Secure Cookies**: HTTP-only, secure flag in production (HTTPS only), SameSite protection
 
@@ -63,9 +61,9 @@ The dashboard displays:
 
 ## Usage
 
-1. Navigate to `/admin/login`
+1. Navigate to `/admin`
 2. Enter your admin password
-3. You'll be redirected to `/admin/analytics` dashboard
+3. You'll land on the admin hub; open **Analytics** for the dashboard
 4. Session lasts 24 hours (or until logout)
 
 ## Data Source
@@ -74,13 +72,15 @@ The dashboard reads from the `analytics_events` table in Supabase using the serv
 
 ## Logout
 
-Click the "Logout" button in the dashboard header to end your session.
+Click **Logout** in the admin navigation bar to end your session.
 
 ## Troubleshooting
 
-### Login succeeds then immediately returns to `/admin/login` (production only)
+### Login succeeds then immediately asks for password again (production)
 
-The app signs in via **`POST /api/admin/login`**, which returns **JSON + `Set-Cookie`** on the same response, then the browser does a full navigation to `/admin/analytics`. This avoids Server Action + `router.push()` races on Vercel.
+The app signs in via **`POST /api/admin/login`**, which returns **JSON + `Set-Cookie`** on the same response, then the browser does a full navigation to **`/admin`**. This avoids Server Action + `router.push()` races on Vercel.
+
+If the cookie still does not stick, check the items below. Middleware only runs on **`/admin/analytics`**, so `/admin` should not strip or block the session cookie.
 
 Also check:
 
