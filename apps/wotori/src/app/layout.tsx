@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import { AnalyticsTracker } from "@repo/analytics";
 import { I18nProvider } from "../lib/i18n-provider";
 import "./globals.css";
 
@@ -17,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <I18nProvider>{children}</I18nProvider>
+        <AnalyticsTracker />
         <Analytics />
       </body>
     </html>

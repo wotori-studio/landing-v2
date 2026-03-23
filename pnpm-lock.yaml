@@ -90,6 +90,9 @@ importers:
 
   apps/wotori:
     dependencies:
+      '@repo/analytics':
+        specifier: workspace:*
+        version: link:../../packages/analytics
       '@repo/locales':
         specifier: workspace:*
         version: link:../../packages/locales
