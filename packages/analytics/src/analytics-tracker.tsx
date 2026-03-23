@@ -23,15 +23,6 @@ function getOrCreateVisitorKey(): string {
   }
 }
 
-/** Visitor's local calendar date YYYY-MM-DD (stable "day" for hashing) */
-function getClientLocalDate(): string {
-  const d = new Date();
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return `${y}-${m}-${day}`;
-}
-
 export function AnalyticsTracker() {
   const pathname = usePathname();
 
@@ -41,11 +32,10 @@ export function AnalyticsTracker() {
     const domain = window.location.hostname;
     const path = pathname || "/";
     const visitorKey = getOrCreateVisitorKey();
-    const clientLocalDate = getClientLocalDate();
 
     if (!visitorKey) return;
 
-    trackEvent(domain, path, visitorKey, clientLocalDate).catch((error) => {
+    trackEvent(domain, path, visitorKey).catch((error) => {
       console.error("[Analytics] Failed to track page view:", error);
     });
   }, [pathname]);

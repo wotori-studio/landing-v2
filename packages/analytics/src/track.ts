@@ -4,23 +4,24 @@ import { headers } from "next/headers";
 import { createHash } from "crypto";
 import { createClient } from "@supabase/supabase-js";
 
-const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 /** First-party id from localStorage (UUID or generated fallback) */
 const VISITOR_KEY_RE = /^[\w.-]{8,256}$/;
+
+/** Public version string mixed into the hash (not secret; avoids cross-project collisions). */
+const VISITOR_HASH_PREFIX = "repo_analytics_visitor_v2|";
 
 /**
  * Privacy-friendly analytics tracking Server Action
  *
- * visitor_hash = SHA-256(visitorKey + "|" + clientLocalDate)
- * - visitorKey: first-party random id in localStorage (stable per browser until cleared)
- * - clientLocalDate: visitor's local calendar YYYY-MM-DD (same id all day on same device)
+ * visitor_hash = SHA-256(VISITOR_HASH_PREFIX + visitorKey)
+ * - visitorKey: random id in localStorage, stable across days until the user clears site data
+ * - Same browser profile → same visitor_hash on every visit (cross-day “returning visitor”)
  * Raw IP is never stored. Geo comes from Vercel headers only.
  */
 export async function trackEvent(
   domain: string,
   path: string,
-  visitorKey: string,
-  clientLocalDate: string
+  visitorKey: string
 ): Promise<void> {
   try {
     const supabaseUrl = process.env.SUPABASE_URL;
@@ -31,13 +32,8 @@ export async function trackEvent(
       return;
     }
 
-    if (
-      !visitorKey ||
-      !VISITOR_KEY_RE.test(visitorKey) ||
-      !clientLocalDate ||
-      !DATE_RE.test(clientLocalDate)
-    ) {
-      console.warn("[Analytics] Invalid visitor key or date, skipping");
+    if (!visitorKey || !VISITOR_KEY_RE.test(visitorKey)) {
+      console.warn("[Analytics] Invalid visitor key, skipping");
       return;
     }
 
@@ -52,9 +48,8 @@ export async function trackEvent(
     const city = cityRaw ? decodeURIComponent(cityRaw) : null;
     const continent = continentRaw ? decodeURIComponent(continentRaw) : null;
 
-    // Stable per browser per calendar day (client local date); not tied to rotating IP / CGNAT
     const visitorHash = createHash("sha256")
-      .update(`${visitorKey}|${clientLocalDate}`, "utf8")
+      .update(`${VISITOR_HASH_PREFIX}${visitorKey}`, "utf8")
       .digest("hex");
 
     const supabase = createClient(supabaseUrl, supabaseAnonKey);

@@ -100,23 +100,32 @@ The component is invisible and will automatically track page views on all pages.
 
 ### Data Collection
 
-1. **Client-side**: `AnalyticsTracker` uses `usePathname()` and sends:
-   - A **first-party visitor id** stored in `localStorage` under `repo_analytics_vid` (random UUID, stable until the user clears site data)
-   - The visitor’s **local calendar date** `YYYY-MM-DD` (same “day” in their timezone)
-2. **Server-side**: `trackEvent` reads geo and UA from Vercel headers only (not stored as raw IP).
+1. **Client-side**: `AnalyticsTracker` uses `usePathname()` and sends a **first-party visitor id** from `localStorage` (`repo_analytics_vid`): a random UUID created on first visit, kept until the user clears site data.
+2. **Server-side**: `trackEvent` reads geo and UA from Vercel headers only. Raw IP is not stored.
 
 ### Privacy Protection
 
 **Anonymization Process:**
-1. `visitor_hash = SHA256(visitorKey + "|" + clientLocalDate)` — not tied to IP, so **CGNAT / rotating mobile IPs** do not split one device into many “visitors” in one day.
-2. Only the hash is stored in the database (`visitor_hash`). The raw `visitorKey` is never stored.
+1. `visitor_hash = SHA256("repo_analytics_visitor_v2|" + visitorKey)` — **stable across days** for the same browser profile (returning visitors), independent of rotating IP / CGNAT.
+2. Only the hash is stored in the database. The raw `visitorKey` is never stored.
 3. Raw IP is never stored or logged.
-4. **localStorage** is used (not cookies) for the anonymous id.
+4. **localStorage** holds the anonymous id (not HTTP cookies).
+
+**Why not “IP + day” for the first id?**  
+The browser does not know the visitor’s public IP without an extra round-trip. A **random UUID** on first visit is simpler, avoids IP in the identifier, and is standard for first-party analytics.
+
+### GDPR / compliance (practical notes)
+
+This is **pseudonymous** measurement (a stable random id per browser), not “anonymous” in the strict legal sense if you could theoretically combine it with other data.
+
+- **Transparency**: Describe it in your privacy policy (first-party identifier in browser storage, purpose: audience / traffic statistics, no sale of data).
+- **Lawful basis**: Often **legitimate interest** for aggregate analytics; for stricter interpretations, consider consent where required.
+- **Data subject rights**: Clearing site data resets the id; you generally cannot map `visitor_hash` back to a named person without other logs.
+- **No raw IP** in the DB reduces sensitivity versus storing IPs.
 
 **Result:**
-- Same browser + same calendar day → same `visitor_hash` (stable unique visitors per day)
-- New day → new hash for that browser
-- Clearing site data → new visitor id
+- Same browser, data not cleared → same `visitor_hash` every day (good for “unique visitors” and returning users).
+- Clearing site data → new `visitorKey` → new `visitor_hash`.
 
 ### Non-Blocking Execution
 
