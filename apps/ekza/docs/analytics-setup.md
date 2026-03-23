@@ -100,27 +100,23 @@ The component is invisible and will automatically track page views on all pages.
 
 ### Data Collection
 
-1. **Client-side**: `AnalyticsTracker` component detects route changes using `usePathname()`
-2. **Server-side**: `trackEvent` Server Action collects data from Vercel headers:
-   - IP address from `x-forwarded-for` header
-   - Country from `x-vercel-ip-country`
-   - City from `x-vercel-ip-city`
-   - Continent from `x-vercel-ip-continent`
-   - User Agent from `user-agent` header
+1. **Client-side**: `AnalyticsTracker` uses `usePathname()` and sends:
+   - A **first-party visitor id** stored in `localStorage` under `repo_analytics_vid` (random UUID, stable until the user clears site data)
+   - The visitor’s **local calendar date** `YYYY-MM-DD` (same “day” in their timezone)
+2. **Server-side**: `trackEvent` reads geo and UA from Vercel headers only (not stored as raw IP).
 
 ### Privacy Protection
 
 **Anonymization Process:**
-1. Raw IP address is combined with User-Agent and current date (YYYY-MM-DD)
-2. SHA-256 hash is generated: `SHA256(IP + User-Agent + date)`
-3. Only the hash is stored in the database (visitor_hash)
-4. Raw IP is never stored or logged
+1. `visitor_hash = SHA256(visitorKey + "|" + clientLocalDate)` — not tied to IP, so **CGNAT / rotating mobile IPs** do not split one device into many “visitors” in one day.
+2. Only the hash is stored in the database (`visitor_hash`). The raw `visitorKey` is never stored.
+3. Raw IP is never stored or logged.
+4. **localStorage** is used (not cookies) for the anonymous id.
 
 **Result:**
-- Each visitor gets a unique hash per day
-- Same visitor on different days gets different hashes
-- No way to reverse-engineer the original IP
-- GDPR-compliant (no personal data stored)
+- Same browser + same calendar day → same `visitor_hash` (stable unique visitors per day)
+- New day → new hash for that browser
+- Clearing site data → new visitor id
 
 ### Non-Blocking Execution
 

@@ -4,35 +4,51 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { trackEvent } from "./track";
 
-/**
- * AnalyticsTracker component
- * 
- * Invisible client component that automatically tracks page views.
- * - Tracks on mount and when pathname changes
- * - Uses window.location.hostname as domain
- * - Passes current pathname to tracking function
- * - Runs asynchronously in background, doesn't block rendering
- */
+const STORAGE_KEY = "repo_analytics_vid";
+
+function getOrCreateVisitorKey(): string {
+  if (typeof window === "undefined") return "";
+  try {
+    let k = localStorage.getItem(STORAGE_KEY);
+    if (!k || k.length < 16) {
+      k =
+        typeof crypto !== "undefined" && crypto.randomUUID
+          ? crypto.randomUUID()
+          : `v_${Date.now()}_${Math.random().toString(36).slice(2, 18)}`;
+      localStorage.setItem(STORAGE_KEY, k);
+    }
+    return k;
+  } catch {
+    return `ephemeral_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+  }
+}
+
+/** Visitor's local calendar date YYYY-MM-DD (stable "day" for hashing) */
+function getClientLocalDate(): string {
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
 export function AnalyticsTracker() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Get domain from window (works in browser only)
-    if (typeof window === "undefined") {
-      return;
-    }
+    if (typeof window === "undefined") return;
 
     const domain = window.location.hostname;
     const path = pathname || "/";
+    const visitorKey = getOrCreateVisitorKey();
+    const clientLocalDate = getClientLocalDate();
 
-    // Track event asynchronously (non-blocking)
-    // Server Action will handle the actual tracking
-    trackEvent(domain, path).catch((error) => {
-      // Silently handle errors to not break the site
+    if (!visitorKey) return;
+
+    trackEvent(domain, path, visitorKey, clientLocalDate).catch((error) => {
       console.error("[Analytics] Failed to track page view:", error);
     });
   }, [pathname]);
 
-  // This component is invisible (renders nothing)
   return null;
 }

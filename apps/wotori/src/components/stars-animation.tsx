@@ -10,12 +10,27 @@ const StarsAnimation = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const c = canvas.getContext("2d");
+    const c = canvas.getContext("2d", { alpha: false });
     if (!c) return;
 
+    const applyCanvasStyles = () => {
+      // rgba() is required for alpha — "rgb(..., 0.3)" is invalid and browsers may draw black strokes
+      c.fillStyle = "rgba(255, 255, 255, 0.1)";
+      c.strokeStyle = "rgba(22, 174, 240, 0.35)";
+      c.lineCap = "round";
+    };
+
     const updateCanvasSize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      canvas.width = Math.max(1, Math.floor(w * dpr));
+      canvas.height = Math.max(1, Math.floor(h * dpr));
+      canvas.style.width = `${w}px`;
+      canvas.style.height = `${h}px`;
+      c.setTransform(dpr, 0, 0, dpr, 0, 0);
+      c.translate(w / 2, h / 2);
+      applyCanvasStyles();
     };
 
     updateCanvasSize();
@@ -78,23 +93,24 @@ const StarsAnimation = () => {
     }
 
     const speed = 0.02;
-    const stars = Array.from(
+    const logicalW = () => window.innerWidth;
+    const logicalH = () => window.innerHeight;
+    let stars = Array.from(
       { length: count },
-      () => new Star(canvas.width, canvas.height)
+      () => new Star(logicalW(), logicalH())
     );
-
-    c.fillStyle = "rgba(255, 255, 255, 0.1)";
-    c.strokeStyle = "rgb(22, 174, 240, 0.3)";
-    c.translate(canvas.width / 2, canvas.height / 2);
 
     let animationFrameId: number;
 
     const draw = () => {
-      const halfWidth = canvas.width / 2;
-      const halfHeight = canvas.height / 2;
-      c.fillRect(-halfWidth, -halfHeight, canvas.width, canvas.height);
+      const w = logicalW();
+      const h = logicalH();
+      const halfWidth = w / 2;
+      const halfHeight = h / 2;
+      applyCanvasStyles();
+      c.fillRect(-halfWidth, -halfHeight, w, h);
       for (const s of stars) {
-        s.update(canvas.width, canvas.height);
+        s.update(w, h);
         s.show(c);
       }
       animationFrameId = requestAnimationFrame(draw);
@@ -104,8 +120,12 @@ const StarsAnimation = () => {
 
     const handleResize = () => {
       updateCanvasSize();
-      c.setTransform(1, 0, 0, 1, 0, 0);
-      c.translate(canvas.width / 2, canvas.height / 2);
+      const w = logicalW();
+      const h = logicalH();
+      stars = Array.from(
+        { length: count },
+        () => new Star(w, h)
+      );
     };
 
     window.addEventListener("resize", handleResize);

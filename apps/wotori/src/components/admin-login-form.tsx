@@ -1,32 +1,46 @@
 "use client";
 
 import { useState } from "react";
-import { authenticateAdmin } from "../app/actions/admin-auth";
 
 export function AdminLoginForm() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
     setIsLoading(true);
 
     try {
-      const result = await authenticateAdmin(password);
+      const res = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "same-origin",
+        body: JSON.stringify({ password }),
+      });
 
-      if (result.success) {
-        // Full navigation so the browser applies Set-Cookie from the Server Action before the next request.
-        // router.push() can race on Vercel: /admin/analytics may load without the cookie → middleware → login loop.
+      const data = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        message?: string;
+      };
+
+      if (res.ok && data.ok) {
+        // Set-Cookie is on this response; full navigation loads /admin/analytics with the cookie.
         window.location.assign("/admin/analytics");
         return;
-      } else {
-        setError(result.message || "Authentication failed. Please try again.");
-        setPassword("");
       }
+
+      setError(
+        data.message ||
+          (res.status === 401
+            ? "Invalid password."
+            : "Could not sign in. Please try again.")
+      );
+      setPassword("");
     } catch (err) {
       console.error("[Admin Login] Error:", err);
-      setError("An error occurred. Please check the console or try again later.");
+      setError("Network error. Please try again.");
       setPassword("");
     } finally {
       setIsLoading(false);
@@ -36,9 +50,7 @@ export function AdminLoginForm() {
   return (
     <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          Admin Access
-        </h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Access</h1>
         <p className="text-gray-600">Enter password to view analytics</p>
       </div>
 
