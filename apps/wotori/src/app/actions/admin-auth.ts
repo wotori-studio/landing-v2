@@ -3,7 +3,13 @@
 import { cookies, headers } from "next/headers";
 import { createHash, timingSafeEqual } from "crypto";
 
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "";
+/**
+ * Read password at runtime (not module init) so Vercel/serverless always sees current env.
+ * Top-level `process.env.X` can be inlined at build time and end up empty if the var was only set in the dashboard later.
+ */
+function getAdminPassword(): string {
+  return process.env.ADMIN_PASSWORD ?? "";
+}
 
 // In-memory rate limiting (for production, consider using Redis or database)
 // Key: IP address, Value: { attempts: number, lastAttempt: number, blockedUntil: number }
@@ -18,7 +24,7 @@ const BLOCK_DURATION_MS = 30 * 60 * 1000; // Block for 30 minutes after max atte
 // In production with multiple instances, this ensures tokens are verifiable across instances
 function getSessionSecret(): string {
   return createHash("sha256")
-    .update(`${ADMIN_PASSWORD}_session_secret`)
+    .update(`${getAdminPassword()}_session_secret`)
     .digest("hex");
 }
 
@@ -111,7 +117,8 @@ export async function authenticateAdmin(password: string): Promise<{
   retryAfter?: number;
 }> {
   // Debug: Log if password is configured (without exposing the actual password)
-  if (!ADMIN_PASSWORD) {
+  const adminPassword = getAdminPassword();
+  if (!adminPassword) {
     console.error("[Admin Auth] ADMIN_PASSWORD is not configured");
     return {
       success: false,
@@ -131,7 +138,7 @@ export async function authenticateAdmin(password: string): Promise<{
 
   // Use timing-safe comparison to prevent timing attacks
   const providedHash = createHash("sha256").update(password).digest();
-  const expectedHash = createHash("sha256").update(ADMIN_PASSWORD).digest();
+  const expectedHash = createHash("sha256").update(adminPassword).digest();
 
   if (
     providedHash.length !== expectedHash.length ||
@@ -167,11 +174,15 @@ export async function authenticateAdmin(password: string): Promise<{
   const sessionToken = `${tokenData}.${signature}`;
 
   // Set secure session cookie (expires in 24 hours)
-  // Always use secure in production (Vercel uses HTTPS)
-  const isProduction = process.env.VERCEL_ENV === "production" || process.env.NODE_ENV === "production";
+  // Secure cookies on any HTTPS deploy (Vercel preview + production are HTTPS)
+  const useSecureCookie =
+    process.env.VERCEL === "1" ||
+    process.env.VERCEL_ENV === "production" ||
+    process.env.VERCEL_ENV === "preview" ||
+    process.env.NODE_ENV === "production";
   cookieStore.set("admin_session", sessionToken, {
     httpOnly: true,
-    secure: isProduction,
+    secure: useSecureCookie,
     sameSite: "lax",
     maxAge: 60 * 60 * 24, // 24 hours
     path: "/",
@@ -193,7 +204,7 @@ export async function authenticateAdmin(password: string): Promise<{
  * or will expire naturally.
  */
 export async function verifyAdminSession(): Promise<boolean> {
-  if (!ADMIN_PASSWORD) {
+  if (!getAdminPassword()) {
     return false;
   }
 

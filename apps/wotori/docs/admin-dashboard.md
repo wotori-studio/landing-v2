@@ -78,6 +78,16 @@ Click the "Logout" button in the dashboard header to end your session.
 
 ## Troubleshooting
 
+### Login succeeds then immediately returns to `/admin/login` (production only)
+
+Common causes:
+
+1. **Race after Server Action**: Using client `router.push()` right after login can send the next request before the browser stores `Set-Cookie`. **Fix:** the app uses a full navigation (`window.location.assign`) after login so the cookie is present on the next load.
+
+2. **`secure` cookie on HTTPS preview**: Preview deployments use HTTPS; cookies must use `Secure`. The app sets `secure` when `VERCEL=1` or `VERCEL_ENV` is `preview` / `production`.
+
+3. **Runtime env for password**: `ADMIN_PASSWORD` is read when each request runs, not once at module load, so it matches what Vercel injects.
+
 ### "Admin access is not configured"
 - Check that `ADMIN_PASSWORD` is set in `.env.local`
 - Restart dev server after adding the variable

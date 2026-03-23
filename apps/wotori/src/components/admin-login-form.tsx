@@ -1,15 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { authenticateAdmin } from "../app/actions/admin-auth";
 
 export function AdminLoginForm() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
-
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
@@ -19,8 +16,10 @@ export function AdminLoginForm() {
       const result = await authenticateAdmin(password);
 
       if (result.success) {
-        router.push("/admin/analytics");
-        router.refresh();
+        // Full navigation so the browser applies Set-Cookie from the Server Action before the next request.
+        // router.push() can race on Vercel: /admin/analytics may load without the cookie → middleware → login loop.
+        window.location.assign("/admin/analytics");
+        return;
       } else {
         setError(result.message || "Authentication failed. Please try again.");
         setPassword("");
