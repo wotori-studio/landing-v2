@@ -6,6 +6,7 @@ Secure admin dashboard for viewing website analytics and visitor statistics.
 
 - **Admin hub (login + overview):** `https://your-domain.com/admin` — if not authenticated, you see the password form; after login, the hub with links to sub-sections.
 - **Analytics:** `https://your-domain.com/admin/analytics` — middleware requires a valid session; without it you are redirected to `/admin`.
+- **Query params:** `days` = `7` | `30` | `90` (period). `epage` = Recent Events list page (1-based); omit for page 1. Example: `/admin/analytics?days=30&epage=3`.
 
 **Access is password-protected.** `/admin/login` redirects to `/admin` (legacy URL).
 
@@ -82,6 +83,8 @@ The app signs in via **`POST /api/admin/login`**, which returns **JSON + `Set-Co
 
 If the cookie still does not stick, check the items below. Middleware only runs on **`/admin/analytics`**, so `/admin` should not strip or block the session cookie.
 
+**Analytics loaded in the Server Component** (`fetchAnalyticsStatsFromDb` on `/admin/analytics`), not via a Server Action from the client — avoids cases where `verifyAdminSession()` inside a Server Action did not see cookies even though the page RSC did.
+
 Also check:
 
 1. **`ADMIN_PASSWORD` in Vercel** — no accidental spaces or extra quotes (we trim and strip wrapping quotes).
@@ -121,6 +124,15 @@ Also check:
 - IP address is blocked for 30 minutes after max attempts
 - Rate limiting is enforced per IP address
 - Failed attempts are tracked and cleared on successful login
+
+### Why it works on localhost but breaks on Vercel (until fixed)
+
+Typical differences:
+
+1. **Environment variables** — `.env.local` is only on your machine. On Vercel you must set `ADMIN_PASSWORD`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, etc. in the project **Environment Variables** for Production (and Preview if needed). A missing service role key breaks analytics load on the server.
+2. **HTTPS and cookies** — Production uses `secure` cookies. Local `http://localhost` often uses non-secure cookies. Wrong domain / mixed hosts can prevent the session cookie from being sent.
+3. **Serverless** — Each request may run in a fresh isolate; that’s fine as long as env and cookies are correct. There is no “sticky server” requirement.
+4. **Server Actions vs RSC** — Calling admin APIs from the **browser** via Server Actions sometimes did not see the same cookies as **Server Components**. Analytics data is loaded in the **Server Component** for `/admin/analytics` so behavior matches localhost and Vercel.
 
 ### Production Recommendations
 - Use a strong, unique password (at least 20 characters, mix of letters, numbers, symbols)

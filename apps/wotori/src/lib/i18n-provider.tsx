@@ -15,20 +15,22 @@ import {
   getTranslation,
   isSupportedLanguage,
 } from "@repo/locales";
+import { WOTORI_LANGUAGE_STORAGE_KEY } from "./i18n-constants";
 
-const STORAGE_KEY = "wotori-language";
+function readInitialLanguage(geoDefaultLanguage: string): string {
+  const geo = isSupportedLanguage(geoDefaultLanguage)
+    ? geoDefaultLanguage
+    : defaultLanguage;
 
-function getInitialLanguage(): string {
-  if (typeof window === "undefined") {
-    return defaultLanguage;
+  if (typeof window !== "undefined") {
+    const fromScript = (window as unknown as { __WOTORI_INITIAL_LANG__?: string })
+      .__WOTORI_INITIAL_LANG__;
+    if (fromScript && isSupportedLanguage(fromScript)) {
+      return fromScript;
+    }
   }
 
-  const savedLanguage = localStorage.getItem(STORAGE_KEY);
-  if (savedLanguage && isSupportedLanguage(savedLanguage)) {
-    return savedLanguage;
-  }
-
-  return defaultLanguage;
+  return geo;
 }
 
 interface I18nContextValue {
@@ -42,8 +44,19 @@ interface I18nContextValue {
 
 const I18nContext = createContext<I18nContextValue | null>(null);
 
-export function I18nProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<string>(getInitialLanguage);
+type I18nProviderProps = {
+  children: React.ReactNode;
+  /** From server geo (x-vercel-ip-country); script + localStorage may override on client. */
+  geoDefaultLanguage: string;
+};
+
+export function I18nProvider({
+  children,
+  geoDefaultLanguage,
+}: I18nProviderProps) {
+  const [language, setLanguageState] = useState<string>(() =>
+    readInitialLanguage(geoDefaultLanguage)
+  );
 
   const setLanguage = useCallback((nextLanguage: string) => {
     if (!isSupportedLanguage(nextLanguage)) {
@@ -55,7 +68,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      localStorage.setItem(STORAGE_KEY, language);
+      localStorage.setItem(WOTORI_LANGUAGE_STORAGE_KEY, language);
       document.documentElement.lang = language;
     }
   }, [language]);
@@ -77,7 +90,14 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     [language, setLanguage, t]
   );
 
-  return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
+  return (
+    <I18nContext.Provider value={value}>
+      {/* suppressHydrationWarning: saved locale in localStorage can differ from server geo guess */}
+      <div className="contents" suppressHydrationWarning>
+        {children}
+      </div>
+    </I18nContext.Provider>
+  );
 }
 
 export function useI18n(): I18nContextValue {

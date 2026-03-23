@@ -1,74 +1,66 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { getAnalyticsStats, type AnalyticsStats } from "../app/actions/admin-analytics";
+import type { AnalyticsStats } from "../lib/fetch-admin-analytics";
 import { AdminNav } from "./admin-nav";
+import {
+  buildAnalyticsUrl,
+  RecentEventsPaginationBar,
+} from "./recent-events-pagination";
 
-export function AdminDashboard() {
-  const [stats, setStats] = useState<AnalyticsStats | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
-  const [selectedDays, setSelectedDays] = useState(30);
+type Props = {
+  initialStats: AnalyticsStats | null;
+  initialDays: number;
+  /** True when DB / Supabase fetch failed (not auth — RSC already verified). */
+  loadFailed: boolean;
+};
+
+export function AdminDashboard({
+  initialStats,
+  initialDays,
+  loadFailed,
+}: Props) {
   const router = useRouter();
 
-  useEffect(() => {
-    loadStats();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedDays]);
-
-  async function loadStats() {
-    setIsLoading(true);
-    setError("");
-
-    try {
-      const data = await getAnalyticsStats(undefined, selectedDays);
-
-      if (data === null) {
-        setError("Failed to load analytics. You may need to log in again.");
-        setTimeout(() => {
-          router.push("/admin");
-        }, 2000);
-        return;
-      }
-
-      setStats(data);
-    } catch (err) {
-      setError("An error occurred while loading analytics.");
-      console.error(err);
-    } finally {
-      setIsLoading(false);
-    }
-  }
-
-  if (isLoading) {
+  if (loadFailed || !initialStats) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading analytics...</p>
+      <div className="min-h-screen p-6 bg-gray-50">
+        <AdminNav />
+        <div className="flex items-center justify-center min-h-[50vh]">
+          <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-lg">
+            <p className="text-red-800 font-medium mb-2">
+              Failed to load analytics
+            </p>
+            <p className="text-red-700 text-sm mb-4">
+              This is usually a database configuration issue (not your login).
+              Confirm{" "}
+              <code className="bg-red-100 px-1 rounded text-xs">
+                SUPABASE_SERVICE_ROLE_KEY
+              </code>{" "}
+              and{" "}
+              <code className="bg-red-100 px-1 rounded text-xs">
+                SUPABASE_URL
+              </code>{" "}
+              are set on the server, and the{" "}
+              <code className="bg-red-100 px-1 rounded text-xs">
+                analytics_events
+              </code>{" "}
+              table exists.
+            </p>
+            <button
+              type="button"
+              onClick={() => router.refresh()}
+              className="text-sm px-4 py-2 bg-red-100 hover:bg-red-200 rounded-lg text-red-900"
+            >
+              Retry
+            </button>
+          </div>
         </div>
       </div>
     );
   }
 
-  if (error) {
-    return (
-      <div className="min-h-screen flex items-center justify-center p-4">
-        <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md">
-          <p className="text-red-800">{error}</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!stats) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-gray-600">No data available</p>
-      </div>
-    );
-  }
+  const stats = initialStats;
 
   return (
     <div className="min-h-screen p-6 bg-gray-50">
@@ -83,8 +75,11 @@ export function AdminDashboard() {
         </div>
         <div className="flex gap-4 items-center">
           <select
-            value={selectedDays}
-            onChange={(e) => setSelectedDays(Number(e.target.value))}
+            value={initialDays}
+            onChange={(e) => {
+              const v = Number(e.target.value);
+              router.push(buildAnalyticsUrl(v, 1));
+            }}
             className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
           >
             <option value={7}>Last 7 days</option>
@@ -251,90 +246,109 @@ export function AdminDashboard() {
               </tr>
             </thead>
             <tbody>
-              {stats.recentEvents.slice(0, 20).map((event) => {
+              {stats.recentEvents.length === 0 && (
+                <tr>
+                  <td
+                    colSpan={5}
+                    className="py-8 text-center text-gray-500 text-sm"
+                  >
+                    No events in this date range.
+                  </td>
+                </tr>
+              )}
+              {stats.recentEvents.map((event) => {
                 const eventDate = new Date(event.created_at);
                 const now = new Date();
                 const diffMs = now.getTime() - eventDate.getTime();
                 const diffMins = Math.floor(diffMs / 60000);
                 const diffHours = Math.floor(diffMs / 3600000);
                 const diffDays = Math.floor(diffMs / 86400000);
-                
+
                 let relativeTime = "";
                 if (diffMins < 1) relativeTime = "Just now";
                 else if (diffMins < 60) relativeTime = `${diffMins}m ago`;
                 else if (diffHours < 24) relativeTime = `${diffHours}h ago`;
                 else if (diffDays < 7) relativeTime = `${diffDays}d ago`;
                 else relativeTime = eventDate.toLocaleDateString();
-                
+
                 return (
-                <tr key={event.id} className="border-b border-gray-100">
-                  <td className="py-3 px-4">
-                    <div className="text-gray-900 font-medium text-sm">
-                      {eventDate.toLocaleString("en-US", {
-                        month: "short",
-                        day: "numeric",
-                        year: "numeric",
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })}
-                    </div>
-                    <div className="text-gray-500 text-xs mt-1">
-                      {relativeTime}
-                    </div>
-                  </td>
-                  <td className="py-3 px-4">
-                    <code className="text-xs bg-gray-50 px-2 py-1 rounded">
-                      {event.domain}
-                    </code>
-                  </td>
-                  <td className="py-3 px-4">
-                    <code className="text-xs bg-gray-50 px-2 py-1 rounded">
-                      {event.path}
-                    </code>
-                  </td>
-                  <td className="py-3 px-4 text-gray-600">
-                    {(() => {
-                      // Decode URL-encoded values if they exist (for old records)
-                      const city = event.city ? decodeURIComponent(event.city) : null;
-                      const country = event.country ? decodeURIComponent(event.country) : null;
-                      return city && country
-                        ? `${city}, ${country}`
-                        : country || "Unknown";
-                    })()}
-                  </td>
-                  <td className="py-3 px-4 text-gray-600">
-                    {event.user_agent ? (
-                      <span className="text-xs" title={event.user_agent}>
-                        {(() => {
-                          // Parse user agent to show device/browser info
-                          const ua = event.user_agent;
-                          // Extract browser
-                          let browser = "Unknown";
-                          if (ua.includes("Chrome") && !ua.includes("Edg")) browser = "Chrome";
-                          else if (ua.includes("Firefox")) browser = "Firefox";
-                          else if (ua.includes("Safari") && !ua.includes("Chrome")) browser = "Safari";
-                          else if (ua.includes("Edg")) browser = "Edge";
-                          else if (ua.includes("Opera")) browser = "Opera";
-                          
-                          // Extract device
-                          let device = "";
-                          if (ua.includes("Mobile")) device = "Mobile";
-                          else if (ua.includes("Tablet")) device = "Tablet";
-                          else device = "Desktop";
-                          
-                          return `${browser} (${device})`;
-                        })()}
-                      </span>
-                    ) : (
-                      <span className="text-gray-400 text-xs">Unknown</span>
-                    )}
-                  </td>
-                </tr>
+                  <tr key={event.id} className="border-b border-gray-100">
+                    <td className="py-3 px-4">
+                      <div className="text-gray-900 font-medium text-sm">
+                        {eventDate.toLocaleString("en-US", {
+                          month: "short",
+                          day: "numeric",
+                          year: "numeric",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })}
+                      </div>
+                      <div className="text-gray-500 text-xs mt-1">
+                        {relativeTime}
+                      </div>
+                    </td>
+                    <td className="py-3 px-4">
+                      <code className="text-xs bg-gray-50 px-2 py-1 rounded">
+                        {event.domain}
+                      </code>
+                    </td>
+                    <td className="py-3 px-4">
+                      <code className="text-xs bg-gray-50 px-2 py-1 rounded">
+                        {event.path}
+                      </code>
+                    </td>
+                    <td className="py-3 px-4 text-gray-600">
+                      {(() => {
+                        const city = event.city
+                          ? decodeURIComponent(event.city)
+                          : null;
+                        const country = event.country
+                          ? decodeURIComponent(event.country)
+                          : null;
+                        return city && country
+                          ? `${city}, ${country}`
+                          : country || "Unknown";
+                      })()}
+                    </td>
+                    <td className="py-3 px-4 text-gray-600">
+                      {event.user_agent ? (
+                        <span className="text-xs" title={event.user_agent}>
+                          {(() => {
+                            const ua = event.user_agent;
+                            let browser = "Unknown";
+                            if (ua.includes("Chrome") && !ua.includes("Edg"))
+                              browser = "Chrome";
+                            else if (ua.includes("Firefox")) browser = "Firefox";
+                            else if (
+                              ua.includes("Safari") &&
+                              !ua.includes("Chrome")
+                            )
+                              browser = "Safari";
+                            else if (ua.includes("Edg")) browser = "Edge";
+                            else if (ua.includes("Opera")) browser = "Opera";
+
+                            let device = "";
+                            if (ua.includes("Mobile")) device = "Mobile";
+                            else if (ua.includes("Tablet")) device = "Tablet";
+                            else device = "Desktop";
+
+                            return `${browser} (${device})`;
+                          })()}
+                        </span>
+                      ) : (
+                        <span className="text-gray-400 text-xs">Unknown</span>
+                      )}
+                    </td>
+                  </tr>
                 );
               })}
             </tbody>
           </table>
         </div>
+        <RecentEventsPaginationBar
+          days={initialDays}
+          pagination={stats.recentEventsPagination}
+        />
       </div>
     </div>
   );
