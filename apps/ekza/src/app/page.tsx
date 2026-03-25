@@ -49,9 +49,9 @@ export default function EkzaLandingPage() {
     {
       projectName: "Stellar",
       imgPath:
-        "https://ekza.io/ipfs/Qmc7sh3DefV3YA7xgXAnC1GE8ncsoyChtY6fBEiFDWE2bB",
+        "https://ipfs.io/ipfs/Qmc7sh3DefV3YA7xgXAnC1GE8ncsoyChtY6fBEiFDWE2bB",
       imgPath2:
-        "https://ekza.io/ipfs/QmSPYQV89xvj1aaQcPtoAsyVJNUF8sb27uvoHxNdBZPsaV",
+        "https://ipfs.io/ipfs/QmSPYQV89xvj1aaQcPtoAsyVJNUF8sb27uvoHxNdBZPsaV",
       text: stellarText,
       link: "https://stellar.ekza.io",
       isFlip: true,
@@ -59,9 +59,9 @@ export default function EkzaLandingPage() {
     {
       projectName: "Avatar",
       imgPath:
-        "https://ekza.io/ipfs/QmNStm5ABJp8gBPsJER4yzG5EUwforVxXQNjbkVuKPu9Nr",
+        "https://ipfs.io/ipfs/QmNStm5ABJp8gBPsJER4yzG5EUwforVxXQNjbkVuKPu9Nr",
       imgPath2:
-        "https://ekza.io/ipfs/QmanL1Qp6t4nAW4gyfHG1zKj4u8Scyh7Q7ypBPMewLHEB1",
+        "https://ipfs.io/ipfs/QmanL1Qp6t4nAW4gyfHG1zKj4u8Scyh7Q7ypBPMewLHEB1",
       text: avatarText,
       link: "https://avatar.ekza.io",
       isFlip: true,
@@ -69,7 +69,7 @@ export default function EkzaLandingPage() {
     {
       projectName: "Space",
       imgPath:
-        "https://ekza.io/ipfs/QmaBTrVEcyjdj4ky8pRQ2h3dQrGD8bNup5WXx3QjLmZ3PR",
+        "https://ipfs.io/ipfs/QmaBTrVEcyjdj4ky8pRQ2h3dQrGD8bNup5WXx3QjLmZ3PR",
       imgPath2: "",
       text: spaceText,
       link: "https://space.ekza.io",

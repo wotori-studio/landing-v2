@@ -1,4 +1,5 @@
 template
+.cursor
 
 # Dependencies
 node_modules
