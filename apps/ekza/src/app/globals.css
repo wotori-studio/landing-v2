@@ -8,6 +8,72 @@
     overflow-x: hidden;
     width: 100%;
   }
+
+  /* Light theme (template/ekza_3 — Ethereal Professional) */
+  :root {
+    --ekza-bg: 248 249 250;
+    --ekza-surface: 248 249 250;
+    --ekza-surface-elevated: 255 255 255;
+    --ekza-surface-muted: 241 244 246;
+    --ekza-surface-card: 255 255 255;
+    --ekza-on-surface: 43 52 55;
+    --ekza-on-surface-muted: 88 96 100;
+    --ekza-primary: 69 82 195;
+    --ekza-primary-muted: 223 224 255;
+    --ekza-on-primary: 249 246 255;
+    --ekza-accent: 84 95 120;
+    --ekza-border: 171 179 183;
+    --ekza-glass: 255 255 255;
+    --ekza-mesh-a: 223 224 255;
+    --ekza-mesh-b: 213 223 253;
+    --ekza-philosophy-bg: 238 242 255;
+    --ekza-glow: 69 82 195;
+  }
+
+  /* Dark theme (template/ekza_1 — Immersive Void) */
+  .dark {
+    --ekza-bg: 17 20 23;
+    --ekza-surface: 17 20 23;
+    --ekza-surface-elevated: 25 28 31;
+    --ekza-surface-muted: 25 32 35;
+    --ekza-surface-card: 25 28 31;
+    --ekza-on-surface: 225 226 231;
+    --ekza-on-surface-muted: 187 201 207;
+    --ekza-primary: 164 230 255;
+    --ekza-primary-muted: 0 209 255;
+    --ekza-on-primary: 0 53 67;
+    --ekza-accent: 220 184 255;
+    --ekza-border: 60 73 78;
+    --ekza-glass: 50 53 57;
+    --ekza-mesh-a: 0 209 255;
+    --ekza-mesh-b: 119 1 208;
+    --ekza-philosophy-bg: 12 14 18;
+    --ekza-glow: 0 209 255;
+  }
+}
+
+@layer utilities {
+  .ekza-mesh-light {
+    background-color: rgb(var(--ekza-bg));
+    background-image: radial-gradient(
+        at 0% 0%,
+        rgba(var(--ekza-mesh-a), 0.45) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 100% 0%,
+        rgba(var(--ekza-mesh-b), 0.35) 0px,
+        transparent 50%
+      );
+  }
+
+  .ekza-glow-orb {
+    position: absolute;
+    pointer-events: none;
+    filter: blur(120px);
+    opacity: 0.14;
+    z-index: 0;
+  }
 }
 
 @font-face {
@@ -16,5 +82,5 @@
 }
 
 .link {
-  @apply text-blue-800 hover:underline;
+  @apply text-ekza-primary dark:text-cyan-300 hover:underline underline-offset-4 transition-colors;
 }

@@ -30,13 +30,15 @@ setup: install ## Setup project (install deps and create .env files)
 	@echo "$(GREEN)Setup complete!$(NC)"
 	@echo "$(YELLOW)Don't forget to fill in your environment variables in .env.local files$(NC)"
 
-dev: ## Start both applications in development mode
+dev: ## Start all apps + dev hub (Turbo: wotori, ekza, omoba, dev-hub)
 	@echo "$(GREEN)Starting development servers...$(NC)"
-	@echo "$(YELLOW)Checking for running processes on ports 3000 and 3001...$(NC)"
-	@lsof -ti:3000,3001 2>/dev/null | xargs kill -9 2>/dev/null || true
+	@echo "$(YELLOW)Freeing ports 3000–3002 and 3999...$(NC)"
+	@lsof -ti:3000,3001,3002,3999 2>/dev/null | xargs kill -9 2>/dev/null || true
 	@sleep 1
-	@echo "$(YELLOW)Wotori will be available at http://localhost:3000$(NC)"
-	@echo "$(YELLOW)Ekza will be available at http://localhost:3001$(NC)"
+	@echo "$(YELLOW)Dev hub (start here):  http://localhost:3999$(NC)"
+	@echo "$(YELLOW)Wotori:                http://localhost:3000$(NC)"
+	@echo "$(YELLOW)Ekza:                  http://localhost:3001$(NC)"
+	@echo "$(YELLOW)O-MOBA:                http://localhost:3002$(NC)"
 	pnpm dev
 
 dev-wotori: ## Start only Wotori app (port 3000)
@@ -46,6 +48,14 @@ dev-wotori: ## Start only Wotori app (port 3000)
 dev-ekza: ## Start only Ekza app (port 3001)
 	@echo "$(GREEN)Starting Ekza development server...$(NC)"
 	cd apps/ekza && pnpm dev
+
+dev-omoba: ## Start only O-MOBA app (port 3002)
+	@echo "$(GREEN)Starting O-MOBA development server...$(NC)"
+	cd apps/omoba && pnpm dev
+
+dev-hub: ## Start only dev hub with links (port 3999)
+	@echo "$(GREEN)Starting dev hub...$(NC)"
+	cd apps/dev-hub && pnpm dev
 
 build: ## Build all applications
 	@echo "$(GREEN)Building all applications...$(NC)"
@@ -58,6 +68,10 @@ build-wotori: ## Build only Wotori app
 build-ekza: ## Build only Ekza app
 	@echo "$(GREEN)Building Ekza...$(NC)"
 	cd apps/ekza && pnpm build
+
+build-omoba: ## Build only O-MOBA app
+	@echo "$(GREEN)Building O-MOBA...$(NC)"
+	cd apps/omoba && pnpm build
 
 lint: ## Lint all code
 	@echo "$(GREEN)Linting code...$(NC)"
@@ -73,6 +87,10 @@ type-check: ## Run TypeScript type checking
 	cd apps/wotori && pnpm exec tsc --noEmit
 	@echo "$(YELLOW)Checking Ekza...$(NC)"
 	cd apps/ekza && pnpm exec tsc --noEmit
+	@echo "$(YELLOW)Checking O-MOBA...$(NC)"
+	cd apps/omoba && pnpm exec tsc --noEmit
+	@echo "$(YELLOW)Checking dev-hub...$(NC)"
+	cd apps/dev-hub && pnpm exec tsc --noEmit
 	@echo "$(GREEN)Type checking complete!$(NC)"
 
 format: ## Format all code with Prettier
@@ -112,8 +130,10 @@ info: ## Show project information
 	@echo "  Node version: $(shell node --version)"
 	@echo "  pnpm version: $(shell pnpm --version)"
 	@echo "  Applications:"
+	@echo "    - Dev hub (apps/dev-hub) - http://localhost:3999  ← links to all"
 	@echo "    - Wotori (apps/wotori) - http://localhost:3000"
 	@echo "    - Ekza (apps/ekza) - http://localhost:3001"
+	@echo "    - O-MOBA (apps/omoba) - http://localhost:3002"
 	@echo "  Packages:"
 	@echo "    - UI (@repo/ui)"
 	@echo "    - locales (@repo/locales)"

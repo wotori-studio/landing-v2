@@ -2,9 +2,11 @@
 
 import React, { useRef, useEffect } from "react";
 import { isMobile } from "react-device-detect";
+import { useTheme } from "../lib/theme-provider";
 
 const StarsAnimation = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -14,9 +16,9 @@ const StarsAnimation = () => {
     if (!c) return;
 
     const applyCanvasStyles = () => {
-      // rgba() is required for alpha — "rgb(..., 0.3)" is invalid and browsers may draw black strokes
-      c.fillStyle = "rgba(255, 255, 255, 0.1)";
-      c.strokeStyle = "rgba(22, 174, 240, 0.35)";
+      // Light theme uses a very light slate (slate-50 is 248, 250, 252). Dark uses black.
+      c.fillStyle = theme === "dark" ? "rgba(0, 0, 0, 0.1)" : "rgba(248, 250, 252, 0.1)";
+      c.strokeStyle = theme === "dark" ? "rgba(22, 174, 240, 0.35)" : "rgba(22, 174, 240, 0.5)";
       c.lineCap = "round";
     };
 
@@ -136,7 +138,7 @@ const StarsAnimation = () => {
         cancelAnimationFrame(animationFrameId);
       }
     };
-  }, []);
+  }, [theme]);
 
   return (
     <canvas
@@ -145,7 +147,9 @@ const StarsAnimation = () => {
         position: "fixed",
         top: 0,
         left: 0,
-        zIndex: -1,
+        /* z-0: z-index -1 sat under html/body background after globals overscroll fix */
+        zIndex: 0,
+        pointerEvents: "none",
         width: "100vw",
         height: "100vh",
       }}

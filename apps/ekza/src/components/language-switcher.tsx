@@ -71,7 +71,7 @@ export default function LanguageSwitcher({
 
       {isOpen && (
         <div
-          className="absolute right-0 mt-2 min-w-[120px] overflow-hidden rounded-2xl border border-gray-200 bg-white text-sm shadow-xl"
+          className="absolute right-0 mt-2 min-w-[120px] overflow-hidden rounded-2xl border border-ekza-border/40 bg-ekza-elevated text-sm shadow-xl dark:border-white/15 dark:bg-zinc-900"
           role="menu"
         >
           {supportedLanguages.map((code) => {
@@ -83,8 +83,8 @@ export default function LanguageSwitcher({
                 type="button"
                 className={`flex w-full items-center justify-between px-4 py-2 text-left transition ${
                   isActive
-                    ? "bg-gray-100 font-semibold text-gray-900"
-                    : "text-gray-700 hover:bg-gray-50"
+                    ? "bg-ekza-muted font-semibold text-ekza-on dark:bg-white/10 dark:text-white"
+                    : "text-ekza-on-muted hover:bg-ekza-muted/80 dark:text-white/80 dark:hover:bg-white/5"
                 }`}
                 role="menuitem"
                 onClick={() => {

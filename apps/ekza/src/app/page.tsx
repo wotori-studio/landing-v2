@@ -1,16 +1,18 @@
 "use client";
 
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { HeroSection } from "../components/hero-section";
 import ProjectCards from "../components/project-cards";
 import Footer from "../components/footer";
 import { SayHi } from "../components/say-hi";
 import Header from "../components/header";
 import { NewsletterForm } from "../components/newsletter-form";
+import { WaitlistModal } from "../components/waitlist-modal";
 import { useI18n } from "../lib/i18n-provider";
 
 export default function EkzaLandingPage() {
   const { language, t } = useI18n();
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
 
   useEffect(() => {
     document.title = t("meta.ekzaTitle");
@@ -78,7 +80,7 @@ export default function EkzaLandingPage() {
   const heroButtons = [
     {
       text: t("ekza.hero.buttons.joinWaitlist"),
-      link: "mailto:wotorimovako@gmail.com?subject=Ekza%20Waitlist",
+      onClick: () => setIsWaitlistOpen(true),
       variant: "primary" as const,
     },
     {
@@ -104,7 +106,7 @@ export default function EkzaLandingPage() {
   ];
 
   return (
-    <main className="font-sans text-gray-900">
+    <main className="font-ekza text-ekza-on">
       <SayHi />
       <Header />
 
@@ -113,77 +115,101 @@ export default function EkzaLandingPage() {
         imageAlt="Stylized image of the moon"
         title={t("ekza.hero.title")}
         subtitle={t("ekza.hero.subtitle")}
+        quoteEyebrow={t("ekza.hero.quoteEyebrow")}
+        quote={t("ekza.hero.quote")}
         description={myHeroDescription}
         buttons={heroButtons}
-        heroHeight="h-screen"
+        heroHeight="min-h-screen"
         footerCenter={t("ekza.hero.footerCenter")}
       />
 
-      <section id="how-it-works" className="bg-white py-20">
+      <section id="how-it-works" className="border-t border-ekza-border/20 bg-ekza-surface py-20 dark:border-white/10 dark:bg-[#0c0e12]">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-5xl font-bold mb-6 text-gray-900">
+          <h2 className="font-headline text-4xl font-bold tracking-tight text-ekza-on dark:text-white md:text-5xl">
             {t("ekza.howItWorks.heading")}
           </h2>
-          <p className="max-w-3xl mx-auto text-lg text-gray-600 mb-12">
+          <p className="mx-auto mt-5 max-w-3xl text-lg font-light text-ekza-on-muted dark:text-white/70">
             {t("ekza.howItWorks.description")}
           </p>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 text-left">
+          <div className="mt-14 grid gap-5 text-left md:grid-cols-2 lg:grid-cols-4">
             {platformLayers.map((layer) => (
               <article
                 key={layer.title}
-                className="rounded-2xl border border-gray-200 bg-gray-50 p-6 shadow-sm"
+                className="group rounded-2xl bg-ekza-elevated/90 p-7 shadow-ekza-card transition hover:-translate-y-0.5 dark:bg-white/[0.06] dark:shadow-ekza-card-dark"
               >
-                <h3 className="text-2xl font-semibold mb-3">{layer.title}</h3>
-                <p className="text-gray-700 leading-relaxed">{layer.description}</p>
+                <h3 className="font-headline text-xl font-semibold text-ekza-on dark:text-white">
+                  {layer.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-ekza-on-muted dark:text-white/75">
+                  {layer.description}
+                </p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="ecosystem-modules" className="bg-gray-50 py-20">
+      <section
+        id="ecosystem-modules"
+        className="border-t border-ekza-border/15 bg-ekza-muted py-20 dark:border-white/5 dark:bg-[#111417]"
+      >
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-5xl font-bold mb-6 text-gray-800">
+          <h2 className="font-headline text-4xl font-bold tracking-tight text-ekza-on dark:text-white md:text-5xl">
             {t("ekza.ecosystem.heading")}
           </h2>
-          <p className="max-w-3xl mx-auto text-lg text-gray-600 mb-4">
+          <p className="mx-auto mt-5 max-w-3xl text-lg font-light text-ekza-on-muted dark:text-white/70">
             {t("ekza.ecosystem.description")}
           </p>
-          <p className="max-w-3xl mx-auto mb-8">
-            <span className="inline-flex rounded-full border border-amber-300 bg-amber-100 px-4 py-1.5 text-sm font-medium text-amber-900">
+          <p className="mx-auto mt-6 mb-10 max-w-3xl">
+            <span className="inline-flex rounded-full border border-amber-400/50 bg-amber-100/90 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-amber-950 dark:border-amber-400/30 dark:bg-amber-500/15 dark:text-amber-100">
               {t("ekza.ecosystem.statusNote")}
             </span>
           </p>
-          <div className="flex flex-col md:flex-row justify-center items-stretch gap-8">
+          <div className="flex flex-col items-stretch justify-center gap-8 md:flex-row">
             <ProjectCards projects={projects} />
           </div>
         </div>
       </section>
 
-      <section id="philosophy" className="bg-black text-white py-24">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-sm uppercase tracking-[0.3em] text-gray-400 mb-4">
+      <section
+        id="philosophy"
+        className="relative overflow-hidden border-t border-ekza-border/20 bg-gradient-to-b from-indigo-50/80 via-ekza-bg to-ekza-bg py-24 dark:border-white/10 dark:from-transparent dark:via-[#0c0e12] dark:to-[#111417]"
+      >
+        <div
+          className="pointer-events-none absolute inset-0 opacity-40 dark:opacity-100"
+          aria-hidden
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-ekza-primary/5 via-transparent to-transparent dark:from-cyan-500/10" />
+        </div>
+        <div className="container relative z-10 mx-auto px-6 text-center">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.35em] text-ekza-primary dark:text-cyan-300/90">
             {t("ekza.philosophy.label")}
           </p>
-          <h2 className="text-5xl font-bold mb-8">
+          <h2 className="font-headline text-4xl font-bold text-ekza-on dark:text-white md:text-5xl">
             {t("ekza.philosophy.heading")}
           </h2>
-          <blockquote className="max-w-4xl mx-auto text-2xl md:text-3xl leading-relaxed font-light">
+          <blockquote className="mx-auto mt-10 max-w-4xl text-xl font-light leading-relaxed text-ekza-on-muted dark:text-white/85 md:text-2xl">
             {t("ekza.philosophy.quote")}
           </blockquote>
         </div>
       </section>
 
-      {/* Newsletter subscription section */}
-      <section id="newsletter" className="bg-white py-20">
+      <section
+        id="newsletter"
+        className="border-t border-ekza-border/20 bg-ekza-surface py-20 dark:border-white/10 dark:bg-[#0c0e12]"
+      >
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-            Subscribe to Newsletter
-          </h2>
-          <p className="max-w-2xl mx-auto text-lg text-gray-600 mb-8">
-            Stay updated with the latest news and updates from Ekza Space
-          </p>
-          <NewsletterForm />
+          <div className="mx-auto max-w-3xl rounded-[2rem] border border-ekza-primary/20 bg-ekza-primary-muted/40 p-10 dark:border-cyan-500/20 dark:bg-cyan-950/20 md:p-14">
+            <h2 className="font-headline text-3xl font-bold text-ekza-on dark:text-white md:text-4xl">
+              {t("ekza.newsletter.heading")}
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-ekza-on-muted dark:text-white/70">
+              {t("ekza.newsletter.description")}
+            </p>
+            <div className="mt-8">
+              <NewsletterForm />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -194,6 +220,11 @@ export default function EkzaLandingPage() {
         studioCreditText={t("ekza.footer.creditText")}
         studioCreditLabel={t("ekza.footer.creditLabel")}
         studioCreditHref="https://wotori.io"
+      />
+
+      <WaitlistModal
+        isOpen={isWaitlistOpen}
+        onClose={() => setIsWaitlistOpen(false)}
       />
     </main>
   );

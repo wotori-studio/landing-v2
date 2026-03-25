@@ -29,17 +29,19 @@ export default function Footer({
 
   return (
     <footer
-      className={`bg-gray-100 shadow-sm w-full ${
+      className={`w-full border-t border-ekza-border/25 bg-ekza-muted/80 dark:border-white/10 dark:bg-[#111417]/95 ${
         position === "fixed" ? "fixed bottom-0" : ""
       }`}
       id="footer"
     >
-      <div className="container mx-auto px-6 py-6 text-gray-600">
-        <div className="flex flex-col items-center gap-3 text-center">
-          <p>© {currentYear} {brand}</p>
+      <div className="container mx-auto px-6 py-8 text-ekza-on-muted dark:text-white/55">
+        <div className="flex flex-col items-center gap-3 text-center text-sm">
+          <p>
+            © {currentYear} {brand}
+          </p>
 
           {links.length > 0 && (
-            <div className="flex flex-wrap justify-center gap-4 text-sm">
+            <div className="flex flex-wrap justify-center gap-4">
               {links.map((link) => (
                 <a
                   key={link.label}
@@ -55,10 +57,10 @@ export default function Footer({
           )}
 
           {hasStudioCredit && (
-            <p className="text-sm">
+            <p>
               {studioCreditText}
               <a
-                className="ml-1 link"
+                className="link ml-1"
                 href={studioCreditHref}
                 target="_blank"
                 rel="noopener noreferrer"

@@ -3,10 +3,20 @@
 @tailwind utilities;
 
 @layer base {
+  /* Match body so rubber-band / overscroll on macOS Safari doesn’t flash a mismatched strip */
+  html {
+    @apply bg-slate-50 dark:bg-black;
+    overscroll-behavior-y: none;
+  }
+
   html,
   body {
     overflow-x: hidden;
     width: 100%;
+  }
+
+  body {
+    overscroll-behavior-y: none;
   }
 }
 
@@ -19,8 +29,14 @@
   padding-top: 13rem;
 }
 
+/* Light sections (portfolio, resources) */
 .link {
-  @apply text-blue-800 hover:underline;
+  @apply font-medium text-cyan-700 underline-offset-4 transition hover:text-cyan-600 hover:underline;
+}
+
+/* Dark / glass sections (intro overlay) */
+.link-on-dark {
+  @apply font-medium text-wotori-accent underline-offset-4 transition hover:text-cyan-200 hover:underline;
 }
 
 .buttonCustom {

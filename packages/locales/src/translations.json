@@ -15,7 +15,9 @@
       "common": {
         "languageSwitcherLabel": "Language",
         "open": "open ↗",
-        "projectOpenHint": "click to open the project"
+        "projectOpenHint": "click to open the project",
+        "themeSwitchToLight": "Switch to light theme",
+        "themeSwitchToDark": "Switch to dark theme"
       },
       "header": {
         "brand": "ekza space",
@@ -23,7 +25,8 @@
           "hero": "Hero",
           "howItWorks": "How It Works",
           "ecosystem": "Ecosystem",
-          "philosophy": "Philosophy"
+          "philosophy": "Philosophy",
+          "newsletter": "Newsletter"
         }
       },
       "wotori": {
@@ -84,15 +87,21 @@
       },
       "ekza": {
         "hero": {
-          "title": "Ekza Space - GitHub for 3D artists.",
-          "subtitle": "Co-create, integrate, and monetize 3D content across games and virtual worlds.",
+          "title": "Collaboratively Create and Monetize Digital Worlds",
+          "subtitle": "Build high-fidelity 3D assets and immersive environments in real-time. Own your creative output on the decentralized metaverse layer.",
           "description": "Build once, reuse everywhere. Ekza helps artists and studios co-create 3D assets, ship them to games through SDK tooling, and keep royalty flows on Solana when assets are reused.",
+          "quoteEyebrow": "Community & ownership",
+          "quote": "We believe creators shaping virtual worlds should be the primary beneficiaries of their work. Ekza is built so your creativity stays a sovereign asset — and transparent collaboration with the community compounds that value over time.",
           "buttons": {
             "joinWaitlist": "Join Waitlist",
             "openApp": "Open App",
             "readDocs": "Read Docs"
           },
           "footerCenter": "Creator infrastructure for web3 games"
+        },
+        "newsletter": {
+          "heading": "Subscribe to the newsletter",
+          "description": "Stay updated with the latest news and releases from Ekza Space."
         },
         "howItWorks": {
           "heading": "How it works",
@@ -149,7 +158,9 @@
       "common": {
         "languageSwitcherLabel": "Язык",
         "open": "открыть ↗",
-        "projectOpenHint": "нажмите, чтобы открыть проект"
+        "projectOpenHint": "нажмите, чтобы открыть проект",
+        "themeSwitchToLight": "Светлая тема",
+        "themeSwitchToDark": "Тёмная тема"
       },
       "header": {
         "brand": "ekza space",
@@ -157,7 +168,8 @@
           "hero": "Главная",
           "howItWorks": "Как это работает",
           "ecosystem": "Экосистема",
-          "philosophy": "Философия"
+          "philosophy": "Философия",
+          "newsletter": "Рассылка"
         }
       },
       "wotori": {
@@ -218,15 +230,21 @@
       },
       "ekza": {
         "hero": {
-          "title": "Ekza Space - GitHub для 3D-художников.",
-          "subtitle": "Совместно создавайте, интегрируйте и монетизируйте 3D-контент для игр и цифровых миров.",
+          "title": "Совместно создавайте и монетизируйте цифровые миры",
+          "subtitle": "Создавайте высокодетализированные 3D-ассеты и иммерсивные среды в реальном времени. Владейте результатами своего творчества на децентрализованном слое метавселенной.",
           "description": "Создал один раз - используй везде. Ekza помогает художникам и студиям вместе создавать 3D-ассеты, переносить их в игры через SDK и получать роялти в Solana при каждом повторном использовании.",
+          "quoteEyebrow": "Сообщество и владение",
+          "quote": "Мы верим: те, кто создаёт виртуальные миры, должны в первую очередь получать выгоду от своей работы. Ekza устроена так, чтобы твоё творчество оставалось суверенным активом — а честное совместное участие сообщества со временем умножало эту ценность.",
           "buttons": {
             "joinWaitlist": "Вступить в вейтлист",
             "openApp": "Открыть приложение",
             "readDocs": "Документация"
           },
           "footerCenter": "Инфраструктура для создателей web3-игр"
+        },
+        "newsletter": {
+          "heading": "Подписка на рассылку",
+          "description": "Новости и релизы Ekza Space — на почте."
         },
         "howItWorks": {
           "heading": "Как это работает",
@@ -283,7 +301,9 @@
       "common": {
         "languageSwitcherLabel": "语言",
         "open": "打开 ↗",
-        "projectOpenHint": "点击打开项目"
+        "projectOpenHint": "点击打开项目",
+        "themeSwitchToLight": "切换到浅色主题",
+        "themeSwitchToDark": "切换到深色主题"
       },
       "header": {
         "brand": "ekza space",
@@ -291,7 +311,8 @@
           "hero": "首页",
           "howItWorks": "运作方式",
           "ecosystem": "生态",
-          "philosophy": "理念"
+          "philosophy": "理念",
+          "newsletter": "通讯"
         }
       },
       "wotori": {
@@ -352,15 +373,21 @@
       },
       "ekza": {
         "hero": {
-          "title": "Ekza Space - 3D 艺术家的 GitHub。",
-          "subtitle": "在游戏与数字世界中协同创作、集成并变现 3D 内容。",
+          "title": "协同创作并变现数字世界",
+          "subtitle": "实时构建高保真 3D 资产与沉浸式环境。在去中心化元宇宙层上真正拥有你的创作成果。",
           "description": "一次创建，到处复用。Ekza 帮助艺术家与工作室共同构建 3D 资产，通过 SDK 接入游戏，并在资产复用时通过 Solana 持续获得版税。",
+          "quoteEyebrow": "社区与所有权",
+          "quote": "我们相信：塑造虚拟世界的创作者理应首先受益于自己的作品。Ekza 让你的创造力保持为可自主支配的资产——与社区的透明协作会让这份价值随时间累积。",
           "buttons": {
             "joinWaitlist": "加入候补名单",
             "openApp": "打开应用",
             "readDocs": "阅读文档"
           },
           "footerCenter": "面向 web3 游戏的创作者基础设施"
+        },
+        "newsletter": {
+          "heading": "订阅通讯",
+          "description": "获取 Ekza Space 的最新动态与发布信息。"
         },
         "howItWorks": {
           "heading": "如何运作",

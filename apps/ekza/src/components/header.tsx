@@ -2,6 +2,7 @@
 
 import React from "react";
 import LanguageSwitcher from "./language-switcher";
+import { ThemeToggle } from "./theme-toggle";
 import { useI18n } from "../lib/i18n-provider";
 
 const GitHubIcon = ({ className }: { className?: string }) => (
@@ -25,47 +26,57 @@ export const Header: React.FC<HeaderProps> = ({ className = "" }) => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm shadow-sm ${className}`}
+        className={`fixed top-0 left-0 right-0 z-50 border-b border-ekza-border/30 bg-ekza-bg/75 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-black/50 dark:shadow-[0_8px_32px_rgba(0,0,0,0.35)] ${className}`}
       >
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <a href="#hero" className="text-2xl sm:text-3xl font-extrabold text-black">
+        <div className="container mx-auto flex items-center justify-between px-6 py-4">
+          <a
+            href="#hero"
+            className="font-headline text-xl font-bold uppercase tracking-tighter text-ekza-on dark:text-white sm:text-2xl"
+          >
             {t("header.brand")}
           </a>
-          <div className="flex items-center space-x-3 sm:space-x-4">
-            <nav className="hidden md:flex space-x-6 text-gray-600">
+          <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+            <nav className="hidden items-center gap-5 text-sm font-medium uppercase tracking-[0.06em] text-ekza-on-muted md:flex lg:gap-6">
               <a
                 href="#hero"
-                className="hover:text-purple-600 transition"
+                className="transition hover:text-ekza-primary dark:hover:text-cyan-300"
               >
                 {t("header.nav.hero")}
               </a>
               <a
                 href="#how-it-works"
-                className="hover:text-purple-600 transition"
+                className="transition hover:text-ekza-primary dark:hover:text-cyan-300"
               >
                 {t("header.nav.howItWorks")}
               </a>
               <a
                 href="#ecosystem-modules"
-                className="hover:text-purple-600 transition"
+                className="transition hover:text-ekza-primary dark:hover:text-cyan-300"
               >
                 {t("header.nav.ecosystem")}
               </a>
               <a
                 href="#philosophy"
-                className="hover:text-purple-600 transition"
+                className="transition hover:text-ekza-primary dark:hover:text-cyan-300"
               >
                 {t("header.nav.philosophy")}
               </a>
+              <a
+                href="#newsletter"
+                className="transition hover:text-ekza-primary dark:hover:text-cyan-300"
+              >
+                {t("header.nav.newsletter")}
+              </a>
             </nav>
-            <LanguageSwitcher className="border-gray-300 bg-white/80 text-gray-800 hover:bg-gray-100" />
+            <ThemeToggle />
+            <LanguageSwitcher className="border-ekza-border/60 bg-ekza-elevated/90 text-ekza-on hover:bg-ekza-muted dark:border-white/15 dark:bg-white/10 dark:text-white dark:hover:bg-white/15" />
             <a
               href="https://github.com/ekza-space"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-purple-600 transition"
+              className="text-ekza-on-muted transition hover:text-ekza-primary dark:text-white/70 dark:hover:text-cyan-300"
             >
-              <GitHubIcon className="w-6 h-6" />
+              <GitHubIcon className="h-6 w-6" />
             </a>
           </div>
         </div>

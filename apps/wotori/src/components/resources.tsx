@@ -5,6 +5,7 @@ import { useI18n } from "../lib/i18n-provider";
 export default function Resources() {
   const { t } = useI18n();
 
+  /** Set `hidden: true` to temporarily hide a card without removing copy / i18n. */
   const projects = [
     {
       name: t("wotori.portfolio.projects.ekza.name"),
@@ -15,7 +16,7 @@ export default function Resources() {
     {
       name: t("wotori.portfolio.projects.omoba.name"),
       description: t("wotori.portfolio.projects.omoba.description"),
-      href: "https://x.com/wotorimovako",
+      href: "https://omoba.io",
       cta: t("wotori.portfolio.projects.omoba.cta"),
     },
     {
@@ -23,8 +24,11 @@ export default function Resources() {
       description: t("wotori.portfolio.projects.opusprism.description"),
       href: "https://opusprism.app",
       cta: t("wotori.portfolio.projects.opusprism.cta"),
+      hidden: true,
     },
   ];
+
+  const visibleProjects = projects.filter((p) => !("hidden" in p && p.hidden));
 
   const investorResources = [
     {
@@ -42,71 +46,87 @@ export default function Resources() {
   ];
 
   return (
-    <section className="bg-gray-100 py-20 sm:mb-24">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="relative border-y border-slate-200/50 bg-slate-50 py-24 dark:border-white/5 dark:bg-zinc-950">
+      <div className="relative mx-auto max-w-6xl px-6">
         <div className="mb-16">
-          <p className="text-sm uppercase tracking-[0.3em] text-gray-500 mb-3">
+          <p className="mb-3 text-xs font-medium uppercase tracking-[0.35em] text-wotori-accent/90">
             {t("wotori.portfolio.label")}
           </p>
-          <h2 className="text-4xl font-bold mb-4 text-gray-900">
+          <h2 className="font-headline text-4xl font-bold tracking-tight text-slate-900 dark:text-white md:text-5xl">
             {t("wotori.portfolio.heading")}
           </h2>
-          <p className="text-lg text-gray-700 max-w-3xl">
+          <p className="mt-5 max-w-3xl text-lg font-light leading-relaxed text-slate-600 dark:text-slate-300">
             {t("wotori.portfolio.description")}
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-20">
-          {projects.map((project) => (
+        <div className="mb-24 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {visibleProjects.map((project) => (
             <article
               key={project.name}
-              className="rounded-2xl bg-white p-6 shadow-sm border border-gray-200"
+              className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white/80 p-0 shadow-[0_20px_50px_rgba(0,0,0,0.05)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-wotori-accent/40 hover:bg-white hover:shadow-[0_28px_60px_rgba(0,228,175,0.15)] dark:border-white/10 dark:bg-white/[0.03] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] dark:hover:border-wotori-accent/30 dark:hover:bg-white/[0.06] dark:hover:shadow-[0_28px_60px_rgba(0,228,175,0.12)]"
             >
-              <h3 className="text-2xl font-semibold mb-3">{project.name}</h3>
-              <p className="text-gray-700 leading-relaxed mb-5">
-                {project.description}
-              </p>
-              <a
-                className="link font-medium"
-                target="_blank"
-                rel="noopener noreferrer"
-                href={project.href}
-              >
-                {project.cta}
-              </a>
+              <div className="h-1 w-full bg-gradient-to-r from-transparent via-wotori-accent to-cyan-400 opacity-60 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="p-6">
+                <h3 className="font-headline text-xl font-semibold text-slate-900 dark:text-white md:text-2xl">
+                  {project.name}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300 md:text-base">
+                  {project.description}
+                </p>
+                <a
+                  className="link mt-5 inline-flex items-center gap-1 text-sm dark:link-on-dark"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={project.href}
+                >
+                  {project.cta}
+                  <span aria-hidden className="text-xs opacity-70">
+                    ↗
+                  </span>
+                </a>
+              </div>
             </article>
           ))}
         </div>
 
         <div id="investors">
-          <p className="text-sm uppercase tracking-[0.3em] text-gray-500 mb-3">
+          <p className="mb-3 text-xs font-medium uppercase tracking-[0.35em] text-wotori-accent/90">
             {t("wotori.investors.label")}
           </p>
-          <h2 className="text-4xl font-bold mb-4 text-gray-900">
+          <h2 className="font-headline text-4xl font-bold tracking-tight text-slate-900 dark:text-white md:text-5xl">
             {t("wotori.investors.heading")}
           </h2>
-          <p className="text-lg text-gray-700 max-w-3xl mb-8">
+          <p className="mt-5 max-w-3xl text-lg font-light leading-relaxed text-slate-600 dark:text-slate-300">
             {t("wotori.investors.description")}
           </p>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
             {investorResources.map((resource) => (
               <article
                 key={resource.title}
-                className="rounded-2xl bg-white p-6 shadow-sm border border-gray-200"
+                className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white/80 p-0 shadow-[0_20px_50px_rgba(0,0,0,0.05)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-wotori-accent/40 hover:bg-white hover:shadow-[0_28px_60px_rgba(0,228,175,0.15)] dark:border-white/10 dark:bg-white/[0.03] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] dark:hover:border-wotori-accent/30 dark:hover:bg-white/[0.06] dark:hover:shadow-[0_28px_60px_rgba(0,228,175,0.12)]"
               >
-                <h3 className="text-2xl font-semibold mb-2">{resource.title}</h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  {resource.text}
-                </p>
-                <a
-                  className="link font-medium"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={resource.href}
-                >
-                  {resource.cta}
-                </a>
+                <div className="h-1 w-full bg-gradient-to-r from-cyan-500/50 via-wotori-accent to-cyan-400/30 opacity-60 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="p-6">
+                  <h3 className="font-headline text-xl font-semibold text-slate-900 dark:text-white md:text-2xl">
+                    {resource.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300 md:text-base">
+                    {resource.text}
+                  </p>
+                  <a
+                    className="link mt-5 inline-flex items-center gap-1 text-sm dark:link-on-dark"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={resource.href}
+                  >
+                    {resource.cta}
+                    <span aria-hidden className="text-xs opacity-70">
+                      ↗
+                    </span>
+                  </a>
+                </div>
               </article>
             ))}
           </div>
