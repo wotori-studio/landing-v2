@@ -25,6 +25,7 @@
           "hero": "Hero",
           "howItWorks": "How It Works",
           "ecosystem": "Ecosystem",
+          "partners": "Partners",
           "philosophy": "Philosophy",
           "newsletter": "Newsletter"
         }
@@ -135,6 +136,15 @@
             "space": "Space turns collaborative assets into playable and interactive 3D environments. It already connects with Avatar, so creators can move identities and assets across supported experiences without rebuilding from scratch."
           }
         },
+        "partners": {
+          "label": "Partner spotlight",
+          "heading": "Partners",
+          "description": "Studios and games that ship on the Ekza creator stack—from asset pipelines to live worlds.",
+          "omoba": {
+            "engineBadge": "Built on Ekza",
+            "description": "Open MOBA from Wotori Studio: players bring custom avatars and game-ready assets. Omoba is a flagship partner title running end-to-end on Ekza infrastructure."
+          }
+        },
         "philosophy": {
           "label": "Creator philosophy",
           "heading": "Your work stays yours",
@@ -168,6 +178,7 @@
           "hero": "Главная",
           "howItWorks": "Как это работает",
           "ecosystem": "Экосистема",
+          "partners": "Партнёры",
           "philosophy": "Философия",
           "newsletter": "Рассылка"
         }
@@ -278,6 +289,15 @@
             "space": "Space превращает совместно созданные ассеты в игровые и интерактивные 3D-пространства. Модуль уже связан с Avatar, поэтому авторы могут переносить идентичности и ассеты между поддерживаемыми средами без пересборки."
           }
         },
+        "partners": {
+          "label": "Партнёры",
+          "heading": "Партнёры",
+          "description": "Студии и игры, которые выходят на стеке Ekza: от пайплайна ассетов до живых миров.",
+          "omoba": {
+            "engineBadge": "На движке Ekza",
+            "description": "Open MOBA от Wotori Studio: игроки используют свои аватары и игровые ассеты. Omoba — флагманский партнёрский проект, работающий на инфраструктуре Ekza от пайплайна до рантайма."
+          }
+        },
         "philosophy": {
           "label": "Философия создателей",
           "heading": "Ваша работа остается вашей",
@@ -311,6 +331,7 @@
           "hero": "首页",
           "howItWorks": "运作方式",
           "ecosystem": "生态",
+          "partners": "合作伙伴",
           "philosophy": "理念",
           "newsletter": "通讯"
         }
@@ -419,6 +440,15 @@
             "stellar": "Stellar 是协作层，团队可在其中共创用于游戏与虚拟世界的数字资产。它正向 Solana 生态迁移，以匹配 Ekza 以创作者所有权与版税为核心的模型。",
             "avatar": "Avatar 让创作者能够设计、铸造并变现可定制 3D 身份。依托 Solana 原生所有权，头像可跨场景迁移、复用并分发。",
             "space": "Space 将协作资产转化为可游玩、可交互的 3D 空间。它已与 Avatar 联动，创作者无需重复构建即可跨环境迁移身份与资产。"
+          }
+        },
+        "partners": {
+          "label": "合作伙伴",
+          "heading": "合作伙伴",
+          "description": "基于 Ekza 创作者技术栈发布游戏与体验的工作室——从资产管线到线上世界。",
+          "omoba": {
+            "engineBadge": "基于 Ekza 构建",
+            "description": "Wotori Studio 的开放式 MOBA：玩家可导入自定义头像与游戏资产。Omoba 是深度依托 Ekza 基础设施的旗舰合作产品。"
           }
         },
         "philosophy": {

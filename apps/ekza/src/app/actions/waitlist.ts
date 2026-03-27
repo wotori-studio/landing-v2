@@ -71,16 +71,16 @@ export async function submitWaitlist(
       };
     }
 
-    // Send welcome email via Resend
-    try {
-      const fromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
-      const toEmail = email;
+    // Optional welcome email (Resend may be unset in some deploys)
+    if (resend) {
+      try {
+        const fromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
 
-      await resend.emails.send({
-        from: fromEmail,
-        to: toEmail,
-        subject: "Welcome to Ekza Space Waitlist!",
-        html: `
+        await resend.emails.send({
+          from: fromEmail,
+          to: email,
+          subject: "Welcome to Ekza Space Waitlist!",
+          html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <h1 style="color: #333;">Welcome to Ekza Space!</h1>
             <p>Thank you for joining our waitlist. We're excited to have you on board.</p>
@@ -88,16 +88,17 @@ export async function submitWaitlist(
             <p>Best regards,<br>The Ekza Space Team</p>
           </div>
         `,
-      });
-    } catch (emailError) {
-      // Log email error but don't fail the request
-      console.error("Failed to send welcome email:", emailError);
-      // Continue - the user is still added to the waitlist
+        });
+      } catch (emailError) {
+        console.error("Failed to send welcome email:", emailError);
+      }
     }
 
     return {
       success: true,
-      message: "Successfully added to waitlist! Check your email for confirmation.",
+      message: resend
+        ? "Successfully added to waitlist! Check your email for confirmation."
+        : "You're on the list — we'll be in touch.",
     };
   } catch (error) {
     console.error("Unexpected error in submitWaitlist:", error);

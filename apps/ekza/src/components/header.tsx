@@ -56,6 +56,12 @@ export const Header: React.FC<HeaderProps> = ({ className = "" }) => {
                 {t("header.nav.ecosystem")}
               </a>
               <a
+                href="#partners"
+                className="transition hover:text-ekza-primary dark:hover:text-cyan-300"
+              >
+                {t("header.nav.partners")}
+              </a>
+              <a
                 href="#philosophy"
                 className="transition hover:text-ekza-primary dark:hover:text-cyan-300"
               >

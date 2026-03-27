@@ -8,6 +8,7 @@ import { SayHi } from "../components/say-hi";
 import Header from "../components/header";
 import { NewsletterForm } from "../components/newsletter-form";
 import { WaitlistModal } from "../components/waitlist-modal";
+import { PartnerSpotlight } from "../components/partner-spotlight";
 import { useI18n } from "../lib/i18n-provider";
 
 export default function EkzaLandingPage() {
@@ -170,6 +171,8 @@ export default function EkzaLandingPage() {
           </div>
         </div>
       </section>
+
+      <PartnerSpotlight />
 
       <section
         id="philosophy"
