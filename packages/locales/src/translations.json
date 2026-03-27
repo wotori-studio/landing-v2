@@ -10,7 +10,7 @@
     "en": {
       "meta": {
         "wotoriTitle": "Wotori Studio",
-        "ekzaTitle": "Ekza Space"
+        "ekzaTitle": "Ekza Space | Open Source Solana Startup for 3D Assets"
       },
       "common": {
         "languageSwitcherLabel": "Language",
@@ -53,7 +53,7 @@
             },
             "opusprism": {
               "name": "Opusprism.app",
-              "description": "A social network for musicians to publish live performances and connect with audiences. The platform focuses on direct creator visibility and fan engagement.",
+              "description": "An experimental creator community concept currently in stealth mode.",
               "cta": "Visit Opusprism"
             }
           }
@@ -163,7 +163,7 @@
     "ru": {
       "meta": {
         "wotoriTitle": "Wotori Studio",
-        "ekzaTitle": "Ekza Space"
+        "ekzaTitle": "Ekza Space | Open Source Solana стартап для 3D-ассетов"
       },
       "common": {
         "languageSwitcherLabel": "Язык",
@@ -206,7 +206,7 @@
             },
             "opusprism": {
               "name": "Opusprism.app",
-              "description": "Социальная сеть для музыкантов, где можно публиковать live-выступления и взаимодействовать с аудиторией. Платформа фокусируется на прямой видимости автора и вовлечении фанатов.",
+              "description": "Экспериментальная концепция creator-community платформы, которая пока находится в stealth-режиме.",
               "cta": "Перейти в Opusprism"
             }
           }
@@ -316,7 +316,7 @@
     "zh": {
       "meta": {
         "wotoriTitle": "Wotori Studio",
-        "ekzaTitle": "Ekza Space"
+        "ekzaTitle": "Ekza Space | 面向 3D 资产的开源 Solana 初创项目"
       },
       "common": {
         "languageSwitcherLabel": "语言",
@@ -359,7 +359,7 @@
             },
             "opusprism": {
               "name": "Opusprism.app",
-              "description": "面向音乐人的社交网络，用于发布现场演出并连接观众。平台强调创作者的直接曝光与粉丝互动。",
+              "description": "一个仍处于 stealth 阶段的创作者社区实验概念。",
               "cta": "访问 Opusprism"
             }
           }

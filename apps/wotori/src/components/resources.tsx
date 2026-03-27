@@ -19,16 +19,7 @@ export default function Resources() {
       href: "https://omoba.io",
       cta: t("wotori.portfolio.projects.omoba.cta"),
     },
-    {
-      name: t("wotori.portfolio.projects.opusprism.name"),
-      description: t("wotori.portfolio.projects.opusprism.description"),
-      href: "https://opusprism.app",
-      cta: t("wotori.portfolio.projects.opusprism.cta"),
-      hidden: true,
-    },
   ];
-
-  const visibleProjects = projects.filter((p) => !("hidden" in p && p.hidden));
 
   const investorResources = [
     {
@@ -61,7 +52,7 @@ export default function Resources() {
         </div>
 
         <div className="mb-24 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {visibleProjects.map((project) => (
+          {projects.map((project) => (
             <article
               key={project.name}
               className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white/80 p-0 shadow-[0_20px_50px_rgba(0,0,0,0.05)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-wotori-accent/40 hover:bg-white hover:shadow-[0_28px_60px_rgba(0,228,175,0.15)] dark:border-white/10 dark:bg-white/[0.03] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] dark:hover:border-wotori-accent/30 dark:hover:bg-white/[0.06] dark:hover:shadow-[0_28px_60px_rgba(0,228,175,0.12)]"

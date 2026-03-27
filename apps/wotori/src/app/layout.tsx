@@ -22,8 +22,38 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://wotori.io"),
   title: "Wotori Studio",
-  description: "Decentralized Animation & Production Studio",
+  description:
+    "Wotori Studio is a decentralized animation and production studio building creator-first platforms, media, and digital ownership ecosystems for web3.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://wotori.io",
+    siteName: "Wotori Studio",
+    title: "Wotori Studio",
+    description:
+      "Wotori Studio is a decentralized animation and production studio building creator-first platforms, media, and digital ownership ecosystems for web3.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wotori Studio",
+    description:
+      "Wotori Studio is a decentralized animation and production studio building creator-first platforms, media, and digital ownership ecosystems for web3.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 /**
