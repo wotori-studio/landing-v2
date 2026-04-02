@@ -9,7 +9,7 @@
   "translations": {
     "en": {
       "meta": {
-        "wotoriTitle": "Wotori Studio",
+        "wotoriTitle": "Wotori Studio | Web3 Animation, Solana Ecosystems & Creator Platforms",
         "ekzaTitle": "Ekza Space | Open Source Solana Startup for 3D Assets"
       },
       "common": {
@@ -162,7 +162,7 @@
     },
     "ru": {
       "meta": {
-        "wotoriTitle": "Wotori Studio",
+        "wotoriTitle": "Wotori Studio | Web3-анимация, Solana-экосистемы и creator-платформы",
         "ekzaTitle": "Ekza Space | Open Source Solana стартап для 3D-ассетов"
       },
       "common": {
@@ -315,7 +315,7 @@
     },
     "zh": {
       "meta": {
-        "wotoriTitle": "Wotori Studio",
+        "wotoriTitle": "Wotori Studio | Web3 动画、Solana 生态与创作者平台",
         "ekzaTitle": "Ekza Space | 面向 3D 资产的开源 Solana 初创项目"
       },
       "common": {

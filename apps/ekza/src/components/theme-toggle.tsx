@@ -19,7 +19,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       aria-label={label}
       title={label}
     >
-      {theme === "dark" ? (
+      {theme === "light" ? (
         <svg
           className="h-5 w-5"
           fill="none"
