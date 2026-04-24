@@ -51,11 +51,20 @@ export const metadata: Metadata = {
     siteName: "Omoba",
     title: omobaTitle,
     description: omobaDescription,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Omoba social preview",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: omobaTitle,
     description: omobaDescription,
+    images: ["/twitter-image"],
   },
   robots: {
     index: true,
