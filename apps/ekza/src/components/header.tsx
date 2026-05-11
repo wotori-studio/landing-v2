@@ -73,6 +73,14 @@ export const Header: React.FC<HeaderProps> = ({ className = "" }) => {
               >
                 {t("header.nav.newsletter")}
               </a>
+              <a
+                href="https://docs.ekza.io"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition hover:text-ekza-primary dark:hover:text-cyan-300"
+              >
+                {t("header.nav.documentation")}
+              </a>
             </nav>
             <ThemeToggle />
             <LanguageSwitcher className="border-ekza-border/60 bg-ekza-elevated/90 text-ekza-on hover:bg-ekza-muted dark:border-white/15 dark:bg-white/10 dark:text-white dark:hover:bg-white/15" />

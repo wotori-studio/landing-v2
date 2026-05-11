@@ -27,7 +27,8 @@
           "ecosystem": "Ecosystem",
           "partners": "Partners",
           "philosophy": "Philosophy",
-          "newsletter": "Newsletter"
+          "newsletter": "Newsletter",
+          "documentation": "Documentation"
         }
       },
       "wotori": {
@@ -180,7 +181,8 @@
           "ecosystem": "Экосистема",
           "partners": "Партнёры",
           "philosophy": "Философия",
-          "newsletter": "Рассылка"
+          "newsletter": "Рассылка",
+          "documentation": "Документация"
         }
       },
       "wotori": {
@@ -333,7 +335,8 @@
           "ecosystem": "生态",
           "partners": "合作伙伴",
           "philosophy": "理念",
-          "newsletter": "通讯"
+          "newsletter": "通讯",
+          "documentation": "文档"
         }
       },
       "wotori": {
