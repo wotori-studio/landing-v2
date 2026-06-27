@@ -1,4 +1,8 @@
-.PHONY: help install dev build lint clean format type-check test setup
+.PHONY: help install dev build lint clean format type-check test setup media dev-wotori-demo
+
+# Local media server for the Wotori DJ case (optimized renders live outside the repo)
+MEDIA_DIR  := /Users/wotori/Downloads/dj-wotori-web
+MEDIA_PORT := 8788
 
 # Default target
 .DEFAULT_GOAL := help
@@ -43,6 +47,23 @@ dev: ## Start all apps + dev hub (Turbo: wotori, ekza, omoba, dev-hub)
 
 dev-wotori: ## Start only Wotori app (port 3000)
 	@echo "$(GREEN)Starting Wotori development server...$(NC)"
+	cd apps/wotori && pnpm dev
+
+media: ## Serve Wotori DJ case media (images/video) on port 8788
+	@echo "$(GREEN)Serving media from $(MEDIA_DIR) on http://localhost:$(MEDIA_PORT)$(NC)"
+	@if [ ! -d "$(MEDIA_DIR)" ]; then \
+		echo "$(RED)Media dir not found: $(MEDIA_DIR)$(NC)"; exit 1; \
+	fi
+	@lsof -ti:$(MEDIA_PORT) 2>/dev/null | xargs kill -9 2>/dev/null || true
+	cd "$(MEDIA_DIR)" && python3 -m http.server $(MEDIA_PORT)
+
+dev-wotori-demo: ## Start Wotori app (3000) + DJ media server (8788) together
+	@echo "$(GREEN)Starting media server in background...$(NC)"
+	@lsof -ti:$(MEDIA_PORT) 2>/dev/null | xargs kill -9 2>/dev/null || true
+	@cd "$(MEDIA_DIR)" && (python3 -m http.server $(MEDIA_PORT) >/tmp/wotori-media.log 2>&1 &) || true
+	@echo "$(YELLOW)Media:  http://localhost:$(MEDIA_PORT)$(NC)"
+	@echo "$(YELLOW)Wotori: http://localhost:3000$(NC)"
+	@lsof -ti:3000 2>/dev/null | xargs kill -9 2>/dev/null || true
 	cd apps/wotori && pnpm dev
 
 dev-ekza: ## Start only Ekza app (port 3001)

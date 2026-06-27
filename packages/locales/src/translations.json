@@ -1,6 +1,10 @@
 {
   "defaultLanguage": "en",
-  "supportedLanguages": ["en", "ru", "zh"],
+  "supportedLanguages": [
+    "en",
+    "ru",
+    "zh"
+  ],
   "languageLabels": {
     "en": "EN",
     "ru": "RU",
@@ -85,6 +89,68 @@
             "telegram": "Telegram",
             "email": "Email"
           }
+        },
+        "studio": {
+          "hero": {
+            "eyebrow": "Creative & web3 studio — open for projects",
+            "titleA": "Wotori",
+            "titleB": "Studio",
+            "tag": "We build worlds brands get seen and heard in.",
+            "lede": "Web3 products, websites and avatars — crafted with modern tooling that ships faster and costs less. For creators and new brands who refuse to blend in.",
+            "ctaPrimary": "Start a project",
+            "ctaSecondary": "See the work",
+            "navStudio": "Studio",
+            "navServices": "Services",
+            "navWork": "Work"
+          },
+          "manifesto": {
+            "index": "(01) — The studio",
+            "statement": "A small senior team that turns ambitious ideas into products people remember — using modern tooling to move at a speed agencies can’t.",
+            "meta": "We partner with creators and emerging brands to design, build and ship across web, web3 and real-time 3D — end to end, no handoffs.",
+            "stat1Metric": "10×",
+            "stat1Label": "faster iterations",
+            "stat2Metric": "1 team",
+            "stat2Label": "design + build + ship",
+            "stat3Metric": "web3-native",
+            "stat3Label": "ownership built in"
+          },
+          "services": {
+            "index": "(02) — What we do",
+            "heading": "Four ways we make brands unmistakable.",
+            "s1Title": "Web3 products",
+            "s1Body": "Token economies, on-chain ownership, wallets and dApps — and the interfaces that make them usable for real people.",
+            "s2Title": "Websites & landings",
+            "s2Body": "Expressive, fast sites that turn first-time visitors into believers — from a single hero page to a full marketing system.",
+            "s3Title": "Avatars & 3D",
+            "s3Body": "Game-ready avatars, voxel worlds and real-time 3D for the browser. Identity and atmosphere your audience remembers.",
+            "s4Title": "AI-accelerated delivery",
+            "s4Body": "Modern tooling and AI woven through the pipeline — so production runs faster, leaner and far cheaper than a classic agency."
+          },
+          "work": {
+            "index": "(03) — Selected work",
+            "heading": "Products we’ve designed, built and shipped.",
+            "filterAll": "All",
+            "filterWeb": "Web",
+            "filterDesign": "Design",
+            "filterAnimation": "Animation",
+            "filterGames": "Games",
+            "djBody": "An original DJ character brought to life with AI — concept, high-res renders and a generated performance reel. Open the case to view the demos.",
+            "ekzaBody": "A collaboration and monetization ecosystem for 3D assets — GitHub for 3D artists, where creators co-build reusable assets and keep ownership.",
+            "charBody": "End-to-end character design — from concept and look-dev to a rigged, game-ready 3D avatar with its own personality and motion set.",
+            "vidBody": "A generative 3D pipeline turning prompts and reference assets into fully rendered motion clips — cinematic output at a fraction of the time and cost.",
+            "omobaBody": "An open MOBA where players bring custom avatars and game-ready assets — proof that creator assets can move from design to live gameplay.",
+            "opusBody": "A social network for musicians to publish live performances and connect with audiences, built for direct creator visibility.",
+            "caseMeta": "Character design · AI generation · generated reel — 2026",
+            "caseDesc": "A fully realized DJ character — concept, look-dev, high-res AI-generated stills and a generated performance reel. Built fast with a modern generative pipeline.",
+            "pianoBody": "A browser piano with built-in lessons — listen to Bach, then learn to play it hands-on with a connected MIDI keyboard and live note guidance."
+          },
+          "contact": {
+            "index": "(04) — Let’s build",
+            "titleA": "Have a brand, a product,",
+            "titleB": "or a wild idea?",
+            "lede": "Tell us what you want the world to see. We’ll help you ship it — fast."
+          },
+          "footer": "built with modern tooling"
         }
       },
       "ekza": {
@@ -239,6 +305,68 @@
             "telegram": "Telegram",
             "email": "Email"
           }
+        },
+        "studio": {
+          "hero": {
+            "eyebrow": "Креативная и web3 студия — открыты для проектов",
+            "titleA": "Wotori",
+            "titleB": "Studio",
+            "tag": "Создаём миры, где бренды становятся заметными и услышанными.",
+            "lede": "Web3-продукты, сайты и аватары — на современных инструментах: быстрее и дешевле. Для креаторов и новых брендов, которые не хотят сливаться с толпой.",
+            "ctaPrimary": "Начать проект",
+            "ctaSecondary": "Смотреть работы",
+            "navStudio": "Студия",
+            "navServices": "Услуги",
+            "navWork": "Работы"
+          },
+          "manifesto": {
+            "index": "(01) — Студия",
+            "statement": "Небольшая сильная команда превращает смелые идеи в продукты, которые запоминают — на современных инструментах, со скоростью, недоступной агентствам.",
+            "meta": "Работаем с креаторами и молодыми брендами: дизайн, разработка и запуск в web, web3 и real-time 3D — под ключ, без передачи между подрядчиками.",
+            "stat1Metric": "10×",
+            "stat1Label": "быстрее итерации",
+            "stat2Metric": "1 команда",
+            "stat2Label": "дизайн + разработка + запуск",
+            "stat3Metric": "web3-native",
+            "stat3Label": "владение встроено"
+          },
+          "services": {
+            "index": "(02) — Что мы делаем",
+            "heading": "Четыре способа сделать бренд узнаваемым.",
+            "s1Title": "Web3-продукты",
+            "s1Body": "Токеномика, on-chain владение, кошельки и dApps — и интерфейсы, понятные обычным людям.",
+            "s2Title": "Сайты и лендинги",
+            "s2Body": "Выразительные быстрые сайты, превращающие посетителей в фанатов — от одного hero-экрана до полной маркетинговой системы.",
+            "s3Title": "Аватары и 3D",
+            "s3Body": "Game-ready аватары, воксельные миры и real-time 3D в браузере. Узнаваемость и атмосфера, которые запоминаются.",
+            "s4Title": "Ускорение на ИИ",
+            "s4Body": "Современные инструменты и ИИ на каждом этапе — производство быстрее, легче и дешевле классического агентства."
+          },
+          "work": {
+            "index": "(03) — Избранные работы",
+            "heading": "Продукты, которые мы спроектировали, собрали и запустили.",
+            "filterAll": "Все",
+            "filterWeb": "Web",
+            "filterDesign": "Дизайн",
+            "filterAnimation": "Анимация",
+            "filterGames": "Игры",
+            "djBody": "Оригинальный DJ-персонаж, созданный с помощью ИИ — концепт, изображения в высоком разрешении и сгенерированный ролик. Откройте кейс с демо.",
+            "ekzaBody": "Экосистема для совместной работы и монетизации 3D-ассетов — GitHub для 3D-художников: создавайте переиспользуемые ассеты и сохраняйте права.",
+            "charBody": "Создание персонажа под ключ — от концепта и look-dev до риг-готового 3D-аватара с характером и набором движений.",
+            "vidBody": "Генеративный 3D-пайплайн: из промптов и референсов — готовые отрендеренные ролики. Кинематографично, за долю времени и бюджета.",
+            "omobaBody": "Открытая MOBA, куда игроки приносят свои аватары и game-ready ассеты — доказательство, что ассеты креаторов доходят до живого геймплея.",
+            "opusBody": "Соцсеть для музыкантов: публикуйте живые выступления и находите аудиторию. Прямая видимость для авторов.",
+            "caseMeta": "Дизайн персонажа · ИИ-генерация · сгенерированный ролик — 2026",
+            "caseDesc": "Полностью проработанный DJ-персонаж — концепт, look-dev, ИИ-генерация изображений в высоком разрешении и сгенерированный ролик. Быстро, на современном генеративном пайплайне.",
+            "pianoBody": "Фортепиано в браузере с обучением — послушайте Баха и учитесь играть на подключённой MIDI-клавиатуре с подсказками по нотам в реальном времени."
+          },
+          "contact": {
+            "index": "(04) — Давайте создадим",
+            "titleA": "Есть бренд, продукт",
+            "titleB": "или дерзкая идея?",
+            "lede": "Расскажите, каким мир должен вас увидеть. Поможем запустить — быстро."
+          },
+          "footer": "собрано на современных инструментах"
         }
       },
       "ekza": {
@@ -393,6 +521,68 @@
             "telegram": "Telegram",
             "email": "Email"
           }
+        },
+        "studio": {
+          "hero": {
+            "eyebrow": "创意与 web3 工作室 — 正在接受新项目",
+            "titleA": "Wotori",
+            "titleB": "Studio",
+            "tag": "我们打造让品牌被看见、被听见的世界。",
+            "lede": "Web3 产品、网站与虚拟形象 — 用现代工具打造，更快更省。为不愿随波逐流的创作者和新品牌而生。",
+            "ctaPrimary": "开始项目",
+            "ctaSecondary": "查看作品",
+            "navStudio": "工作室",
+            "navServices": "服务",
+            "navWork": "作品"
+          },
+          "manifesto": {
+            "index": "(01) — 工作室",
+            "statement": "一支精干的资深团队，把大胆的想法变成令人难忘的产品 — 用现代工具，以代理公司难以企及的速度。",
+            "meta": "我们与创作者和新兴品牌合作，在 web、web3 与实时 3D 上完成设计、开发与上线 — 端到端，无交接。",
+            "stat1Metric": "10×",
+            "stat1Label": "更快迭代",
+            "stat2Metric": "1 个团队",
+            "stat2Label": "设计 + 开发 + 上线",
+            "stat3Metric": "web3 原生",
+            "stat3Label": "内置所有权"
+          },
+          "services": {
+            "index": "(02) — 我们做什么",
+            "heading": "四种方式，让品牌无可替代。",
+            "s1Title": "Web3 产品",
+            "s1Body": "代币经济、链上所有权、钱包与 dApp — 以及让普通人也能用的界面。",
+            "s2Title": "网站与落地页",
+            "s2Body": "富有表现力的高速网站，把首次访客变成信徒 — 从单个 hero 页面到完整营销体系。",
+            "s3Title": "虚拟形象与 3D",
+            "s3Body": "可用于游戏的虚拟形象、体素世界与浏览器实时 3D。让受众记住的身份与氛围。",
+            "s4Title": "AI 加速交付",
+            "s4Body": "现代工具与 AI 贯穿流程 — 生产更快、更精简，远低于传统代理成本。"
+          },
+          "work": {
+            "index": "(03) — 精选作品",
+            "heading": "我们设计、构建并上线的产品。",
+            "filterAll": "全部",
+            "filterWeb": "Web",
+            "filterDesign": "设计",
+            "filterAnimation": "动画",
+            "filterGames": "游戏",
+            "djBody": "用 AI 打造的原创 DJ 角色 — 概念、高清生成图与生成的演出短片。打开案例查看演示。",
+            "ekzaBody": "面向 3D 资产的协作与变现生态 — 3D 艺术家的 GitHub：共建可复用资产并保留所有权。",
+            "charBody": "端到端角色设计 — 从概念、look-dev 到可用于游戏、带绑定的 3D 虚拟形象，拥有独特个性与动作。",
+            "vidBody": "生成式 3D 流程：将提示词与参考资产转化为完整渲染的动态短片 — 以极少的时间和成本实现电影级效果。",
+            "omobaBody": "一款开放 MOBA，玩家可带入自定义虚拟形象与可用于游戏的资产 — 证明创作者资产能走向实时游戏。",
+            "opusBody": "面向音乐人的社交网络：发布现场演出并连接观众，为创作者提供直接曝光。",
+            "caseMeta": "角色设计 · AI 生成 · 生成短片 — 2026",
+            "caseDesc": "一个完整呈现的 DJ 角色 — 概念、look-dev、高清 AI 生成图与生成的演出短片。基于现代生成式流程，快速完成。",
+            "pianoBody": "浏览器钢琴，内置教学 — 聆听巴赫，并用连接的 MIDI 键盘配合实时音符提示亲手学习演奏。"
+          },
+          "contact": {
+            "index": "(04) — 一起创造",
+            "titleA": "有品牌、有产品，",
+            "titleB": "还是天马行空的想法？",
+            "lede": "告诉我们你想让世界看到什么。我们帮你快速上线。"
+          },
+          "footer": "以现代工具打造"
         }
       },
       "ekza": {
