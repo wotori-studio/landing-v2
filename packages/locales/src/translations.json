@@ -224,6 +224,406 @@
           "telegram": "Telegram",
           "creditText": "Created and backed by",
           "creditLabel": "Wotori Studio"
+        },
+        "v2": {
+          "hero": {
+            "eyebrow": "Solana-native 3D ownership protocol",
+            "headline": "Own your worlds, on-chain.",
+            "subhead": "Ekza Space turns virtual rooms, scenes, and arenas into a finite collection of numbered Spaces — each a 1/1 NFT with live, on-chain settings you control.",
+            "description": "Mint a numbered Space, point it at an IPFS scene manifest, and open it to the world. Ownership is proven by the NFT; the world is described by the PDA. Built for games, virtual worlds, and Ekza Arena.",
+            "footer": "Creator-owned infrastructure for web3 worlds",
+            "buttons": {
+              "joinWaitlist": "Join Waitlist",
+              "openApp": "Open App",
+              "readDocs": "View the Program"
+            },
+            "builtBy": "Built by Wotori Studio · Live on Solana devnet"
+          },
+          "whatIsSpace": {
+            "eyebrow": "The primitive",
+            "headline": "A Space is more than an image NFT.",
+            "subcopy": "Each Space is two things working together: a 1/1 Metaplex NFT that proves who owns it, and a Solana PDA that stores the live settings and a link to the scene. Transfer the NFT, transfer the world.",
+            "nft": {
+              "title": "The NFT — proof of ownership",
+              "body": "A single 1/1 token. Mint authority is revoked at mint, so supply can never be inflated. Holding it is what authorizes every settings change."
+            },
+            "pda": {
+              "title": "The PDA — the live world",
+              "body": "On-chain settings — name, open/closed, editability, editor allowlist — plus space_config_uri, an IPFS manifest describing the scene, spawn point, and the assets loaded into it."
+            },
+            "fieldsLabel": "From the on-chain Space account"
+          },
+          "howItWorks": {
+            "eyebrow": "How it works",
+            "headline": "Mint it. Configure it. Use it anywhere.",
+            "step1": {
+              "title": "Mint the next Space",
+              "body": "Call mint_next_space and you receive Space #N — the next ID in the collection. SOL goes to the treasury, a 1/1 NFT lands in your wallet, mint authority is revoked, and the Space PDA is created. A SpaceMinted event fires on-chain."
+            },
+            "step2": {
+              "title": "Configure your world",
+              "body": "As the NFT holder, set the name, flip is_open and is_editable_by_others, and point space_config_uri at an IPFS manifest with your scene, spawn point, and assets. Add up to 10 collaborators to the editor allowlist."
+            },
+            "step3": {
+              "title": "Open it and use it",
+              "body": "Open Spaces can be entered by others and loaded into games and virtual worlds. Editors — or anyone, when shared editing is on — can update the live room state, so worlds evolve without giving up ownership."
+            }
+          },
+          "primitives": {
+            "eyebrow": "Why it's built this way",
+            "headline": "On-chain by design.",
+            "finite": {
+              "title": "Finite collection",
+              "body": "Supply is capped on-chain by total_spaces. Every Space is numbered 1..=N — verifiable, scarce, and never duplicated."
+            },
+            "ownership": {
+              "title": "True ownership",
+              "body": "A 1/1 NFT with mint authority revoked. Possession of the token is the only key to editing the Space."
+            },
+            "configurable": {
+              "title": "Configurable worlds",
+              "body": "Settings live in a PDA, not in a frozen JSON. Rename, open, close, and re-point the scene manifest at any time."
+            },
+            "collaboration": {
+              "title": "Collaboration built in",
+              "body": "is_editable_by_others plus a 10-slot editor allowlist let teams co-build a world while one wallet keeps authoritative ownership."
+            },
+            "portable": {
+              "title": "Portable scenes",
+              "body": "space_config_uri points to an IPFS manifest (ekza.space.config.v1) describing scene, spawn, and assets — loadable by any compatible runtime."
+            },
+            "events": {
+              "title": "Verifiable events",
+              "body": "Every mint and settings change emits an on-chain event (SpaceMinted, SpaceSettingsUpdated, ConfigUpdated) — fully indexable."
+            }
+          },
+          "arena": {
+            "eyebrow": "In the game",
+            "headline": "Spaces become arenas.",
+            "subcopy": "Ekza Arena is a composable-avatar auto-battler built on the Ekza asset layer. Players bring creator-owned avatars and modifiers; Spaces serve as the rooms and arenas they play in — all resolved through the same ownership and manifest path.",
+            "avatars": {
+              "title": "Composable avatars",
+              "body": "Base avatars plus mintable modifiers are equipped slot-by-slot, drawn from creator-published assets."
+            },
+            "cards": {
+              "title": "Creator-owned cards",
+              "body": "An on-chain Arena registry publishes finalized Stellar releases into Arena-owned card records, so creator assets flow into the game."
+            },
+            "bridge": {
+              "title": "Shared asset bridge",
+              "body": "ekza-bevy-sdk gives the game stable character IDs and model manifests, keeping assets reusable across products."
+            },
+            "statusNote": "Ekza Arena is an early Bevy prototype. NFT mint and equip are on the roadmap."
+          },
+          "developers": {
+            "eyebrow": "For developers",
+            "headline": "An open Anchor program on Solana.",
+            "subcopy": "No black box. solana_ekza_space is an open Anchor program with four instructions, two PDAs, and emitted events you can index. Resolve ownership, fetch settings, load the scene.",
+            "initConfig": "Create the global Config PDA: total_spaces, price, treasury, optional collection mint.",
+            "updateConfig": "Authority-gated: update mint price and treasury.",
+            "mintNextSpace": "Mint the next Space NFT + PDA; pay the treasury; emit SpaceMinted.",
+            "updateSpaceSettings": "NFT-gated: update name, flags, editors, and the scene URI.",
+            "cta": "Read the program on GitHub",
+            "programIdLabel": "Program ID",
+            "copy": "Copy",
+            "copied": "Copied",
+            "verified": "Verified on devnet"
+          },
+          "ecosystem": {
+            "eyebrow": "The ecosystem",
+            "headline": "One asset layer, many surfaces.",
+            "subcopy": "Spaces are one product surface on a shared Solana ownership layer. The same assets power avatars, collaborative releases, and games.",
+            "statusNote": "Early alpha. Running on devnet.",
+            "credit": "Created and backed by Wotori Studio",
+            "projects": {
+              "stellar": "The collaboration layer: universes, typed assets, lineage, releases, vaults, and contributor revenue shares.",
+              "avatar": "Portable, mintable 3D identities with Solana-native ownership, linkable to finalized Stellar releases.",
+              "space": "Numbered, NFT-owned virtual rooms and arenas with mutable on-chain settings."
+            }
+          },
+          "partners": {
+            "label": "Built on Ekza",
+            "heading": "Omoba",
+            "badge": "Built on Ekza",
+            "description": "Open MOBA from Wotori Studio — players bring custom avatars and game-ready assets, running end-to-end on Ekza infrastructure."
+          },
+          "cta": {
+            "headline": "Claim a Space before they're gone.",
+            "subcopy": "The collection is finite. Join the waitlist to mint early and follow the build.",
+            "joinWaitlist": "Join Waitlist",
+            "discord": "Discord",
+            "x": "X",
+            "telegram": "Telegram"
+          },
+          "factStrip": {
+            "items": "Finite supply|1/1 NFT|Mint authority revoked|On-chain settings|IPFS scenes|Open Anchor program"
+          },
+          "problem": {
+            "eyebrow": "The problem",
+            "headline": "Creators lose their worlds the moment they export a file.",
+            "subcopy": "A 3D world ships into a game or platform and the creator's claim to it disappears — no portable proof of ownership, no control over how it's used, no record that travels with the work. Engines lock it in. Marketplaces flatten it into a static file. The world stops being yours.",
+            "beats": {
+              "ownership": {
+                "title": "No portable ownership",
+                "body": "Once exported, a world has no on-chain owner. Possession lives wherever the file landed."
+              },
+              "frozen": {
+                "title": "Frozen, not configurable",
+                "body": "Most 3D NFTs are a static link. The world can't be opened, renamed, or evolved without re-minting."
+              },
+              "entered": {
+                "title": "Not built to be entered",
+                "body": "A picture of a world isn't a world. Nothing makes it loadable, playable, or co-editable."
+              }
+            },
+            "transition": "Ekza Space fixes the ownership layer first."
+          },
+          "credibility": {
+            "eyebrow": "Don't trust — verify",
+            "headline": "It's real, it's on-chain, and it's open.",
+            "subcopy": "Ekza Space runs as an open Anchor program on Solana. Read the source, inspect the account, follow the build.",
+            "openSource": {
+              "title": "Open source",
+              "body": "Three Anchor programs — solana-stellar (collaboration & revenue), solana-ekza-space (numbered Spaces), solana-avatars (portable identity). Read every line on GitHub.",
+              "link": "View on GitHub"
+            },
+            "onChain": {
+              "title": "On-chain & verifiable",
+              "body": "Program 2WtuXG6A…fMQEH is live on Solana devnet. Inspect the Config and Space accounts yourself — ownership and settings are public state.",
+              "link": "Inspect on Solana Explorer"
+            },
+            "builtInOpen": {
+              "title": "Built in the open",
+              "body": "Created and backed by Wotori Studio, in development since 2019, with Omoba building on top. Live on devnet today; mainnet on the roadmap.",
+              "link": "Wotori Studio"
+            },
+            "statusRibbon": "Status: early alpha — live on Solana devnet. Mainnet on the roadmap.",
+            "roadmap": {
+              "now": {
+                "title": "Now",
+                "body": "Space minting & settings stable; avatar ownership live on devnet."
+              },
+              "next": {
+                "title": "Next",
+                "body": "Asset Passport (ekza.asset.passport.v1), public Space pages, consolidated TypeScript SDK."
+              },
+              "later": {
+                "title": "Later",
+                "body": "Marketplace, license checkout, creator royalties & profit-sharing dashboards."
+              }
+            }
+          },
+          "nav": {
+            "universe": "Universe",
+            "protocol": "Protocol",
+            "developers": "Developers",
+            "app": "App",
+            "reserve": "Reserve your Space"
+          },
+          "home": {
+            "hero": {
+              "eyebrow": "A universe of collective creation",
+              "headline": "A universe, built together.",
+              "subhead": "Ekza is a world made by its creators. Stellar lets you create and own what you make; Ekza Space is where it comes alive — numbered 3D places you hold on-chain and fill with what the community builds.",
+              "description": "The dream is a Minecraft- and Roblox-scale world built out of users' creativity. Today you can own the first piece of it: a numbered Space on Solana, provably yours.",
+              "footerLeft": "Built by Wotori Studio · Live on Solana devnet",
+              "footerCenter": "Create on Stellar · Own a Space · Meet in 3D",
+              "buttons": {
+                "reserve": "Reserve your Space",
+                "howItWorks": "See how it works",
+                "developers": "For developers"
+              }
+            },
+            "factStrip": {
+              "items": "Built together|Creator-owned|Finite collection|1/1 NFT|On-chain settings|Open Anchor program|Live on devnet"
+            },
+            "howPiecesFit": {
+              "eyebrow": "How the pieces fit",
+              "headline": "Create it. Own it. Bring it to life.",
+              "subcopy": "Three layers, one universe. Each does one job, and they connect end-to-end.",
+              "step1": {
+                "title": "Stellar — create together",
+                "body": "Make assets with others — a house, a cat, an avatar. Every contribution keeps its lineage and its share of future revenue. (The protocol of collective creation.)",
+                "link": "Explore the protocol"
+              },
+              "step2": {
+                "title": "Space — own a place",
+                "body": "Mint a numbered Space and it's provably yours: a 1/1 NFT plus on-chain settings you control. Fill it with Stellar-made NFTs.",
+                "link": "Reserve a Space"
+              },
+              "step3": {
+                "title": "Avatars & Arena — meet and play",
+                "body": "Open your Space and avatars enter. The same assets load into Ekza Arena, our composable-avatar game. The world comes alive.",
+                "badge": "Roadmap — early prototype"
+              }
+            },
+            "spaceOffer": {
+              "eyebrow": "Own the first piece",
+              "headline": "Claim a numbered Space.",
+              "subcopy": "The collection is finite. Each Space is a 1/1 NFT on Solana with live, on-chain settings you control — a place you own, fill, and open. Reserve yours now to mint early and fund the build.",
+              "bullet1": "Provably yours — a 1/1 NFT, mint authority revoked, so supply can never be inflated.",
+              "bullet2": "Yours to shape — rename it, open it, and point it at your scene whenever you want.",
+              "bullet3": "First in line — reserve now to mint from the genesis batch and follow the build.",
+              "cta": "Reserve your Space",
+              "microcopy": "Early alpha on Solana devnet. No payment today — reserving holds your place in the genesis batch.",
+              "secondary": "What exactly do I own?"
+            },
+            "whyOwn": {
+              "eyebrow": "What you own",
+              "headline": "More than an image NFT.",
+              "subcopy": "A Space is two things working together: a 1/1 NFT that proves who owns it, and on-chain settings that make the world yours to shape. Transfer the NFT, transfer the world.",
+              "link": "See all six primitives + the full mechanics"
+            },
+            "roadmap": {
+              "eyebrow": "The trajectory",
+              "headline": "Own the place now. The world comes next.",
+              "now": {
+                "badge": "Live on devnet",
+                "title": "Now",
+                "body": "Mint and configure a numbered Space on Solana. Create assets on Stellar with lineage and revenue shares."
+              },
+              "next": {
+                "badge": "In build",
+                "title": "Next",
+                "body": "The 3D world where Spaces come alive — drop in your NFTs, customize, and let avatars meet."
+              },
+              "later": {
+                "badge": "The dream",
+                "title": "Later",
+                "body": "A Minecraft/Roblox-scale universe built entirely out of users' creativity."
+              },
+              "footnote": "Honest status: early alpha on Solana devnet. We're raising to build full-time — owning a Space funds it."
+            },
+            "finalCta": {
+              "headline": "Claim your place in the universe.",
+              "subcopy": "The collection is finite. Reserve a Space to mint from the genesis batch and follow the build — or join the newsletter for the next drop.",
+              "cta": "Reserve your Space"
+            },
+            "liveWorld": {
+              "eyebrow": "See it live",
+              "headline": "Step inside the world.",
+              "subcopy": "Ekza Space runs in your browser — real-time 3D where owned places and creator-made assets come together. This is an early prototype on devnet.",
+              "cta": "Enter the live world",
+              "ctaMobile": "Open the live world",
+              "note": "Loads space.ekza.io · early alpha on Solana devnet",
+              "close": "Close live world",
+              "loading": "Loading the live world…",
+              "openTab": "Open in a new tab"
+            }
+          },
+          "protocol": {
+            "hero": {
+              "eyebrow": "Stellar — the protocol of collective creation",
+              "headline": "Create together. Own forever.",
+              "subhead": "Stellar is the protocol behind Ekza: a way to make creative work as a group where every contribution keeps its provenance and its share of the upside. Built on Solana, designed to be used far beyond Ekza.",
+              "btnReserve": "Reserve a Space",
+              "btnPrograms": "Read the programs",
+              "footerLeft": "Stellar · solana_stellar on Solana devnet",
+              "footerCenter": "Universe · Assets · Lineage · Releases · Vaults · Revenue shares"
+            },
+            "thesis": {
+              "eyebrow": "The thesis",
+              "headline": "Creative work should compound — and the people who made it should keep owning it.",
+              "body": "Most creative pipelines erase the contributor. You make something, it gets used, and the value flows past you. Stellar inverts that: contributions are typed and tracked, lineage records who built on what, and revenue shares follow the chain of creation. Your work stays yours, and it keeps earning as others build on it.",
+              "quote": "\"Do not lose rights to your work. Plug into a system where your contribution lives on and generates income forever.\""
+            },
+            "creationFlow": {
+              "eyebrow": "The flow",
+              "headline": "From idea to income.",
+              "step1": {
+                "title": "Create",
+                "body": "Make a typed asset — a model, a texture, an avatar part — on your own or with collaborators."
+              },
+              "step2": {
+                "title": "Lineage",
+                "body": "Every asset records its provenance: what it was built from and who contributed. The chain of creation is permanent."
+              },
+              "step3": {
+                "title": "Releases",
+                "body": "Bundle finalized work into releases — versioned, shareable outputs ready to load into games and worlds."
+              },
+              "step4": {
+                "title": "Vaults",
+                "body": "Each release owns an on-chain vault PDA that custodies deposited lamports and the rules around them."
+              },
+              "step5": {
+                "title": "Revenue shares",
+                "body": "Contributors hold basis-point shares; revenue deposited to a finalized release is claimed pro-rata down the lineage."
+              }
+            },
+            "spaceDeep": {
+              "eyebrow": "The Space primitive",
+              "headline": "What a Space really is.",
+              "subcopy": "Stellar is where assets are created; a Space is where they live. Here's the full mechanics of the place you own."
+            },
+            "beyond": {
+              "eyebrow": "Not just for Ekza",
+              "headline": "A creation layer any world can build on.",
+              "body": "Stellar isn't locked to Ekza. The same protocol — typed assets, lineage, releases, vaults, revenue shares — can power other games, engines, and apps. Ekza is the first universe built on it, not the only one. That portability is the point: create once, own everywhere.",
+              "point1": "Open Anchor programs on Solana",
+              "point2": "Standard manifests any runtime can load",
+              "point3": "Ownership and royalties that travel with the asset"
+            },
+            "cta": {
+              "headline": "Own a piece of the universe.",
+              "subcopy": "Stellar is the engine; a Space is how you own your place in it. Reserve yours now.",
+              "primary": "Reserve your Space",
+              "secondary": "For developers"
+            }
+          },
+          "dev": {
+            "hero": {
+              "eyebrow": "For developers",
+              "headline": "Open Anchor programs on Solana.",
+              "subhead": "No black box. Ekza's on-chain layer is a set of open Anchor programs with deterministic PDAs and emitted events you can index. Resolve ownership, fetch settings, load the scene.",
+              "btnGithub": "View on GitHub",
+              "btnReserve": "Reserve a Space",
+              "footerLeft": "Open source · Solana devnet",
+              "footerCenter": "solana_ekza_space · solana_stellar · solana-ekza-arena"
+            },
+            "programs": {
+              "eyebrow": "The on-chain layer",
+              "headline": "Three programs, one ownership model.",
+              "space": {
+                "name": "solana_ekza_space",
+                "body": "Numbered, finite Space NFTs plus on-chain settings PDAs you control."
+              },
+              "stellar": {
+                "name": "solana_stellar",
+                "body": "Collaboration, asset lineage, releases, vaults, and contributor revenue shares."
+              },
+              "arena": {
+                "name": "solana-ekza-arena",
+                "body": "Publishes finalized Stellar releases into Arena-owned card records for the game."
+              }
+            },
+            "stellar": {
+              "eyebrow": "For developers",
+              "headline": "Stellar — collaborative asset universes.",
+              "subcopy": "solana_stellar is an open Anchor program: open a universe, register typed assets, connect them into a lineage graph, finalize releases with vaults, and split revenue by basis points down the chain.",
+              "createUniverse": "Open a collaborative universe that holds typed assets and releases.",
+              "createAsset": "Register a typed asset and connect it into the lineage graph with add_asset_parent.",
+              "finalizeRelease": "Snapshot an approved asset into an immutable release with its own vault and contributor-share record.",
+              "depositRevenue": "Deposit lamports into a finalized release's vault for later distribution.",
+              "claimRevenue": "Contributors claim pro-rata by basis points (out of 10,000); claims are pull-based.",
+              "cta": "Read the program on GitHub"
+            },
+            "verify": {
+              "eyebrow": "Trust, but verify",
+              "headline": "Inspect every transaction on-chain.",
+              "body": "Mints and settings updates are real Solana devnet transactions. Look up the program, decode the PDAs, and watch the events on any Solana explorer.",
+              "chip1": "Network: Solana devnet",
+              "chip2": "Programs: open source",
+              "chip3": "Events: indexable",
+              "note": "Early alpha on devnet — addresses and metadata hosts may change before mainnet."
+            },
+            "githubCta": {
+              "headline": "Read the code.",
+              "subcopy": "Everything is open. Clone the programs, run them on devnet, and build on Ekza.",
+              "primary": "View on GitHub",
+              "secondary": "Reserve a Space"
+            }
+          }
         }
       }
     },
@@ -440,6 +840,406 @@
           "telegram": "Telegram",
           "creditText": "Создано и поддерживается",
           "creditLabel": "Wotori Studio"
+        },
+        "v2": {
+          "hero": {
+            "eyebrow": "Solana-native 3D ownership protocol",
+            "headline": "Own your worlds, on-chain.",
+            "subhead": "Ekza Space turns virtual rooms, scenes, and arenas into a finite collection of numbered Spaces — each a 1/1 NFT with live, on-chain settings you control.",
+            "description": "Mint a numbered Space, point it at an IPFS scene manifest, and open it to the world. Ownership is proven by the NFT; the world is described by the PDA. Built for games, virtual worlds, and Ekza Arena.",
+            "footer": "Creator-owned infrastructure for web3 worlds",
+            "buttons": {
+              "joinWaitlist": "Join Waitlist",
+              "openApp": "Open App",
+              "readDocs": "Read Docs"
+            },
+            "builtBy": "Built by Wotori Studio · Live on Solana devnet"
+          },
+          "whatIsSpace": {
+            "eyebrow": "The primitive",
+            "headline": "A Space is more than an image NFT.",
+            "subcopy": "Each Space is two things working together: a 1/1 Metaplex NFT that proves who owns it, and a Solana PDA that stores the live settings and a link to the scene. Transfer the NFT, transfer the world.",
+            "nft": {
+              "title": "The NFT — proof of ownership",
+              "body": "A single 1/1 token. Mint authority is revoked at mint, so supply can never be inflated. Holding it is what authorizes every settings change."
+            },
+            "pda": {
+              "title": "The PDA — the live world",
+              "body": "On-chain settings — name, open/closed, editability, editor allowlist — plus space_config_uri, an IPFS manifest describing the scene, spawn point, and the assets loaded into it."
+            },
+            "fieldsLabel": "From the on-chain Space account"
+          },
+          "howItWorks": {
+            "eyebrow": "How it works",
+            "headline": "Mint it. Configure it. Use it anywhere.",
+            "step1": {
+              "title": "Mint the next Space",
+              "body": "Call mint_next_space and you receive Space #N — the next ID in the collection. SOL goes to the treasury, a 1/1 NFT lands in your wallet, mint authority is revoked, and the Space PDA is created. A SpaceMinted event fires on-chain."
+            },
+            "step2": {
+              "title": "Configure your world",
+              "body": "As the NFT holder, set the name, flip is_open and is_editable_by_others, and point space_config_uri at an IPFS manifest with your scene, spawn point, and assets. Add up to 10 collaborators to the editor allowlist."
+            },
+            "step3": {
+              "title": "Open it and use it",
+              "body": "Open Spaces can be entered by others and loaded into games and virtual worlds. Editors — or anyone, when shared editing is on — can update the live room state, so worlds evolve without giving up ownership."
+            }
+          },
+          "primitives": {
+            "eyebrow": "Why it's built this way",
+            "headline": "On-chain by design.",
+            "finite": {
+              "title": "Finite collection",
+              "body": "Supply is capped on-chain by total_spaces. Every Space is numbered 1..=N — verifiable, scarce, and never duplicated."
+            },
+            "ownership": {
+              "title": "True ownership",
+              "body": "A 1/1 NFT with mint authority revoked. Possession of the token is the only key to editing the Space."
+            },
+            "configurable": {
+              "title": "Configurable worlds",
+              "body": "Settings live in a PDA, not in a frozen JSON. Rename, open, close, and re-point the scene manifest at any time."
+            },
+            "collaboration": {
+              "title": "Collaboration built in",
+              "body": "is_editable_by_others plus a 10-slot editor allowlist let teams co-build a world while one wallet keeps authoritative ownership."
+            },
+            "portable": {
+              "title": "Portable scenes",
+              "body": "space_config_uri points to an IPFS manifest (ekza.space.config.v1) describing scene, spawn, and assets — loadable by any compatible runtime."
+            },
+            "events": {
+              "title": "Verifiable events",
+              "body": "Every mint and settings change emits an on-chain event (SpaceMinted, SpaceSettingsUpdated, ConfigUpdated) — fully indexable."
+            }
+          },
+          "arena": {
+            "eyebrow": "In the game",
+            "headline": "Spaces become arenas.",
+            "subcopy": "Ekza Arena is a composable-avatar auto-battler built on the Ekza asset layer. Players bring creator-owned avatars and modifiers; Spaces serve as the rooms and arenas they play in — all resolved through the same ownership and manifest path.",
+            "avatars": {
+              "title": "Composable avatars",
+              "body": "Base avatars plus mintable modifiers are equipped slot-by-slot, drawn from creator-published assets."
+            },
+            "cards": {
+              "title": "Creator-owned cards",
+              "body": "An on-chain Arena registry publishes finalized Stellar releases into Arena-owned card records, so creator assets flow into the game."
+            },
+            "bridge": {
+              "title": "Shared asset bridge",
+              "body": "ekza-bevy-sdk gives the game stable character IDs and model manifests, keeping assets reusable across products."
+            },
+            "statusNote": "Ekza Arena is an early Bevy prototype. NFT mint and equip are on the roadmap."
+          },
+          "developers": {
+            "eyebrow": "For developers",
+            "headline": "An open Anchor program on Solana.",
+            "subcopy": "No black box. solana_ekza_space is an open Anchor program with four instructions, two PDAs, and emitted events you can index. Resolve ownership, fetch settings, load the scene.",
+            "initConfig": "Create the global Config PDA: total_spaces, price, treasury, optional collection mint.",
+            "updateConfig": "Authority-gated: update mint price and treasury.",
+            "mintNextSpace": "Mint the next Space NFT + PDA; pay the treasury; emit SpaceMinted.",
+            "updateSpaceSettings": "NFT-gated: update name, flags, editors, and the scene URI.",
+            "cta": "Read the program on GitHub",
+            "programIdLabel": "Program ID",
+            "copy": "Copy",
+            "copied": "Copied",
+            "verified": "Verified on devnet"
+          },
+          "ecosystem": {
+            "eyebrow": "The ecosystem",
+            "headline": "One asset layer, many surfaces.",
+            "subcopy": "Spaces are one product surface on a shared Solana ownership layer. The same assets power avatars, collaborative releases, and games.",
+            "statusNote": "Early alpha. Running on devnet.",
+            "credit": "Created and backed by Wotori Studio",
+            "projects": {
+              "stellar": "The collaboration layer: universes, typed assets, lineage, releases, vaults, and contributor revenue shares.",
+              "avatar": "Portable, mintable 3D identities with Solana-native ownership, linkable to finalized Stellar releases.",
+              "space": "Numbered, NFT-owned virtual rooms and arenas with mutable on-chain settings."
+            }
+          },
+          "partners": {
+            "label": "Built on Ekza",
+            "heading": "Omoba",
+            "badge": "Built on Ekza",
+            "description": "Open MOBA from Wotori Studio — players bring custom avatars and game-ready assets, running end-to-end on Ekza infrastructure."
+          },
+          "cta": {
+            "headline": "Claim a Space before they're gone.",
+            "subcopy": "The collection is finite. Join the waitlist to mint early and follow the build.",
+            "joinWaitlist": "Join Waitlist",
+            "discord": "Discord",
+            "x": "X",
+            "telegram": "Telegram"
+          },
+          "factStrip": {
+            "items": "Finite supply|1/1 NFT|Mint authority revoked|On-chain settings|IPFS scenes|Open Anchor program"
+          },
+          "problem": {
+            "eyebrow": "The problem",
+            "headline": "Creators lose their worlds the moment they export a file.",
+            "subcopy": "A 3D world ships into a game or platform and the creator's claim to it disappears — no portable proof of ownership, no control over how it's used, no record that travels with the work. Engines lock it in. Marketplaces flatten it into a static file. The world stops being yours.",
+            "beats": {
+              "ownership": {
+                "title": "No portable ownership",
+                "body": "Once exported, a world has no on-chain owner. Possession lives wherever the file landed."
+              },
+              "frozen": {
+                "title": "Frozen, not configurable",
+                "body": "Most 3D NFTs are a static link. The world can't be opened, renamed, or evolved without re-minting."
+              },
+              "entered": {
+                "title": "Not built to be entered",
+                "body": "A picture of a world isn't a world. Nothing makes it loadable, playable, or co-editable."
+              }
+            },
+            "transition": "Ekza Space fixes the ownership layer first."
+          },
+          "credibility": {
+            "eyebrow": "Don't trust — verify",
+            "headline": "It's real, it's on-chain, and it's open.",
+            "subcopy": "Ekza Space runs as an open Anchor program on Solana. Read the source, inspect the account, follow the build.",
+            "openSource": {
+              "title": "Open source",
+              "body": "Three Anchor programs — solana-stellar (collaboration & revenue), solana-ekza-space (numbered Spaces), solana-avatars (portable identity). Read every line on GitHub.",
+              "link": "View on GitHub"
+            },
+            "onChain": {
+              "title": "On-chain & verifiable",
+              "body": "Program 2WtuXG6A…fMQEH is live on Solana devnet. Inspect the Config and Space accounts yourself — ownership and settings are public state.",
+              "link": "Inspect on Solana Explorer"
+            },
+            "builtInOpen": {
+              "title": "Built in the open",
+              "body": "Created and backed by Wotori Studio, in development since 2019, with Omoba building on top. Live on devnet today; mainnet on the roadmap.",
+              "link": "Wotori Studio"
+            },
+            "statusRibbon": "Status: early alpha — live on Solana devnet. Mainnet on the roadmap.",
+            "roadmap": {
+              "now": {
+                "title": "Now",
+                "body": "Space minting & settings stable; avatar ownership live on devnet."
+              },
+              "next": {
+                "title": "Next",
+                "body": "Asset Passport (ekza.asset.passport.v1), public Space pages, consolidated TypeScript SDK."
+              },
+              "later": {
+                "title": "Later",
+                "body": "Marketplace, license checkout, creator royalties & profit-sharing dashboards."
+              }
+            }
+          },
+          "nav": {
+            "universe": "Universe",
+            "protocol": "Protocol",
+            "developers": "Developers",
+            "app": "App",
+            "reserve": "Reserve your Space"
+          },
+          "home": {
+            "hero": {
+              "eyebrow": "A universe of collective creation",
+              "headline": "A universe, built together.",
+              "subhead": "Ekza is a world made by its creators. Stellar lets you create and own what you make; Ekza Space is where it comes alive — numbered 3D places you hold on-chain and fill with what the community builds.",
+              "description": "The dream is a Minecraft- and Roblox-scale world built out of users' creativity. Today you can own the first piece of it: a numbered Space on Solana, provably yours.",
+              "footerLeft": "Built by Wotori Studio · Live on Solana devnet",
+              "footerCenter": "Create on Stellar · Own a Space · Meet in 3D",
+              "buttons": {
+                "reserve": "Reserve your Space",
+                "howItWorks": "See how it works",
+                "developers": "For developers"
+              }
+            },
+            "factStrip": {
+              "items": "Built together|Creator-owned|Finite collection|1/1 NFT|On-chain settings|Open Anchor program|Live on devnet"
+            },
+            "howPiecesFit": {
+              "eyebrow": "How the pieces fit",
+              "headline": "Create it. Own it. Bring it to life.",
+              "subcopy": "Three layers, one universe. Each does one job, and they connect end-to-end.",
+              "step1": {
+                "title": "Stellar — create together",
+                "body": "Make assets with others — a house, a cat, an avatar. Every contribution keeps its lineage and its share of future revenue. (The protocol of collective creation.)",
+                "link": "Explore the protocol"
+              },
+              "step2": {
+                "title": "Space — own a place",
+                "body": "Mint a numbered Space and it's provably yours: a 1/1 NFT plus on-chain settings you control. Fill it with Stellar-made NFTs.",
+                "link": "Reserve a Space"
+              },
+              "step3": {
+                "title": "Avatars & Arena — meet and play",
+                "body": "Open your Space and avatars enter. The same assets load into Ekza Arena, our composable-avatar game. The world comes alive.",
+                "badge": "Roadmap — early prototype"
+              }
+            },
+            "spaceOffer": {
+              "eyebrow": "Own the first piece",
+              "headline": "Claim a numbered Space.",
+              "subcopy": "The collection is finite. Each Space is a 1/1 NFT on Solana with live, on-chain settings you control — a place you own, fill, and open. Reserve yours now to mint early and fund the build.",
+              "bullet1": "Provably yours — a 1/1 NFT, mint authority revoked, so supply can never be inflated.",
+              "bullet2": "Yours to shape — rename it, open it, and point it at your scene whenever you want.",
+              "bullet3": "First in line — reserve now to mint from the genesis batch and follow the build.",
+              "cta": "Reserve your Space",
+              "microcopy": "Early alpha on Solana devnet. No payment today — reserving holds your place in the genesis batch.",
+              "secondary": "What exactly do I own?"
+            },
+            "whyOwn": {
+              "eyebrow": "What you own",
+              "headline": "More than an image NFT.",
+              "subcopy": "A Space is two things working together: a 1/1 NFT that proves who owns it, and on-chain settings that make the world yours to shape. Transfer the NFT, transfer the world.",
+              "link": "See all six primitives + the full mechanics"
+            },
+            "roadmap": {
+              "eyebrow": "The trajectory",
+              "headline": "Own the place now. The world comes next.",
+              "now": {
+                "badge": "Live on devnet",
+                "title": "Now",
+                "body": "Mint and configure a numbered Space on Solana. Create assets on Stellar with lineage and revenue shares."
+              },
+              "next": {
+                "badge": "In build",
+                "title": "Next",
+                "body": "The 3D world where Spaces come alive — drop in your NFTs, customize, and let avatars meet."
+              },
+              "later": {
+                "badge": "The dream",
+                "title": "Later",
+                "body": "A Minecraft/Roblox-scale universe built entirely out of users' creativity."
+              },
+              "footnote": "Honest status: early alpha on Solana devnet. We're raising to build full-time — owning a Space funds it."
+            },
+            "finalCta": {
+              "headline": "Claim your place in the universe.",
+              "subcopy": "The collection is finite. Reserve a Space to mint from the genesis batch and follow the build — or join the newsletter for the next drop.",
+              "cta": "Reserve your Space"
+            },
+            "liveWorld": {
+              "eyebrow": "See it live",
+              "headline": "Step inside the world.",
+              "subcopy": "Ekza Space runs in your browser — real-time 3D where owned places and creator-made assets come together. This is an early prototype on devnet.",
+              "cta": "Enter the live world",
+              "ctaMobile": "Open the live world",
+              "note": "Loads space.ekza.io · early alpha on Solana devnet",
+              "close": "Close live world",
+              "loading": "Loading the live world…",
+              "openTab": "Open in a new tab"
+            }
+          },
+          "protocol": {
+            "hero": {
+              "eyebrow": "Stellar — the protocol of collective creation",
+              "headline": "Create together. Own forever.",
+              "subhead": "Stellar is the protocol behind Ekza: a way to make creative work as a group where every contribution keeps its provenance and its share of the upside. Built on Solana, designed to be used far beyond Ekza.",
+              "btnReserve": "Reserve a Space",
+              "btnPrograms": "Read the programs",
+              "footerLeft": "Stellar · solana_stellar on Solana devnet",
+              "footerCenter": "Universe · Assets · Lineage · Releases · Vaults · Revenue shares"
+            },
+            "thesis": {
+              "eyebrow": "The thesis",
+              "headline": "Creative work should compound — and the people who made it should keep owning it.",
+              "body": "Most creative pipelines erase the contributor. You make something, it gets used, and the value flows past you. Stellar inverts that: contributions are typed and tracked, lineage records who built on what, and revenue shares follow the chain of creation. Your work stays yours, and it keeps earning as others build on it.",
+              "quote": "\"Do not lose rights to your work. Plug into a system where your contribution lives on and generates income forever.\""
+            },
+            "creationFlow": {
+              "eyebrow": "The flow",
+              "headline": "From idea to income.",
+              "step1": {
+                "title": "Create",
+                "body": "Make a typed asset — a model, a texture, an avatar part — on your own or with collaborators."
+              },
+              "step2": {
+                "title": "Lineage",
+                "body": "Every asset records its provenance: what it was built from and who contributed. The chain of creation is permanent."
+              },
+              "step3": {
+                "title": "Releases",
+                "body": "Bundle finalized work into releases — versioned, shareable outputs ready to load into games and worlds."
+              },
+              "step4": {
+                "title": "Vaults",
+                "body": "Each release owns an on-chain vault PDA that custodies deposited lamports and the rules around them."
+              },
+              "step5": {
+                "title": "Revenue shares",
+                "body": "Contributors hold basis-point shares; revenue deposited to a finalized release is claimed pro-rata down the lineage."
+              }
+            },
+            "spaceDeep": {
+              "eyebrow": "The Space primitive",
+              "headline": "What a Space really is.",
+              "subcopy": "Stellar is where assets are created; a Space is where they live. Here's the full mechanics of the place you own."
+            },
+            "beyond": {
+              "eyebrow": "Not just for Ekza",
+              "headline": "A creation layer any world can build on.",
+              "body": "Stellar isn't locked to Ekza. The same protocol — typed assets, lineage, releases, vaults, revenue shares — can power other games, engines, and apps. Ekza is the first universe built on it, not the only one. That portability is the point: create once, own everywhere.",
+              "point1": "Open Anchor programs on Solana",
+              "point2": "Standard manifests any runtime can load",
+              "point3": "Ownership and royalties that travel with the asset"
+            },
+            "cta": {
+              "headline": "Own a piece of the universe.",
+              "subcopy": "Stellar is the engine; a Space is how you own your place in it. Reserve yours now.",
+              "primary": "Reserve your Space",
+              "secondary": "For developers"
+            }
+          },
+          "dev": {
+            "hero": {
+              "eyebrow": "For developers",
+              "headline": "Open Anchor programs on Solana.",
+              "subhead": "No black box. Ekza's on-chain layer is a set of open Anchor programs with deterministic PDAs and emitted events you can index. Resolve ownership, fetch settings, load the scene.",
+              "btnGithub": "View on GitHub",
+              "btnReserve": "Reserve a Space",
+              "footerLeft": "Open source · Solana devnet",
+              "footerCenter": "solana_ekza_space · solana_stellar · solana-ekza-arena"
+            },
+            "programs": {
+              "eyebrow": "The on-chain layer",
+              "headline": "Three programs, one ownership model.",
+              "space": {
+                "name": "solana_ekza_space",
+                "body": "Numbered, finite Space NFTs plus on-chain settings PDAs you control."
+              },
+              "stellar": {
+                "name": "solana_stellar",
+                "body": "Collaboration, asset lineage, releases, vaults, and contributor revenue shares."
+              },
+              "arena": {
+                "name": "solana-ekza-arena",
+                "body": "Publishes finalized Stellar releases into Arena-owned card records for the game."
+              }
+            },
+            "stellar": {
+              "eyebrow": "For developers",
+              "headline": "Stellar — collaborative asset universes.",
+              "subcopy": "solana_stellar is an open Anchor program: open a universe, register typed assets, connect them into a lineage graph, finalize releases with vaults, and split revenue by basis points down the chain.",
+              "createUniverse": "Open a collaborative universe that holds typed assets and releases.",
+              "createAsset": "Register a typed asset and connect it into the lineage graph with add_asset_parent.",
+              "finalizeRelease": "Snapshot an approved asset into an immutable release with its own vault and contributor-share record.",
+              "depositRevenue": "Deposit lamports into a finalized release's vault for later distribution.",
+              "claimRevenue": "Contributors claim pro-rata by basis points (out of 10,000); claims are pull-based.",
+              "cta": "Read the program on GitHub"
+            },
+            "verify": {
+              "eyebrow": "Trust, but verify",
+              "headline": "Inspect every transaction on-chain.",
+              "body": "Mints and settings updates are real Solana devnet transactions. Look up the program, decode the PDAs, and watch the events on any Solana explorer.",
+              "chip1": "Network: Solana devnet",
+              "chip2": "Programs: open source",
+              "chip3": "Events: indexable",
+              "note": "Early alpha on devnet — addresses and metadata hosts may change before mainnet."
+            },
+            "githubCta": {
+              "headline": "Read the code.",
+              "subcopy": "Everything is open. Clone the programs, run them on devnet, and build on Ekza.",
+              "primary": "View on GitHub",
+              "secondary": "Reserve a Space"
+            }
+          }
         }
       }
     },
@@ -656,6 +1456,406 @@
           "telegram": "Telegram",
           "creditText": "创建并支持方：",
           "creditLabel": "Wotori Studio"
+        },
+        "v2": {
+          "hero": {
+            "eyebrow": "Solana-native 3D ownership protocol",
+            "headline": "Own your worlds, on-chain.",
+            "subhead": "Ekza Space turns virtual rooms, scenes, and arenas into a finite collection of numbered Spaces — each a 1/1 NFT with live, on-chain settings you control.",
+            "description": "Mint a numbered Space, point it at an IPFS scene manifest, and open it to the world. Ownership is proven by the NFT; the world is described by the PDA. Built for games, virtual worlds, and Ekza Arena.",
+            "footer": "Creator-owned infrastructure for web3 worlds",
+            "buttons": {
+              "joinWaitlist": "Join Waitlist",
+              "openApp": "Open App",
+              "readDocs": "Read Docs"
+            },
+            "builtBy": "Built by Wotori Studio · Live on Solana devnet"
+          },
+          "whatIsSpace": {
+            "eyebrow": "The primitive",
+            "headline": "A Space is more than an image NFT.",
+            "subcopy": "Each Space is two things working together: a 1/1 Metaplex NFT that proves who owns it, and a Solana PDA that stores the live settings and a link to the scene. Transfer the NFT, transfer the world.",
+            "nft": {
+              "title": "The NFT — proof of ownership",
+              "body": "A single 1/1 token. Mint authority is revoked at mint, so supply can never be inflated. Holding it is what authorizes every settings change."
+            },
+            "pda": {
+              "title": "The PDA — the live world",
+              "body": "On-chain settings — name, open/closed, editability, editor allowlist — plus space_config_uri, an IPFS manifest describing the scene, spawn point, and the assets loaded into it."
+            },
+            "fieldsLabel": "From the on-chain Space account"
+          },
+          "howItWorks": {
+            "eyebrow": "How it works",
+            "headline": "Mint it. Configure it. Use it anywhere.",
+            "step1": {
+              "title": "Mint the next Space",
+              "body": "Call mint_next_space and you receive Space #N — the next ID in the collection. SOL goes to the treasury, a 1/1 NFT lands in your wallet, mint authority is revoked, and the Space PDA is created. A SpaceMinted event fires on-chain."
+            },
+            "step2": {
+              "title": "Configure your world",
+              "body": "As the NFT holder, set the name, flip is_open and is_editable_by_others, and point space_config_uri at an IPFS manifest with your scene, spawn point, and assets. Add up to 10 collaborators to the editor allowlist."
+            },
+            "step3": {
+              "title": "Open it and use it",
+              "body": "Open Spaces can be entered by others and loaded into games and virtual worlds. Editors — or anyone, when shared editing is on — can update the live room state, so worlds evolve without giving up ownership."
+            }
+          },
+          "primitives": {
+            "eyebrow": "Why it's built this way",
+            "headline": "On-chain by design.",
+            "finite": {
+              "title": "Finite collection",
+              "body": "Supply is capped on-chain by total_spaces. Every Space is numbered 1..=N — verifiable, scarce, and never duplicated."
+            },
+            "ownership": {
+              "title": "True ownership",
+              "body": "A 1/1 NFT with mint authority revoked. Possession of the token is the only key to editing the Space."
+            },
+            "configurable": {
+              "title": "Configurable worlds",
+              "body": "Settings live in a PDA, not in a frozen JSON. Rename, open, close, and re-point the scene manifest at any time."
+            },
+            "collaboration": {
+              "title": "Collaboration built in",
+              "body": "is_editable_by_others plus a 10-slot editor allowlist let teams co-build a world while one wallet keeps authoritative ownership."
+            },
+            "portable": {
+              "title": "Portable scenes",
+              "body": "space_config_uri points to an IPFS manifest (ekza.space.config.v1) describing scene, spawn, and assets — loadable by any compatible runtime."
+            },
+            "events": {
+              "title": "Verifiable events",
+              "body": "Every mint and settings change emits an on-chain event (SpaceMinted, SpaceSettingsUpdated, ConfigUpdated) — fully indexable."
+            }
+          },
+          "arena": {
+            "eyebrow": "In the game",
+            "headline": "Spaces become arenas.",
+            "subcopy": "Ekza Arena is a composable-avatar auto-battler built on the Ekza asset layer. Players bring creator-owned avatars and modifiers; Spaces serve as the rooms and arenas they play in — all resolved through the same ownership and manifest path.",
+            "avatars": {
+              "title": "Composable avatars",
+              "body": "Base avatars plus mintable modifiers are equipped slot-by-slot, drawn from creator-published assets."
+            },
+            "cards": {
+              "title": "Creator-owned cards",
+              "body": "An on-chain Arena registry publishes finalized Stellar releases into Arena-owned card records, so creator assets flow into the game."
+            },
+            "bridge": {
+              "title": "Shared asset bridge",
+              "body": "ekza-bevy-sdk gives the game stable character IDs and model manifests, keeping assets reusable across products."
+            },
+            "statusNote": "Ekza Arena is an early Bevy prototype. NFT mint and equip are on the roadmap."
+          },
+          "developers": {
+            "eyebrow": "For developers",
+            "headline": "An open Anchor program on Solana.",
+            "subcopy": "No black box. solana_ekza_space is an open Anchor program with four instructions, two PDAs, and emitted events you can index. Resolve ownership, fetch settings, load the scene.",
+            "initConfig": "Create the global Config PDA: total_spaces, price, treasury, optional collection mint.",
+            "updateConfig": "Authority-gated: update mint price and treasury.",
+            "mintNextSpace": "Mint the next Space NFT + PDA; pay the treasury; emit SpaceMinted.",
+            "updateSpaceSettings": "NFT-gated: update name, flags, editors, and the scene URI.",
+            "cta": "Read the program on GitHub",
+            "programIdLabel": "Program ID",
+            "copy": "Copy",
+            "copied": "Copied",
+            "verified": "Verified on devnet"
+          },
+          "ecosystem": {
+            "eyebrow": "The ecosystem",
+            "headline": "One asset layer, many surfaces.",
+            "subcopy": "Spaces are one product surface on a shared Solana ownership layer. The same assets power avatars, collaborative releases, and games.",
+            "statusNote": "Early alpha. Running on devnet.",
+            "credit": "Created and backed by Wotori Studio",
+            "projects": {
+              "stellar": "The collaboration layer: universes, typed assets, lineage, releases, vaults, and contributor revenue shares.",
+              "avatar": "Portable, mintable 3D identities with Solana-native ownership, linkable to finalized Stellar releases.",
+              "space": "Numbered, NFT-owned virtual rooms and arenas with mutable on-chain settings."
+            }
+          },
+          "partners": {
+            "label": "Built on Ekza",
+            "heading": "Omoba",
+            "badge": "Built on Ekza",
+            "description": "Open MOBA from Wotori Studio — players bring custom avatars and game-ready assets, running end-to-end on Ekza infrastructure."
+          },
+          "cta": {
+            "headline": "Claim a Space before they're gone.",
+            "subcopy": "The collection is finite. Join the waitlist to mint early and follow the build.",
+            "joinWaitlist": "Join Waitlist",
+            "discord": "Discord",
+            "x": "X",
+            "telegram": "Telegram"
+          },
+          "factStrip": {
+            "items": "Finite supply|1/1 NFT|Mint authority revoked|On-chain settings|IPFS scenes|Open Anchor program"
+          },
+          "problem": {
+            "eyebrow": "The problem",
+            "headline": "Creators lose their worlds the moment they export a file.",
+            "subcopy": "A 3D world ships into a game or platform and the creator's claim to it disappears — no portable proof of ownership, no control over how it's used, no record that travels with the work. Engines lock it in. Marketplaces flatten it into a static file. The world stops being yours.",
+            "beats": {
+              "ownership": {
+                "title": "No portable ownership",
+                "body": "Once exported, a world has no on-chain owner. Possession lives wherever the file landed."
+              },
+              "frozen": {
+                "title": "Frozen, not configurable",
+                "body": "Most 3D NFTs are a static link. The world can't be opened, renamed, or evolved without re-minting."
+              },
+              "entered": {
+                "title": "Not built to be entered",
+                "body": "A picture of a world isn't a world. Nothing makes it loadable, playable, or co-editable."
+              }
+            },
+            "transition": "Ekza Space fixes the ownership layer first."
+          },
+          "credibility": {
+            "eyebrow": "Don't trust — verify",
+            "headline": "It's real, it's on-chain, and it's open.",
+            "subcopy": "Ekza Space runs as an open Anchor program on Solana. Read the source, inspect the account, follow the build.",
+            "openSource": {
+              "title": "Open source",
+              "body": "Three Anchor programs — solana-stellar (collaboration & revenue), solana-ekza-space (numbered Spaces), solana-avatars (portable identity). Read every line on GitHub.",
+              "link": "View on GitHub"
+            },
+            "onChain": {
+              "title": "On-chain & verifiable",
+              "body": "Program 2WtuXG6A…fMQEH is live on Solana devnet. Inspect the Config and Space accounts yourself — ownership and settings are public state.",
+              "link": "Inspect on Solana Explorer"
+            },
+            "builtInOpen": {
+              "title": "Built in the open",
+              "body": "Created and backed by Wotori Studio, in development since 2019, with Omoba building on top. Live on devnet today; mainnet on the roadmap.",
+              "link": "Wotori Studio"
+            },
+            "statusRibbon": "Status: early alpha — live on Solana devnet. Mainnet on the roadmap.",
+            "roadmap": {
+              "now": {
+                "title": "Now",
+                "body": "Space minting & settings stable; avatar ownership live on devnet."
+              },
+              "next": {
+                "title": "Next",
+                "body": "Asset Passport (ekza.asset.passport.v1), public Space pages, consolidated TypeScript SDK."
+              },
+              "later": {
+                "title": "Later",
+                "body": "Marketplace, license checkout, creator royalties & profit-sharing dashboards."
+              }
+            }
+          },
+          "nav": {
+            "universe": "Universe",
+            "protocol": "Protocol",
+            "developers": "Developers",
+            "app": "App",
+            "reserve": "Reserve your Space"
+          },
+          "home": {
+            "hero": {
+              "eyebrow": "A universe of collective creation",
+              "headline": "A universe, built together.",
+              "subhead": "Ekza is a world made by its creators. Stellar lets you create and own what you make; Ekza Space is where it comes alive — numbered 3D places you hold on-chain and fill with what the community builds.",
+              "description": "The dream is a Minecraft- and Roblox-scale world built out of users' creativity. Today you can own the first piece of it: a numbered Space on Solana, provably yours.",
+              "footerLeft": "Built by Wotori Studio · Live on Solana devnet",
+              "footerCenter": "Create on Stellar · Own a Space · Meet in 3D",
+              "buttons": {
+                "reserve": "Reserve your Space",
+                "howItWorks": "See how it works",
+                "developers": "For developers"
+              }
+            },
+            "factStrip": {
+              "items": "Built together|Creator-owned|Finite collection|1/1 NFT|On-chain settings|Open Anchor program|Live on devnet"
+            },
+            "howPiecesFit": {
+              "eyebrow": "How the pieces fit",
+              "headline": "Create it. Own it. Bring it to life.",
+              "subcopy": "Three layers, one universe. Each does one job, and they connect end-to-end.",
+              "step1": {
+                "title": "Stellar — create together",
+                "body": "Make assets with others — a house, a cat, an avatar. Every contribution keeps its lineage and its share of future revenue. (The protocol of collective creation.)",
+                "link": "Explore the protocol"
+              },
+              "step2": {
+                "title": "Space — own a place",
+                "body": "Mint a numbered Space and it's provably yours: a 1/1 NFT plus on-chain settings you control. Fill it with Stellar-made NFTs.",
+                "link": "Reserve a Space"
+              },
+              "step3": {
+                "title": "Avatars & Arena — meet and play",
+                "body": "Open your Space and avatars enter. The same assets load into Ekza Arena, our composable-avatar game. The world comes alive.",
+                "badge": "Roadmap — early prototype"
+              }
+            },
+            "spaceOffer": {
+              "eyebrow": "Own the first piece",
+              "headline": "Claim a numbered Space.",
+              "subcopy": "The collection is finite. Each Space is a 1/1 NFT on Solana with live, on-chain settings you control — a place you own, fill, and open. Reserve yours now to mint early and fund the build.",
+              "bullet1": "Provably yours — a 1/1 NFT, mint authority revoked, so supply can never be inflated.",
+              "bullet2": "Yours to shape — rename it, open it, and point it at your scene whenever you want.",
+              "bullet3": "First in line — reserve now to mint from the genesis batch and follow the build.",
+              "cta": "Reserve your Space",
+              "microcopy": "Early alpha on Solana devnet. No payment today — reserving holds your place in the genesis batch.",
+              "secondary": "What exactly do I own?"
+            },
+            "whyOwn": {
+              "eyebrow": "What you own",
+              "headline": "More than an image NFT.",
+              "subcopy": "A Space is two things working together: a 1/1 NFT that proves who owns it, and on-chain settings that make the world yours to shape. Transfer the NFT, transfer the world.",
+              "link": "See all six primitives + the full mechanics"
+            },
+            "roadmap": {
+              "eyebrow": "The trajectory",
+              "headline": "Own the place now. The world comes next.",
+              "now": {
+                "badge": "Live on devnet",
+                "title": "Now",
+                "body": "Mint and configure a numbered Space on Solana. Create assets on Stellar with lineage and revenue shares."
+              },
+              "next": {
+                "badge": "In build",
+                "title": "Next",
+                "body": "The 3D world where Spaces come alive — drop in your NFTs, customize, and let avatars meet."
+              },
+              "later": {
+                "badge": "The dream",
+                "title": "Later",
+                "body": "A Minecraft/Roblox-scale universe built entirely out of users' creativity."
+              },
+              "footnote": "Honest status: early alpha on Solana devnet. We're raising to build full-time — owning a Space funds it."
+            },
+            "finalCta": {
+              "headline": "Claim your place in the universe.",
+              "subcopy": "The collection is finite. Reserve a Space to mint from the genesis batch and follow the build — or join the newsletter for the next drop.",
+              "cta": "Reserve your Space"
+            },
+            "liveWorld": {
+              "eyebrow": "See it live",
+              "headline": "Step inside the world.",
+              "subcopy": "Ekza Space runs in your browser — real-time 3D where owned places and creator-made assets come together. This is an early prototype on devnet.",
+              "cta": "Enter the live world",
+              "ctaMobile": "Open the live world",
+              "note": "Loads space.ekza.io · early alpha on Solana devnet",
+              "close": "Close live world",
+              "loading": "Loading the live world…",
+              "openTab": "Open in a new tab"
+            }
+          },
+          "protocol": {
+            "hero": {
+              "eyebrow": "Stellar — the protocol of collective creation",
+              "headline": "Create together. Own forever.",
+              "subhead": "Stellar is the protocol behind Ekza: a way to make creative work as a group where every contribution keeps its provenance and its share of the upside. Built on Solana, designed to be used far beyond Ekza.",
+              "btnReserve": "Reserve a Space",
+              "btnPrograms": "Read the programs",
+              "footerLeft": "Stellar · solana_stellar on Solana devnet",
+              "footerCenter": "Universe · Assets · Lineage · Releases · Vaults · Revenue shares"
+            },
+            "thesis": {
+              "eyebrow": "The thesis",
+              "headline": "Creative work should compound — and the people who made it should keep owning it.",
+              "body": "Most creative pipelines erase the contributor. You make something, it gets used, and the value flows past you. Stellar inverts that: contributions are typed and tracked, lineage records who built on what, and revenue shares follow the chain of creation. Your work stays yours, and it keeps earning as others build on it.",
+              "quote": "\"Do not lose rights to your work. Plug into a system where your contribution lives on and generates income forever.\""
+            },
+            "creationFlow": {
+              "eyebrow": "The flow",
+              "headline": "From idea to income.",
+              "step1": {
+                "title": "Create",
+                "body": "Make a typed asset — a model, a texture, an avatar part — on your own or with collaborators."
+              },
+              "step2": {
+                "title": "Lineage",
+                "body": "Every asset records its provenance: what it was built from and who contributed. The chain of creation is permanent."
+              },
+              "step3": {
+                "title": "Releases",
+                "body": "Bundle finalized work into releases — versioned, shareable outputs ready to load into games and worlds."
+              },
+              "step4": {
+                "title": "Vaults",
+                "body": "Each release owns an on-chain vault PDA that custodies deposited lamports and the rules around them."
+              },
+              "step5": {
+                "title": "Revenue shares",
+                "body": "Contributors hold basis-point shares; revenue deposited to a finalized release is claimed pro-rata down the lineage."
+              }
+            },
+            "spaceDeep": {
+              "eyebrow": "The Space primitive",
+              "headline": "What a Space really is.",
+              "subcopy": "Stellar is where assets are created; a Space is where they live. Here's the full mechanics of the place you own."
+            },
+            "beyond": {
+              "eyebrow": "Not just for Ekza",
+              "headline": "A creation layer any world can build on.",
+              "body": "Stellar isn't locked to Ekza. The same protocol — typed assets, lineage, releases, vaults, revenue shares — can power other games, engines, and apps. Ekza is the first universe built on it, not the only one. That portability is the point: create once, own everywhere.",
+              "point1": "Open Anchor programs on Solana",
+              "point2": "Standard manifests any runtime can load",
+              "point3": "Ownership and royalties that travel with the asset"
+            },
+            "cta": {
+              "headline": "Own a piece of the universe.",
+              "subcopy": "Stellar is the engine; a Space is how you own your place in it. Reserve yours now.",
+              "primary": "Reserve your Space",
+              "secondary": "For developers"
+            }
+          },
+          "dev": {
+            "hero": {
+              "eyebrow": "For developers",
+              "headline": "Open Anchor programs on Solana.",
+              "subhead": "No black box. Ekza's on-chain layer is a set of open Anchor programs with deterministic PDAs and emitted events you can index. Resolve ownership, fetch settings, load the scene.",
+              "btnGithub": "View on GitHub",
+              "btnReserve": "Reserve a Space",
+              "footerLeft": "Open source · Solana devnet",
+              "footerCenter": "solana_ekza_space · solana_stellar · solana-ekza-arena"
+            },
+            "programs": {
+              "eyebrow": "The on-chain layer",
+              "headline": "Three programs, one ownership model.",
+              "space": {
+                "name": "solana_ekza_space",
+                "body": "Numbered, finite Space NFTs plus on-chain settings PDAs you control."
+              },
+              "stellar": {
+                "name": "solana_stellar",
+                "body": "Collaboration, asset lineage, releases, vaults, and contributor revenue shares."
+              },
+              "arena": {
+                "name": "solana-ekza-arena",
+                "body": "Publishes finalized Stellar releases into Arena-owned card records for the game."
+              }
+            },
+            "stellar": {
+              "eyebrow": "For developers",
+              "headline": "Stellar — collaborative asset universes.",
+              "subcopy": "solana_stellar is an open Anchor program: open a universe, register typed assets, connect them into a lineage graph, finalize releases with vaults, and split revenue by basis points down the chain.",
+              "createUniverse": "Open a collaborative universe that holds typed assets and releases.",
+              "createAsset": "Register a typed asset and connect it into the lineage graph with add_asset_parent.",
+              "finalizeRelease": "Snapshot an approved asset into an immutable release with its own vault and contributor-share record.",
+              "depositRevenue": "Deposit lamports into a finalized release's vault for later distribution.",
+              "claimRevenue": "Contributors claim pro-rata by basis points (out of 10,000); claims are pull-based.",
+              "cta": "Read the program on GitHub"
+            },
+            "verify": {
+              "eyebrow": "Trust, but verify",
+              "headline": "Inspect every transaction on-chain.",
+              "body": "Mints and settings updates are real Solana devnet transactions. Look up the program, decode the PDAs, and watch the events on any Solana explorer.",
+              "chip1": "Network: Solana devnet",
+              "chip2": "Programs: open source",
+              "chip3": "Events: indexable",
+              "note": "Early alpha on devnet — addresses and metadata hosts may change before mainnet."
+            },
+            "githubCta": {
+              "headline": "Read the code.",
+              "subcopy": "Everything is open. Clone the programs, run them on devnet, and build on Ekza.",
+              "primary": "View on GitHub",
+              "secondary": "Reserve a Space"
+            }
+          }
         }
       }
     }

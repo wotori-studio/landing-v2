@@ -15,14 +15,11 @@ export function PartnerSpotlight() {
     >
       <div className="container mx-auto px-6 text-center">
         <p className="mb-4 text-xs font-medium uppercase tracking-[0.35em] text-ekza-primary dark:text-cyan-300/90">
-          {t("ekza.partners.label")}
+          {t("ekza.v2.partners.label")}
         </p>
         <h2 className="font-headline text-4xl font-bold tracking-tight text-ekza-on dark:text-white md:text-5xl">
-          {t("ekza.partners.heading")}
+          {t("ekza.v2.partners.heading")}
         </h2>
-        <p className="mx-auto mt-5 max-w-2xl text-lg font-light text-ekza-on-muted dark:text-white/70">
-          {t("ekza.partners.description")}
-        </p>
 
         <div className="mx-auto mt-12 max-w-xl">
           <a
@@ -37,7 +34,7 @@ export function PartnerSpotlight() {
                   Omoba
                 </p>
                 <p className="mt-2 inline-flex rounded-full border border-ekza-primary/25 bg-ekza-primary-muted/50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-ekza-on dark:border-cyan-500/30 dark:bg-cyan-950/40 dark:text-cyan-100/90">
-                  {t("ekza.partners.omoba.engineBadge")}
+                  {t("ekza.v2.partners.badge")}
                 </p>
               </div>
               <span className="shrink-0 pt-1 text-xs uppercase tracking-[0.2em] text-ekza-on-muted dark:text-white/50">
@@ -45,7 +42,7 @@ export function PartnerSpotlight() {
               </span>
             </div>
             <p className="mt-5 text-sm leading-relaxed text-ekza-on-muted dark:text-white/80 md:text-base">
-              {t("ekza.partners.omoba.description")}
+              {t("ekza.v2.partners.description")}
             </p>
           </a>
         </div>

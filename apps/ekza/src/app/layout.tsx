@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { Manrope, Space_Grotesk } from "next/font/google";
 import { AnalyticsTracker } from "@repo/analytics";
 import { Providers } from "./providers";
+import { SiteChrome } from "../components/site-chrome";
 import Script from "next/script";
 import "./globals.css";
 
@@ -85,8 +86,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Runs before React: localStorage wins if set; else time-based default
-  const themeInitScript = `(function(){try{var s=localStorage.getItem('ekza-theme');if(s==='dark'||s==='light'){if(s==='dark')document.documentElement.classList.add('dark');}else{var h=new Date().getHours();if(h>=19||h<7)document.documentElement.classList.add('dark');}}catch(e){}})();`;
+  // Runs before React: localStorage wins if set; else default to dark (on-brand)
+  const themeInitScript = `(function(){try{var s=localStorage.getItem('ekza-theme');if(s==='light'){document.documentElement.classList.remove('dark');}else{document.documentElement.classList.add('dark');}}catch(e){document.documentElement.classList.add('dark');}})();`;
 
   return (
     <html
@@ -144,7 +145,9 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-ekza-bg font-ekza text-ekza-on antialiased">
-        <Providers>{children}</Providers>
+        <Providers>
+          <SiteChrome>{children}</SiteChrome>
+        </Providers>
         <AnalyticsTracker />
         <Analytics />
       </body>

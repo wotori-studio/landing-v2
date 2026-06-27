@@ -13,12 +13,6 @@ export type Theme = "light" | "dark";
 
 const STORAGE_KEY = "ekza-theme";
 
-function getTimeBasedTheme(): Theme {
-  const hour = new Date().getHours();
-  // Dark mode from 19:00 to 06:59
-  return hour >= 19 || hour < 7 ? "dark" : "light";
-}
-
 function getStoredTheme(): Theme | null {
   if (typeof window === "undefined") return null;
   try {
@@ -43,10 +37,11 @@ interface ThemeContextValue {
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 function resolveInitialTheme(): Theme {
+  // Default to dark (the on-brand variant); honor an explicit stored preference.
   if (typeof window === "undefined") return "dark";
   const stored = getStoredTheme();
   if (stored) return stored;
-  return getTimeBasedTheme();
+  return "dark";
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
