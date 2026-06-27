@@ -14,6 +14,7 @@ const nav = [
   { label: "Vision", href: "#evolution" },
   { label: "Creators", href: "#creators" },
   { label: "Web3", href: "#tech" },
+  { label: "Roadmap", href: "#roadmap" },
   { label: "Ecosystem", href: "#ecosystem" },
 ];
 

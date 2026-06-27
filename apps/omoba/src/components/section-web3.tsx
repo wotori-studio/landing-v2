@@ -1,15 +1,19 @@
+"use client";
+
+import { Reveal } from "./motion";
+
 const bullets = [
   {
     title: "Powered by DAO",
-    body: "An open-source, blockchain-based multiplayer platform transparently distributing profits to creators and contributors.",
+    body: "An open-source, blockchain-based platform that transparently distributes profits to the creators and contributors who build it.",
   },
   {
     title: "True ownership",
-    body: "Assets are managed through NFTs, using crypto as in-game tokens.",
+    body: "Assets live as on-chain tokens — heroes, skins and items you actually own, trade and carry across the ecosystem.",
   },
   {
     title: "Build universes",
-    body: "Collaboratively integrate your creations into a vibrant Web3 multiverse.",
+    body: "Collaboratively weave your creations into a shared, ever-expanding web3 multiverse.",
   },
 ];
 
@@ -26,21 +30,27 @@ export function SectionWeb3() {
       </div>
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="font-display text-xs font-semibold uppercase tracking-[0.35em] text-omoba-magenta">
+          <Reveal as="p" className="omoba-kicker justify-center text-omoba-magenta">
             Web3 multiverse
-          </p>
-          <h2 className="mt-4 font-display text-3xl font-bold text-white sm:text-4xl md:text-5xl">
-            Tech & DAO
-          </h2>
-          <p className="mt-4 text-slate-400">
-            Whitepaper and technical deep-dive coming soon — this section
-            summarizes the core pillars.
-          </p>
+          </Reveal>
+          <Reveal
+            as="h2"
+            delay={80}
+            className="mt-5 font-display text-3xl font-bold text-white sm:text-4xl md:text-5xl"
+          >
+            Tech &amp; DAO
+          </Reveal>
+          <Reveal as="p" delay={140} className="mt-4 text-slate-400">
+            Whitepaper and technical deep-dive coming soon — here are the core
+            pillars.
+          </Reveal>
         </div>
         <ul className="mt-14 space-y-6">
           {bullets.map((b, i) => (
-            <li
+            <Reveal
+              as="li"
               key={b.title}
+              delay={i * 80}
               className="omoba-glass omoba-glass-hover flex gap-6 rounded-2xl p-6 sm:p-8"
             >
               <span className="font-display text-2xl font-bold text-omoba-accent/60">
@@ -52,7 +62,7 @@ export function SectionWeb3() {
                 </h3>
                 <p className="mt-2 text-slate-400">{b.body}</p>
               </div>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

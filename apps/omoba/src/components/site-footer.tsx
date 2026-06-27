@@ -40,7 +40,15 @@ export function SiteFooter() {
           </a>
         </div>
         <p className="text-xs text-slate-600">
-          © {new Date().getFullYear()} O-MOBA
+          © {new Date().getFullYear()} O-MOBA · built by{" "}
+          <a
+            href="https://wotori.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-400 transition hover:text-omoba-accent"
+          >
+            Wotori Studio
+          </a>
         </p>
       </div>
     </footer>

@@ -93,3 +93,196 @@
     }
   }
 }
+
+/* ============================================================
+   Facelift v2 — motion, marquee, polish
+   ============================================================ */
+
+/* scroll reveal — visible by default; hidden only once JS marks the root */
+.omoba-reveal {
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.omoba-anim-ready .omoba-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  will-change: opacity, transform;
+}
+.omoba-anim-ready .omoba-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* card lift */
+.omoba-glass-hover {
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.omoba-glass-hover:hover {
+  transform: translateY(-5px);
+}
+
+/* section kicker label */
+.omoba-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-omoba-display), system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+.omoba-kicker::before {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+/* gradient text */
+.omoba-grad {
+  background: linear-gradient(100deg, #22d3ee 0%, #c084fc 55%, #f0c14b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* stats strip */
+.omoba-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 22px;
+  border: 1px solid rgba(34, 211, 238, 0.22);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.08), rgba(192, 132, 252, 0.05));
+  box-shadow: 0 0 32px rgba(34, 211, 238, 0.08), inset 0 0 22px rgba(34, 211, 238, 0.05);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.omoba-stat:hover {
+  transform: translateY(-3px);
+  border-color: rgba(34, 211, 238, 0.45);
+  box-shadow: 0 0 44px rgba(34, 211, 238, 0.18), inset 0 0 22px rgba(34, 211, 238, 0.07);
+}
+.omoba-stat__metric {
+  font-family: var(--font-omoba-display), system-ui, sans-serif;
+  font-size: clamp(1.6rem, 1.1rem + 1.6vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.omoba-stat__label {
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgb(148 163 184);
+}
+
+/* marquee */
+.omoba-marquee {
+  overflow: hidden;
+  width: 100%;
+  padding: 16px 0;
+  white-space: nowrap;
+  border-block: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 8, 24, 0.6);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+.omoba-marquee__track {
+  display: inline-flex;
+  align-items: center;
+  animation: omoba-scroll 30s linear infinite;
+}
+.omoba-marquee__item {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-omoba-display), system-ui, sans-serif;
+  font-size: clamp(0.95rem, 0.8rem + 0.8vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgb(226 232 240);
+}
+.omoba-marquee__sep {
+  margin: 0 clamp(18px, 3vw, 44px);
+  font-style: normal;
+  font-size: 0.6em;
+  color: #22d3ee;
+}
+@keyframes omoba-scroll {
+  to { transform: translateX(-50%); }
+}
+
+/* roadmap timeline */
+.omoba-roadmap {
+  display: grid;
+  gap: 18px;
+}
+@media (min-width: 768px) {
+  .omoba-roadmap {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.omoba-phase {
+  position: relative;
+  padding: 26px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background 0.3s ease;
+}
+.omoba-phase:hover {
+  transform: translateY(-5px);
+  border-color: rgba(34, 211, 238, 0.4);
+  background: rgba(34, 211, 238, 0.05);
+}
+.omoba-phase[data-live="true"] {
+  border-color: rgba(34, 211, 238, 0.5);
+  box-shadow: 0 0 36px rgba(34, 211, 238, 0.14);
+}
+.omoba-phase__tag {
+  font-family: var(--font-omoba-display), system-ui, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.omoba-phase__dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #22d3ee;
+  box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.6);
+  animation: omoba-pulse-dot 2.4s ease-out infinite;
+}
+@keyframes omoba-pulse-dot {
+  0% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.55); }
+  70% { box-shadow: 0 0 0 9px rgba(34, 211, 238, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0); }
+}
+
+/* final CTA glow */
+.omoba-cta-glow {
+  background:
+    radial-gradient(70% 120% at 50% 0%, rgba(34, 211, 238, 0.16), transparent 60%),
+    radial-gradient(50% 100% at 50% 120%, rgba(192, 132, 252, 0.12), transparent 60%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .omoba-marquee__track,
+  .omoba-phase__dot,
+  .omoba-particles span {
+    animation: none !important;
+  }
+  .omoba-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
