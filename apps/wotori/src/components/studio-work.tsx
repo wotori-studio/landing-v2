@@ -58,6 +58,14 @@ const WORK: Project[] = [
     case: "omoba",
   },
   {
+    name: "0→100 Engine",
+    cats: ["web"],
+    kind: "Web3 · Solana protocol",
+    year: "2025",
+    bodyKey: "work.zeroBody",
+    case: "zerohundred",
+  },
+  {
     name: "Wotori Piano",
     cats: ["web"],
     kind: "Web · Music tool",
@@ -129,6 +137,16 @@ export default function StudioWork() {
       desc: k("work.omobaCaseDesc"),
       facts: facts("omoba"),
       link: { href: "https://x.com/wotorimovako", label: k("work.caseOpenLive") },
+    },
+    zerohundred: {
+      title: "0→100 Engine",
+      meta: k("work.zeroCaseMeta"),
+      desc: k("work.zeroCaseDesc"),
+      facts: facts("zero"),
+      link: {
+        href: "https://github.com/Xyber-Labs/0-100-Solana-contracts",
+        label: k("work.caseViewCode"),
+      },
     },
   };
 

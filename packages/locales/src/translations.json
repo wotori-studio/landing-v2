@@ -174,7 +174,15 @@
             "omobaFactBuild": "An open MOBA with creator-owned avatars on the Ekza asset layer.",
             "omobaFactStack": "Bevy, Ekza SDK, Solana.",
             "omobaFactResult": "Playable prototype proving creator assets reach live play.",
+            "zeroBody": "A trustless fair-launch engine for Solana — deterministic winner selection, escrow and automated Raydium liquidity. Built with Xyber Labs. Open the case for the breakdown.",
+            "zeroCaseMeta": "Web3 · Solana · Anchor — with Xyber Labs",
+            "zeroCaseDesc": "An on-chain engine for fair token launches on Solana: collect deposits, draw winners from a public blockhash with no admin trust, and spin up Raydium CLMM liquidity automatically. The venture wound down — the protocol stands: a serious Rust/Anchor codebase.",
+            "zeroFactProblem": "Token launches lean on trust — admins pick winners and custody the funds.",
+            "zeroFactBuild": "Anchor programs for deposits, sharded rosters, blockhash-seeded draw, escrow, vesting and Raydium CLMM pools.",
+            "zeroFactStack": "Solana, Rust, Anchor, Raydium CLMM, TypeScript SDK.",
+            "zeroFactResult": "A working, fully open-source fair-launch protocol. Venture closed; the engineering proves out.",
             "caseOpenLive": "Open live ↗",
+            "caseViewCode": "View the code ↗",
             "pianoBody": "A browser piano with built-in lessons — listen to Bach, then learn to play it hands-on with a connected MIDI keyboard and live note guidance."
           },
           "contact": {
@@ -846,7 +854,15 @@
             "omobaFactBuild": "Открытая MOBA с аватарами-владениями на asset-слое Ekza.",
             "omobaFactStack": "Bevy, Ekza SDK, Solana.",
             "omobaFactResult": "Играбельный прототип: ассеты креаторов доходят до живой игры.",
+            "zeroBody": "Trustless-движок честного запуска на Solana — детерминированный выбор победителей, escrow и авто-ликвидность Raydium. Сделано с Xyber Labs. Откройте кейс с разбором.",
+            "zeroCaseMeta": "Web3 · Solana · Anchor — с Xyber Labs",
+            "zeroCaseDesc": "On-chain движок честного запуска токенов на Solana: сбор депозитов, выбор победителей по публичному blockhash без доверия к админу и автоматическое создание ликвидности Raydium CLMM. Венчур закрылся — протокол остался: серьёзная кодовая база на Rust/Anchor.",
+            "zeroFactProblem": "Запуски токенов держатся на доверии — админ выбирает победителей и держит средства.",
+            "zeroFactBuild": "Anchor-программы: депозиты, шардированные ростеры, розыгрыш по blockhash, escrow, вестинг и пулы Raydium CLMM.",
+            "zeroFactStack": "Solana, Rust, Anchor, Raydium CLMM, TypeScript SDK.",
+            "zeroFactResult": "Рабочий, полностью open-source протокол честного запуска. Венчур закрыт — инженерия доказана.",
             "caseOpenLive": "Открыть вживую ↗",
+            "caseViewCode": "Смотреть код ↗",
             "pianoBody": "Фортепиано в браузере с обучением — послушайте Баха и учитесь играть на подключённой MIDI-клавиатуре с подсказками по нотам в реальном времени."
           },
           "contact": {
@@ -1518,7 +1534,15 @@
             "omobaFactBuild": "基于 Ekza 资产层、拥有创作者虚拟形象的开放 MOBA。",
             "omobaFactStack": "Bevy、Ekza SDK、Solana。",
             "omobaFactResult": "可玩原型，证明创作者资产能走进实时游戏。",
+            "zeroBody": "面向 Solana 的无信任公平发射引擎 — 确定性中奖选择、托管与自动 Raydium 流动性。与 Xyber Labs 共建。打开案例查看拆解。",
+            "zeroCaseMeta": "Web3 · Solana · Anchor — 与 Xyber Labs 共建",
+            "zeroCaseDesc": "面向 Solana 的链上公平代币发射引擎：收集存款、基于公开 blockhash 无需信任管理员地抽取中奖者，并自动创建 Raydium CLMM 流动性。项目已停止 — 协议仍在：一套扎实的 Rust/Anchor 代码库。",
+            "zeroFactProblem": "代币发射依赖信任 — 管理员选中奖者并托管资金。",
+            "zeroFactBuild": "Anchor 程序：存款、分片名单、基于 blockhash 的抽取、托管、归属与 Raydium CLMM 池。",
+            "zeroFactStack": "Solana、Rust、Anchor、Raydium CLMM、TypeScript SDK。",
+            "zeroFactResult": "一套可用、完全开源的公平发射协议。项目关闭 — 工程得到验证。",
             "caseOpenLive": "在线查看 ↗",
+            "caseViewCode": "查看代码 ↗",
             "pianoBody": "浏览器钢琴，内置教学 — 聆听巴赫，并用连接的 MIDI 键盘配合实时音符提示亲手学习演奏。"
           },
           "contact": {
