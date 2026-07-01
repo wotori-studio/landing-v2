@@ -10,6 +10,16 @@ export function AdminLoginForm() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
+
+    // Read straight from the DOM: browser autofill often does not fire React's
+    // onChange, so `password` state can be stale/empty while the field is filled.
+    const formData = new FormData(e.currentTarget);
+    const submittedPassword = String(formData.get("password") || "") || password;
+    if (!submittedPassword) {
+      setError("Please enter the password.");
+      return;
+    }
+
     setIsLoading(true);
 
     try {
@@ -17,7 +27,7 @@ export function AdminLoginForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "same-origin",
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ password: submittedPassword }),
       });
 
       const data = (await res.json().catch(() => ({}))) as {
@@ -65,6 +75,8 @@ export function AdminLoginForm() {
           <input
             type="password"
             id="password"
+            name="password"
+            autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             disabled={isLoading}
@@ -83,7 +95,7 @@ export function AdminLoginForm() {
 
         <button
           type="submit"
-          disabled={isLoading || !password}
+          disabled={isLoading}
           className="w-full py-3 px-4 bg-black text-white font-medium rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
           {isLoading ? "Authenticating..." : "Login"}

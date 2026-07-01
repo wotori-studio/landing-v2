@@ -3,16 +3,17 @@
 import { Suspense, useEffect, useRef } from "react";
 import { VoxelScene } from "./voxel-scene";
 import { Marquee } from "./studio-reveal";
+import StudioTerminal from "./studio-terminal";
 import { useTheme } from "../lib/theme-provider";
 import { useI18n } from "../lib/i18n-provider";
 
 const MARQUEE = [
-  "web3 products",
+  "expressive digital worlds",
   "websites",
-  "avatars",
-  "real-time 3D",
-  "brand systems",
-  "faster · leaner",
+  "3D characters",
+  "web3 products",
+  "games",
+  "AI prototypes",
 ];
 
 export default function StudioHero() {
@@ -60,7 +61,7 @@ export default function StudioHero() {
 
       <header className="ws-topbar">
         <a className="ws-wordmark" href="#top">
-          wotori<span>.studio</span>
+          wotori<span>.io</span>
         </a>
         <nav className="ws-nav" aria-label="Primary">
           <a href="#manifesto">{k("hero.navStudio")}</a>
@@ -94,6 +95,8 @@ export default function StudioHero() {
           </a>
         </div>
       </div>
+
+      <StudioTerminal />
 
       <div className="ws-hero__foot">
         <Marquee items={MARQUEE} />

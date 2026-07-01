@@ -1,21 +1,21 @@
 export const WOTORI_SITE_NAME = "Wotori Studio";
 export const WOTORI_SITE_URL = "https://wotori.io";
 export const WOTORI_SITE_TITLE =
-  "Wotori Studio | Web3 Animation, Solana Ecosystems & Creator Platforms";
+  "Wotori Studio | Expressive Digital Worlds — Websites, 3D, Web3 & Games";
 export const WOTORI_SITE_DESCRIPTION =
-  "Wotori Studio is a web3 animation and production studio building creator-first, Solana-aligned, and open-source products across gaming, media, and digital ownership.";
+  "Wotori Studio builds expressive digital worlds — cinematic websites, 3D characters, web3 products, games and AI-powered prototypes, designed and built end to end by one senior team.";
 
 export const WOTORI_KEYWORDS = [
   "Wotori Studio",
-  "web3 animation studio",
+  "digital worlds studio",
+  "creative web3 studio",
+  "3D web studio",
+  "WebGL landing pages",
+  "3D character design",
+  "web3 product design",
+  "AI-accelerated production",
+  "creative production studio",
   "Solana ecosystem",
-  "creator platforms",
-  "open source web3",
-  "digital ownership",
-  "gaming studio",
-  "creative production",
-  "creator economy",
-  "web3 media studio",
   "Ekza Space",
   "Omoba",
 ] as const;

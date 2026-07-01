@@ -8,7 +8,9 @@ export type CaseData = {
   desc: string;
   video?: string;
   poster?: string;
-  images: { full: string; thumb: string }[];
+  images?: { full: string; thumb: string }[];
+  facts?: { label: string; value: string }[];
+  link?: { href: string; label: string };
 };
 
 export default function CaseModal({
@@ -55,7 +57,28 @@ export default function CaseModal({
           <p className="ws-modal__meta">{data.meta}</p>
           <h3 className="ws-modal__title">{data.title}</h3>
           <p className="ws-modal__desc">{data.desc}</p>
+          {data.link && (
+            <a
+              className="ws-btn ws-btn--ghost ws-modal__link"
+              href={data.link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {data.link.label}
+            </a>
+          )}
         </header>
+
+        {data.facts && data.facts.length > 0 && (
+          <dl className="ws-modal__facts">
+            {data.facts.map((f) => (
+              <div className="ws-fact" key={f.label}>
+                <dt className="ws-fact__label">{f.label}</dt>
+                <dd className="ws-fact__value">{f.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
 
         {data.video && (
           <div className="ws-modal__video">
@@ -69,20 +92,22 @@ export default function CaseModal({
           </div>
         )}
 
-        <div className="ws-modal__gallery">
-          {data.images.map((img, i) => (
-            <a
-              key={img.full}
-              className="ws-shot"
-              href={img.full}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={img.thumb} alt={`${data.title} render ${i + 1}`} loading="lazy" />
-            </a>
-          ))}
-        </div>
+        {data.images && data.images.length > 0 && (
+          <div className="ws-modal__gallery">
+            {data.images.map((img, i) => (
+              <a
+                key={img.full}
+                className="ws-shot"
+                href={img.full}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={img.thumb} alt={`${data.title} render ${i + 1}`} loading="lazy" />
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

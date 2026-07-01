@@ -46,6 +46,7 @@ const WORK: Project[] = [
     year: "2024",
     bodyKey: "work.ekzaBody",
     href: "https://ekza.io",
+    case: "ekza",
   },
   {
     name: "Omoba",
@@ -54,6 +55,7 @@ const WORK: Project[] = [
     year: "2024",
     bodyKey: "work.omobaBody",
     href: "https://x.com/wotorimovako",
+    case: "omoba",
   },
   {
     name: "Wotori Piano",
@@ -62,14 +64,6 @@ const WORK: Project[] = [
     year: "2025",
     bodyKey: "work.pianoBody",
     href: "https://piano.wotori.io",
-  },
-  {
-    name: "Opusprism",
-    cats: ["web"],
-    kind: "Social · Music",
-    year: "2023",
-    bodyKey: "work.opusBody",
-    href: "https://opusprism.app",
   },
 ];
 
@@ -102,11 +96,19 @@ export default function StudioWork() {
   const countFor = (id: string) =>
     id === "all" ? WORK.length : WORK.filter((w) => w.cats.includes(id)).length;
 
+  const facts = (prefix: string) => [
+    { label: k("work.caseLabelProblem"), value: k(`work.${prefix}FactProblem`) },
+    { label: k("work.caseLabelBuild"), value: k(`work.${prefix}FactBuild`) },
+    { label: k("work.caseLabelStack"), value: k(`work.${prefix}FactStack`) },
+    { label: k("work.caseLabelResult"), value: k(`work.${prefix}FactResult`) },
+  ];
+
   const CASES: Record<string, CaseData> = {
     dj: {
       title: "DJ Wotori",
       meta: k("work.caseMeta"),
       desc: k("work.caseDesc"),
+      facts: facts("dj"),
       video: `${MEDIA_BASE}/dj-wotori.mp4`,
       poster: `${MEDIA_BASE}/dj-poster.webp`,
       images: [1, 2, 3, 4].map((n) => ({
@@ -114,10 +116,25 @@ export default function StudioWork() {
         thumb: `${MEDIA_BASE}/dj-${n}-thumb.webp`,
       })),
     },
+    ekza: {
+      title: "Ekza Space",
+      meta: k("work.ekzaCaseMeta"),
+      desc: k("work.ekzaCaseDesc"),
+      facts: facts("ekza"),
+      link: { href: "https://ekza.io", label: k("work.caseOpenLive") },
+    },
+    omoba: {
+      title: "Omoba",
+      meta: k("work.omobaCaseMeta"),
+      desc: k("work.omobaCaseDesc"),
+      facts: facts("omoba"),
+      link: { href: "https://x.com/wotorimovako", label: k("work.caseOpenLive") },
+    },
   };
 
   return (
     <div className="ws-worklist-wrap">
+      <p className="ws-worklist__note">{k("work.clientNote")}</p>
       <div className="ws-filters" role="tablist" aria-label="Filter projects">
         {FILTERS.map((f) => (
           <button

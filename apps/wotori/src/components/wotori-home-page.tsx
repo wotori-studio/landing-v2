@@ -3,14 +3,15 @@
 import { useEffect, useState } from "react";
 import StudioHero from "./studio-hero";
 import StudioWork from "./studio-work";
+import ProjectInquiryForm from "./project-inquiry-form";
 import Reveal, { Marquee } from "./studio-reveal";
 import { ThemeToggle } from "./theme-toggle";
 import LanguageSwitcher from "./language-switcher";
 import { useI18n } from "../lib/i18n-provider";
 
 const SERVICE_TAGS = [
-  ["protocol design", "dApps", "wallets"],
-  ["landing pages", "marketing sites", "webGL"],
+  ["tokens", "dApps", "wallets"],
+  ["landing pages", "webGL", "brand systems"],
   ["avatars", "real-time 3D", "worlds"],
   ["automation", "rapid prototyping", "lean teams"],
 ];
@@ -110,8 +111,40 @@ export default function WotoriHomePage() {
           </div>
         </section>
 
+        {/* Offer — the commercial door */}
+        <section className="ws-section ws-offer" id="offer">
+          <div className="ws-shell ws-offer__inner">
+            <div className="ws-offer__lead">
+              <Reveal as="p" className="ws-index">{k("offer.index")}</Reveal>
+              <Reveal as="h2" className="ws-offer__title" delay={80}>
+                {k("offer.heading")}
+              </Reveal>
+              <Reveal as="p" className="ws-offer__lede" delay={140}>
+                {k("offer.lede")}
+              </Reveal>
+              <Reveal delay={260}>
+                <a className="ws-btn ws-btn--primary" href="#contact">
+                  {k("offer.cta")}
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </a>
+              </Reveal>
+            </div>
+            <Reveal as="ul" className="ws-offer__list" delay={180}>
+              {[1, 2, 3, 4].map((n) => (
+                <li className="ws-offer__item" key={n}>
+                  <span className="ws-offer__bullet" aria-hidden="true" />
+                  {k(`offer.b${n}`)}
+                </li>
+              ))}
+              <li className="ws-offer__note">{k("offer.note")}</li>
+            </Reveal>
+          </div>
+        </section>
+
         <Marquee
-          items={["design", "build", "ship", "web3", "avatars", "3D", "brands", "creators"]}
+          items={["digital worlds", "websites", "3D characters", "web3", "games", "AI prototypes", "one team"]}
         />
 
         {/* Work */}
@@ -139,8 +172,12 @@ export default function WotoriHomePage() {
             <Reveal as="p" className="ws-cta__lede" delay={160}>
               {k("contact.lede")}
             </Reveal>
-            <Reveal delay={220}>
-              <a className="ws-mail" href="mailto:wotorimovako@gmail.com">
+            <Reveal className="ws-cta__form" delay={220}>
+              <ProjectInquiryForm />
+            </Reveal>
+            <Reveal as="p" className="ws-cta__fallback" delay={280}>
+              {k("contact.orEmail")}{" "}
+              <a className="ws-mail ws-mail--sm" href="mailto:wotorimovako@gmail.com">
                 wotorimovako@gmail.com
               </a>
             </Reveal>
@@ -150,7 +187,7 @@ export default function WotoriHomePage() {
 
       <footer className="ws-footer">
         <span className="ws-wordmark ws-wordmark--sm">
-          wotori<span>.studio</span>
+          wotori<span>.io</span>
         </span>
         <nav className="ws-footer__nav" aria-label="Social channels">
           {CHANNELS.map((c) => (

@@ -344,6 +344,31 @@
   will-change: transform, opacity;
 }
 
+/* Local readability backing so copy stays legible over the animated 3D scene */
+.ws-hero__copy::before {
+  content: "";
+  position: absolute;
+  inset: -6% -14% -6% -6%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    118% 96% at 22% 50%,
+    rgba(246, 249, 253, 0.78) 0%,
+    rgba(246, 249, 253, 0.46) 44%,
+    transparent 74%
+  );
+  filter: blur(7px);
+}
+
+.dark .ws-hero__copy::before {
+  background: radial-gradient(
+    118% 96% at 22% 50%,
+    rgba(4, 8, 16, 0.74) 0%,
+    rgba(4, 8, 16, 0.44) 46%,
+    transparent 74%
+  );
+}
+
 .ws-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -478,6 +503,148 @@
   position: relative;
   z-index: 3;
   padding-bottom: clamp(18px, 3vh, 30px);
+}
+
+/* =========================================================
+   STUDIO TERMINAL — floating IDE window overlay
+   ========================================================= */
+.ws-terminal {
+  position: absolute;
+  z-index: 3;
+  right: clamp(22px, 4vw, 64px);
+  bottom: clamp(96px, 14vh, 150px);
+  width: min(30vw, 380px);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--ws-line-strong);
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: var(--ws-mono);
+  background: rgba(244, 247, 255, 0.62);
+  box-shadow: 0 18px 50px rgba(8, 20, 40, 0.18), 0 2px 8px rgba(8, 20, 40, 0.1);
+  backdrop-filter: blur(14px) saturate(1.1);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
+  animation: ws-fade 0.7s 0.3s both;
+}
+
+.dark .ws-terminal {
+  background: rgba(8, 12, 22, 0.56);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(60, 182, 255, 0.06);
+}
+
+.ws-terminal__bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--ws-line);
+  background: rgba(127, 127, 127, 0.06);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
+
+.ws-terminal__dots {
+  display: inline-flex;
+  gap: 6px;
+  flex: none;
+}
+
+.ws-terminal__dots i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ws-line-strong);
+}
+
+.ws-terminal__dots i:first-child {
+  background: #ff5f57;
+}
+.ws-terminal__dots i:nth-child(2) {
+  background: #febc2e;
+}
+.ws-terminal__dots i:nth-child(3) {
+  background: #28c840;
+}
+
+.ws-terminal__title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ws-muted);
+}
+
+.ws-terminal__status {
+  flex: none;
+  color: var(--ws-accent-ink);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+}
+
+.ws-terminal__body {
+  padding: 12px 14px;
+  min-height: 8.4em;
+  font-size: clamp(0.66rem, 0.6rem + 0.25vw, 0.8rem);
+  line-height: 1.65;
+  color: var(--ws-muted);
+}
+
+.ws-terminal__body p {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ws-terminal__active {
+  min-height: 1.65em;
+  color: var(--ws-ink);
+}
+
+.dark .ws-terminal__active {
+  text-shadow: 0 0 12px rgba(60, 182, 255, 0.45);
+}
+
+.ws-terminal__caret {
+  display: inline-block;
+  margin-left: 1px;
+  color: var(--ws-accent-ink);
+  animation: ws-terminal-blink 1s steps(2) infinite;
+}
+
+@keyframes ws-terminal-blink {
+  to {
+    opacity: 0;
+  }
+}
+
+.ws-terminal__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--ws-line);
+  background: rgba(127, 127, 127, 0.06);
+  font-size: 0.6rem;
+  letter-spacing: 0.04em;
+  color: var(--ws-faint);
+}
+
+.ws-terminal__foot span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .ws-terminal {
+    display: none;
+  }
 }
 
 /* =========================================================
@@ -1107,5 +1274,278 @@
   .ws-reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* =========================================================
+   OFFER (commercial door)
+   ========================================================= */
+.ws-offer {
+  background:
+    radial-gradient(80% 120% at 100% 0%, rgba(0, 228, 175, 0.1), transparent 55%),
+    var(--ws-bg);
+}
+
+.ws-offer__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(32px, 5vw, 80px);
+  align-items: center;
+}
+
+.ws-offer__title {
+  margin: 14px 0 0;
+  font-family: var(--ws-display);
+  font-size: clamp(2rem, 1.2rem + 3.4vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.ws-offer__lede {
+  margin: clamp(16px, 2.4vw, 24px) 0 clamp(26px, 3vw, 34px);
+  max-width: 44ch;
+  font-size: 1.12rem;
+  line-height: 1.6;
+  color: var(--ws-muted);
+}
+
+.ws-offer__list {
+  margin: 0;
+  padding: clamp(24px, 3vw, 36px);
+  list-style: none;
+  border: 1px solid var(--ws-line);
+  border-radius: 18px;
+  background: var(--ws-bg-alt);
+}
+
+.ws-offer__item {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  padding: 16px 0;
+  font-family: var(--ws-display);
+  font-size: clamp(1.02rem, 0.9rem + 0.5vw, 1.2rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  border-bottom: 1px solid var(--ws-line);
+}
+
+.ws-offer__item:first-child {
+  padding-top: 0;
+}
+
+.ws-offer__bullet {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin-top: 0.5em;
+  border-radius: 999px;
+  background: var(--ws-grad);
+}
+
+.ws-offer__note {
+  padding-top: 18px;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--ws-muted);
+}
+
+.ws-worklist__note {
+  margin: 0 0 clamp(22px, 2.6vw, 32px);
+  max-width: 58ch;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ws-muted);
+}
+
+/* Case modal — facts grid + live link */
+.ws-modal__link {
+  margin-top: 20px;
+}
+
+.ws-modal__facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(14px, 2vw, 22px);
+  margin: 0 0 clamp(24px, 3vw, 36px);
+  padding: clamp(20px, 2.6vw, 28px);
+  border: 1px solid var(--ws-line);
+  border-radius: 16px;
+  background: var(--ws-bg-alt);
+}
+
+.ws-fact {
+  margin: 0;
+}
+
+.ws-fact__label {
+  margin: 0 0 6px;
+  font-family: var(--ws-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ws-accent-ink);
+}
+
+.ws-fact__value {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ws-ink);
+}
+
+@media (max-width: 860px) {
+  .ws-offer__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   PROJECT INQUIRY FORM
+   ========================================================= */
+.ws-cta__form {
+  width: 100%;
+  max-width: 44rem;
+  margin: clamp(30px, 4vw, 46px) auto 0;
+  text-align: left;
+}
+
+.ws-form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2vw, 20px);
+}
+
+.ws-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(14px, 2vw, 20px);
+}
+
+.ws-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.ws-field__label {
+  font-family: var(--ws-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ws-faint);
+}
+
+.ws-field__input {
+  width: 100%;
+  padding: 13px 15px;
+  font-family: var(--ws-font);
+  font-size: 1rem;
+  color: var(--ws-ink);
+  background: var(--ws-bg-alt);
+  border: 1px solid var(--ws-line-strong);
+  border-radius: 12px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ws-field__input::placeholder {
+  color: var(--ws-faint);
+}
+
+.ws-field__input:focus {
+  outline: none;
+  border-color: var(--ws-accent-ink);
+  box-shadow: 0 0 0 3px rgba(0, 228, 175, 0.16);
+}
+
+.ws-field__textarea {
+  resize: vertical;
+  min-height: 128px;
+  line-height: 1.5;
+}
+
+.ws-field__select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+
+.ws-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.ws-form__error {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #e5484d;
+}
+
+.ws-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.ws-form__actions .ws-btn--primary[disabled] {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.ws-form__privacy {
+  font-size: 0.85rem;
+  color: var(--ws-faint);
+}
+
+.ws-form--success {
+  padding: clamp(28px, 4vw, 44px);
+  text-align: center;
+  border: 1px solid var(--ws-line);
+  border-radius: 18px;
+  background: var(--ws-bg-alt);
+}
+
+.ws-form__successTitle {
+  margin: 0 0 10px;
+  font-family: var(--ws-display);
+  font-size: clamp(1.4rem, 1rem + 1.4vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.ws-form__successBody {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--ws-muted);
+}
+
+.ws-cta__fallback {
+  margin: clamp(20px, 2.6vw, 28px) 0 0;
+  font-size: 0.95rem;
+  color: var(--ws-faint);
+}
+
+.ws-mail--sm {
+  font-family: var(--ws-font);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ws-muted);
+}
+
+@media (max-width: 640px) {
+  .ws-form__row {
+    grid-template-columns: 1fr;
   }
 }

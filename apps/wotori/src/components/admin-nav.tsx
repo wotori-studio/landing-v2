@@ -8,6 +8,7 @@ export function AdminNav() {
   const pathname = usePathname();
   const onAdminRoot = pathname === "/admin";
   const onAnalytics = pathname?.startsWith("/admin/analytics") ?? false;
+  const onInquiries = pathname?.startsWith("/admin/inquiries") ?? false;
 
   async function handleLogout() {
     await logoutAdmin();
@@ -31,6 +32,14 @@ export function AdminNav() {
         }`}
       >
         Analytics
+      </Link>
+      <Link
+        href="/admin/inquiries"
+        className={`text-sm font-medium ${
+          onInquiries ? "text-gray-900" : "text-gray-600 hover:text-gray-900"
+        }`}
+      >
+        Inquiries
       </Link>
       <button
         type="button"
