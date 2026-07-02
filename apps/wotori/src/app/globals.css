@@ -1549,3 +1549,76 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   LIVE DEMO (embedded 3D world)
+   ========================================================= */
+.ws-livedemo__frame {
+  position: relative;
+  margin-top: clamp(28px, 3.4vw, 44px);
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--ws-line);
+  background:
+    radial-gradient(90% 120% at 50% 0%, rgba(0, 228, 175, 0.12), transparent 60%),
+    var(--ws-bg-alt);
+}
+
+.ws-livedemo__iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.ws-livedemo__poster {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  cursor: pointer;
+  color: var(--ws-ink);
+  background: linear-gradient(180deg, #bfe1f3 0%, #9fd1ff 100%);
+}
+
+.dark .ws-livedemo__poster {
+  background: linear-gradient(180deg, #0a1830 0%, #061b4d 100%);
+  color: #f4f7ff;
+}
+
+.ws-livedemo__play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  padding-left: 4px;
+  border-radius: 999px;
+  color: #04121f;
+  background: #00e4af;
+  box-shadow: 0 12px 40px rgba(0, 228, 175, 0.4);
+  transition: transform 0.25s ease;
+}
+
+.ws-livedemo__poster:hover .ws-livedemo__play {
+  transform: scale(1.06);
+}
+
+.ws-livedemo__cta {
+  font-family: var(--ws-display);
+  font-size: clamp(1.1rem, 0.9rem + 0.7vw, 1.4rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.ws-livedemo__note {
+  margin: clamp(16px, 2vw, 22px) 0 0;
+  max-width: 54ch;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ws-faint);
+}

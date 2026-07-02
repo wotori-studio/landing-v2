@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import StudioHero from "./studio-hero";
 import StudioWork from "./studio-work";
+import StudioLiveDemo from "./studio-live-demo";
 import ProjectInquiryForm from "./project-inquiry-form";
 import Reveal, { Marquee } from "./studio-reveal";
 import { ThemeToggle } from "./theme-toggle";
@@ -159,6 +160,9 @@ export default function WotoriHomePage() {
             <StudioWork />
           </div>
         </section>
+
+        {/* Live demo — step inside a real world */}
+        <StudioLiveDemo />
 
         {/* Contact */}
         <section className="ws-section ws-cta" id="contact">

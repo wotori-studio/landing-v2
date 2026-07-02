@@ -185,6 +185,14 @@
             "caseViewCode": "View the code ↗",
             "pianoBody": "A browser piano with built-in lessons — listen to Bach, then learn to play it hands-on with a connected MIDI keyboard and live note guidance."
           },
+          "liveDemo": {
+            "index": "(03·5) — Step inside",
+            "heading": "A real world, running in your browser.",
+            "cta": "Enter the world",
+            "note": "Live 3D from our own engine — the same tech we build worlds with. Drag to look around.",
+            "wangName": "Wang",
+            "script": "Hey — welcome! I'm Wang.|This whole place is built by Wotori Studio.|We build expressive digital worlds.|Websites, 3D characters, web3 products, games.|You're inside a real one right now — live in your browser.|Go ahead — walk around with W A S D.|Drag the mouse to look around.|Imagine your brand living in a world like this.|Like it? Let's build yours.|Start a project just below."
+          },
           "contact": {
             "index": "(04) — Let’s build",
             "titleA": "Got a brand, a product,",
@@ -865,6 +873,14 @@
             "caseViewCode": "Смотреть код ↗",
             "pianoBody": "Фортепиано в браузере с обучением — послушайте Баха и учитесь играть на подключённой MIDI-клавиатуре с подсказками по нотам в реальном времени."
           },
+          "liveDemo": {
+            "index": "(03·5) — Зайти внутрь",
+            "heading": "Настоящий мир, прямо в браузере.",
+            "cta": "Войти в мир",
+            "note": "Живое 3D на нашем движке — та же технология, на которой строим миры. Тяни, чтобы осмотреться.",
+            "wangName": "Ванг",
+            "script": "Привет! Я Ванг.|Всё это построила Wotori Studio.|Мы строим выразительные цифровые миры.|Сайты, 3D-персонажи, web3-продукты, игры.|Ты внутри одного из них — прямо в браузере.|Давай — походи на W A S D.|Тяни мышкой, чтобы осмотреться.|Представь свой бренд в таком мире.|Нравится? Построим твой.|Начни проект ниже."
+          },
           "contact": {
             "index": "(04) — Давайте создадим",
             "titleA": "Есть бренд, продукт",
@@ -1544,6 +1560,14 @@
             "caseOpenLive": "在线查看 ↗",
             "caseViewCode": "查看代码 ↗",
             "pianoBody": "浏览器钢琴，内置教学 — 聆听巴赫，并用连接的 MIDI 键盘配合实时音符提示亲手学习演奏。"
+          },
+          "liveDemo": {
+            "index": "(03·5) — 走进世界",
+            "heading": "一个真实的世界，就在你的浏览器里。",
+            "cta": "进入世界",
+            "note": "由我们自研引擎驱动的实时 3D — 与我们构建世界所用的技术相同。拖动即可环视。",
+            "wangName": "Wang",
+            "script": "嗨，欢迎！我是 Wang。|这里的一切由 Wotori Studio 打造。|我们构建富有表现力的数字世界。|网站、3D 角色、web3 产品、游戏。|你现在就在其中一个里面 — 就在浏览器中。|来吧 — 用 W A S D 走动。|拖动鼠标环视四周。|想象你的品牌活在这样的世界里。|喜欢吗？我们来打造你的。|在下方开始项目。"
           },
           "contact": {
             "index": "(04) — 一起创造",
