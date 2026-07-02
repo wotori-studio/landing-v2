@@ -30,15 +30,9 @@ type Project = {
   case?: string;
 };
 
+// Ordered by priority / project weight: flagship platform first, protocol
+// work next, then game production, character work, and small tools last.
 const WORK: Project[] = [
-  {
-    name: "DJ Wotori",
-    cats: ["design", "animation"],
-    kind: "Character · AI generation",
-    year: "2026",
-    bodyKey: "work.djBody",
-    case: "dj",
-  },
   {
     name: "Ekza Space",
     cats: ["web", "design"],
@@ -47,6 +41,14 @@ const WORK: Project[] = [
     bodyKey: "work.ekzaBody",
     href: "https://ekza.io",
     case: "ekza",
+  },
+  {
+    name: "0→100 Engine",
+    cats: ["web"],
+    kind: "Web3 · Solana protocol",
+    year: "2025",
+    bodyKey: "work.zeroBody",
+    case: "zerohundred",
   },
   {
     name: "Omoba",
@@ -58,15 +60,15 @@ const WORK: Project[] = [
     case: "omoba",
   },
   {
-    name: "0→100 Engine",
-    cats: ["web"],
-    kind: "Web3 · Solana protocol",
-    year: "2025",
-    bodyKey: "work.zeroBody",
-    case: "zerohundred",
+    name: "DJ Wotori",
+    cats: ["design", "animation"],
+    kind: "Character · AI generation",
+    year: "2026",
+    bodyKey: "work.djBody",
+    case: "dj",
   },
   {
-    name: "Wotori Piano",
+    name: "Vibe Piano",
     cats: ["web"],
     kind: "Web · Music tool",
     year: "2025",

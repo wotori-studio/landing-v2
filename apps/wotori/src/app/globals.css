@@ -198,7 +198,53 @@
   min-height: 100svh;
   overflow: hidden;
   isolation: isolate;
+  cursor: crosshair;
   background: linear-gradient(180deg, #9fd1ff 0%, #d6eeff 50%, var(--ws-bg) 100%);
+}
+
+.ws-hero a,
+.ws-hero button {
+  cursor: pointer;
+}
+
+.ws-hero__fs {
+  position: absolute;
+  right: clamp(16px, 3vw, 40px);
+  bottom: clamp(64px, 8vh, 96px);
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(10, 15, 26, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.ws-hero__fs:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* Fullscreen "burst simulator": pure scene, no UI on top. */
+.ws-hero--fs .ws-topbar,
+.ws-hero--fs .ws-hero__copy,
+.ws-hero--fs .ws-terminal,
+.ws-hero--fs .ws-hero__foot,
+.ws-hero--fs .ws-hero__scrim {
+  display: none;
+}
+
+.ws-hero--fs .ws-hero__fs {
+  bottom: clamp(20px, 4vh, 40px);
 }
 
 .dark .ws-hero {
@@ -1570,6 +1616,34 @@
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+.ws-livedemo__fs {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(10, 15, 26, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.ws-livedemo__fs:hover {
+  opacity: 1;
+  transform: translateY(-1px);
 }
 
 .ws-livedemo__poster {

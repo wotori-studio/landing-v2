@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useRef } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { VoxelScene } from "./voxel-scene";
 import { Marquee } from "./studio-reveal";
 import StudioTerminal from "./studio-terminal";
@@ -22,6 +22,36 @@ export default function StudioHero() {
   const k = (key: string) => t(`wotori.studio.${key}`);
   const sceneRef = useRef<HTMLDivElement | null>(null);
   const copyRef = useRef<HTMLDivElement | null>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [fullscreen, setFullscreen] = useState(false);
+
+  // Fullscreen "burst simulator": the whole hero section goes fullscreen and
+  // CSS hides the copy/nav/terminal, leaving just the clickable scene.
+  useEffect(() => {
+    const onChange = () => setFullscreen(Boolean(document.fullscreenElement));
+    document.addEventListener("fullscreenchange", onChange);
+    document.addEventListener("webkitfullscreenchange", onChange);
+    return () => {
+      document.removeEventListener("fullscreenchange", onChange);
+      document.removeEventListener("webkitfullscreenchange", onChange);
+    };
+  }, []);
+
+  const toggleFullscreen = () => {
+    const el = sectionRef.current as
+      | (HTMLElement & { webkitRequestFullscreen?: () => void })
+      | null;
+    if (!el) return;
+    const doc = document as Document & { webkitExitFullscreen?: () => void };
+    if (document.fullscreenElement) {
+      if (document.exitFullscreen) void document.exitFullscreen();
+      else doc.webkitExitFullscreen?.();
+    } else if (el.requestFullscreen) {
+      void el.requestFullscreen();
+    } else {
+      el.webkitRequestFullscreen?.();
+    }
+  };
 
   useEffect(() => {
     if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches)
@@ -49,7 +79,11 @@ export default function StudioHero() {
   }, []);
 
   return (
-    <section className="ws-hero" id="top">
+    <section
+      className={`ws-hero ${fullscreen ? "ws-hero--fs" : ""}`.trim()}
+      id="top"
+      ref={sectionRef}
+    >
       <div className="ws-hero__scene" ref={sceneRef} aria-hidden="true">
         <Suspense fallback={null}>
           <VoxelScene theme={theme === "light" ? "day" : "night"} />
@@ -97,6 +131,25 @@ export default function StudioHero() {
       </div>
 
       <StudioTerminal />
+
+      <button
+        type="button"
+        className="ws-hero__fs"
+        onClick={toggleFullscreen}
+        aria-label={fullscreen ? k("hero.exitFullscreen") : k("hero.fullscreen")}
+        title={fullscreen ? k("hero.exitFullscreen") : k("hero.fullscreen")}
+      >
+        {fullscreen ? (
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        ) : (
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        )}
+        <span>{fullscreen ? k("hero.exitFullscreen") : k("hero.fullscreen")}</span>
+      </button>
 
       <div className="ws-hero__foot">
         <Marquee items={MARQUEE} />

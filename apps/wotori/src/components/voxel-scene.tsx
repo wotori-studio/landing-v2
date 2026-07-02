@@ -3,6 +3,7 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { createContext, useContext, useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
+import { ClickBursts } from "./click-bursts";
 
 export type Theme = "day" | "night";
 
@@ -472,6 +473,172 @@ function SkyDome() {
   );
 }
 
+type CelestialVoxel = { position: Vec3; color: THREE.Color };
+
+function buildCelestialVoxels(theme: Theme): { voxels: CelestialVoxel[]; cube: number } {
+  const isDay = theme === "day";
+  const cube = 0.5;
+  const radius = isDay ? 2.9 : 2.6;
+  const random = randomFrom(isDay ? 4242 : 7777);
+  const voxels: CelestialVoxel[] = [];
+  const steps = Math.ceil((radius + cube) / cube);
+
+  const craters: { cx: number; cy: number; r: number }[] = [];
+  if (!isDay) {
+    for (let i = 0; i < 5; i += 1) {
+      const angle = random() * Math.PI * 2;
+      const dist = random() * radius * 0.72;
+      craters.push({
+        cx: Math.cos(angle) * dist,
+        cy: Math.sin(angle) * dist,
+        r: 0.38 + random() * 0.55
+      });
+    }
+  }
+
+  const inner = new THREE.Color(isDay ? "#fff9d6" : "#eef3fb");
+  const mid = new THREE.Color(isDay ? "#ffe36a" : "#d5e0f0");
+  const edge = new THREE.Color(isDay ? "#ff9440" : "#b9c8e0");
+  const craterColor = new THREE.Color("#9fb0cc");
+
+  for (let ix = -steps; ix <= steps; ix += 1) {
+    for (let iy = -steps; iy <= steps; iy += 1) {
+      const x = ix * cube;
+      const y = iy * cube;
+      const d = Math.sqrt(x * x + y * y);
+      if (d > radius + cube * 0.2) continue;
+
+      const t = THREE.MathUtils.clamp(d / radius, 0, 1);
+      const color = new THREE.Color();
+      if (t < 0.55) color.lerpColors(inner, mid, t / 0.55);
+      else color.lerpColors(mid, edge, (t - 0.55) / 0.45);
+
+      if (!isDay) {
+        // Fake sphere shading: light from the left.
+        color.multiplyScalar(1 - 0.2 * ((x / radius + 1) / 2));
+        for (const crater of craters) {
+          const dx = x - crater.cx;
+          const dy = y - crater.cy;
+          if (dx * dx + dy * dy < crater.r * crater.r) {
+            color.lerp(craterColor, 0.55);
+            break;
+          }
+        }
+      }
+
+      const jitter = (random() - 0.5) * 0.05;
+      color.r = Math.max(0, color.r + jitter);
+      color.g = Math.max(0, color.g + jitter);
+      color.b = Math.max(0, color.b + jitter);
+
+      voxels.push({ position: [x, y, 0], color });
+    }
+  }
+
+  if (isDay) {
+    // Pixel-art rays: 8 directions, longer on the cardinals.
+    const rayColor = new THREE.Color("#ffdf5e");
+    for (let k = 0; k < 8; k += 1) {
+      const angle = (k * Math.PI) / 4;
+      const dx = Math.cos(angle);
+      const dy = Math.sin(angle);
+      const cardinal = k % 2 === 0;
+      const stops = cardinal ? [1.4, 1.75, 2.1] : [1.45, 1.8];
+      for (const s of stops) {
+        voxels.push({
+          position: [dx * radius * s, dy * radius * s, 0],
+          color: rayColor.clone()
+        });
+      }
+    }
+  }
+
+  return { voxels, cube };
+}
+
+function CelestialBody() {
+  const theme = useContext(ThemeContext);
+  const isDay = theme === "day";
+  const { voxels, cube } = useMemo(() => buildCelestialVoxels(theme), [theme]);
+  const group = useRef<THREE.Group>(null);
+  const body = useRef<THREE.Group>(null);
+  const mesh = useRef<THREE.InstancedMesh>(null);
+  const haloMaterial = useRef<THREE.SpriteMaterial>(null);
+
+  const glowTexture = useMemo(
+    () => (typeof document === "undefined" ? null : makeGlowTexture()),
+    []
+  );
+
+  const basePosition: Vec3 = isDay ? [15, 14.5, -50] : [-13, 15.5, -48];
+  const haloColor = isDay ? "#ffca4d" : "#a9c4ef";
+  const haloScale = isDay ? 17 : 12;
+  const haloOpacity = isDay ? 0.5 : 0.38;
+
+  useLayoutEffect(() => {
+    if (!mesh.current) return;
+    voxels.forEach((voxel, index) => {
+      tempObject.position.set(voxel.position[0], voxel.position[1], voxel.position[2]);
+      tempObject.rotation.set(0, 0, 0);
+      tempObject.scale.setScalar(cube * 0.96);
+      tempObject.updateMatrix();
+      mesh.current?.setMatrixAt(index, tempObject.matrix);
+      mesh.current?.setColorAt(index, voxel.color);
+    });
+    mesh.current.instanceMatrix.needsUpdate = true;
+    if (mesh.current.instanceColor) {
+      mesh.current.instanceColor.needsUpdate = true;
+    }
+  }, [cube, voxels]);
+
+  useFrame(({ clock }) => {
+    const time = clock.elapsedTime;
+    if (group.current) {
+      group.current.position.set(
+        basePosition[0],
+        basePosition[1] + Math.sin(time * 0.26) * 0.35,
+        basePosition[2]
+      );
+    }
+    if (body.current) {
+      body.current.rotation.z = isDay ? time * 0.055 : Math.sin(time * 0.1) * 0.02;
+    }
+    if (haloMaterial.current) {
+      haloMaterial.current.opacity =
+        haloOpacity * (1 + Math.sin(time * (isDay ? 1.4 : 0.8)) * 0.08);
+    }
+  });
+
+  return (
+    <group ref={group} position={basePosition}>
+      <sprite position={[0, 0, -1.4]} scale={[haloScale, haloScale, 1]}>
+        <spriteMaterial
+          ref={haloMaterial}
+          map={glowTexture ?? undefined}
+          color={haloColor}
+          transparent
+          opacity={haloOpacity}
+          depthWrite={false}
+          blending={THREE.AdditiveBlending}
+          toneMapped={false}
+          fog={false}
+        />
+      </sprite>
+      <group ref={body}>
+        <instancedMesh
+          key={theme}
+          ref={mesh}
+          args={[undefined, undefined, voxels.length]}
+          frustumCulled={false}
+        >
+          <boxGeometry args={[1, 1, 1]} />
+          <meshBasicMaterial color="#ffffff" toneMapped={false} fog={false} />
+        </instancedMesh>
+      </group>
+    </group>
+  );
+}
+
 function buildGrassTemplates(): GrassTemplate[] {
   const make = (
     cubes: Array<[number, number, number, number, number, number]>
@@ -568,7 +735,7 @@ function GrassField() {
   const cfg = useThemeConfig();
   const templates = useMemo(buildGrassTemplates, []);
 
-  const { blades, instances, flowers } = useMemo(() => {
+  const { blades, instances, flowers, instanceData } = useMemo(() => {
     const random = randomFrom(1209);
     const bladesArr: Blade[] = [];
     const flowersArr: FlowerInstance[] = [];
@@ -606,18 +773,44 @@ function GrassField() {
       }
     }
 
-    return { blades: bladesArr, instances: instArr, flowers: flowersArr };
+    // Flat per-instance lookups so the hot frame loop never touches objects.
+    const bladeIdxOf = new Int32Array(instArr.length);
+    const swayWeightOf = new Float32Array(instArr.length);
+    instArr.forEach((inst, i) => {
+      bladeIdxOf[i] = inst.bladeIdx;
+      const blade = bladesArr[inst.bladeIdx];
+      swayWeightOf[i] = templates[blade.templateIdx].cubes[inst.cubeIdx].swayWeight;
+    });
+
+    return {
+      blades: bladesArr,
+      instances: instArr,
+      flowers: flowersArr,
+      instanceData: {
+        bladeIdxOf,
+        swayWeightOf,
+        bladeZ: new Float32Array(bladesArr.length),
+        bladeGust: new Float32Array(bladesArr.length)
+      }
+    };
   }, [templates]);
 
   const grassMesh = useRef<THREE.InstancedMesh>(null);
   const flowerMesh = useRef<THREE.InstancedMesh>(null);
 
+  // Bake rotation + scale + x/y into static matrices once. The frame loop
+  // only rewrites the translation floats directly in the attribute buffer.
   useLayoutEffect(() => {
     if (!grassMesh.current) return;
     const c = new THREE.Color();
     instances.forEach((inst, idx) => {
       const blade = blades[inst.bladeIdx];
       const cube = templates[blade.templateIdx].cubes[inst.cubeIdx];
+      tempObject.position.set(blade.x, cube.dy, blade.z);
+      tempObject.rotation.set(0, blade.yaw, 0);
+      tempObject.scale.set(cube.sx, cube.sy, cube.sz);
+      tempObject.updateMatrix();
+      grassMesh.current?.setMatrixAt(idx, tempObject.matrix);
       sampleGradient(cfg.grassStops, cube.t, c);
       const bright = blade.brightness;
       c.r *= bright;
@@ -647,19 +840,22 @@ function GrassField() {
     const offset = time * FLIGHT_SPEED;
     const swayBase = time * 1.6;
 
+    const { bladeIdxOf, swayWeightOf, bladeZ, bladeGust } = instanceData;
+
+    // One wrap + one sin per blade instead of per cube.
+    for (let b = 0; b < blades.length; b += 1) {
+      const blade = blades[b];
+      bladeZ[b] = wrapZ(blade.z, offset);
+      bladeGust[b] = Math.sin(swayBase + blade.swayPhase) * blade.swayAmp;
+    }
+
+    const matrices = grassMesh.current.instanceMatrix.array as Float32Array;
     for (let i = 0; i < instances.length; i += 1) {
-      const inst = instances[i];
-      const blade = blades[inst.bladeIdx];
-      const cube = templates[blade.templateIdx].cubes[inst.cubeIdx];
-      const zWrapped = wrapZ(blade.z, offset);
-      const gust = Math.sin(swayBase + blade.swayPhase) * blade.swayAmp;
-      const swayX = gust * cube.swayWeight * 0.05;
-      const swayZ = gust * cube.swayWeight * 0.02;
-      tempObject.position.set(blade.x + swayX, cube.dy, zWrapped + swayZ);
-      tempObject.rotation.set(0, blade.yaw, gust * cube.swayWeight * 0.08);
-      tempObject.scale.set(cube.sx, cube.sy, cube.sz);
-      tempObject.updateMatrix();
-      grassMesh.current!.setMatrixAt(i, tempObject.matrix);
+      const b = bladeIdxOf[i];
+      const gust = bladeGust[b] * swayWeightOf[i];
+      const base = i * 16;
+      matrices[base + 12] = blades[b].x + gust * 0.05;
+      matrices[base + 14] = bladeZ[b] + gust * 0.02;
     }
     grassMesh.current.instanceMatrix.needsUpdate = true;
 
@@ -805,7 +1001,7 @@ function GlowAmbient() {
     });
     return (
       <group ref={groupRef}>
-        {points.slice(0, 90).map((point, index) => (
+        {points.slice(0, 48).map((point, index) => (
           <sprite
             key={index}
             position={[point.x, point.y, point.z]}
@@ -1177,7 +1373,7 @@ export function VoxelScene({ theme = "night" }: { theme?: Theme }) {
       <Canvas
         className="voxel-canvas"
         camera={{ position: [0, 1.18, 5.4], fov: 74, near: 0.1, far: 180 }}
-        dpr={[1, 1.8]}
+        dpr={[1, 1.5]}
         gl={{
           antialias: true,
           alpha: false,
@@ -1186,11 +1382,13 @@ export function VoxelScene({ theme = "night" }: { theme?: Theme }) {
       >
         <SceneTuning />
         <SkyDome />
+        <CelestialBody />
         <LightSetup />
         <CloudField />
         <Ground />
         <GrassField />
         <GlowAmbient />
+        <ClickBursts flightSpeed={FLIGHT_SPEED} />
         <CameraRig />
       </Canvas>
     </ThemeContext.Provider>

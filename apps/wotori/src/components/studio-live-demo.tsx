@@ -13,7 +13,36 @@ export default function StudioLiveDemo() {
   const { t, language } = useI18n();
   const k = (key: string) => t(`wotori.studio.liveDemo.${key}`);
   const [load, setLoad] = useState(false);
+  const [fullscreen, setFullscreen] = useState(false);
   const frameRef = useRef<HTMLDivElement | null>(null);
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
+
+  useEffect(() => {
+    const onChange = () =>
+      setFullscreen(document.fullscreenElement === iframeRef.current);
+    document.addEventListener("fullscreenchange", onChange);
+    document.addEventListener("webkitfullscreenchange", onChange);
+    return () => {
+      document.removeEventListener("fullscreenchange", onChange);
+      document.removeEventListener("webkitfullscreenchange", onChange);
+    };
+  }, []);
+
+  const toggleFullscreen = () => {
+    const el = iframeRef.current as
+      | (HTMLIFrameElement & { webkitRequestFullscreen?: () => void })
+      | null;
+    if (!el) return;
+    const doc = document as Document & { webkitExitFullscreen?: () => void };
+    if (document.fullscreenElement) {
+      if (document.exitFullscreen) void document.exitFullscreen();
+      else doc.webkitExitFullscreen?.();
+    } else if (el.requestFullscreen) {
+      void el.requestFullscreen();
+    } else {
+      el.webkitRequestFullscreen?.();
+    }
+  };
 
   // Pass the visitor's language + Wang's localized script into the demo, so the
   // in-world narrator speaks whatever language the site is in. The demo maps the
@@ -59,13 +88,31 @@ export default function StudioLiveDemo() {
 
         <div className="ws-livedemo__frame" ref={frameRef}>
           {load ? (
-            <iframe
-              className="ws-livedemo__iframe"
-              src={demoSrc}
-              title={k("heading")}
-              loading="lazy"
-              allow="fullscreen; autoplay"
-            />
+            <>
+              <iframe
+                ref={iframeRef}
+                className="ws-livedemo__iframe"
+                src={demoSrc}
+                title={k("heading")}
+                loading="lazy"
+                allow="fullscreen; autoplay"
+                allowFullScreen
+              />
+              <button
+                type="button"
+                className="ws-livedemo__fs"
+                onClick={toggleFullscreen}
+                aria-label={
+                  fullscreen ? k("exitFullscreen") : k("fullscreen")
+                }
+                title={fullscreen ? k("exitFullscreen") : k("fullscreen")}
+              >
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                  <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <span>{k("fullscreen")}</span>
+              </button>
+            </>
           ) : (
             <button
               type="button"
