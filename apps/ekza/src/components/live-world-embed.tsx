@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import { useI18n } from "../lib/i18n-provider";
 import { Reveal } from "./motion";
 
-// Clean, chrome-less demo scene (character on grass) — see core /demo route.
-const APP_URL = "https://space.ekza.io/demo";
+// Interactive narrated demo (Wang + click bursts, NFT plants, collecting) —
+// see core /demo2 route.
+const APP_URL = "https://space.ekza.io/demo2";
 
 /**
  * Click-to-activate live embed of the Ekza Space 3D world, loaded IN-PLACE inside
