@@ -187,7 +187,7 @@
           },
           "liveDemo": {
             "index": "(03·5) — Step inside",
-            "heading": "A real world, running in your browser.",
+            "heading": "A virtual world, running in your browser.",
             "cta": "Enter the world",
             "note": "Live 3D from our own engine — the same tech we build worlds with. Drag to look around.",
             "wangName": "Wang",
@@ -875,7 +875,7 @@
           },
           "liveDemo": {
             "index": "(03·5) — Зайти внутрь",
-            "heading": "Настоящий мир, прямо в браузере.",
+            "heading": "Виртуальный мир, прямо в браузере.",
             "cta": "Войти в мир",
             "note": "Живое 3D на нашем движке — та же технология, на которой строим миры. Тяни, чтобы осмотреться.",
             "wangName": "Ванг",
@@ -1563,7 +1563,7 @@
           },
           "liveDemo": {
             "index": "(03·5) — 走进世界",
-            "heading": "一个真实的世界，就在你的浏览器里。",
+            "heading": "一个虚拟世界，就在你的浏览器里。",
             "cta": "进入世界",
             "note": "由我们自研引擎驱动的实时 3D — 与我们构建世界所用的技术相同。拖动即可环视。",
             "wangName": "Wang",
