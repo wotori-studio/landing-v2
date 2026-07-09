@@ -573,7 +573,8 @@
             "finalCta": {
               "headline": "Claim your place in the universe.",
               "subcopy": "The collection is finite. Reserve a Space to mint from the genesis batch and follow the build — or join the newsletter for the next drop.",
-              "cta": "Reserve your Space"
+              "cta": "Reserve your Space",
+              "pitchdeck": "Investor pitch"
             },
             "liveWorld": {
               "eyebrow": "See it live",
@@ -1265,7 +1266,8 @@
             "finalCta": {
               "headline": "Claim your place in the universe.",
               "subcopy": "The collection is finite. Reserve a Space to mint from the genesis batch and follow the build — or join the newsletter for the next drop.",
-              "cta": "Reserve your Space"
+              "cta": "Reserve your Space",
+              "pitchdeck": "Pitchdeck для инвесторов"
             },
             "liveWorld": {
               "eyebrow": "See it live",
@@ -1957,7 +1959,8 @@
             "finalCta": {
               "headline": "Claim your place in the universe.",
               "subcopy": "The collection is finite. Reserve a Space to mint from the genesis batch and follow the build — or join the newsletter for the next drop.",
-              "cta": "Reserve your Space"
+              "cta": "Reserve your Space",
+              "pitchdeck": "投资者 Pitchdeck"
             },
             "liveWorld": {
               "eyebrow": "See it live",

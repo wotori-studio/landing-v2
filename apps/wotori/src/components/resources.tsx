@@ -23,15 +23,9 @@ export default function Resources() {
 
   const investorResources = [
     {
-      title: t("wotori.investors.lightPaper.title"),
-      text: t("wotori.investors.lightPaper.text"),
-      href: "https://wotori.io/ppt/lp-wotori-studio_v0.5.pdf",
-      cta: t("wotori.investors.lightPaper.cta"),
-    },
-    {
       title: t("wotori.investors.pitchdeck.title"),
       text: t("wotori.investors.pitchdeck.text"),
-      href: "https://stellar.ekza.io/ppt/wotori-pitchdeck.pdf",
+      href: "https://ekza.io/decks/ekza_pitch_dubai_2026_dark.html",
       cta: t("wotori.investors.pitchdeck.cta"),
     },
   ];
@@ -92,7 +86,7 @@ export default function Resources() {
             {t("wotori.investors.description")}
           </p>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <div className="mt-10 grid max-w-xl gap-6">
             {investorResources.map((resource) => (
               <article
                 key={resource.title}

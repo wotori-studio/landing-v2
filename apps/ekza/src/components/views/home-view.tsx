@@ -71,6 +71,16 @@ export function HomeView() {
     },
   ];
 
+  const ctaLinks = [
+    {
+      label: t("ekza.v2.home.finalCta.pitchdeck"),
+      href: "/decks/ekza_pitch_dubai_2026_dark.html",
+    },
+    { label: "Discord", href: "https://discord.gg/yUWb4Q5b", external: true },
+    { label: "X", href: "https://twitter.com/EkzaSpace", external: true },
+    { label: "Telegram", href: "https://t.me/ekzaspace", external: true },
+  ];
+
   return (
     <main className="font-ekza text-ekza-on">
       <HeroSection
@@ -138,6 +148,7 @@ export function HomeView() {
         subcopy={t("ekza.v2.home.finalCta.subcopy")}
         primaryLabel={t("ekza.v2.home.finalCta.cta")}
         onPrimary={openReserve}
+        secondary={ctaLinks}
       />
     </main>
   );
