@@ -153,6 +153,7 @@
             "charBody": "End-to-end character design — from concept and look-dev to a rigged, game-ready 3D avatar with its own personality and motion set.",
             "vidBody": "A generative 3D pipeline turning prompts and reference assets into fully rendered motion clips — cinematic output at a fraction of the time and cost.",
             "omobaBody": "An open MOBA where players own their heroes — creator avatars moving from design into live gameplay. Open the case for the breakdown.",
+            "arenaBody": "An on-chain loot arena — gear, drops, and progression settled directly on Solana via the Ekza protocol. Open the case for the breakdown.",
             "opusBody": "A social network for musicians to publish live performances and connect with audiences, built for direct creator visibility.",
             "caseLabelProblem": "Problem",
             "caseLabelBuild": "What we built",
@@ -176,6 +177,12 @@
             "omobaFactBuild": "An open MOBA with creator-owned avatars on the Ekza asset layer.",
             "omobaFactStack": "Bevy, Ekza SDK, Solana.",
             "omobaFactResult": "Playable prototype proving creator assets reach live play.",
+            "arenaCaseMeta": "Game · On-chain loot · Solana — 2025 → now",
+            "arenaCaseDesc": "A browser loot arena where equipment, mint, and progression run through commit-reveal drops on the Ekza on-chain protocol — no off-chain inventory.",
+            "arenaFactProblem": "Loot and gear in web games live in a database, not in players' hands.",
+            "arenaFactBuild": "A commit-reveal mint/scrap loop with on-chain equipment slots on the Ekza protocol.",
+            "arenaFactStack": "Next.js, @solana/web3.js, Anchor IDL, IPFS.",
+            "arenaFactResult": "Playable devnet build: wallet mint, equip, and scrap, all on-chain.",
             "zeroBody": "A trustless fair-launch engine for Solana — deterministic winner selection, escrow and automated Raydium liquidity. Built with Xyber Labs. Open the case for the breakdown.",
             "zeroCaseMeta": "Web3 · Solana · Anchor — with Xyber Labs",
             "zeroCaseDesc": "An on-chain engine for fair token launches on Solana: collect deposits, draw winners from a public blockhash with no admin trust, and spin up Raydium CLMM liquidity automatically. The venture wound down — the protocol stands: a serious Rust/Anchor codebase.",
@@ -419,9 +426,17 @@
           },
           "partners": {
             "label": "Built on Ekza",
-            "heading": "Omoba",
-            "badge": "Built on Ekza",
-            "description": "Open MOBA from Wotori Studio — players bring custom avatars and game-ready assets, running end-to-end on Ekza infrastructure."
+            "heading": "Ecosystem",
+            "omoba": {
+              "name": "Omoba",
+              "badge": "Built on Ekza",
+              "description": "Open MOBA from Wotori Studio — players bring custom avatars and game-ready assets, running end-to-end on Ekza infrastructure."
+            },
+            "arena": {
+              "name": "Ekza Arena",
+              "badge": "Built on the Ekza SDK",
+              "description": "On-chain loot arena built on the Ekza SDK — gear, drops, and progression run on Ekza protocol primitives. Not a partner studio, a product of the protocol itself."
+            }
           },
           "cta": {
             "headline": "Claim a Space before they're gone.",
@@ -846,6 +861,7 @@
             "charBody": "Создание персонажа под ключ — от концепта и look-dev до риг-готового 3D-аватара с характером и набором движений.",
             "vidBody": "Генеративный 3D-пайплайн: из промптов и референсов — готовые отрендеренные ролики. Кинематографично, за долю времени и бюджета.",
             "omobaBody": "Открытая MOBA, где игроки владеют своими героями — аватары креаторов из дизайна попадают прямо в живой геймплей. Откройте кейс с разбором.",
+            "arenaBody": "On-chain лутер-арена — экипировка, дропы и прогресс фиксируются прямо в Solana через протокол Ekza. Откройте кейс с разбором.",
             "opusBody": "Соцсеть для музыкантов: публикуйте живые выступления и находите аудиторию. Прямая видимость для авторов.",
             "caseLabelProblem": "Проблема",
             "caseLabelBuild": "Что собрали",
@@ -869,6 +885,12 @@
             "omobaFactBuild": "Открытая MOBA с аватарами-владениями на asset-слое Ekza.",
             "omobaFactStack": "Bevy, Ekza SDK, Solana.",
             "omobaFactResult": "Играбельный прототип: ассеты креаторов доходят до живой игры.",
+            "arenaCaseMeta": "Игра · On-chain лут · Solana — 2025 → сейчас",
+            "arenaCaseDesc": "Браузерная лутер-арена, где экипировка, минт и прогресс идут через commit-reveal дропы на протоколе Ekza — без офчейн-инвентаря.",
+            "arenaFactProblem": "Лут и экипировка в веб-играх живут в базе данных, а не у игрока.",
+            "arenaFactBuild": "Commit-reveal минт/скрап-цикл с on-chain слотами экипировки на протоколе Ekza.",
+            "arenaFactStack": "Next.js, @solana/web3.js, Anchor IDL, IPFS.",
+            "arenaFactResult": "Играбельная devnet-сборка: минт кошельком, экип, скрап — всё on-chain.",
             "zeroBody": "Trustless-движок честного запуска на Solana — детерминированный выбор победителей, escrow и авто-ликвидность Raydium. Сделано с Xyber Labs. Откройте кейс с разбором.",
             "zeroCaseMeta": "Web3 · Solana · Anchor — с Xyber Labs",
             "zeroCaseDesc": "On-chain движок честного запуска токенов на Solana: сбор депозитов, выбор победителей по публичному blockhash без доверия к админу и автоматическое создание ликвидности Raydium CLMM. Венчур закрылся — протокол остался: серьёзная кодовая база на Rust/Anchor.",
@@ -1112,9 +1134,17 @@
           },
           "partners": {
             "label": "Built on Ekza",
-            "heading": "Omoba",
-            "badge": "Built on Ekza",
-            "description": "Open MOBA from Wotori Studio — players bring custom avatars and game-ready assets, running end-to-end on Ekza infrastructure."
+            "heading": "Ecosystem",
+            "omoba": {
+              "name": "Omoba",
+              "badge": "Built on Ekza",
+              "description": "Open MOBA from Wotori Studio — players bring custom avatars and game-ready assets, running end-to-end on Ekza infrastructure."
+            },
+            "arena": {
+              "name": "Ekza Arena",
+              "badge": "Built on the Ekza SDK",
+              "description": "On-chain loot arena built on the Ekza SDK — gear, drops, and progression run on Ekza protocol primitives. Not a partner studio, a product of the protocol itself."
+            }
           },
           "cta": {
             "headline": "Claim a Space before they're gone.",
@@ -1539,6 +1569,7 @@
             "charBody": "端到端角色设计 — 从概念、look-dev 到可用于游戏、带绑定的 3D 虚拟形象，拥有独特个性与动作。",
             "vidBody": "生成式 3D 流程：将提示词与参考资产转化为完整渲染的动态短片 — 以极少的时间和成本实现电影级效果。",
             "omobaBody": "一款开放 MOBA，玩家真正拥有自己的英雄 — 创作者虚拟形象从设计直接走进实时游戏。打开案例查看拆解。",
+            "arenaBody": "链上装备竞技场 — 装备、掉落与成长通过 Ekza 协议直接结算在 Solana 上。打开案例查看拆解。",
             "opusBody": "面向音乐人的社交网络：发布现场演出并连接观众，为创作者提供直接曝光。",
             "caseLabelProblem": "问题",
             "caseLabelBuild": "我们构建了什么",
@@ -1562,6 +1593,12 @@
             "omobaFactBuild": "基于 Ekza 资产层、拥有创作者虚拟形象的开放 MOBA。",
             "omobaFactStack": "Bevy、Ekza SDK、Solana。",
             "omobaFactResult": "可玩原型，证明创作者资产能走进实时游戏。",
+            "arenaCaseMeta": "游戏 · 链上掉落 · Solana — 2025 → 至今",
+            "arenaCaseDesc": "一个浏览器装备竞技场，装备、铸造与成长通过 Ekza 链上协议的 commit-reveal 掉落机制运行 — 没有链下库存。",
+            "arenaFactProblem": "网页游戏中的装备与掉落物存在数据库里，而不在玩家手中。",
+            "arenaFactBuild": "基于 Ekza 协议、带链上装备槽的 commit-reveal 铸造/回收循环。",
+            "arenaFactStack": "Next.js、@solana/web3.js、Anchor IDL、IPFS。",
+            "arenaFactResult": "可玩的 devnet 版本：钱包铸造、装备、回收，全部链上完成。",
             "zeroBody": "面向 Solana 的无信任公平发射引擎 — 确定性中奖选择、托管与自动 Raydium 流动性。与 Xyber Labs 共建。打开案例查看拆解。",
             "zeroCaseMeta": "Web3 · Solana · Anchor — 与 Xyber Labs 共建",
             "zeroCaseDesc": "面向 Solana 的链上公平代币发射引擎：收集存款、基于公开 blockhash 无需信任管理员地抽取中奖者，并自动创建 Raydium CLMM 流动性。项目已停止 — 协议仍在：一套扎实的 Rust/Anchor 代码库。",
@@ -1805,9 +1842,17 @@
           },
           "partners": {
             "label": "Built on Ekza",
-            "heading": "Omoba",
-            "badge": "Built on Ekza",
-            "description": "Open MOBA from Wotori Studio — players bring custom avatars and game-ready assets, running end-to-end on Ekza infrastructure."
+            "heading": "Ecosystem",
+            "omoba": {
+              "name": "Omoba",
+              "badge": "Built on Ekza",
+              "description": "Open MOBA from Wotori Studio — players bring custom avatars and game-ready assets, running end-to-end on Ekza infrastructure."
+            },
+            "arena": {
+              "name": "Ekza Arena",
+              "badge": "Built on the Ekza SDK",
+              "description": "On-chain loot arena built on the Ekza SDK — gear, drops, and progression run on Ekza protocol primitives. Not a partner studio, a product of the protocol itself."
+            }
           },
           "cta": {
             "headline": "Claim a Space before they're gone.",

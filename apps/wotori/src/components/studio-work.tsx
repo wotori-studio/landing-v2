@@ -60,6 +60,14 @@ const WORK: Project[] = [
     case: "omoba",
   },
   {
+    name: "Ekza Arena",
+    cats: ["games", "web"],
+    kind: "Game · On-chain loot",
+    year: "2026",
+    bodyKey: "work.arenaBody",
+    case: "arena",
+  },
+  {
     name: "DJ Wotori",
     cats: ["design", "animation"],
     kind: "Character · AI generation",
@@ -139,6 +147,13 @@ export default function StudioWork() {
       desc: k("work.omobaCaseDesc"),
       facts: facts("omoba"),
       link: { href: "https://x.com/wotorimovako", label: k("work.caseOpenLive") },
+    },
+    arena: {
+      title: "Ekza Arena",
+      meta: k("work.arenaCaseMeta"),
+      desc: k("work.arenaCaseDesc"),
+      facts: facts("arena"),
+      link: { href: "https://arena.ekza.io", label: k("work.caseOpenLive") },
     },
     zerohundred: {
       title: "0→100 Engine",
