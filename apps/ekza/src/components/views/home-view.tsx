@@ -78,7 +78,7 @@ export function HomeView() {
     },
     {
       label: t("ekza.v2.home.finalCta.beijingDeck"),
-      href: "https://ipfs.io/ipfs/QmdLxwE7s5PVRnXPb4nb51haPoLteNdA9U6WQa1TbyivEy",
+      href: "https://gateway.pinata.cloud/ipfs/QmdLxwE7s5PVRnXPb4nb51haPoLteNdA9U6WQa1TbyivEy",
       external: true,
     },
     { label: "Discord", href: "https://discord.gg/yUWb4Q5b", external: true },
