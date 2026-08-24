@@ -415,7 +415,7 @@
           "ecosystem": {
             "eyebrow": "The ecosystem",
             "headline": "One asset layer, many surfaces.",
-            "subcopy": "One asset graph powers everything — collaborative releases, owned places, portable avatars, and games. Solana settles ownership and payouts underneath.",
+            "subcopy": "One asset graph powers everything — collaborative releases, owned places, portable avatars, and games. Today it settles on Solana; the graph itself is rail-agnostic and can run over conventional payments too.",
             "statusNote": "Early alpha. Running on devnet.",
             "credit": "Created and backed by Wotori Studio",
             "projects": {
@@ -516,7 +516,7 @@
               "eyebrow": "Collaborative 3D asset ownership",
               "headline": "Own what you make. Together.",
               "subhead": "Ekza is the ownership layer for collaboratively made 3D assets. Story, concept, model, rig, animation — every contribution is tracked in the asset graph and keeps earning each time the asset is sold, rented, or licensed.",
-              "description": "Blockchain is our settlement rail, not the pitch. Solana quietly settles ownership and payouts under the hood; what you experience is teams shipping game-ready assets — and getting paid for them, forever.",
+              "description": "The idea does not depend on crypto. Lineage, licensing, and revenue splits work over any settlement rail — ordinary contracts and bank payments included. Solana is simply the first rail we run on: programmable, global, and cheap to automate.",
               "footerLeft": "Built by Wotori Studio · Live on Solana devnet",
               "footerCenter": "Create on Stellar · License bundles · Play in Omoba & Arena",
               "buttons": {
@@ -1123,7 +1123,7 @@
           "ecosystem": {
             "eyebrow": "The ecosystem",
             "headline": "One asset layer, many surfaces.",
-            "subcopy": "One asset graph powers everything — collaborative releases, owned places, portable avatars, and games. Solana settles ownership and payouts underneath.",
+            "subcopy": "One asset graph powers everything — collaborative releases, owned places, portable avatars, and games. Today it settles on Solana; the graph itself is rail-agnostic and can run over conventional payments too.",
             "statusNote": "Early alpha. Running on devnet.",
             "credit": "Created and backed by Wotori Studio",
             "projects": {
@@ -1224,7 +1224,7 @@
               "eyebrow": "Collaborative 3D asset ownership",
               "headline": "Own what you make. Together.",
               "subhead": "Ekza is the ownership layer for collaboratively made 3D assets. Story, concept, model, rig, animation — every contribution is tracked in the asset graph and keeps earning each time the asset is sold, rented, or licensed.",
-              "description": "Blockchain is our settlement rail, not the pitch. Solana quietly settles ownership and payouts under the hood; what you experience is teams shipping game-ready assets — and getting paid for them, forever.",
+              "description": "The idea does not depend on crypto. Lineage, licensing, and revenue splits work over any settlement rail — ordinary contracts and bank payments included. Solana is simply the first rail we run on: programmable, global, and cheap to automate.",
               "footerLeft": "Built by Wotori Studio · Live on Solana devnet",
               "footerCenter": "Create on Stellar · License bundles · Play in Omoba & Arena",
               "buttons": {
@@ -1831,7 +1831,7 @@
           "ecosystem": {
             "eyebrow": "The ecosystem",
             "headline": "One asset layer, many surfaces.",
-            "subcopy": "One asset graph powers everything — collaborative releases, owned places, portable avatars, and games. Solana settles ownership and payouts underneath.",
+            "subcopy": "One asset graph powers everything — collaborative releases, owned places, portable avatars, and games. Today it settles on Solana; the graph itself is rail-agnostic and can run over conventional payments too.",
             "statusNote": "Early alpha. Running on devnet.",
             "credit": "Created and backed by Wotori Studio",
             "projects": {
@@ -1932,7 +1932,7 @@
               "eyebrow": "Collaborative 3D asset ownership",
               "headline": "Own what you make. Together.",
               "subhead": "Ekza is the ownership layer for collaboratively made 3D assets. Story, concept, model, rig, animation — every contribution is tracked in the asset graph and keeps earning each time the asset is sold, rented, or licensed.",
-              "description": "Blockchain is our settlement rail, not the pitch. Solana quietly settles ownership and payouts under the hood; what you experience is teams shipping game-ready assets — and getting paid for them, forever.",
+              "description": "The idea does not depend on crypto. Lineage, licensing, and revenue splits work over any settlement rail — ordinary contracts and bank payments included. Solana is simply the first rail we run on: programmable, global, and cheap to automate.",
               "footerLeft": "Built by Wotori Studio · Live on Solana devnet",
               "footerCenter": "Create on Stellar · License bundles · Play in Omoba & Arena",
               "buttons": {
