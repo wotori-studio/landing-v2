@@ -421,7 +421,7 @@
             "projects": {
               "stellar": "The collaboration layer: universes, typed assets, lineage, releases, vaults, and contributor revenue shares.",
               "avatar": "Portable, mintable 3D identities with Solana-native ownership, linkable to finalized Stellar releases.",
-              "space": "Numbered, NFT-owned virtual rooms and arenas with mutable on-chain settings."
+              "space": "Numbered virtual rooms and arenas — owned outright, with live settings the owner controls."
             }
           },
           "partners": {
@@ -561,7 +561,7 @@
             },
             "whyOwn": {
               "eyebrow": "What you own",
-              "headline": "More than a file. More than an NFT.",
+              "headline": "More than a file. A place you own.",
               "subcopy": "A Space is a place you actually control: proof of ownership plus live settings — name, access, the scene itself. Transfer it, and the whole world moves with it.",
               "link": "See all six primitives + the full mechanics"
             },
@@ -1129,7 +1129,7 @@
             "projects": {
               "stellar": "The collaboration layer: universes, typed assets, lineage, releases, vaults, and contributor revenue shares.",
               "avatar": "Portable, mintable 3D identities with Solana-native ownership, linkable to finalized Stellar releases.",
-              "space": "Numbered, NFT-owned virtual rooms and arenas with mutable on-chain settings."
+              "space": "Numbered virtual rooms and arenas — owned outright, with live settings the owner controls."
             }
           },
           "partners": {
@@ -1269,7 +1269,7 @@
             },
             "whyOwn": {
               "eyebrow": "What you own",
-              "headline": "More than a file. More than an NFT.",
+              "headline": "More than a file. A place you own.",
               "subcopy": "A Space is a place you actually control: proof of ownership plus live settings — name, access, the scene itself. Transfer it, and the whole world moves with it.",
               "link": "See all six primitives + the full mechanics"
             },
@@ -1837,7 +1837,7 @@
             "projects": {
               "stellar": "The collaboration layer: universes, typed assets, lineage, releases, vaults, and contributor revenue shares.",
               "avatar": "Portable, mintable 3D identities with Solana-native ownership, linkable to finalized Stellar releases.",
-              "space": "Numbered, NFT-owned virtual rooms and arenas with mutable on-chain settings."
+              "space": "Numbered virtual rooms and arenas — owned outright, with live settings the owner controls."
             }
           },
           "partners": {
@@ -1977,7 +1977,7 @@
             },
             "whyOwn": {
               "eyebrow": "What you own",
-              "headline": "More than a file. More than an NFT.",
+              "headline": "More than a file. A place you own.",
               "subcopy": "A Space is a place you actually control: proof of ownership plus live settings — name, access, the scene itself. Transfer it, and the whole world moves with it.",
               "link": "See all six primitives + the full mechanics"
             },

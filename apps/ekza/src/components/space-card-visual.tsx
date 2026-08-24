@@ -94,7 +94,7 @@ export function SpaceCardVisual({
             <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500 dark:bg-emerald-400" />
           </span>
           <span className="text-xs text-ekza-on-muted dark:text-white/55">
-            1/1 NFT · mint authority revoked
+            1 of {total} · supply fixed forever
           </span>
         </div>
       </div>
