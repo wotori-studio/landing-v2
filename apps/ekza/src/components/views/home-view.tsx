@@ -76,6 +76,11 @@ export function HomeView() {
       label: t("ekza.v2.home.finalCta.pitchdeck"),
       href: "/decks/ekza_pitch_dubai_2026_dark.html",
     },
+    {
+      label: t("ekza.v2.home.finalCta.beijingDeck"),
+      href: "https://ipfs.io/ipfs/QmdLxwE7s5PVRnXPb4nb51haPoLteNdA9U6WQa1TbyivEy",
+      external: true,
+    },
     { label: "Discord", href: "https://discord.gg/yUWb4Q5b", external: true },
     { label: "X", href: "https://twitter.com/EkzaSpace", external: true },
     { label: "Telegram", href: "https://t.me/ekzaspace", external: true },
