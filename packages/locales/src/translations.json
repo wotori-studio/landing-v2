@@ -14,7 +14,7 @@
     "en": {
       "meta": {
         "wotoriTitle": "Wotori Studio | Web3 Animation, Solana Ecosystems & Creator Platforms",
-        "ekzaTitle": "Ekza Space | Open Source Solana Startup for 3D Assets"
+        "ekzaTitle": "Ekza | Ownership Layer for Collaborative 3D Assets"
       },
       "common": {
         "languageSwitcherLabel": "Language",
@@ -415,7 +415,7 @@
           "ecosystem": {
             "eyebrow": "The ecosystem",
             "headline": "One asset layer, many surfaces.",
-            "subcopy": "Spaces are one product surface on a shared Solana ownership layer. The same assets power avatars, collaborative releases, and games.",
+            "subcopy": "One asset graph powers everything — collaborative releases, owned places, portable avatars, and games. Solana settles ownership and payouts underneath.",
             "statusNote": "Early alpha. Running on devnet.",
             "credit": "Created and backed by Wotori Studio",
             "projects": {
@@ -513,12 +513,12 @@
           },
           "home": {
             "hero": {
-              "eyebrow": "A universe of collective creation",
-              "headline": "A universe, built together.",
-              "subhead": "Ekza is a world made by its creators. Stellar lets you create and own what you make; Ekza Space is where it comes alive — numbered 3D places you hold on-chain and fill with what the community builds.",
-              "description": "The dream is a Minecraft- and Roblox-scale world built out of users' creativity. Today you can own the first piece of it: a numbered Space on Solana, provably yours.",
+              "eyebrow": "Collaborative 3D asset ownership",
+              "headline": "Own what you make. Together.",
+              "subhead": "Ekza is the ownership layer for collaboratively made 3D assets. Story, concept, model, rig, animation — every contribution is tracked in the asset graph and keeps earning each time the asset is sold, rented, or licensed.",
+              "description": "Blockchain is our settlement rail, not the pitch. Solana quietly settles ownership and payouts under the hood; what you experience is teams shipping game-ready assets — and getting paid for them, forever.",
               "footerLeft": "Built by Wotori Studio · Live on Solana devnet",
-              "footerCenter": "Create on Stellar · Own a Space · Meet in 3D",
+              "footerCenter": "Create on Stellar · License bundles · Play in Omoba & Arena",
               "buttons": {
                 "reserve": "Reserve your Space",
                 "howItWorks": "See how it works",
@@ -526,33 +526,33 @@
               }
             },
             "factStrip": {
-              "items": "Built together|Creator-owned|Finite collection|1/1 NFT|On-chain settings|Open Anchor program|Live on devnet"
+              "items": "Made by teams|Lineage tracked|Programmable revenue splits|License-ready bundles|Game integrations|Open source|Working alpha"
             },
             "howPiecesFit": {
               "eyebrow": "How the pieces fit",
-              "headline": "Create it. Own it. Bring it to life.",
-              "subcopy": "Three layers, one universe. Each does one job, and they connect end-to-end.",
+              "headline": "Create it. License it. Play it.",
+              "subcopy": "One asset graph, three surfaces. Each does one job — and revenue flows back through all of them.",
               "step1": {
                 "title": "Stellar — create together",
-                "body": "Make assets with others — a house, a cat, an avatar. Every contribution keeps its lineage and its share of future revenue. (The protocol of collective creation.)",
+                "body": "Contribute a layer — story, concept art, model, rig, animation. The asset graph records who made what, and every contributor keeps a programmable share of future revenue.",
                 "link": "Explore the protocol"
               },
               "step2": {
-                "title": "Space — own a place",
-                "body": "Mint a numbered Space and it's provably yours: a 1/1 NFT plus on-chain settings you control. Fill it with Stellar-made NFTs.",
-                "link": "Reserve a Space"
+                "title": "Bundles — license and earn",
+                "body": "Curated, game-ready bundles are sold, rented, or licensed with clear rights. Every transaction routes payouts to the full contributor graph automatically — no invoices, no chasing.",
+                "link": "Back it early — reserve a Space"
               },
               "step3": {
-                "title": "Avatars & Arena — meet and play",
-                "body": "Open your Space and avatars enter. The same assets load into Ekza Arena, our composable-avatar game. The world comes alive.",
+                "title": "Omoba & Arena — play it",
+                "body": "Assets flow straight into playable environments — Omoba and Ekza Arena, our first controlled game contexts — while Spaces are the owned 3D places where they come alive.",
                 "badge": "Roadmap — early prototype"
               }
             },
             "spaceOffer": {
-              "eyebrow": "Own the first piece",
-              "headline": "Claim a numbered Space.",
-              "subcopy": "The collection is finite. Each Space is a 1/1 NFT on Solana with live, on-chain settings you control — a place you own, fill, and open. Reserve yours now to mint early and fund the build.",
-              "bullet1": "Provably yours — a 1/1 NFT, mint authority revoked, so supply can never be inflated.",
+              "eyebrow": "Back the build",
+              "headline": "Own a numbered Space.",
+              "subcopy": "Spaces are the genesis drop: 1,000 finite, numbered 3D places, each provably yours and reconfigurable any time. Owning one is how early believers back the build — the long game is the licensing economy on top.",
+              "bullet1": "Provably yours — a finite, numbered place with supply that can never be inflated.",
               "bullet2": "Yours to shape — rename it, open it, and point it at your scene whenever you want.",
               "bullet3": "First in line — reserve now to mint from the genesis batch and follow the build.",
               "cta": "Reserve your Space",
@@ -561,33 +561,33 @@
             },
             "whyOwn": {
               "eyebrow": "What you own",
-              "headline": "More than an image NFT.",
-              "subcopy": "A Space is two things working together: a 1/1 NFT that proves who owns it, and on-chain settings that make the world yours to shape. Transfer the NFT, transfer the world.",
+              "headline": "More than a file. More than an NFT.",
+              "subcopy": "A Space is a place you actually control: proof of ownership plus live settings — name, access, the scene itself. Transfer it, and the whole world moves with it.",
               "link": "See all six primitives + the full mechanics"
             },
             "roadmap": {
               "eyebrow": "The trajectory",
-              "headline": "Own the place now. The world comes next.",
+              "headline": "Build the assets now. The economy comes next.",
               "now": {
                 "badge": "Live on devnet",
                 "title": "Now",
-                "body": "Mint and configure a numbered Space on Solana. Create assets on Stellar with lineage and revenue shares."
+                "body": "Collaborative asset creation with lineage and contributor shares, live on Stellar. Space minting and configuration work end-to-end."
               },
               "next": {
                 "badge": "In build",
                 "title": "Next",
-                "body": "The 3D world where Spaces come alive — drop in your NFTs, customize, and let avatars meet."
+                "body": "Game-ready character bundles — buy, rent, license — with automatic contributor payouts, landing first in Omoba and Ekza Arena."
               },
               "later": {
                 "badge": "The dream",
                 "title": "Later",
-                "body": "A Minecraft/Roblox-scale universe built entirely out of users' creativity."
+                "body": "Creator-owned asset infrastructure at scale — and a Minecraft/Roblox-scale universe built out of what creators make."
               },
-              "footnote": "Honest status: early alpha on Solana devnet. We're raising to build full-time — owning a Space funds it."
+              "footnote": "Honest status: early alpha on Solana devnet. We're raising to build full-time — owning a Space helps fund it."
             },
             "finalCta": {
               "headline": "Claim your place in the universe.",
-              "subcopy": "The collection is finite. Reserve a Space to mint from the genesis batch and follow the build — or join the newsletter for the next drop.",
+              "subcopy": "Reserve a numbered Space to back the build and mint from the genesis batch — or join the newsletter and follow the licensing economy as it ships.",
               "cta": "Reserve your Space",
               "pitchdeck": "Investor pitch"
             },
@@ -1123,7 +1123,7 @@
           "ecosystem": {
             "eyebrow": "The ecosystem",
             "headline": "One asset layer, many surfaces.",
-            "subcopy": "Spaces are one product surface on a shared Solana ownership layer. The same assets power avatars, collaborative releases, and games.",
+            "subcopy": "One asset graph powers everything — collaborative releases, owned places, portable avatars, and games. Solana settles ownership and payouts underneath.",
             "statusNote": "Early alpha. Running on devnet.",
             "credit": "Created and backed by Wotori Studio",
             "projects": {
@@ -1221,12 +1221,12 @@
           },
           "home": {
             "hero": {
-              "eyebrow": "A universe of collective creation",
-              "headline": "A universe, built together.",
-              "subhead": "Ekza is a world made by its creators. Stellar lets you create and own what you make; Ekza Space is where it comes alive — numbered 3D places you hold on-chain and fill with what the community builds.",
-              "description": "The dream is a Minecraft- and Roblox-scale world built out of users' creativity. Today you can own the first piece of it: a numbered Space on Solana, provably yours.",
+              "eyebrow": "Collaborative 3D asset ownership",
+              "headline": "Own what you make. Together.",
+              "subhead": "Ekza is the ownership layer for collaboratively made 3D assets. Story, concept, model, rig, animation — every contribution is tracked in the asset graph and keeps earning each time the asset is sold, rented, or licensed.",
+              "description": "Blockchain is our settlement rail, not the pitch. Solana quietly settles ownership and payouts under the hood; what you experience is teams shipping game-ready assets — and getting paid for them, forever.",
               "footerLeft": "Built by Wotori Studio · Live on Solana devnet",
-              "footerCenter": "Create on Stellar · Own a Space · Meet in 3D",
+              "footerCenter": "Create on Stellar · License bundles · Play in Omoba & Arena",
               "buttons": {
                 "reserve": "Reserve your Space",
                 "howItWorks": "See how it works",
@@ -1234,33 +1234,33 @@
               }
             },
             "factStrip": {
-              "items": "Built together|Creator-owned|Finite collection|1/1 NFT|On-chain settings|Open Anchor program|Live on devnet"
+              "items": "Made by teams|Lineage tracked|Programmable revenue splits|License-ready bundles|Game integrations|Open source|Working alpha"
             },
             "howPiecesFit": {
               "eyebrow": "How the pieces fit",
-              "headline": "Create it. Own it. Bring it to life.",
-              "subcopy": "Three layers, one universe. Each does one job, and they connect end-to-end.",
+              "headline": "Create it. License it. Play it.",
+              "subcopy": "One asset graph, three surfaces. Each does one job — and revenue flows back through all of them.",
               "step1": {
                 "title": "Stellar — create together",
-                "body": "Make assets with others — a house, a cat, an avatar. Every contribution keeps its lineage and its share of future revenue. (The protocol of collective creation.)",
+                "body": "Contribute a layer — story, concept art, model, rig, animation. The asset graph records who made what, and every contributor keeps a programmable share of future revenue.",
                 "link": "Explore the protocol"
               },
               "step2": {
-                "title": "Space — own a place",
-                "body": "Mint a numbered Space and it's provably yours: a 1/1 NFT plus on-chain settings you control. Fill it with Stellar-made NFTs.",
-                "link": "Reserve a Space"
+                "title": "Bundles — license and earn",
+                "body": "Curated, game-ready bundles are sold, rented, or licensed with clear rights. Every transaction routes payouts to the full contributor graph automatically — no invoices, no chasing.",
+                "link": "Back it early — reserve a Space"
               },
               "step3": {
-                "title": "Avatars & Arena — meet and play",
-                "body": "Open your Space and avatars enter. The same assets load into Ekza Arena, our composable-avatar game. The world comes alive.",
+                "title": "Omoba & Arena — play it",
+                "body": "Assets flow straight into playable environments — Omoba and Ekza Arena, our first controlled game contexts — while Spaces are the owned 3D places where they come alive.",
                 "badge": "Roadmap — early prototype"
               }
             },
             "spaceOffer": {
-              "eyebrow": "Own the first piece",
-              "headline": "Claim a numbered Space.",
-              "subcopy": "The collection is finite. Each Space is a 1/1 NFT on Solana with live, on-chain settings you control — a place you own, fill, and open. Reserve yours now to mint early and fund the build.",
-              "bullet1": "Provably yours — a 1/1 NFT, mint authority revoked, so supply can never be inflated.",
+              "eyebrow": "Back the build",
+              "headline": "Own a numbered Space.",
+              "subcopy": "Spaces are the genesis drop: 1,000 finite, numbered 3D places, each provably yours and reconfigurable any time. Owning one is how early believers back the build — the long game is the licensing economy on top.",
+              "bullet1": "Provably yours — a finite, numbered place with supply that can never be inflated.",
               "bullet2": "Yours to shape — rename it, open it, and point it at your scene whenever you want.",
               "bullet3": "First in line — reserve now to mint from the genesis batch and follow the build.",
               "cta": "Reserve your Space",
@@ -1269,33 +1269,33 @@
             },
             "whyOwn": {
               "eyebrow": "What you own",
-              "headline": "More than an image NFT.",
-              "subcopy": "A Space is two things working together: a 1/1 NFT that proves who owns it, and on-chain settings that make the world yours to shape. Transfer the NFT, transfer the world.",
+              "headline": "More than a file. More than an NFT.",
+              "subcopy": "A Space is a place you actually control: proof of ownership plus live settings — name, access, the scene itself. Transfer it, and the whole world moves with it.",
               "link": "See all six primitives + the full mechanics"
             },
             "roadmap": {
               "eyebrow": "The trajectory",
-              "headline": "Own the place now. The world comes next.",
+              "headline": "Build the assets now. The economy comes next.",
               "now": {
                 "badge": "Live on devnet",
                 "title": "Now",
-                "body": "Mint and configure a numbered Space on Solana. Create assets on Stellar with lineage and revenue shares."
+                "body": "Collaborative asset creation with lineage and contributor shares, live on Stellar. Space minting and configuration work end-to-end."
               },
               "next": {
                 "badge": "In build",
                 "title": "Next",
-                "body": "The 3D world where Spaces come alive — drop in your NFTs, customize, and let avatars meet."
+                "body": "Game-ready character bundles — buy, rent, license — with automatic contributor payouts, landing first in Omoba and Ekza Arena."
               },
               "later": {
                 "badge": "The dream",
                 "title": "Later",
-                "body": "A Minecraft/Roblox-scale universe built entirely out of users' creativity."
+                "body": "Creator-owned asset infrastructure at scale — and a Minecraft/Roblox-scale universe built out of what creators make."
               },
-              "footnote": "Honest status: early alpha on Solana devnet. We're raising to build full-time — owning a Space funds it."
+              "footnote": "Honest status: early alpha on Solana devnet. We're raising to build full-time — owning a Space helps fund it."
             },
             "finalCta": {
               "headline": "Claim your place in the universe.",
-              "subcopy": "The collection is finite. Reserve a Space to mint from the genesis batch and follow the build — or join the newsletter for the next drop.",
+              "subcopy": "Reserve a numbered Space to back the build and mint from the genesis batch — or join the newsletter and follow the licensing economy as it ships.",
               "cta": "Reserve your Space",
               "pitchdeck": "Pitchdeck для инвесторов"
             },
@@ -1831,7 +1831,7 @@
           "ecosystem": {
             "eyebrow": "The ecosystem",
             "headline": "One asset layer, many surfaces.",
-            "subcopy": "Spaces are one product surface on a shared Solana ownership layer. The same assets power avatars, collaborative releases, and games.",
+            "subcopy": "One asset graph powers everything — collaborative releases, owned places, portable avatars, and games. Solana settles ownership and payouts underneath.",
             "statusNote": "Early alpha. Running on devnet.",
             "credit": "Created and backed by Wotori Studio",
             "projects": {
@@ -1929,12 +1929,12 @@
           },
           "home": {
             "hero": {
-              "eyebrow": "A universe of collective creation",
-              "headline": "A universe, built together.",
-              "subhead": "Ekza is a world made by its creators. Stellar lets you create and own what you make; Ekza Space is where it comes alive — numbered 3D places you hold on-chain and fill with what the community builds.",
-              "description": "The dream is a Minecraft- and Roblox-scale world built out of users' creativity. Today you can own the first piece of it: a numbered Space on Solana, provably yours.",
+              "eyebrow": "Collaborative 3D asset ownership",
+              "headline": "Own what you make. Together.",
+              "subhead": "Ekza is the ownership layer for collaboratively made 3D assets. Story, concept, model, rig, animation — every contribution is tracked in the asset graph and keeps earning each time the asset is sold, rented, or licensed.",
+              "description": "Blockchain is our settlement rail, not the pitch. Solana quietly settles ownership and payouts under the hood; what you experience is teams shipping game-ready assets — and getting paid for them, forever.",
               "footerLeft": "Built by Wotori Studio · Live on Solana devnet",
-              "footerCenter": "Create on Stellar · Own a Space · Meet in 3D",
+              "footerCenter": "Create on Stellar · License bundles · Play in Omoba & Arena",
               "buttons": {
                 "reserve": "Reserve your Space",
                 "howItWorks": "See how it works",
@@ -1942,33 +1942,33 @@
               }
             },
             "factStrip": {
-              "items": "Built together|Creator-owned|Finite collection|1/1 NFT|On-chain settings|Open Anchor program|Live on devnet"
+              "items": "Made by teams|Lineage tracked|Programmable revenue splits|License-ready bundles|Game integrations|Open source|Working alpha"
             },
             "howPiecesFit": {
               "eyebrow": "How the pieces fit",
-              "headline": "Create it. Own it. Bring it to life.",
-              "subcopy": "Three layers, one universe. Each does one job, and they connect end-to-end.",
+              "headline": "Create it. License it. Play it.",
+              "subcopy": "One asset graph, three surfaces. Each does one job — and revenue flows back through all of them.",
               "step1": {
                 "title": "Stellar — create together",
-                "body": "Make assets with others — a house, a cat, an avatar. Every contribution keeps its lineage and its share of future revenue. (The protocol of collective creation.)",
+                "body": "Contribute a layer — story, concept art, model, rig, animation. The asset graph records who made what, and every contributor keeps a programmable share of future revenue.",
                 "link": "Explore the protocol"
               },
               "step2": {
-                "title": "Space — own a place",
-                "body": "Mint a numbered Space and it's provably yours: a 1/1 NFT plus on-chain settings you control. Fill it with Stellar-made NFTs.",
-                "link": "Reserve a Space"
+                "title": "Bundles — license and earn",
+                "body": "Curated, game-ready bundles are sold, rented, or licensed with clear rights. Every transaction routes payouts to the full contributor graph automatically — no invoices, no chasing.",
+                "link": "Back it early — reserve a Space"
               },
               "step3": {
-                "title": "Avatars & Arena — meet and play",
-                "body": "Open your Space and avatars enter. The same assets load into Ekza Arena, our composable-avatar game. The world comes alive.",
+                "title": "Omoba & Arena — play it",
+                "body": "Assets flow straight into playable environments — Omoba and Ekza Arena, our first controlled game contexts — while Spaces are the owned 3D places where they come alive.",
                 "badge": "Roadmap — early prototype"
               }
             },
             "spaceOffer": {
-              "eyebrow": "Own the first piece",
-              "headline": "Claim a numbered Space.",
-              "subcopy": "The collection is finite. Each Space is a 1/1 NFT on Solana with live, on-chain settings you control — a place you own, fill, and open. Reserve yours now to mint early and fund the build.",
-              "bullet1": "Provably yours — a 1/1 NFT, mint authority revoked, so supply can never be inflated.",
+              "eyebrow": "Back the build",
+              "headline": "Own a numbered Space.",
+              "subcopy": "Spaces are the genesis drop: 1,000 finite, numbered 3D places, each provably yours and reconfigurable any time. Owning one is how early believers back the build — the long game is the licensing economy on top.",
+              "bullet1": "Provably yours — a finite, numbered place with supply that can never be inflated.",
               "bullet2": "Yours to shape — rename it, open it, and point it at your scene whenever you want.",
               "bullet3": "First in line — reserve now to mint from the genesis batch and follow the build.",
               "cta": "Reserve your Space",
@@ -1977,33 +1977,33 @@
             },
             "whyOwn": {
               "eyebrow": "What you own",
-              "headline": "More than an image NFT.",
-              "subcopy": "A Space is two things working together: a 1/1 NFT that proves who owns it, and on-chain settings that make the world yours to shape. Transfer the NFT, transfer the world.",
+              "headline": "More than a file. More than an NFT.",
+              "subcopy": "A Space is a place you actually control: proof of ownership plus live settings — name, access, the scene itself. Transfer it, and the whole world moves with it.",
               "link": "See all six primitives + the full mechanics"
             },
             "roadmap": {
               "eyebrow": "The trajectory",
-              "headline": "Own the place now. The world comes next.",
+              "headline": "Build the assets now. The economy comes next.",
               "now": {
                 "badge": "Live on devnet",
                 "title": "Now",
-                "body": "Mint and configure a numbered Space on Solana. Create assets on Stellar with lineage and revenue shares."
+                "body": "Collaborative asset creation with lineage and contributor shares, live on Stellar. Space minting and configuration work end-to-end."
               },
               "next": {
                 "badge": "In build",
                 "title": "Next",
-                "body": "The 3D world where Spaces come alive — drop in your NFTs, customize, and let avatars meet."
+                "body": "Game-ready character bundles — buy, rent, license — with automatic contributor payouts, landing first in Omoba and Ekza Arena."
               },
               "later": {
                 "badge": "The dream",
                 "title": "Later",
-                "body": "A Minecraft/Roblox-scale universe built entirely out of users' creativity."
+                "body": "Creator-owned asset infrastructure at scale — and a Minecraft/Roblox-scale universe built out of what creators make."
               },
-              "footnote": "Honest status: early alpha on Solana devnet. We're raising to build full-time — owning a Space funds it."
+              "footnote": "Honest status: early alpha on Solana devnet. We're raising to build full-time — owning a Space helps fund it."
             },
             "finalCta": {
               "headline": "Claim your place in the universe.",
-              "subcopy": "The collection is finite. Reserve a Space to mint from the genesis batch and follow the build — or join the newsletter for the next drop.",
+              "subcopy": "Reserve a numbered Space to back the build and mint from the genesis batch — or join the newsletter and follow the licensing economy as it ships.",
               "cta": "Reserve your Space",
               "pitchdeck": "投资者 Pitchdeck"
             },

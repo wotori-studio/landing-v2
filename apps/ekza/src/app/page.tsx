@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { HomeView } from "../components/views/home-view";
 
 export const metadata: Metadata = {
-  title: "Ekza — A universe built together",
+  title: "Ekza — Own what you make, together",
   description:
-    "Ekza is a universe of collective creation. Stellar lets you create and own what you make; Ekza Space is where it comes alive — numbered 3D places you hold on-chain. Own the first piece: a Space on Solana.",
+    "Ekza is the ownership layer for collaboratively made 3D assets: lineage, licensing, and automatic revenue sharing for every contributor. Blockchain is the settlement rail — the product is trusted collaboration.",
   alternates: { canonical: "/" },
 };
 

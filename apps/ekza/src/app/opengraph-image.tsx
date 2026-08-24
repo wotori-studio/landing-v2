@@ -13,10 +13,10 @@ export default function OpenGraphImage() {
   return new ImageResponse(
     (
       <SocialPreviewImage
-        badge="Ekza Space"
-        headline="Open source Solana startup for collaborative 3D assets."
-        description="Creator-owned royalties, SDK-powered integrations, and modular web3 ecosystems."
-        tags={["3D Creation", "Game SDK", "Royalties"]}
+        badge="Ekza"
+        headline="The ownership layer for collaborative 3D assets."
+        description="Lineage, licensing, and automatic revenue sharing for every contributor."
+        tags={["Asset Graph", "Licensing", "Revenue Splits"]}
         background="radial-gradient(circle at 20% 20%, rgba(6, 182, 212, 0.35), transparent 36%), radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.3), transparent 32%), linear-gradient(135deg, #04070f 0%, #0b1021 45%, #050913 100%)"
         badgeTextColor="#a5f3fc"
         badgeBorderColor="rgba(34,211,238,0.45)"
