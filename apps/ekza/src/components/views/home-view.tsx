@@ -24,8 +24,8 @@ export function HomeView() {
   const projects = [
     {
       projectName: "Stellar",
-      imgPath: "/img/eco-stellar.png",
-      imgPath2: "/img/eco-stellar-hover.png",
+      imgPath: "/img/eco-stellar.jpg",
+      imgPath2: "",
       text: t("ekza.v2.ecosystem.projects.stellar"),
       link: "https://stellar.ekza.io",
       isFlip: true,
@@ -40,7 +40,7 @@ export function HomeView() {
     },
     {
       projectName: "Space",
-      imgPath: "/img/eco-space.png",
+      imgPath: "/img/eco-space.jpg",
       imgPath2: "",
       text: t("ekza.v2.ecosystem.projects.space"),
       link: "https://space.ekza.io",
