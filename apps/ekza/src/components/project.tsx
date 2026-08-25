@@ -35,7 +35,7 @@ function ProjectContent({ projectName, text, link }: ProjectContentProps) {
           </span>
         </a>
       </p>
-      <p className="text-justify text-sm leading-relaxed text-ekza-on-muted dark:text-white/80 lg:text-base">
+      <p className="text-left text-sm leading-relaxed text-ekza-on-muted dark:text-white/80 lg:text-base">
         {text}
       </p>
     </div>
@@ -51,19 +51,19 @@ export function Project({
   isFlip = false,
 }: ProjectProps) {
   return (
-    <div className="m-4 overflow-hidden rounded-2xl border border-ekza-border/25 bg-ekza-elevated/95 shadow-ekza-card transition hover:border-ekza-primary/30 dark:border-white/10 dark:bg-white/[0.05] dark:shadow-ekza-card-dark sm:m-4 md:p-0 lg:mx-8">
+    <div className="m-4 flex h-full flex-col overflow-hidden rounded-2xl border border-ekza-border/25 bg-ekza-elevated/95 shadow-ekza-card transition hover:border-ekza-primary/30 dark:border-white/10 dark:bg-white/[0.05] dark:shadow-ekza-card-dark sm:m-4 md:p-0 lg:mx-8">
       {isFlip ? (
         <>
-          <div className="relative">
+          <div className="relative aspect-[16/10] w-full overflow-hidden">
             <img
               src={imgPath}
-              className="w-full rounded-t-2xl object-cover"
+              className="absolute inset-0 h-full w-full object-cover object-top"
               alt={projectName}
             />
             {imgPath2 && (
               <img
                 src={imgPath2}
-                className="absolute inset-0 h-full w-auto opacity-0 transition-opacity duration-300 hover:opacity-100"
+                className="absolute inset-0 h-full w-full object-cover object-top opacity-0 transition-opacity duration-300 hover:opacity-100"
                 alt={`${projectName} hover`}
               />
             )}
@@ -74,12 +74,16 @@ export function Project({
       ) : (
         <>
           <ProjectContent projectName={projectName} text={text} link={link} />
-          <div className="relative">
-            <img src={imgPath} className="w-full" alt={projectName} />
+          <div className="relative aspect-[16/10] w-full overflow-hidden">
+            <img
+              src={imgPath}
+              className="absolute inset-0 h-full w-full object-cover object-top"
+              alt={projectName}
+            />
             {imgPath2 && (
               <img
                 src={imgPath2}
-                className="absolute inset-0 h-full w-auto opacity-0 transition-opacity duration-300 hover:opacity-100"
+                className="absolute inset-0 h-full w-full object-cover object-top opacity-0 transition-opacity duration-300 hover:opacity-100"
                 alt={`${projectName} hover`}
               />
             )}

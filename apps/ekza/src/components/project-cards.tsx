@@ -18,7 +18,7 @@ interface ProjectCardsProps {
 
 const ProjectCards: React.FC<ProjectCardsProps> = ({ projects }) => {
   return (
-    <div className="grid gap-6 pt-4 lg:mx-8 md:grid-cols-2 lg:grid-cols-3 items-start">
+    <div className="grid gap-6 pt-4 lg:mx-8 md:grid-cols-2 lg:grid-cols-3 items-stretch">
       {projects.map((project, index) => {
         const className = project.showOnMobile
           ? "md:hidden"
@@ -27,7 +27,7 @@ const ProjectCards: React.FC<ProjectCardsProps> = ({ projects }) => {
             : "";
 
         return (
-          <div key={index} className={className}>
+          <div key={index} className={`${className} h-full`}>
             <Project
               projectName={project.projectName}
               imgPath={project.imgPath}
