@@ -32,6 +32,7 @@ export const Header: React.FC<HeaderProps> = ({ className = "" }) => {
   const navItems = [
     { label: t("ekza.v2.nav.protocol"), href: "/protocol" },
     { label: t("ekza.v2.nav.developers"), href: "/developers" },
+    { label: t("ekza.v2.nav.deck"), href: "/decks/ekza_vision_2026.html" },
   ];
 
   const linkClass = (href: string) =>

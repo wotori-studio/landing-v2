@@ -509,7 +509,8 @@
             "protocol": "Protocol",
             "developers": "Developers",
             "app": "App",
-            "reserve": "Reserve your Space"
+            "reserve": "Reserve your Space",
+            "deck": "Deck"
           },
           "home": {
             "hero": {
@@ -1232,7 +1233,8 @@
             "protocol": "Protocol",
             "developers": "Developers",
             "app": "App",
-            "reserve": "Reserve your Space"
+            "reserve": "Reserve your Space",
+            "deck": "Deck"
           },
           "home": {
             "hero": {
@@ -1955,7 +1957,8 @@
             "protocol": "Protocol",
             "developers": "Developers",
             "app": "App",
-            "reserve": "Reserve your Space"
+            "reserve": "Reserve your Space",
+            "deck": "Deck"
           },
           "home": {
             "hero": {
