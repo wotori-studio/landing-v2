@@ -24,28 +24,23 @@ export function HomeView() {
   const projects = [
     {
       projectName: "Stellar",
-      imgPath:
-        "https://ipfs.io/ipfs/Qmc7sh3DefV3YA7xgXAnC1GE8ncsoyChtY6fBEiFDWE2bB",
-      imgPath2:
-        "https://ipfs.io/ipfs/QmSPYQV89xvj1aaQcPtoAsyVJNUF8sb27uvoHxNdBZPsaV",
+      imgPath: "/img/eco-stellar.png",
+      imgPath2: "/img/eco-stellar-hover.png",
       text: t("ekza.v2.ecosystem.projects.stellar"),
       link: "https://stellar.ekza.io",
       isFlip: true,
     },
     {
       projectName: "Avatar",
-      imgPath:
-        "https://ipfs.io/ipfs/QmNStm5ABJp8gBPsJER4yzG5EUwforVxXQNjbkVuKPu9Nr",
-      imgPath2:
-        "https://ipfs.io/ipfs/QmanL1Qp6t4nAW4gyfHG1zKj4u8Scyh7Q7ypBPMewLHEB1",
+      imgPath: "/img/eco-avatar.jpg",
+      imgPath2: "",
       text: t("ekza.v2.ecosystem.projects.avatar"),
       link: "https://avatar.ekza.io",
       isFlip: true,
     },
     {
       projectName: "Space",
-      imgPath:
-        "https://ipfs.io/ipfs/QmaBTrVEcyjdj4ky8pRQ2h3dQrGD8bNup5WXx3QjLmZ3PR",
+      imgPath: "/img/eco-space.png",
       imgPath2: "",
       text: t("ekza.v2.ecosystem.projects.space"),
       link: "https://space.ekza.io",
