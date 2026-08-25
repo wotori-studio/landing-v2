@@ -45,7 +45,8 @@
   /* ---------- chrome ---------- */
   .foot{position:absolute;left:72px;right:72px;bottom:34px;display:flex;justify-content:space-between;align-items:baseline;
     font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--faint)}
-  .foot b{color:var(--dim);font-weight:400}
+  .foot span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .foot b{color:var(--dim);font-weight:400;flex:none;margin-left:24px;white-space:nowrap}
   .eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.34em;color:var(--cyan);text-transform:uppercase;margin-bottom:18px}
   .eyebrow .idx{color:var(--faint);margin-right:14px}
   h1{font-family:var(--display);font-weight:600;font-size:46px;line-height:1.08;letter-spacing:.005em;text-wrap:balance;margin-bottom:14px}
@@ -105,6 +106,13 @@
   .fnode.hot{border-color:rgba(94,225,255,.5);box-shadow:none}
   .alabel{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--faint);text-align:center;margin-bottom:6px}
   .cards3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+  .problemstats{display:grid;grid-template-columns:.82fr 1.18fr 1fr;gap:22px;margin:30px 0 24px;align-items:stretch}
+  .problemstat{border-top:2px solid var(--line2);padding:18px 8px 8px 0}
+  .problemstat.primary{border-top-color:var(--cyan);background:var(--cyan-dim);padding:18px 22px;border-radius:0 0 8px 8px}
+  .problemstat .v{font-family:var(--display);font-weight:700;font-size:46px;line-height:1;color:var(--ink);letter-spacing:.005em;margin-bottom:9px}
+  .problemstat.primary .v{color:var(--cyan)}
+  .problemstat .l{font-size:14.5px;line-height:1.45;color:var(--dim)}
+  .problemstat .s{font-family:var(--mono);font-size:9.5px;line-height:1.45;letter-spacing:.08em;color:var(--faint);margin-top:10px;text-transform:uppercase}
   /* ============ S3 PIPELINE ============ */
   .chain{display:flex;align-items:stretch;gap:10px;margin:40px 0 32px}
   .chain .step{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px 14px;text-align:center;position:relative;box-shadow:none}
@@ -128,6 +136,18 @@
   .layer .t{font-family:var(--display);font-weight:600;font-size:16.5px;width:230px;flex:none}
   .layer .d{font-size:13.5px;color:var(--dim);line-height:1.35}
   .layer.base{border-color:rgba(61,220,151,.4);background:var(--mint-dim)}
+  .passport{background:var(--panel);border:1px solid var(--line2);border-radius:10px;padding:18px 20px;box-shadow:none}
+  .passport-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .passport-title{font-family:var(--display);font-weight:650;font-size:20px;line-height:1.15}
+  .passport-id{font-family:var(--mono);font-size:9.5px;line-height:1.5;color:var(--cyan);text-align:right}
+  .passport-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;margin-top:8px}
+  .passport-row{padding:9px 0;border-bottom:1px solid var(--line)}
+  .passport-row .k{font-family:var(--mono);font-size:8.8px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:4px}
+  .passport-row .v{font-size:12.5px;line-height:1.35;color:var(--ink)}
+  .renditions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  .rendition{border:1px solid var(--line);border-radius:7px;padding:10px 12px}
+  .rendition .name{font-family:var(--display);font-weight:600;font-size:13px;margin-bottom:4px}
+  .rendition .state{font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--mint)}
   /* ============ S8 PROOF ============ */
   .proofgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
   .proof{display:flex;gap:18px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px;box-shadow:none}
@@ -145,6 +165,15 @@
   .wedge li b{color:var(--ink);font-weight:600}
   .expand{font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--faint);line-height:1.8;max-width:540px}
   .expand em{font-style:normal;color:var(--cyan)}
+  .proofkit{border:1px solid var(--line2);border-radius:10px;background:var(--panel);overflow:hidden}
+  .proofkit-head{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:var(--cyan-dim);border-bottom:1px solid var(--line)}
+  .proofkit-head .t{font-family:var(--display);font-weight:650;font-size:17px}
+  .proofkit-head .status{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--cyan)}
+  .evidence{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:15px 18px;border-bottom:1px solid var(--line)}
+  .evidence:last-child{border-bottom:none}
+  .evidence .no{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--cyan);padding-top:2px}
+  .evidence .t{font-family:var(--display);font-weight:600;font-size:14.5px;margin-bottom:4px}
+  .evidence .d{font-family:var(--mono);font-size:9.5px;line-height:1.45;color:var(--faint)}
   /* ============ S10 GTM ============ */
   .loop{display:flex;align-items:stretch;gap:10px;margin:42px 0 34px}
   .loop .step{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:20px 16px;position:relative;box-shadow:none}
@@ -152,6 +181,14 @@
   .loop .step .t{font-family:var(--display);font-weight:600;font-size:16px;line-height:1.3}
   .loopback{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--mint);margin-bottom:30px}
   .loopback .ln{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(61,220,151,.5))}
+  .pilotgrid{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:24px;margin:38px 0 30px;align-items:stretch}
+  .pilotunit{border-top:2px solid var(--line2);padding-top:16px}
+  .pilotunit.focus{border-top-color:var(--cyan)}
+  .pilotunit .n{font-family:var(--display);font-weight:700;font-size:58px;line-height:.95;color:var(--ink);margin-bottom:10px}
+  .pilotunit.focus .n{color:var(--cyan)}
+  .pilotunit h3{font-family:var(--display);font-weight:650;font-size:18px;margin-bottom:8px}
+  .pilotunit p{font-size:14px;line-height:1.5;color:var(--dim)}
+  .scoreband{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
   /* ============ S11 MODEL ============ */
   .gmv{display:flex;align-items:center;gap:18px;margin:30px 0 28px}
   .revgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:28px 0 20px}
@@ -175,6 +212,12 @@
   .tam .s{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--faint);margin-top:14px;text-transform:uppercase}
   .path{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--dim);line-height:1.8}
   .path em{font-style:normal;color:var(--cyan)}
+  .visionpath{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:24px;border-top:1px solid var(--line2)}
+  .visionstep{padding:15px 20px 0 0;position:relative}
+  .visionstep::after{content:"→";position:absolute;right:8px;top:14px;color:var(--faint)}
+  .visionstep:last-child::after{display:none}
+  .visionstep .n{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--cyan);margin-bottom:7px}
+  .visionstep .t{font-family:var(--display);font-weight:600;font-size:14px;line-height:1.35;color:var(--ink)}
   /* ============ S13 TABLE ============ */
   table{width:100%;border-collapse:collapse;margin-top:26px}
   th,td{text-align:left;padding:13px 16px;font-size:13.5px;border-bottom:1px solid var(--line)}
@@ -301,11 +344,11 @@
     <div class="eyebrow">Apex Accelerator · DraperU × Draper Dragon × Cardano · 2026 application</div>
     <div class="wordmark">EKZA</div>
     <div class="tag">Create once. Verify rights. <em>Activate across games.</em></div>
-    <p class="sub">EKZA turns AI-assisted 3D characters into licensed, game-ready digital IP. Cardano records origin, permissions and payouts; EKZA delivers an approved rendition to each game.</p>
+    <p class="sub">EKZA is building the rights and delivery rail for AI-born game assets. Cardano records origin, permissions and payouts; EKZA delivers an approved rendition to each game.</p>
   </div>
   <div class="chips">
     <span class="chip live"><span class="dot"></span>Existing technical proof</span>
-    <span class="chip"><span class="dot"></span>Enterprise digital IP · AI · Web3</span>
+    <span class="chip"><span class="dot"></span>AI-native game-content rights rail</span>
     <span class="chip eco"><span class="dot"></span>Cardano-first build milestone</span>
     <span class="chip"><span class="dot"></span>by Wotori Studio</span>
   </div>
@@ -316,24 +359,16 @@
 <section class="slide">
   <div class="pad">
     <div class="eyebrow"><span class="idx">02</span>Problem</div>
-    <h1>AI can create a character.<br>It cannot prove <em>rights, payouts or readiness</em>.</h1>
-    <p class="stand">Generative models accelerate creation, but production still needs human refinement, licensing and game-specific QA. Across companies, origin, permissions, versions and revenue shares fragment.</p>
-    <div class="flowrow">
-      <div style="flex:1"><div class="fnode"><div class="t">Creator + AI</div><div class="d">generates media</div></div></div>
-      <div style="width:150px"><div class="alabel">manual cleanup</div>
-        <svg width="150" height="12" viewBox="0 0 150 12" class="arrow"><line x1="0" y1="6" x2="140" y2="6" stroke="currentColor" stroke-width="1.4"/><path d="M140 1l9 5-9 5z" fill="currentColor"/></svg></div>
-      <div style="flex:1"><div class="fnode hot"><div class="t">Studio A ships</div><div class="d">rights stay private</div></div></div>
-      <div style="width:150px"><div class="alabel" style="color:var(--cyan)">license + rebuild</div>
-        <svg width="150" height="12" viewBox="0 0 150 12" class="arrow" style="color:var(--cyan)"><line x1="0" y1="6" x2="140" y2="6" stroke="currentColor" stroke-width="1.4"/><path d="M140 1l9 5-9 5z" fill="currentColor"/></svg></div>
-      <div style="flex:1.2"><div class="fnode"><div class="t">Game B repeats</div><div class="d">new files · new approvals</div></div></div>
+    <h1>AI makes content supply explode.<br>Shipping still scales <em>one title at a time</em>.</h1>
+    <p class="stand">Creation is already AI-assisted. Production-ready assets still need specialist work, target-engine setup, rights approval and partner QA — then repeat for the next title.</p>
+    <div class="problemstats">
+      <div class="problemstat"><div class="v">96%</div><div class="l"><b>of surveyed studios</b><br>use AI in selected workflows</div><div class="s">Unity Gaming Report 2025</div></div>
+      <div class="problemstat primary"><div class="v">12–15 days</div><div class="l"><b>one rig-ready stylized hero</b><br>USD 2–5k · one engine-ready delivery</div><div class="s">Innovecs Games vendor benchmark</div></div>
+      <div class="problemstat"><div class="v">0</div><div class="l"><b>portable rights records</b><br>inside a prompt, mesh or engine export</div><div class="s">source · permissions · payouts · approvals</div></div>
     </div>
-    <div class="cards3">
-      <div class="card"><div class="klabel">Provenance gap</div><p>Prompts produce media, not a durable record of source, approvals and claims.</p></div>
-      <div class="card"><div class="klabel">Rights fragmentation</div><p>Creators, IP owners, players and studios rely on separate records.</p></div>
-      <div class="card"><div class="klabel">Delivery cost</div><p>Every title repeats rigging, optimization, engine setup and QA.</p></div>
-    </div>
+    <div class="kicker"><b>AI lowers the cost of generation.</b> It does not remove production, rights or per-title integration.</div>
   </div>
-  <div class="foot"><span>EKZA — AI-assisted creation + verifiable digital-IP delivery</span><b>02 / 15</b></div>
+  <div class="foot"><span>Sources: Unity Gaming Report 2025 · Innovecs Games 2026 pricing benchmark</span><b>02 / 15</b></div>
 </section>
 
 <!-- ================= 3 · PIPELINE ================= -->
@@ -407,7 +442,7 @@
     <div class="eyebrow"><span class="idx">05</span>Why Cardano</div>
     <h1>Cardano maps cleanly to the product —<br><em>not just the pitch</em>.</h1>
     <p class="stand">Native assets anchor identity, CIP-68 supports an evolving passport, Aiken governs updates, and wallet standards make self-custody an optional claim rather than forced onboarding.</p>
-    <div class="chain" style="margin-top:36px">
+    <div class="chain" style="margin-top:36px;margin-bottom:18px">
       <div class="step"><div class="n">ASSET</div><div class="t">Native identity</div><div class="r">ledger ownership</div></div>
       <div class="arrow"><svg width="16" height="12" viewBox="0 0 16 12"><path d="M6 1l9 5-9 5z" fill="currentColor"/></svg></div>
       <div class="step"><div class="n">CIP-68</div><div class="t">Evolving passport</div><div class="r">reference datum</div></div>
@@ -420,7 +455,8 @@
       <div class="arrow"><svg width="16" height="12" viewBox="0 0 16 12"><path d="M6 1l9 5-9 5z" fill="currentColor"/></svg></div>
       <div class="step final"><div class="n" style="color:var(--mint)">SDK</div><div class="t">Rendition delivery</div><div class="r">partner approved</div></div>
     </div>
-    <div class="rolerow">
+    <div class="kicker" style="font-size:14.5px;max-width:none"><b>Aiken policy — mint, update, approval and payout-split validation:</b> a settlement transaction is valid only when its outputs match the passport’s recorded shares.</div>
+    <div class="rolerow" style="margin-top:18px">
       <div class="card"><div class="klabel" style="color:var(--cyan)">Rights owners</div><p>Define permissions, territories, approvals and contributor splits.</p></div>
       <div class="card"><div class="klabel" style="color:var(--cyan)">EKZA</div><p>Maintains the passport schema, version graph, production flow and adapters.</p></div>
       <div class="card"><div class="klabel" style="color:var(--cyan)">Partner games</div><p>Approve a rendition and read a simple entitlement at runtime.</p></div>
@@ -488,12 +524,27 @@
         <div class="layer base"><div class="no" style="color:var(--mint)">P5</div><div class="t">Production &amp; Settlement</div><div class="d">Adaptation, QA, licenses and contributor payouts</div></div>
       </div>
       <div>
-        <div class="shot" style="width:100%;height:270px;background:#fff var(--img-builder) center/contain no-repeat;margin-bottom:16px"></div>
-        <div class="kicker" style="font-size:14.5px">The moat compounds with each partner: <b>requirements, rendition history, rights schemas, adapters and QA baselines</b> — not one model or one token.</div>
+        <div class="passport">
+          <div class="passport-head">
+            <div><div class="klabel" style="color:var(--cyan);margin-bottom:7px">Cardano passport · Apex build target</div><div class="passport-title">Wang · asset #042</div></div>
+            <div class="passport-id">policy…9F2A<br>asset…002A</div>
+          </div>
+          <div class="passport-grid">
+            <div class="passport-row"><div class="k">Source fingerprint</div><div class="v">bafy…d81 · version 07</div></div>
+            <div class="passport-row"><div class="k">Permission scope</div><div class="v">Commercial game use</div></div>
+            <div class="passport-row"><div class="k">Contributors</div><div class="v">3 shares · 100% routed</div></div>
+            <div class="passport-row"><div class="k">Current record</div><div class="v">CIP-68 reference datum</div></div>
+          </div>
+          <div class="renditions">
+            <div class="rendition"><div class="name">Ekza Arena</div><div class="state">RENDITION A · APPROVED</div></div>
+            <div class="rendition"><div class="name">Partner title</div><div class="state" style="color:var(--amber)">RENDITION B · IN QA</div></div>
+          </div>
+        </div>
+        <div class="kicker" style="font-size:13.5px;margin-top:14px">Moat: <b>requirements, rendition history, rights schemas, adapters and QA baselines</b> compound with every partner.</div>
       </div>
     </div>
   </div>
-  <div class="foot"><span>Current asset-configuration prototype shown · Cardano layer is the Apex build target</span><b>07 / 15</b></div>
+  <div class="foot"><span>Target product interface · account-first UX over a proposed CIP-68 passport</span><b>07 / 15</b></div>
 </section>
 
 <!-- ================= 8 · PROOF ================= -->
@@ -532,13 +583,16 @@
         </ul>
         <div class="expand" style="margin-top:18px">target: one native asset <em>→</em> one evolving passport <em>→</em> two approved renditions</div>
       </div>
-      <figure class="s9shot">
-        <div class="shot"></div>
-        <figcaption>Demo target — one Cardano-backed identity activated through two game-ready renditions</figcaption>
-      </figure>
+      <div class="proofkit">
+        <div class="proofkit-head"><div class="t">Demo Day verification kit</div><div class="status">TARGET OUTPUT</div></div>
+        <div class="evidence"><div class="no">01</div><div><div class="t">Explorer transaction link</div><div class="d">native asset issue + passport update on Cardano preprod</div></div></div>
+        <div class="evidence"><div class="no">02</div><div><div class="t">CIP-68 datum diff</div><div class="d">source hash · permissions · version · partner approval</div></div></div>
+        <div class="evidence"><div class="no">03</div><div><div class="t">Two entitlement logs</div><div class="d">controlled EKZA runtime + external partner environment</div></div></div>
+        <div class="evidence"><div class="no">04</div><div><div class="t">Reproducible tests</div><div class="d">Aiken policy · indexer · SDK fixtures · public verification guide</div></div></div>
+      </div>
     </div>
   </div>
-  <div class="foot"><span>Build target only · Cardano preprod milestone, not current deployment</span><b>09 / 15</b></div>
+  <div class="foot"><span>Ten-week program → four independently checkable outputs</span><b>09 / 15</b></div>
 </section>
 
 <!-- ================= 10 · GTM ================= -->
@@ -549,20 +603,16 @@
   <div class="pad">
     <div class="eyebrow"><span class="idx">10</span>First commercial pilot</div>
     <h1>One Cardano passport.<br><em>Two live game environments.</em></h1>
-    <p class="stand">The first pilot links one master to two approved renditions, then validates entitlement in a controlled EKZA game and one external partner environment.</p>
-    <div class="loop">
-      <div class="step"><div class="n">01</div><div class="t">Rights + creative brief</div></div>
-      <div class="arrow"><svg width="16" height="12" viewBox="0 0 16 12"><path d="M6 1l9 5-9 5z" fill="currentColor"/></svg></div>
-      <div class="step"><div class="n">02</div><div class="t">Native asset + CIP-68 passport</div></div>
-      <div class="arrow"><svg width="16" height="12" viewBox="0 0 16 12"><path d="M6 1l9 5-9 5z" fill="currentColor"/></svg></div>
-      <div class="step"><div class="n">03</div><div class="t">Master + two renditions</div></div>
-      <div class="arrow"><svg width="16" height="12" viewBox="0 0 16 12"><path d="M6 1l9 5-9 5z" fill="currentColor"/></svg></div>
-      <div class="step"><div class="n">04</div><div class="t">Two entitlement checks</div></div>
-      <div class="arrow"><svg width="16" height="12" viewBox="0 0 16 12"><path d="M6 1l9 5-9 5z" fill="currentColor"/></svg></div>
-      <div class="step" style="border-color:rgba(61,220,151,.5)"><div class="n" style="color:var(--mint)">05</div><div class="t">Acceptance + priced repeat</div></div>
+    <p class="stand">The first pilot links one master to two approved renditions, then validates entitlement in a controlled EKZA runtime and one external partner environment.</p>
+    <div class="pilotgrid">
+      <div class="pilotunit"><div class="n">1</div><h3>Master + rights brief</h3><p>Recognizable identity, source history, contributors and explicit commercial scope.</p></div>
+      <div class="pilotunit focus"><div class="n">1</div><h3>Cardano passport</h3><p>Native asset, CIP-68 record, issue / update policy and transaction evidence.</p></div>
+      <div class="pilotunit"><div class="n">2</div><h3>Game environments</h3><p>Partner-approved renditions and entitlement checks in EKZA plus one external title.</p></div>
     </div>
-    <div class="loopback"><span>each approved rendition expands the passport and lowers the next delivery cost</span><span class="ln"></span></div>
-    <div class="kicker"><b>Apex can turn the missing input — external Cardano partner access —</b> into measurable commercial validation.</div>
+    <div class="scoreband">
+      <div class="kicker"><b>Technical success:</b> the same asset identity resolves to the right approved package in both runtimes.</div>
+      <div class="kicker" style="border-color:var(--mint)"><b>Commercial success:</b> partner acceptance plus a priced repeat decision.</div>
+    </div>
   </div>
   <div class="foot"><span>Controlled EKZA integration + one external partner target</span><b>10 / 15</b></div>
 </section>
@@ -575,20 +625,20 @@
   <div class="pad">
     <div class="eyebrow"><span class="idx">11</span>Go-to-market</div>
     <h1>Paid integrations create the network<br><em>before consumer scale</em>.</h1>
-    <p class="stand">EKZA starts with Cardano games, IP owners and creator platforms that need verifiable rights plus production-ready 3D delivery.</p>
+    <p class="stand">EKZA starts with Cardano games, IP owners and creator platforms that need verifiable rights plus production-ready 3D delivery. Each paid build creates reusable infrastructure.</p>
     <div class="revgrid">
-      <div class="rev"><div class="v">PARTNER</div><h4>Anchor customer</h4><p>Cardano game, IP owner or creator platform with a concrete asset brief.</p></div>
-      <div class="rev focus"><div class="v">DELIVER</div><h4>Paid PoC</h4><p>3D production, Cardano passport, adapter and acceptance evidence.</p></div>
-      <div class="rev"><div class="v">RECUR</div><h4>Platform revenue</h4><p>Profile, indexer, SDK, delivery and version management per live title.</p></div>
-      <div class="rev"><div class="v">EXPAND</div><h4>License network</h4><p>More renditions, partners and contributor settlements per asset.</p></div>
+      <div class="rev focus"><div class="v">$20–30k</div><h4>Land · paid title PoC</h4><p>Asset, passport, approved rendition, adapter and partner QA.</p></div>
+      <div class="rev"><div class="v">$10–15k</div><h4>Recur · annual title fee</h4><p>Profile, indexer, SDK, delivery and version management.</p></div>
+      <div class="rev"><div class="v">10%</div><h4>Flow · target take</h4><p>EKZA-enabled licensing and contributor settlement.</p></div>
+      <div class="rev"><div class="v">N×</div><h4>Expand · network</h4><p>More assets, approved renditions and games per passport.</p></div>
     </div>
     <div class="econsummary">
-      <div class="econbox"><div class="n">Draper + Cardano introductions</div><div class="d">Target anchor partners and institutional investors; no relationship is claimed before an introduction.</div></div>
-      <div class="econbox"><div class="n">Wotori Studio</div><div class="d">Initial 3D production and partner integration delivery.</div></div>
+      <div class="econbox"><div class="n">Cardano beachhead</div><div class="d">Games, IP owners and creator platforms reached through ecosystem and Draper introductions.</div></div>
+      <div class="econbox"><div class="n">Open schema + SDK</div><div class="d">Replication path beyond one studio and one integration team.</div></div>
     </div>
-    <div class="kicker"><b>Service-led entry, platform-led scale.</b> Each partner adds reusable requirements, renditions, adapters and QA baselines.</div>
+    <div class="kicker"><b>Service-led entry, platform-led scale.</b> The first integration pays for the adapter; every reuse shifts revenue toward software and licensed flow.</div>
   </div>
-  <div class="foot"><span>External partner access is the commercial validation bottleneck Apex can unlock</span><b>11 / 15</b></div>
+  <div class="foot"><span>Founder-set pricing hypotheses · partner validation during Apex</span><b>11 / 15</b></div>
 </section>
 
 <!-- ================= 12 · MARKET ================= -->
@@ -597,35 +647,40 @@
     <g stroke="rgba(94,225,255,.10)"><circle cx="310" cy="310" r="120"/><circle cx="310" cy="310" r="175"/><circle cx="310" cy="310" r="230"/><circle cx="310" cy="310" r="285"/></g>
     <circle cx="310" cy="310" r="66" fill="rgba(94,225,255,.05)" stroke="none"/></svg>
   <div class="pad">
-    <div class="eyebrow"><span class="idx">12</span>Target economics</div>
-    <h1>Services fund the first integrations;<br><em>software and licensing compound</em>.</h1>
-    <p class="stand">Founder-set planning targets — not historical revenue. EKZA has not yet closed an external paid pilot; pricing and willingness to pay remain validation milestones.</p>
+    <div class="eyebrow"><span class="idx">12</span>Vision + market</div>
+    <h1>The endgame is a rights rail for<br><em>every AI-born game asset</em>.</h1>
+    <p class="stand">Characters are the wedge. The same passport and delivery system expands to props, environments and branded IP across engines, marketplaces and games.</p>
     <div class="tamrow">
-      <div class="tam lead"><div class="v">$20–30k</div><div class="l"><b>PoC fee · per title</b><br>Asset, rendition, Cardano passport, adapter and QA</div><div class="s">paid entry</div></div>
-      <div class="tam"><div class="v">$10–15k</div><div class="l"><b>Annual platform fee</b><br>Profile, entitlement, delivery and version management</div><div class="s">recurring layer</div></div>
-      <div class="tam"><div class="v">10%</div><div class="l"><b>Target license / settlement take</b><br>Excluded from the base-case revenue plan</div><div class="s">network upside</div></div>
+      <div class="tam lead"><div class="v">$201.6B</div><div class="l"><b>Global game revenue</b><br>2025 · Newzoo estimate</div><div class="s">gaming context · not EKZA TAM</div></div>
+      <div class="tam"><div class="v">$1.503B</div><div class="l"><b>Roblox creator earnings</b><br>2025 · +63% year on year</div><div class="s">proven digital-content flow</div></div>
+      <div class="tam"><div class="v">$389.8B</div><div class="l"><b>Licensed goods + services</b><br>2025 retail sales</div><div class="s">expansion horizon · overlaps games</div></div>
     </div>
-    <div class="path">$40–60k first two-title proof <em>→</em> $90–135k Year-1 target revenue <em>→</em> ≥30% target delivery gross margin</div>
+    <div class="visionpath">
+      <div class="visionstep"><div class="n">LAND</div><div class="t">Paid Cardano character pilots</div></div>
+      <div class="visionstep"><div class="n">STANDARDIZE</div><div class="t">Passport + SDK infrastructure</div></div>
+      <div class="visionstep"><div class="n">NETWORK</div><div class="t">Multi-engine rights graph</div></div>
+      <div class="visionstep"><div class="n">SCALE</div><div class="t">Licensed-content settlement rail</div></div>
+    </div>
   </div>
-  <div class="foot"><span>Founder-set targets · 3 paid title PoCs + 3 annual platform fees · no current revenue</span><b>12 / 15</b></div>
+  <div class="foot"><span>Sources: Newzoo · Roblox FY2025 10-K · Licensing International · figures are not additive</span><b>12 / 15</b></div>
 </section>
 
 <!-- ================= 13 · COMPETITION ================= -->
 <section class="slide">
   <div class="pad">
-    <div class="eyebrow"><span class="idx">13</span>Competition + ecosystem role</div>
-    <h1>Marketplaces, NFT rails and avatar systems<br>solve only <em>one layer</em>.</h1>
+    <div class="eyebrow"><span class="idx">13</span>Named competitive set</div>
+    <h1>Alternatives win one layer.<br>EKZA connects <em>rights to runtime</em>.</h1>
     <table>
-      <tr><th>Category</th><th>AI / creation</th><th>Portable rights</th><th>Game-specific versions</th><th>Partner integration</th><th>Licensing / settlement</th></tr>
-      <tr><td>Asset marketplaces</td><td class="no">No</td><td class="lim">Store license</td><td class="lim">File formats</td><td class="lim">Buyer-led</td><td class="lim">Store terms</td></tr>
-      <tr><td>Cardano NFT tooling</td><td class="lim">Mint / list</td><td class="yes">Native asset</td><td class="no">No</td><td class="lim">API / marketplace</td><td class="lim">On-chain sales</td></tr>
-      <tr><td>Closed game ecosystems</td><td class="lim">Varies</td><td class="lim">Inside platform</td><td class="lim">Platform-only</td><td class="yes">Platform-native</td><td class="lim">Platform rules</td></tr>
-      <tr><td>3D production studios</td><td class="lim">Optional</td><td class="lim">Project contract</td><td class="yes">Bespoke</td><td class="yes">Service-led</td><td class="lim">Invoices</td></tr>
-      <tr class="ekza"><td>EKZA — target product</td><td class="yes">Guided workflow</td><td class="yes">CIP-68 passport</td><td class="yes">Approved per game</td><td class="yes">SDK + service</td><td class="yes">Rules + splits</td></tr>
+      <tr><th>Product</th><th>Primary strength</th><th>Rights / settlement</th><th>Game delivery</th><th>Chain</th></tr>
+      <tr><td>Meshy</td><td class="yes">AI 3D generation</td><td class="no">Not in public scope</td><td class="lim">Files + plugins / API</td><td class="no">Off-chain</td></tr>
+      <tr><td>Avaturn</td><td class="yes">Rigged avatar system</td><td class="no">No Cardano rail</td><td class="lim">Standard avatar + SDK</td><td class="no">Off-chain</td></tr>
+      <tr><td>Story</td><td class="yes">Programmable IP</td><td class="yes">PIL + royalty graph</td><td class="no">No 3D production layer</td><td class="lim">Story L1</td></tr>
+      <tr><td>NMKR Studio</td><td class="yes">Minting + checkout</td><td class="lim">Metadata + royalty tools</td><td class="no">No rendition / QA</td><td class="yes">Cardano</td></tr>
+      <tr class="ekza"><td>EKZA — target</td><td class="yes">Rights-to-runtime</td><td class="yes">CIP-68 + splits</td><td class="yes">Approved rendition + SDK</td><td class="yes">Cardano</td></tr>
     </table>
-    <div class="kicker" style="margin-top:26px"><b>EKZA complements Cardano wallets and marketplaces.</b> It turns native assets into licensable content that a real game can ship.</div>
+    <div class="kicker" style="margin-top:22px"><b>EKZA sits above generation and token tooling:</b> the differentiator is partner-approved adaptation plus runtime entitlement. Ready Player Me is a historical benchmark; services ended 31 Jan 2026.</div>
   </div>
-  <div class="foot"><span>Category-level comparison · EKZA row is target product, not completed market proof</span><b>13 / 15</b></div>
+  <div class="foot"><span>Sources: Meshy · Avaturn · Story docs · NMKR docs · Ready Player Me service notice</span><b>13 / 15</b></div>
 </section>
 
 <!-- ================= 14 · TEAM ================= -->
@@ -633,10 +688,10 @@
   <svg class="orbit" style="right:-180px;bottom:-300px" width="620" height="620" viewBox="0 0 620 620" fill="none" stroke-width="1">
     <g stroke="rgba(94,225,255,.10)"><circle cx="310" cy="310" r="120"/><circle cx="310" cy="310" r="175"/><circle cx="310" cy="310" r="230"/><circle cx="310" cy="310" r="285"/></g>
     <circle cx="310" cy="310" r="66" fill="rgba(94,225,255,.05)" stroke="none"/></svg>
-  <div class="pad">
+    <div class="pad">
     <div class="eyebrow"><span class="idx">14</span>Team + Apex leverage</div>
-    <h1>A technical founder who has already shipped<br><em>the hard primitives</em>.</h1>
-    <p class="stand">Dmitrii combines 15 years in 3D and game technology, 7 years of commercial software development and hands-on protocol delivery across Solana and Cosmos.</p>
+    <h1>The founder builds full-time;<br><em>scoped specialists multiply throughput</em>.</h1>
+    <p class="stand">Dmitrii remains the daily code owner throughout the residency. Cardano reviews and partner meetings turn into same-week product releases.</p>
     <div class="s14wrap">
       <div class="founder">
         <div class="ava"></div>
@@ -654,20 +709,21 @@
       </div>
       <div>
         <div class="studio">
-          <div class="klabel" style="color:var(--cyan)">Founder-led · Wotori Studio delivery bench</div>
-          <p><b>Shipped evidence:</b> EKZA ownership stack, Ekza Arena, Omoba and 0→100 Engine. Multi-chain delivery reduces protocol risk; Apex adds the Cardano depth, partner access and investor framing needed for the next stage. <b>wotori.io</b></p>
+          <div class="klabel" style="color:var(--cyan)">Residency operating model</div>
+          <p><b>Dmitrii onsite, full time:</b> owns CIP-68 / Aiken architecture, indexer, SDK, security gates and releases. The residency is build time — not time away from the builder.</p>
         </div>
-        <div class="klabel">What Apex unlocks</div>
+        <div class="klabel">Parallel delivery packages</div>
         <ul class="roles">
-          <li>Aiken / Plutus and eUTXO design review</li>
-          <li>Cardano indexer, wallet and security mentorship</li>
-          <li>Game, IP-owner and creator-platform introductions</li>
-          <li>Silicon Valley enterprise GTM and fundraising</li>
+          <li>3D rendition + target-game adapter</li>
+          <li>Indexer / frontend QA + automated tests</li>
+          <li>Scoped Aiken / eUTXO review via Apex</li>
+          <li>Founder review → merge → weekly demo</li>
         </ul>
+        <div class="kicker" style="font-size:12.5px;margin-top:18px"><b>Co-build proof:</b> 70 public Wotori commits inside Xyber Labs' multi-contributor 0→100 Solana protocol.</div>
       </div>
     </div>
   </div>
-  <div class="foot"><span>Solana + Cosmos builder · Cardano implementation is the next milestone</span><b>14 / 15</b></div>
+  <div class="foot"><span>One accountable architect · modular specialist capacity · weekly proof</span><b>14 / 15</b></div>
 </section>
 
 <!-- ================= 15 · APEX OUTCOME ================= -->
