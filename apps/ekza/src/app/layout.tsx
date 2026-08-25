@@ -21,7 +21,7 @@ const spaceGrotesk = Space_Grotesk({
 
 const ekzaTitle = "Ekza | Ownership Layer for Collaborative 3D Assets";
 const ekzaDescription =
-  "Ekza tracks who made every 3D asset and routes revenue to each contributor when it is sold, rented, or licensed. Collaborative creation, programmable splits, and game-ready bundles — settled on Solana.";
+  "Ekza tracks who made every 3D asset and routes revenue to each contributor when it is sold, rented, or licensed. Collaborative creation, programmable splits, and game-ready bundles — with verifiable ownership and automated payouts.";
 const ekzaUrl = "https://ekza.io";
 
 export const metadata: Metadata = {
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     "game asset SDK",
     "3D collaboration",
     "digital ownership",
-    "open source Solana",
+    "open source",
   ],
   authors: [{ name: "Wotori Studio", url: "https://wotori.io" }],
   creator: "Wotori Studio",
@@ -133,7 +133,7 @@ export default function RootLayout({
                 url: ekzaUrl,
                 description: ekzaDescription,
                 keywords:
-                  "open source, Solana startup, 3D assets, creator royalties, web3, SDK",
+                  "open source, 3D assets, creator royalties, digital ownership, SDK",
                 offers: {
                   "@type": "Offer",
                   price: "0",

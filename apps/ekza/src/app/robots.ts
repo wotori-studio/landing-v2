@@ -6,6 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
+        disallow: ["/p/", "/decks/"],
       },
     ],
     sitemap: "https://ekza.io/sitemap.xml",

@@ -415,12 +415,12 @@
           "ecosystem": {
             "eyebrow": "The ecosystem",
             "headline": "One asset layer, many surfaces.",
-            "subcopy": "One asset graph powers everything — collaborative releases, owned places, portable avatars, and games. Today it settles on Solana; the graph itself is rail-agnostic and can run over conventional payments too.",
-            "statusNote": "Early alpha. Running on devnet.",
+            "subcopy": "One asset graph powers everything — collaborative releases, owned places, portable avatars, and games. The graph is rail-agnostic: verifiable ownership today, conventional payments too.",
+            "statusNote": "Early alpha. Open source.",
             "credit": "Created and backed by Wotori Studio",
             "projects": {
               "stellar": "The collaboration layer: universes, typed assets, lineage, releases, vaults, and contributor revenue shares.",
-              "avatar": "Portable, mintable 3D identities with Solana-native ownership, linkable to finalized Stellar releases.",
+              "avatar": "Portable 3D identities with verifiable ownership, linkable to finalized Stellar releases.",
               "space": "Numbered virtual rooms and arenas — owned outright, with live settings the owner controls."
             }
           },
@@ -471,28 +471,28 @@
           },
           "credibility": {
             "eyebrow": "Don't trust — verify",
-            "headline": "It's real, it's on-chain, and it's open.",
-            "subcopy": "Ekza Space runs as an open Anchor program on Solana. Read the source, inspect the account, follow the build.",
+            "headline": "It's real, it's working, and it's open.",
+            "subcopy": "Ekza runs as open-source infrastructure with a public, verifiable ownership record. Read the source, inspect the live registry, follow the build.",
             "openSource": {
               "title": "Open source",
-              "body": "Three Anchor programs — solana-stellar (collaboration & revenue), solana-ekza-space (numbered Spaces), solana-avatars (portable identity). Read every line on GitHub.",
+              "body": "The full stack is open source — collaboration & revenue sharing, numbered Spaces, and portable identity. Read every line on GitHub.",
               "link": "View on GitHub"
             },
             "onChain": {
-              "title": "On-chain & verifiable",
-              "body": "Program 2WtuXG6A…fMQEH is live on Solana devnet. Inspect the Config and Space accounts yourself — ownership and settings are public state.",
-              "link": "Inspect on Solana Explorer"
+              "title": "Public & verifiable",
+              "body": "The ownership registry is live and publicly inspectable — every Space, owner, and setting is public state you can check yourself.",
+              "link": "Inspect the live registry"
             },
             "builtInOpen": {
               "title": "Built in the open",
-              "body": "Created and backed by Wotori Studio, in development since 2019, with Omoba building on top. Live on devnet today; mainnet on the roadmap.",
+              "body": "Created and backed by Wotori Studio, in development since 2019, with Omoba building on top. Working alpha today; production launch on the roadmap.",
               "link": "Wotori Studio"
             },
-            "statusRibbon": "Status: early alpha — live on Solana devnet. Mainnet on the roadmap.",
+            "statusRibbon": "Status: early alpha — working public registry. Production launch on the roadmap.",
             "roadmap": {
               "now": {
                 "title": "Now",
-                "body": "Space minting & settings stable; avatar ownership live on devnet."
+                "body": "Space claiming & settings stable; avatar ownership live."
               },
               "next": {
                 "title": "Next",
@@ -516,8 +516,8 @@
               "eyebrow": "Collaborative 3D asset ownership",
               "headline": "Own what you make. Together.",
               "subhead": "Ekza is the ownership layer for collaboratively made 3D assets. Story, concept, model, rig, animation — every contribution is tracked in the asset graph and keeps earning each time the asset is sold, rented, or licensed.",
-              "description": "The idea does not depend on crypto. Lineage, licensing, and revenue splits work over any settlement rail — ordinary contracts and bank payments included. Solana is simply the first rail we run on: programmable, global, and cheap to automate.",
-              "footerLeft": "Built by Wotori Studio · Live on Solana devnet",
+              "description": "The idea does not depend on crypto. Lineage, licensing, and revenue splits work over any settlement rail — ordinary contracts and bank payments included. A programmable ledger is simply the first rail we automate them on.",
+              "footerLeft": "Built by Wotori Studio · Working open-source alpha",
               "footerCenter": "Create on Stellar · License bundles · Play in Omoba & Arena",
               "buttons": {
                 "reserve": "Reserve your Space",
@@ -554,24 +554,38 @@
               "subcopy": "Spaces are the genesis drop: 1,000 finite, numbered 3D places, each provably yours and reconfigurable any time. Owning one is how early believers back the build — the long game is the licensing economy on top.",
               "bullet1": "Provably yours — a finite, numbered place with supply that can never be inflated.",
               "bullet2": "Yours to shape — rename it, open it, and point it at your scene whenever you want.",
-              "bullet3": "First in line — reserve now to mint from the genesis batch and follow the build.",
+              "bullet3": "First in line — reserve now to claim from the genesis batch and follow the build.",
               "cta": "Reserve your Space",
-              "microcopy": "Early alpha on Solana devnet. No payment today — reserving holds your place in the genesis batch.",
+              "microcopy": "Early open-source alpha. No payment today — reserving holds your place in the genesis batch.",
               "secondary": "What exactly do I own?"
             },
             "whyOwn": {
               "eyebrow": "What you own",
               "headline": "More than a file. A place you own.",
               "subcopy": "A Space is a place you actually control: proof of ownership plus live settings — name, access, the scene itself. Transfer it, and the whole world moves with it.",
-              "link": "See all six primitives + the full mechanics"
+              "link": "See all six primitives + the full mechanics",
+              "cards": {
+                "ownership": {
+                  "title": "True ownership",
+                  "body": "Provably yours — a single verifiable record proves who owns each Space, and holding it is the only key to changing the world."
+                },
+                "configurable": {
+                  "title": "Configurable worlds",
+                  "body": "Settings are live, not frozen. Rename, open, close, and re-point the scene at any time — the world evolves while ownership stays put."
+                },
+                "finite": {
+                  "title": "Finite collection",
+                  "body": "Supply is capped forever. Every Space is numbered — verifiable, scarce, and never duplicated."
+                }
+              }
             },
             "roadmap": {
               "eyebrow": "The trajectory",
               "headline": "Build the assets now. The economy comes next.",
               "now": {
-                "badge": "Live on devnet",
+                "badge": "Working alpha",
                 "title": "Now",
-                "body": "Collaborative asset creation with lineage and contributor shares, live on Stellar. Space minting and configuration work end-to-end."
+                "body": "Collaborative asset creation with lineage and contributor shares, live on Stellar. Space claiming and configuration work end-to-end."
               },
               "next": {
                 "badge": "In build",
@@ -583,11 +597,11 @@
                 "title": "Later",
                 "body": "Creator-owned asset infrastructure at scale — and a Minecraft/Roblox-scale universe built out of what creators make."
               },
-              "footnote": "Honest status: early alpha on Solana devnet. We're raising to build full-time — owning a Space helps fund it."
+              "footnote": "Honest status: early open-source alpha. We're raising to build full-time — owning a Space helps fund it."
             },
             "finalCta": {
               "headline": "Claim your place in the universe.",
-              "subcopy": "Reserve a numbered Space to back the build and mint from the genesis batch — or join the newsletter and follow the licensing economy as it ships.",
+              "subcopy": "Reserve a numbered Space to back the build and claim from the genesis batch — or join the newsletter and follow the licensing economy as it ships.",
               "cta": "Reserve your Space",
               "pitchdeck": "Investor pitch",
               "beijingDeck": "ITEC Beijing deck (PDF)"
@@ -595,10 +609,10 @@
             "liveWorld": {
               "eyebrow": "See it live",
               "headline": "Step inside the world.",
-              "subcopy": "Ekza Space runs in your browser — real-time 3D where owned places and creator-made assets come together. This is an early prototype on devnet.",
+              "subcopy": "Ekza Space runs in your browser — real-time 3D where owned places and creator-made assets come together. This is an early prototype.",
               "cta": "Enter the live world",
               "ctaMobile": "Open the live world",
-              "note": "Loads space.ekza.io · early alpha on Solana devnet",
+              "note": "Loads space.ekza.io · early alpha",
               "close": "Close live world",
               "loading": "Loading the live world…",
               "openTab": "Open in a new tab"
@@ -1124,12 +1138,12 @@
           "ecosystem": {
             "eyebrow": "The ecosystem",
             "headline": "One asset layer, many surfaces.",
-            "subcopy": "One asset graph powers everything — collaborative releases, owned places, portable avatars, and games. Today it settles on Solana; the graph itself is rail-agnostic and can run over conventional payments too.",
-            "statusNote": "Early alpha. Running on devnet.",
+            "subcopy": "One asset graph powers everything — collaborative releases, owned places, portable avatars, and games. The graph is rail-agnostic: verifiable ownership today, conventional payments too.",
+            "statusNote": "Early alpha. Open source.",
             "credit": "Created and backed by Wotori Studio",
             "projects": {
               "stellar": "The collaboration layer: universes, typed assets, lineage, releases, vaults, and contributor revenue shares.",
-              "avatar": "Portable, mintable 3D identities with Solana-native ownership, linkable to finalized Stellar releases.",
+              "avatar": "Portable 3D identities with verifiable ownership, linkable to finalized Stellar releases.",
               "space": "Numbered virtual rooms and arenas — owned outright, with live settings the owner controls."
             }
           },
@@ -1180,28 +1194,28 @@
           },
           "credibility": {
             "eyebrow": "Don't trust — verify",
-            "headline": "It's real, it's on-chain, and it's open.",
-            "subcopy": "Ekza Space runs as an open Anchor program on Solana. Read the source, inspect the account, follow the build.",
+            "headline": "It's real, it's working, and it's open.",
+            "subcopy": "Ekza runs as open-source infrastructure with a public, verifiable ownership record. Read the source, inspect the live registry, follow the build.",
             "openSource": {
               "title": "Open source",
-              "body": "Three Anchor programs — solana-stellar (collaboration & revenue), solana-ekza-space (numbered Spaces), solana-avatars (portable identity). Read every line on GitHub.",
+              "body": "The full stack is open source — collaboration & revenue sharing, numbered Spaces, and portable identity. Read every line on GitHub.",
               "link": "View on GitHub"
             },
             "onChain": {
-              "title": "On-chain & verifiable",
-              "body": "Program 2WtuXG6A…fMQEH is live on Solana devnet. Inspect the Config and Space accounts yourself — ownership and settings are public state.",
-              "link": "Inspect on Solana Explorer"
+              "title": "Public & verifiable",
+              "body": "The ownership registry is live and publicly inspectable — every Space, owner, and setting is public state you can check yourself.",
+              "link": "Inspect the live registry"
             },
             "builtInOpen": {
               "title": "Built in the open",
-              "body": "Created and backed by Wotori Studio, in development since 2019, with Omoba building on top. Live on devnet today; mainnet on the roadmap.",
+              "body": "Created and backed by Wotori Studio, in development since 2019, with Omoba building on top. Working alpha today; production launch on the roadmap.",
               "link": "Wotori Studio"
             },
-            "statusRibbon": "Status: early alpha — live on Solana devnet. Mainnet on the roadmap.",
+            "statusRibbon": "Status: early alpha — working public registry. Production launch on the roadmap.",
             "roadmap": {
               "now": {
                 "title": "Now",
-                "body": "Space minting & settings stable; avatar ownership live on devnet."
+                "body": "Space claiming & settings stable; avatar ownership live."
               },
               "next": {
                 "title": "Next",
@@ -1225,8 +1239,8 @@
               "eyebrow": "Collaborative 3D asset ownership",
               "headline": "Own what you make. Together.",
               "subhead": "Ekza is the ownership layer for collaboratively made 3D assets. Story, concept, model, rig, animation — every contribution is tracked in the asset graph and keeps earning each time the asset is sold, rented, or licensed.",
-              "description": "The idea does not depend on crypto. Lineage, licensing, and revenue splits work over any settlement rail — ordinary contracts and bank payments included. Solana is simply the first rail we run on: programmable, global, and cheap to automate.",
-              "footerLeft": "Built by Wotori Studio · Live on Solana devnet",
+              "description": "The idea does not depend on crypto. Lineage, licensing, and revenue splits work over any settlement rail — ordinary contracts and bank payments included. A programmable ledger is simply the first rail we automate them on.",
+              "footerLeft": "Built by Wotori Studio · Working open-source alpha",
               "footerCenter": "Create on Stellar · License bundles · Play in Omoba & Arena",
               "buttons": {
                 "reserve": "Reserve your Space",
@@ -1263,24 +1277,38 @@
               "subcopy": "Spaces are the genesis drop: 1,000 finite, numbered 3D places, each provably yours and reconfigurable any time. Owning one is how early believers back the build — the long game is the licensing economy on top.",
               "bullet1": "Provably yours — a finite, numbered place with supply that can never be inflated.",
               "bullet2": "Yours to shape — rename it, open it, and point it at your scene whenever you want.",
-              "bullet3": "First in line — reserve now to mint from the genesis batch and follow the build.",
+              "bullet3": "First in line — reserve now to claim from the genesis batch and follow the build.",
               "cta": "Reserve your Space",
-              "microcopy": "Early alpha on Solana devnet. No payment today — reserving holds your place in the genesis batch.",
+              "microcopy": "Early open-source alpha. No payment today — reserving holds your place in the genesis batch.",
               "secondary": "What exactly do I own?"
             },
             "whyOwn": {
               "eyebrow": "What you own",
               "headline": "More than a file. A place you own.",
               "subcopy": "A Space is a place you actually control: proof of ownership plus live settings — name, access, the scene itself. Transfer it, and the whole world moves with it.",
-              "link": "See all six primitives + the full mechanics"
+              "link": "See all six primitives + the full mechanics",
+              "cards": {
+                "ownership": {
+                  "title": "True ownership",
+                  "body": "Provably yours — a single verifiable record proves who owns each Space, and holding it is the only key to changing the world."
+                },
+                "configurable": {
+                  "title": "Configurable worlds",
+                  "body": "Settings are live, not frozen. Rename, open, close, and re-point the scene at any time — the world evolves while ownership stays put."
+                },
+                "finite": {
+                  "title": "Finite collection",
+                  "body": "Supply is capped forever. Every Space is numbered — verifiable, scarce, and never duplicated."
+                }
+              }
             },
             "roadmap": {
               "eyebrow": "The trajectory",
               "headline": "Build the assets now. The economy comes next.",
               "now": {
-                "badge": "Live on devnet",
+                "badge": "Working alpha",
                 "title": "Now",
-                "body": "Collaborative asset creation with lineage and contributor shares, live on Stellar. Space minting and configuration work end-to-end."
+                "body": "Collaborative asset creation with lineage and contributor shares, live on Stellar. Space claiming and configuration work end-to-end."
               },
               "next": {
                 "badge": "In build",
@@ -1292,11 +1320,11 @@
                 "title": "Later",
                 "body": "Creator-owned asset infrastructure at scale — and a Minecraft/Roblox-scale universe built out of what creators make."
               },
-              "footnote": "Honest status: early alpha on Solana devnet. We're raising to build full-time — owning a Space helps fund it."
+              "footnote": "Honest status: early open-source alpha. We're raising to build full-time — owning a Space helps fund it."
             },
             "finalCta": {
               "headline": "Claim your place in the universe.",
-              "subcopy": "Reserve a numbered Space to back the build and mint from the genesis batch — or join the newsletter and follow the licensing economy as it ships.",
+              "subcopy": "Reserve a numbered Space to back the build and claim from the genesis batch — or join the newsletter and follow the licensing economy as it ships.",
               "cta": "Reserve your Space",
               "pitchdeck": "Pitchdeck для инвесторов",
               "beijingDeck": "Дек ITEC Beijing (PDF)"
@@ -1304,10 +1332,10 @@
             "liveWorld": {
               "eyebrow": "See it live",
               "headline": "Step inside the world.",
-              "subcopy": "Ekza Space runs in your browser — real-time 3D where owned places and creator-made assets come together. This is an early prototype on devnet.",
+              "subcopy": "Ekza Space runs in your browser — real-time 3D where owned places and creator-made assets come together. This is an early prototype.",
               "cta": "Enter the live world",
               "ctaMobile": "Open the live world",
-              "note": "Loads space.ekza.io · early alpha on Solana devnet",
+              "note": "Loads space.ekza.io · early alpha",
               "close": "Close live world",
               "loading": "Loading the live world…",
               "openTab": "Open in a new tab"
@@ -1833,12 +1861,12 @@
           "ecosystem": {
             "eyebrow": "The ecosystem",
             "headline": "One asset layer, many surfaces.",
-            "subcopy": "One asset graph powers everything — collaborative releases, owned places, portable avatars, and games. Today it settles on Solana; the graph itself is rail-agnostic and can run over conventional payments too.",
-            "statusNote": "Early alpha. Running on devnet.",
+            "subcopy": "One asset graph powers everything — collaborative releases, owned places, portable avatars, and games. The graph is rail-agnostic: verifiable ownership today, conventional payments too.",
+            "statusNote": "Early alpha. Open source.",
             "credit": "Created and backed by Wotori Studio",
             "projects": {
               "stellar": "The collaboration layer: universes, typed assets, lineage, releases, vaults, and contributor revenue shares.",
-              "avatar": "Portable, mintable 3D identities with Solana-native ownership, linkable to finalized Stellar releases.",
+              "avatar": "Portable 3D identities with verifiable ownership, linkable to finalized Stellar releases.",
               "space": "Numbered virtual rooms and arenas — owned outright, with live settings the owner controls."
             }
           },
@@ -1889,28 +1917,28 @@
           },
           "credibility": {
             "eyebrow": "Don't trust — verify",
-            "headline": "It's real, it's on-chain, and it's open.",
-            "subcopy": "Ekza Space runs as an open Anchor program on Solana. Read the source, inspect the account, follow the build.",
+            "headline": "It's real, it's working, and it's open.",
+            "subcopy": "Ekza runs as open-source infrastructure with a public, verifiable ownership record. Read the source, inspect the live registry, follow the build.",
             "openSource": {
               "title": "Open source",
-              "body": "Three Anchor programs — solana-stellar (collaboration & revenue), solana-ekza-space (numbered Spaces), solana-avatars (portable identity). Read every line on GitHub.",
+              "body": "The full stack is open source — collaboration & revenue sharing, numbered Spaces, and portable identity. Read every line on GitHub.",
               "link": "View on GitHub"
             },
             "onChain": {
-              "title": "On-chain & verifiable",
-              "body": "Program 2WtuXG6A…fMQEH is live on Solana devnet. Inspect the Config and Space accounts yourself — ownership and settings are public state.",
-              "link": "Inspect on Solana Explorer"
+              "title": "Public & verifiable",
+              "body": "The ownership registry is live and publicly inspectable — every Space, owner, and setting is public state you can check yourself.",
+              "link": "Inspect the live registry"
             },
             "builtInOpen": {
               "title": "Built in the open",
-              "body": "Created and backed by Wotori Studio, in development since 2019, with Omoba building on top. Live on devnet today; mainnet on the roadmap.",
+              "body": "Created and backed by Wotori Studio, in development since 2019, with Omoba building on top. Working alpha today; production launch on the roadmap.",
               "link": "Wotori Studio"
             },
-            "statusRibbon": "Status: early alpha — live on Solana devnet. Mainnet on the roadmap.",
+            "statusRibbon": "Status: early alpha — working public registry. Production launch on the roadmap.",
             "roadmap": {
               "now": {
                 "title": "Now",
-                "body": "Space minting & settings stable; avatar ownership live on devnet."
+                "body": "Space claiming & settings stable; avatar ownership live."
               },
               "next": {
                 "title": "Next",
@@ -1934,8 +1962,8 @@
               "eyebrow": "Collaborative 3D asset ownership",
               "headline": "Own what you make. Together.",
               "subhead": "Ekza is the ownership layer for collaboratively made 3D assets. Story, concept, model, rig, animation — every contribution is tracked in the asset graph and keeps earning each time the asset is sold, rented, or licensed.",
-              "description": "The idea does not depend on crypto. Lineage, licensing, and revenue splits work over any settlement rail — ordinary contracts and bank payments included. Solana is simply the first rail we run on: programmable, global, and cheap to automate.",
-              "footerLeft": "Built by Wotori Studio · Live on Solana devnet",
+              "description": "The idea does not depend on crypto. Lineage, licensing, and revenue splits work over any settlement rail — ordinary contracts and bank payments included. A programmable ledger is simply the first rail we automate them on.",
+              "footerLeft": "Built by Wotori Studio · Working open-source alpha",
               "footerCenter": "Create on Stellar · License bundles · Play in Omoba & Arena",
               "buttons": {
                 "reserve": "Reserve your Space",
@@ -1972,24 +2000,38 @@
               "subcopy": "Spaces are the genesis drop: 1,000 finite, numbered 3D places, each provably yours and reconfigurable any time. Owning one is how early believers back the build — the long game is the licensing economy on top.",
               "bullet1": "Provably yours — a finite, numbered place with supply that can never be inflated.",
               "bullet2": "Yours to shape — rename it, open it, and point it at your scene whenever you want.",
-              "bullet3": "First in line — reserve now to mint from the genesis batch and follow the build.",
+              "bullet3": "First in line — reserve now to claim from the genesis batch and follow the build.",
               "cta": "Reserve your Space",
-              "microcopy": "Early alpha on Solana devnet. No payment today — reserving holds your place in the genesis batch.",
+              "microcopy": "Early open-source alpha. No payment today — reserving holds your place in the genesis batch.",
               "secondary": "What exactly do I own?"
             },
             "whyOwn": {
               "eyebrow": "What you own",
               "headline": "More than a file. A place you own.",
               "subcopy": "A Space is a place you actually control: proof of ownership plus live settings — name, access, the scene itself. Transfer it, and the whole world moves with it.",
-              "link": "See all six primitives + the full mechanics"
+              "link": "See all six primitives + the full mechanics",
+              "cards": {
+                "ownership": {
+                  "title": "True ownership",
+                  "body": "Provably yours — a single verifiable record proves who owns each Space, and holding it is the only key to changing the world."
+                },
+                "configurable": {
+                  "title": "Configurable worlds",
+                  "body": "Settings are live, not frozen. Rename, open, close, and re-point the scene at any time — the world evolves while ownership stays put."
+                },
+                "finite": {
+                  "title": "Finite collection",
+                  "body": "Supply is capped forever. Every Space is numbered — verifiable, scarce, and never duplicated."
+                }
+              }
             },
             "roadmap": {
               "eyebrow": "The trajectory",
               "headline": "Build the assets now. The economy comes next.",
               "now": {
-                "badge": "Live on devnet",
+                "badge": "Working alpha",
                 "title": "Now",
-                "body": "Collaborative asset creation with lineage and contributor shares, live on Stellar. Space minting and configuration work end-to-end."
+                "body": "Collaborative asset creation with lineage and contributor shares, live on Stellar. Space claiming and configuration work end-to-end."
               },
               "next": {
                 "badge": "In build",
@@ -2001,11 +2043,11 @@
                 "title": "Later",
                 "body": "Creator-owned asset infrastructure at scale — and a Minecraft/Roblox-scale universe built out of what creators make."
               },
-              "footnote": "Honest status: early alpha on Solana devnet. We're raising to build full-time — owning a Space helps fund it."
+              "footnote": "Honest status: early open-source alpha. We're raising to build full-time — owning a Space helps fund it."
             },
             "finalCta": {
               "headline": "Claim your place in the universe.",
-              "subcopy": "Reserve a numbered Space to back the build and mint from the genesis batch — or join the newsletter and follow the licensing economy as it ships.",
+              "subcopy": "Reserve a numbered Space to back the build and claim from the genesis batch — or join the newsletter and follow the licensing economy as it ships.",
               "cta": "Reserve your Space",
               "pitchdeck": "投资者 Pitchdeck",
               "beijingDeck": "ITEC 北京路演 (PDF)"
@@ -2013,10 +2055,10 @@
             "liveWorld": {
               "eyebrow": "See it live",
               "headline": "Step inside the world.",
-              "subcopy": "Ekza Space runs in your browser — real-time 3D where owned places and creator-made assets come together. This is an early prototype on devnet.",
+              "subcopy": "Ekza Space runs in your browser — real-time 3D where owned places and creator-made assets come together. This is an early prototype.",
               "cta": "Enter the live world",
               "ctaMobile": "Open the live world",
-              "note": "Loads space.ekza.io · early alpha on Solana devnet",
+              "note": "Loads space.ekza.io · early alpha",
               "close": "Close live world",
               "loading": "Loading the live world…",
               "openTab": "Open in a new tab"

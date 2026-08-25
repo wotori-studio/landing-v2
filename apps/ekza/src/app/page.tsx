@@ -4,7 +4,7 @@ import { HomeView } from "../components/views/home-view";
 export const metadata: Metadata = {
   title: "Ekza — Own what you make, together",
   description:
-    "Ekza is the ownership layer for collaboratively made 3D assets: lineage, licensing, and automatic revenue sharing for every contributor. The model is rail-agnostic — it runs on Solana today and works over conventional payments too.",
+    "Ekza is the ownership layer for collaboratively made 3D assets: lineage, licensing, and automatic revenue sharing for every contributor. The model is rail-agnostic — verifiable ownership records today, conventional contracts and payments too.",
   alternates: { canonical: "/" },
 };
 

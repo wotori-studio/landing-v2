@@ -25,7 +25,7 @@ export function SpaceCardVisual({
 
   const fields: { key: string; value: string }[] = [
     { key: "space_id", value: String(id) },
-    { key: "mint", value: mint },
+    { key: "token", value: mint },
     { key: "owner", value: owner },
     { key: "name", value: name },
     { key: "space_config_uri", value: "ipfs://…/scene.json" },

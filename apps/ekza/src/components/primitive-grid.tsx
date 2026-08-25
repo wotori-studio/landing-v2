@@ -110,10 +110,15 @@ export function PrimitiveGrid({
   ];
 
   // Teaser keeps the three strongest cards for buyers: ownership, configurable, finite.
-  const cards =
-    variant === "teaser"
-      ? [allCards[1], allCards[2], allCards[0]]
-      : allCards;
+  // It uses home-scoped copy (rail-neutral); the full grid keeps protocol-accurate wording.
+  const teaserCards: { icon: React.ReactNode; title: string; body: string }[] =
+    (["ownership", "configurable", "finite"] as const).map((key) => ({
+      icon: Icons[key],
+      title: t(`ekza.v2.home.whyOwn.cards.${key}.title`),
+      body: t(`ekza.v2.home.whyOwn.cards.${key}.body`),
+    }));
+
+  const cards = variant === "teaser" ? teaserCards : allCards;
 
   const resolvedEyebrow = eyebrow ?? t("ekza.v2.primitives.eyebrow");
   const resolvedHeadline = headline ?? t("ekza.v2.primitives.headline");
