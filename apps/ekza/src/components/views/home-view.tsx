@@ -72,6 +72,7 @@ export function HomeView() {
   ];
 
   const ctaLinks = [
+    { label: "Vision deck", href: "/decks/ekza_vision_2026.html" },
     { label: "Discord", href: "https://discord.gg/yUWb4Q5b", external: true },
     { label: "X", href: "https://twitter.com/EkzaSpace", external: true },
     { label: "Telegram", href: "https://t.me/ekzaspace", external: true },
