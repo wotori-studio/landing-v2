@@ -1034,426 +1034,426 @@
         },
         "v2": {
           "hero": {
-            "eyebrow": "Solana-native 3D ownership protocol",
-            "headline": "Own your worlds, on-chain.",
-            "subhead": "Ekza Space turns virtual rooms, scenes, and arenas into a finite collection of numbered Spaces — each a 1/1 NFT with live, on-chain settings you control.",
-            "description": "Mint a numbered Space, point it at an IPFS scene manifest, and open it to the world. Ownership is proven by the NFT; the world is described by the PDA. Built for games, virtual worlds, and Ekza Arena.",
-            "footer": "Creator-owned infrastructure for web3 worlds",
+            "eyebrow": "Нативный протокол владения 3D-мирами",
+            "headline": "Владей своими мирами — в блокчейне.",
+            "subhead": "Ekza Space превращает виртуальные комнаты, сцены и арены в конечную коллекцию нумерованных Spaces — каждый это 1/1 NFT с живыми ончейн-настройками под твоим контролем.",
+            "description": "Сминти нумерованный Space, укажи ему IPFS-манифест сцены и открой его миру. NFT доказывает владение, PDA описывает мир. Создано для игр, виртуальных миров и Ekza Arena.",
+            "footer": "Инфраструктура web3-миров, принадлежащая создателям",
             "buttons": {
-              "joinWaitlist": "Join Waitlist",
-              "openApp": "Open App",
-              "readDocs": "Read Docs"
+              "joinWaitlist": "В лист ожидания",
+              "openApp": "Открыть приложение",
+              "readDocs": "Смотреть программу"
             },
-            "builtBy": "Built by Wotori Studio · Live on Solana devnet"
+            "builtBy": "Сделано Wotori Studio · Работает в Solana devnet"
           },
           "whatIsSpace": {
-            "eyebrow": "The primitive",
-            "headline": "A Space is more than an image NFT.",
-            "subcopy": "Each Space is two things working together: a 1/1 Metaplex NFT that proves who owns it, and a Solana PDA that stores the live settings and a link to the scene. Transfer the NFT, transfer the world.",
+            "eyebrow": "Примитив",
+            "headline": "Space — больше, чем картинка-NFT.",
+            "subcopy": "Каждый Space — это две части, работающие вместе: 1/1 Metaplex NFT, доказывающий владение, и Solana PDA с живыми настройками и ссылкой на сцену. Передал NFT — передал мир.",
             "nft": {
-              "title": "The NFT — proof of ownership",
-              "body": "A single 1/1 token. Mint authority is revoked at mint, so supply can never be inflated. Holding it is what authorizes every settings change."
+              "title": "NFT — доказательство владения",
+              "body": "Единственный 1/1 токен. Права минта отзываются при выпуске, так что предложение никогда не раздуется. Владение им — единственный ключ к изменению настроек."
             },
             "pda": {
-              "title": "The PDA — the live world",
-              "body": "On-chain settings — name, open/closed, editability, editor allowlist — plus space_config_uri, an IPFS manifest describing the scene, spawn point, and the assets loaded into it."
+              "title": "PDA — живой мир",
+              "body": "Ончейн-настройки — имя, открыт/закрыт, редактируемость, список редакторов — плюс space_config_uri: IPFS-манифест сцены, точки спавна и загружаемых ассетов."
             },
-            "fieldsLabel": "From the on-chain Space account"
+            "fieldsLabel": "Из ончейн-аккаунта Space"
           },
           "howItWorks": {
-            "eyebrow": "How it works",
-            "headline": "Mint it. Configure it. Use it anywhere.",
+            "eyebrow": "Как это работает",
+            "headline": "Сминти. Настрой. Используй где угодно.",
             "step1": {
-              "title": "Mint the next Space",
-              "body": "Call mint_next_space and you receive Space #N — the next ID in the collection. SOL goes to the treasury, a 1/1 NFT lands in your wallet, mint authority is revoked, and the Space PDA is created. A SpaceMinted event fires on-chain."
+              "title": "Сминти следующий Space",
+              "body": "Вызови mint_next_space и получи Space #N — следующий номер коллекции. SOL уходит в трежери, 1/1 NFT приходит в кошелёк, права минта отзываются, создаётся Space PDA, в сети срабатывает событие SpaceMinted."
             },
             "step2": {
-              "title": "Configure your world",
-              "body": "As the NFT holder, set the name, flip is_open and is_editable_by_others, and point space_config_uri at an IPFS manifest with your scene, spawn point, and assets. Add up to 10 collaborators to the editor allowlist."
+              "title": "Настрой свой мир",
+              "body": "Как держатель NFT задай имя, переключи is_open и is_editable_by_others, укажи space_config_uri на IPFS-манифест со сценой, спавном и ассетами. Добавь до 10 соавторов в список редакторов."
             },
             "step3": {
-              "title": "Open it and use it",
-              "body": "Open Spaces can be entered by others and loaded into games and virtual worlds. Editors — or anyone, when shared editing is on — can update the live room state, so worlds evolve without giving up ownership."
+              "title": "Открой и используй",
+              "body": "В открытые Spaces могут заходить другие; они загружаются в игры и виртуальные миры. Редакторы — или кто угодно при включённом общем редактировании — обновляют живое состояние комнаты: мир развивается без потери владения."
             }
           },
           "primitives": {
-            "eyebrow": "Why it's built this way",
-            "headline": "On-chain by design.",
+            "eyebrow": "Почему устроено так",
+            "headline": "Ончейн по замыслу.",
             "finite": {
-              "title": "Finite collection",
-              "body": "Supply is capped on-chain by total_spaces. Every Space is numbered 1..=N — verifiable, scarce, and never duplicated."
+              "title": "Конечная коллекция",
+              "body": "Предложение ограничено ончейн через total_spaces. Каждый Space пронумерован 1..=N — проверяемый, редкий, без дубликатов."
             },
             "ownership": {
-              "title": "True ownership",
-              "body": "A 1/1 NFT with mint authority revoked. Possession of the token is the only key to editing the Space."
+              "title": "Настоящее владение",
+              "body": "1/1 NFT с отозванными правами минта. Владение токеном — единственный ключ к редактированию Space."
             },
             "configurable": {
-              "title": "Configurable worlds",
-              "body": "Settings live in a PDA, not in a frozen JSON. Rename, open, close, and re-point the scene manifest at any time."
+              "title": "Настраиваемые миры",
+              "body": "Настройки живут в PDA, а не в замороженном JSON. Переименовывай, открывай, закрывай и меняй манифест сцены в любой момент."
             },
             "collaboration": {
-              "title": "Collaboration built in",
-              "body": "is_editable_by_others plus a 10-slot editor allowlist let teams co-build a world while one wallet keeps authoritative ownership."
+              "title": "Встроенная коллаборация",
+              "body": "is_editable_by_others плюс список из 10 редакторов позволяют командам строить мир вместе, пока один кошелёк сохраняет владение."
             },
             "portable": {
-              "title": "Portable scenes",
-              "body": "space_config_uri points to an IPFS manifest (ekza.space.config.v1) describing scene, spawn, and assets — loadable by any compatible runtime."
+              "title": "Переносимые сцены",
+              "body": "space_config_uri указывает на IPFS-манифест (ekza.space.config.v1) со сценой, спавном и ассетами — его загрузит любой совместимый рантайм."
             },
             "events": {
-              "title": "Verifiable events",
-              "body": "Every mint and settings change emits an on-chain event (SpaceMinted, SpaceSettingsUpdated, ConfigUpdated) — fully indexable."
+              "title": "Проверяемые события",
+              "body": "Каждый минт и изменение настроек порождают ончейн-событие (SpaceMinted, SpaceSettingsUpdated, ConfigUpdated) — всё индексируется."
             }
           },
           "arena": {
-            "eyebrow": "In the game",
-            "headline": "Spaces become arenas.",
-            "subcopy": "Ekza Arena is a composable-avatar auto-battler built on the Ekza asset layer. Players bring creator-owned avatars and modifiers; Spaces serve as the rooms and arenas they play in — all resolved through the same ownership and manifest path.",
+            "eyebrow": "В игре",
+            "headline": "Spaces становятся аренами.",
+            "subcopy": "Ekza Arena — автобаттлер с составными аватарами на ассет-слое Ekza. Игроки приносят аватары и модификаторы, принадлежащие создателям; Spaces служат комнатами и аренами — всё через единый путь владения и манифестов.",
             "avatars": {
-              "title": "Composable avatars",
-              "body": "Base avatars plus mintable modifiers are equipped slot-by-slot, drawn from creator-published assets."
+              "title": "Составные аватары",
+              "body": "Базовые аватары плюс минтуемые модификаторы, экипируемые по слотам, — из ассетов, опубликованных создателями."
             },
             "cards": {
-              "title": "Creator-owned cards",
-              "body": "An on-chain Arena registry publishes finalized Stellar releases into Arena-owned card records, so creator assets flow into the game."
+              "title": "Карты создателей",
+              "body": "Ончейн-реестр Arena публикует финализированные релизы Stellar в карточные записи — так ассеты создателей попадают в игру."
             },
             "bridge": {
-              "title": "Shared asset bridge",
-              "body": "ekza-bevy-sdk gives the game stable character IDs and model manifests, keeping assets reusable across products."
+              "title": "Общий мост ассетов",
+              "body": "ekza-bevy-sdk даёт игре стабильные ID персонажей и манифесты моделей — ассеты переиспользуются между продуктами."
             },
-            "statusNote": "Ekza Arena is an early Bevy prototype. NFT mint and equip are on the roadmap."
+            "statusNote": "Ekza Arena — ранний прототип на Bevy. Минт и экипировка NFT — в роадмапе."
           },
           "developers": {
-            "eyebrow": "For developers",
-            "headline": "An open Anchor program on Solana.",
-            "subcopy": "No black box. solana_ekza_space is an open Anchor program with four instructions, two PDAs, and emitted events you can index. Resolve ownership, fetch settings, load the scene.",
-            "initConfig": "Create the global Config PDA: total_spaces, price, treasury, optional collection mint.",
-            "updateConfig": "Authority-gated: update mint price and treasury.",
-            "mintNextSpace": "Mint the next Space NFT + PDA; pay the treasury; emit SpaceMinted.",
-            "updateSpaceSettings": "NFT-gated: update name, flags, editors, and the scene URI.",
-            "cta": "Read the program on GitHub",
-            "programIdLabel": "Program ID",
-            "copy": "Copy",
-            "copied": "Copied",
-            "verified": "Verified on devnet"
+            "eyebrow": "Разработчикам",
+            "headline": "Открытая Anchor-программа на Solana.",
+            "subcopy": "Никакого чёрного ящика. solana_ekza_space — открытая Anchor-программа: четыре инструкции, два PDA и индексируемые события. Определяй владение, читай настройки, загружай сцену.",
+            "initConfig": "Создаёт глобальный Config PDA: total_spaces, цена, трежери, опциональный mint коллекции.",
+            "updateConfig": "Только для authority: обновление цены минта и трежери.",
+            "mintNextSpace": "Минт следующего Space NFT + PDA; оплата в трежери; событие SpaceMinted.",
+            "updateSpaceSettings": "Только для держателя NFT: имя, флаги, редакторы и URI сцены.",
+            "cta": "Читать программу на GitHub",
+            "programIdLabel": "ID программы",
+            "copy": "Копировать",
+            "copied": "Скопировано",
+            "verified": "Проверено в devnet"
           },
           "ecosystem": {
-            "eyebrow": "The ecosystem",
-            "headline": "One asset layer, many surfaces.",
-            "subcopy": "One asset graph powers everything — collaborative releases, owned places, portable avatars, and games. The graph is rail-agnostic: verifiable ownership today, conventional payments too.",
-            "statusNote": "Early alpha. Open source.",
-            "credit": "Created and backed by Wotori Studio",
+            "eyebrow": "Экосистема",
+            "headline": "Один ассет-слой, много поверхностей.",
+            "subcopy": "Один граф ассетов питает всё — совместные релизы, собственные места, переносимые аватары и игры. Сам граф не привязан к рельсам расчётов: сегодня это проверяемая запись владения, и он так же работает поверх обычных платежей.",
+            "statusNote": "Ранняя альфа. Открытый код.",
+            "credit": "Создано и поддерживается Wotori Studio",
             "projects": {
-              "stellar": "The collaboration layer: universes, typed assets, lineage, releases, vaults, and contributor revenue shares.",
-              "avatar": "Portable 3D identities with verifiable ownership, linkable to finalized Stellar releases.",
-              "space": "Numbered virtual rooms and arenas — owned outright, with live settings the owner controls."
+              "stellar": "Слой коллаборации: вселенные, типизированные ассеты, происхождение, релизы, хранилища и доли соавторов.",
+              "avatar": "Переносимые 3D-личности с проверяемым владением, связываемые с финализированными релизами Stellar.",
+              "space": "Нумерованные виртуальные комнаты и арены — полностью твои, с живыми настройками под контролем владельца."
             }
           },
           "partners": {
-            "label": "Built on Ekza",
-            "heading": "Ecosystem",
+            "label": "Построено на Ekza",
+            "heading": "Экосистема",
             "omoba": {
               "name": "Omoba",
-              "badge": "Built on Ekza",
-              "description": "Open MOBA from Wotori Studio — players bring custom avatars and game-ready assets, running end-to-end on Ekza infrastructure."
+              "badge": "Построено на Ekza",
+              "description": "Открытая MOBA от Wotori Studio — игроки приходят со своими аватарами и игровыми ассетами; всё работает на инфраструктуре Ekza."
             },
             "arena": {
               "name": "Ekza Arena",
-              "badge": "Built on the Ekza SDK",
-              "description": "On-chain loot arena built on the Ekza SDK — gear, drops, and progression run on Ekza protocol primitives. Not a partner studio, a product of the protocol itself."
+              "badge": "Построено на Ekza SDK",
+              "description": "Ончейн-арена с лутом на Ekza SDK — экипировка, дропы и прогресс работают на примитивах протокола Ekza."
             }
           },
           "cta": {
-            "headline": "Claim a Space before they're gone.",
-            "subcopy": "The collection is finite. Join the waitlist to mint early and follow the build.",
-            "joinWaitlist": "Join Waitlist",
+            "headline": "Займи Space, пока они есть.",
+            "subcopy": "Коллекция конечна. Вступай в лист ожидания, чтобы минтить раньше других и следить за разработкой.",
+            "joinWaitlist": "В лист ожидания",
             "discord": "Discord",
             "x": "X",
             "telegram": "Telegram"
           },
           "factStrip": {
-            "items": "Finite supply|1/1 NFT|Mint authority revoked|On-chain settings|IPFS scenes|Open Anchor program"
+            "items": "Конечное предложение|1/1 NFT|Права минта отозваны|Ончейн-настройки|IPFS-сцены|Открытая Anchor-программа"
           },
           "problem": {
-            "eyebrow": "The problem",
-            "headline": "Creators lose their worlds the moment they export a file.",
-            "subcopy": "A 3D world ships into a game or platform and the creator's claim to it disappears — no portable proof of ownership, no control over how it's used, no record that travels with the work. Engines lock it in. Marketplaces flatten it into a static file. The world stops being yours.",
+            "eyebrow": "Проблема",
+            "headline": "Создатели теряют свои миры в момент экспорта файла.",
+            "subcopy": "3D-мир уходит в игру или на платформу — и права создателя на него исчезают: ни переносимого доказательства владения, ни развития, ни возврата дохода.",
             "beats": {
               "ownership": {
-                "title": "No portable ownership",
-                "body": "Once exported, a world has no on-chain owner. Possession lives wherever the file landed."
+                "title": "Нет переносимого владения",
+                "body": "После экспорта у мира нет ончейн-владельца. Владение живёт там, куда попал файл."
               },
               "frozen": {
-                "title": "Frozen, not configurable",
-                "body": "Most 3D NFTs are a static link. The world can't be opened, renamed, or evolved without re-minting."
+                "title": "Заморожен, не настраивается",
+                "body": "Большинство 3D-NFT — статичная ссылка. Мир не открыть, не переименовать и не развить без переминта."
               },
               "entered": {
-                "title": "Not built to be entered",
-                "body": "A picture of a world isn't a world. Nothing makes it loadable, playable, or co-editable."
+                "title": "Не создан, чтобы в него входить",
+                "body": "Картинка мира — не мир. Ничто не делает его загружаемым, играбельным и совместно редактируемым."
               }
             },
-            "transition": "Ekza Space fixes the ownership layer first."
+            "transition": "Ekza Space сначала чинит слой владения."
           },
           "credibility": {
-            "eyebrow": "Don't trust — verify",
-            "headline": "It's real, it's working, and it's open.",
-            "subcopy": "Ekza runs as open-source infrastructure with a public, verifiable ownership record. Read the source, inspect the live registry, follow the build.",
+            "eyebrow": "Не верь — проверяй",
+            "headline": "Это реально, это работает, и это открыто.",
+            "subcopy": "Ekza — открытая инфраструктура с публичной проверяемой записью владения. Читай исходники, изучай живой реестр, следи за разработкой.",
             "openSource": {
-              "title": "Open source",
-              "body": "The full stack is open source — collaboration & revenue sharing, numbered Spaces, and portable identity. Read every line on GitHub.",
-              "link": "View on GitHub"
+              "title": "Открытый код",
+              "body": "Весь стек открыт — коллаборация и распределение дохода, нумерованные Spaces, переносимая личность. Каждая строка — на GitHub.",
+              "link": "Смотреть на GitHub"
             },
             "onChain": {
-              "title": "Public & verifiable",
-              "body": "The ownership registry is live and publicly inspectable — every Space, owner, and setting is public state you can check yourself.",
-              "link": "Inspect the live registry"
+              "title": "Публично и проверяемо",
+              "body": "Реестр владения работает и открыт для проверки — каждый Space, владелец и настройка — публичное состояние, которое можно проверить самому.",
+              "link": "Изучить живой реестр"
             },
             "builtInOpen": {
-              "title": "Built in the open",
-              "body": "Created and backed by Wotori Studio, in development since 2019, with Omoba building on top. Working alpha today; production launch on the roadmap.",
+              "title": "Строится открыто",
+              "body": "Создано и поддерживается Wotori Studio, в разработке с 2019 года; поверх строится Omoba. Сегодня — рабочая альфа; продакшен-запуск в роадмапе.",
               "link": "Wotori Studio"
             },
-            "statusRibbon": "Status: early alpha — working public registry. Production launch on the roadmap.",
+            "statusRibbon": "Статус: ранняя альфа — публичный реестр работает. Продакшен-запуск в роадмапе.",
             "roadmap": {
               "now": {
-                "title": "Now",
-                "body": "Space claiming & settings stable; avatar ownership live."
+                "title": "Сейчас",
+                "body": "Получение Space и настройки стабильны; владение аватарами работает."
               },
               "next": {
-                "title": "Next",
-                "body": "Asset Passport (ekza.asset.passport.v1), public Space pages, consolidated TypeScript SDK."
+                "title": "Дальше",
+                "body": "Паспорт ассета (ekza.asset.passport.v1), публичные страницы Space, единый TypeScript SDK."
               },
               "later": {
-                "title": "Later",
-                "body": "Marketplace, license checkout, creator royalties & profit-sharing dashboards."
+                "title": "Потом",
+                "body": "Маркетплейс, оплата лицензий, роялти создателей и дашборды распределения прибыли."
               }
             }
           },
           "nav": {
-            "universe": "Universe",
-            "protocol": "Protocol",
-            "developers": "Developers",
-            "app": "App",
-            "reserve": "Reserve your Space",
-            "deck": "Deck"
+            "universe": "Вселенная",
+            "protocol": "Протокол",
+            "developers": "Разработчикам",
+            "app": "Приложение",
+            "reserve": "Забронировать Space",
+            "deck": "Презентация"
           },
           "home": {
             "hero": {
-              "eyebrow": "Collaborative 3D asset ownership",
-              "headline": "Own what you make. Together.",
-              "subhead": "Ekza is the ownership layer for collaboratively made 3D assets. Story, concept, model, rig, animation — every contribution is tracked in the asset graph and keeps earning each time the asset is sold, rented, or licensed.",
-              "description": "The idea does not depend on crypto. Lineage, licensing, and revenue splits work over any settlement rail — ordinary contracts and bank payments included. A programmable ledger is simply the first rail we automate them on.",
-              "footerLeft": "Built by Wotori Studio · Working open-source alpha",
-              "footerCenter": "Create on Stellar · License bundles · Play in Omoba & Arena",
+              "eyebrow": "Совместное владение 3D-ассетами",
+              "headline": "Владей тем, что создаёшь. Вместе.",
+              "subhead": "Ekza — слой владения для совместно созданных 3D-ассетов. Сюжет, концепт, модель, риг, анимация — каждый вклад записан в граф ассета и продолжает приносить доход при каждой продаже, аренде или лицензии.",
+              "description": "Идея не зависит от крипты. Происхождение, лицензии и доли дохода работают поверх любых рельсов расчёта — включая обычные договоры и банковские платежи. Программируемый реестр — просто первый рельс, на котором мы это автоматизируем.",
+              "footerLeft": "Сделано Wotori Studio · Рабочая открытая альфа",
+              "footerCenter": "Создавай в Stellar · Лицензируй бандлы · Играй в Omoba и Arena",
               "buttons": {
-                "reserve": "Reserve your Space",
-                "howItWorks": "See how it works",
-                "developers": "For developers"
+                "reserve": "Забронировать Space",
+                "howItWorks": "Как это работает",
+                "developers": "Разработчикам"
               }
             },
             "factStrip": {
-              "items": "Made by teams|Lineage tracked|Programmable revenue splits|License-ready bundles|Game integrations|Open source|Working alpha"
+              "items": "Создано командами|Происхождение записано|Программируемые доли дохода|Бандлы под лицензию|Игровые интеграции|Открытый код|Рабочая альфа"
             },
             "howPiecesFit": {
-              "eyebrow": "How the pieces fit",
-              "headline": "Create it. License it. Play it.",
-              "subcopy": "One asset graph, three surfaces. Each does one job — and revenue flows back through all of them.",
+              "eyebrow": "Как всё складывается",
+              "headline": "Создай. Лицензируй. Играй.",
+              "subcopy": "Один граф ассетов, три поверхности. Каждая делает своё дело — и доход возвращается через все.",
               "step1": {
-                "title": "Stellar — create together",
-                "body": "Contribute a layer — story, concept art, model, rig, animation. The asset graph records who made what, and every contributor keeps a programmable share of future revenue.",
-                "link": "Explore the protocol"
+                "title": "Stellar — создавайте вместе",
+                "body": "Внеси свой слой — сюжет, концепт-арт, модель, риг, анимацию. Граф ассета записывает, кто что сделал, и каждый соавтор сохраняет программируемую долю будущего дохода.",
+                "link": "Изучить протокол"
               },
               "step2": {
-                "title": "Bundles — license and earn",
-                "body": "Curated, game-ready bundles are sold, rented, or licensed with clear rights. Every transaction routes payouts to the full contributor graph automatically — no invoices, no chasing.",
-                "link": "Back it early — reserve a Space"
+                "title": "Бандлы — лицензируй и зарабатывай",
+                "body": "Кураторские игровые бандлы продаются, сдаются в аренду и лицензируются с понятными правами. Каждая транзакция автоматически распределяет выплаты по всему графу соавторов — без счетов и напоминаний.",
+                "link": "Поддержи раньше всех — забронируй Space"
               },
               "step3": {
-                "title": "Omoba & Arena — play it",
-                "body": "Assets flow straight into playable environments — Omoba and Ekza Arena, our first controlled game contexts — while Spaces are the owned 3D places where they come alive.",
-                "badge": "Roadmap — early prototype"
+                "title": "Omoba и Arena — играй",
+                "body": "Ассеты сразу попадают в играбельные окружения — Omoba и Ekza Arena, наши первые контролируемые игровые контексты, — а Spaces — это собственные 3D-места, где они оживают.",
+                "badge": "Роадмап — ранний прототип"
               }
             },
             "spaceOffer": {
-              "eyebrow": "Back the build",
-              "headline": "Own a numbered Space.",
-              "subcopy": "Spaces are the genesis drop: 1,000 finite, numbered 3D places, each provably yours and reconfigurable any time. Owning one is how early believers back the build — the long game is the licensing economy on top.",
-              "bullet1": "Provably yours — a finite, numbered place with supply that can never be inflated.",
-              "bullet2": "Yours to shape — rename it, open it, and point it at your scene whenever you want.",
-              "bullet3": "First in line — reserve now to claim from the genesis batch and follow the build.",
-              "cta": "Reserve your Space",
-              "microcopy": "Early open-source alpha. No payment today — reserving holds your place in the genesis batch.",
-              "secondary": "What exactly do I own?"
+              "eyebrow": "Поддержи разработку",
+              "headline": "Владей нумерованным Space.",
+              "subcopy": "Spaces — генезис-дроп: 1 000 конечных нумерованных 3D-мест, каждое доказуемо твоё и перенастраиваемое в любой момент. Владение — способ ранних сторонников поддержать разработку; длинная игра — экономика лицензий поверх.",
+              "bullet1": "Доказуемо твоё — конечное нумерованное место, предложение никогда не раздуется.",
+              "bullet2": "Твоё во всём — переименуй, открой и укажи свою сцену когда захочешь.",
+              "bullet3": "Первым в очереди — бронируй сейчас, чтобы получить из генезис-партии и следить за разработкой.",
+              "cta": "Забронировать Space",
+              "microcopy": "Ранняя открытая альфа. Платить сегодня не нужно — бронь закрепляет место в генезис-партии.",
+              "secondary": "Чем именно я владею?"
             },
             "whyOwn": {
-              "eyebrow": "What you own",
-              "headline": "More than a file. A place you own.",
-              "subcopy": "A Space is a place you actually control: proof of ownership plus live settings — name, access, the scene itself. Transfer it, and the whole world moves with it.",
-              "link": "See all six primitives + the full mechanics",
+              "eyebrow": "Чем ты владеешь",
+              "headline": "Больше, чем файл. Место, которое твоё.",
+              "subcopy": "Space — место, которое ты реально контролируешь: доказательство владения плюс живые настройки — имя, доступ, сама сцена. Передай его — и весь мир уйдёт вместе с ним.",
+              "link": "Все шесть примитивов и полная механика",
               "cards": {
                 "ownership": {
-                  "title": "True ownership",
-                  "body": "Provably yours — a single verifiable record proves who owns each Space, and holding it is the only key to changing the world."
+                  "title": "Настоящее владение",
+                  "body": "Доказуемо твоё — одна проверяемая запись подтверждает владельца каждого Space, и владение ею — единственный ключ к изменению мира."
                 },
                 "configurable": {
-                  "title": "Configurable worlds",
-                  "body": "Settings are live, not frozen. Rename, open, close, and re-point the scene at any time — the world evolves while ownership stays put."
+                  "title": "Настраиваемые миры",
+                  "body": "Настройки живые, а не замороженные. Переименовывай, открывай, закрывай, меняй сцену в любой момент — мир развивается, владение остаётся."
                 },
                 "finite": {
-                  "title": "Finite collection",
-                  "body": "Supply is capped forever. Every Space is numbered — verifiable, scarce, and never duplicated."
+                  "title": "Конечная коллекция",
+                  "body": "Предложение ограничено навсегда. Каждый Space пронумерован — проверяемый, редкий, без дубликатов."
                 }
               }
             },
             "roadmap": {
-              "eyebrow": "The trajectory",
-              "headline": "Build the assets now. The economy comes next.",
+              "eyebrow": "Траектория",
+              "headline": "Строим ассеты сейчас. Экономика — следом.",
               "now": {
-                "badge": "Working alpha",
-                "title": "Now",
-                "body": "Collaborative asset creation with lineage and contributor shares, live on Stellar. Space claiming and configuration work end-to-end."
+                "badge": "Рабочая альфа",
+                "title": "Сейчас",
+                "body": "Совместное создание ассетов с происхождением и долями соавторов работает в Stellar. Получение и настройка Space работают целиком."
               },
               "next": {
-                "badge": "In build",
-                "title": "Next",
-                "body": "Game-ready character bundles — buy, rent, license — with automatic contributor payouts, landing first in Omoba and Ekza Arena."
+                "badge": "В разработке",
+                "title": "Дальше",
+                "body": "Игровые бандлы персонажей — покупка, аренда, лицензия — с автоматическими выплатами соавторам; сначала в Omoba и Ekza Arena."
               },
               "later": {
-                "badge": "The dream",
-                "title": "Later",
-                "body": "Creator-owned asset infrastructure at scale — and a Minecraft/Roblox-scale universe built out of what creators make."
+                "badge": "Мечта",
+                "title": "Потом",
+                "body": "Инфраструктура ассетов создателей в масштабе — и вселенная уровня Minecraft/Roblox, собранная из того, что делают создатели."
               },
-              "footnote": "Honest status: early open-source alpha. We're raising to build full-time — owning a Space helps fund it."
+              "footnote": "Честный статус: ранняя открытая альфа. Мы привлекаем средства, чтобы строить фултайм, — владение Space помогает это финансировать."
             },
             "finalCta": {
-              "headline": "Claim your place in the universe.",
-              "subcopy": "Reserve a numbered Space to back the build and claim from the genesis batch — or join the newsletter and follow the licensing economy as it ships.",
-              "cta": "Reserve your Space",
-              "pitchdeck": "Pitchdeck для инвесторов",
-              "beijingDeck": "Дек ITEC Beijing (PDF)"
+              "headline": "Займи своё место во вселенной.",
+              "subcopy": "Забронируй нумерованный Space, чтобы поддержать разработку и получить из генезис-партии, — или подпишись на рассылку и следи, как запускается экономика лицензий.",
+              "cta": "Забронировать Space",
+              "pitchdeck": "Питч для инвесторов",
+              "beijingDeck": "Дека ITEC Пекин (PDF)"
             },
             "liveWorld": {
-              "eyebrow": "See it live",
-              "headline": "Step inside the world.",
-              "subcopy": "Ekza Space runs in your browser — real-time 3D where owned places and creator-made assets come together. This is an early prototype.",
-              "cta": "Enter the live world",
-              "ctaMobile": "Open the live world",
-              "note": "Loads space.ekza.io · early alpha",
-              "close": "Close live world",
-              "loading": "Loading the live world…",
-              "openTab": "Open in a new tab"
+              "eyebrow": "Смотри вживую",
+              "headline": "Шагни внутрь мира.",
+              "subcopy": "Ekza Space работает в браузере — 3D в реальном времени, где встречаются собственные места и ассеты создателей. Это ранний прототип.",
+              "cta": "Войти в живой мир",
+              "ctaMobile": "Открыть живой мир",
+              "note": "Загружает space.ekza.io · ранняя альфа",
+              "close": "Закрыть живой мир",
+              "loading": "Загружаем живой мир…",
+              "openTab": "Открыть в новой вкладке"
             }
           },
           "protocol": {
             "hero": {
-              "eyebrow": "Stellar — the protocol of collective creation",
-              "headline": "Create together. Own forever.",
-              "subhead": "Stellar is the protocol behind Ekza: a way to make creative work as a group where every contribution keeps its provenance and its share of the upside. Built on Solana, designed to be used far beyond Ekza.",
-              "btnReserve": "Reserve a Space",
-              "btnPrograms": "Read the programs",
-              "footerLeft": "Stellar · solana_stellar on Solana devnet",
-              "footerCenter": "Universe · Assets · Lineage · Releases · Vaults · Revenue shares"
+              "eyebrow": "Stellar — протокол коллективного творчества",
+              "headline": "Создавайте вместе. Владейте всегда.",
+              "subhead": "Stellar — протокол, стоящий за Ekza: способ создавать работы командой, где каждый вклад записан, прослеживаем и вознаграждается, когда работа приносит доход.",
+              "btnReserve": "Забронировать Space",
+              "btnPrograms": "Читать программы",
+              "footerLeft": "Stellar · solana_stellar в Solana devnet",
+              "footerCenter": "Вселенная · Ассеты · Происхождение · Релизы · Хранилища · Доли дохода"
             },
             "thesis": {
-              "eyebrow": "The thesis",
-              "headline": "Creative work should compound — and the people who made it should keep owning it.",
-              "body": "Most creative pipelines erase the contributor. You make something, it gets used, and the value flows past you. Stellar inverts that: contributions are typed and tracked, lineage records who built on what, and revenue shares follow the chain of creation. Your work stays yours, and it keeps earning as others build on it.",
-              "quote": "\"Do not lose rights to your work. Plug into a system where your contribution lives on and generates income forever.\""
+              "eyebrow": "Тезис",
+              "headline": "Творчество должно накапливаться — а сделавшие его люди должны продолжать им владеть.",
+              "body": "Большинство творческих пайплайнов стирают автора. Ты делаешь работу, её используют, а ценность утекает мимо. Stellar записывает каждый вклад в ончейн-происхождение и возвращает доход по записанным долям.",
+              "quote": "«Не теряй права на свою работу. Подключись к системе, где твой вклад живёт дальше и продолжает приносить доход»."
             },
             "creationFlow": {
-              "eyebrow": "The flow",
-              "headline": "From idea to income.",
+              "eyebrow": "Процесс",
+              "headline": "От идеи к доходу.",
               "step1": {
-                "title": "Create",
-                "body": "Make a typed asset — a model, a texture, an avatar part — on your own or with collaborators."
+                "title": "Создай",
+                "body": "Сделай типизированный ассет — модель, текстуру, часть аватара — сам или с соавторами."
               },
               "step2": {
-                "title": "Lineage",
-                "body": "Every asset records its provenance: what it was built from and who contributed. The chain of creation is permanent."
+                "title": "Происхождение",
+                "body": "Каждый ассет записывает родословную: из чего собран и кто внёс вклад. Цепочка создания публично проверяема."
               },
               "step3": {
-                "title": "Releases",
-                "body": "Bundle finalized work into releases — versioned, shareable outputs ready to load into games and worlds."
+                "title": "Релизы",
+                "body": "Собирай готовые работы в релизы — версионированные, распространяемые результаты, готовые к загрузке в игры и миры."
               },
               "step4": {
-                "title": "Vaults",
-                "body": "Each release owns an on-chain vault PDA that custodies deposited lamports and the rules around them."
+                "title": "Хранилища",
+                "body": "У каждого релиза — свой ончейн-vault PDA, хранящий внесённые lamports и правила вокруг них."
               },
               "step5": {
-                "title": "Revenue shares",
-                "body": "Contributors hold basis-point shares; revenue deposited to a finalized release is claimed pro-rata down the lineage."
+                "title": "Доли дохода",
+                "body": "Соавторы держат доли в базисных пунктах; доход финализированного релиза выплачивается пропорционально прямо ончейн."
               }
             },
             "spaceDeep": {
-              "eyebrow": "The Space primitive",
-              "headline": "What a Space really is.",
-              "subcopy": "Stellar is where assets are created; a Space is where they live. Here's the full mechanics of the place you own."
+              "eyebrow": "Примитив Space",
+              "headline": "Что такое Space на самом деле.",
+              "subcopy": "Stellar — где ассеты создаются; Space — где они живут. Вот полная механика этого примитива места."
             },
             "beyond": {
-              "eyebrow": "Not just for Ekza",
-              "headline": "A creation layer any world can build on.",
-              "body": "Stellar isn't locked to Ekza. The same protocol — typed assets, lineage, releases, vaults, revenue shares — can power other games, engines, and apps. Ekza is the first universe built on it, not the only one. That portability is the point: create once, own everywhere.",
-              "point1": "Open Anchor programs on Solana",
-              "point2": "Standard manifests any runtime can load",
-              "point3": "Ownership and royalties that travel with the asset"
+              "eyebrow": "Не только для Ekza",
+              "headline": "Слой создания, на котором может строиться любой мир.",
+              "body": "Stellar не привязан к Ekza. Тот же протокол — типизированные ассеты, происхождение, релизы, хранилища, доли дохода — может принять любая игра или платформа.",
+              "point1": "Открытые Anchor-программы на Solana",
+              "point2": "Стандартные манифесты, которые загрузит любой рантайм",
+              "point3": "Владение и роялти, путешествующие вместе с ассетом"
             },
             "cta": {
-              "headline": "Own a piece of the universe.",
-              "subcopy": "Stellar is the engine; a Space is how you own your place in it. Reserve yours now.",
-              "primary": "Reserve your Space",
-              "secondary": "For developers"
+              "headline": "Владей частью вселенной.",
+              "subcopy": "Stellar — двигатель; Space — твой способ владеть местом в нём. Забронируй сейчас.",
+              "primary": "Забронировать Space",
+              "secondary": "Разработчикам"
             }
           },
           "dev": {
             "hero": {
-              "eyebrow": "For developers",
-              "headline": "Open Anchor programs on Solana.",
-              "subhead": "No black box. Ekza's on-chain layer is a set of open Anchor programs with deterministic PDAs and emitted events you can index. Resolve ownership, fetch settings, load the scene.",
-              "btnGithub": "View on GitHub",
-              "btnReserve": "Reserve a Space",
-              "footerLeft": "Open source · Solana devnet",
+              "eyebrow": "Разработчикам",
+              "headline": "Открытые Anchor-программы на Solana.",
+              "subhead": "Никакого чёрного ящика. Ончейн-слой Ekza — набор открытых Anchor-программ с детерминированными PDA и индексируемыми событиями.",
+              "btnGithub": "Смотреть на GitHub",
+              "btnReserve": "Забронировать Space",
+              "footerLeft": "Открытый код · Solana devnet",
               "footerCenter": "solana_ekza_space · solana_stellar · solana-ekza-arena"
             },
             "programs": {
-              "eyebrow": "The on-chain layer",
-              "headline": "Three programs, one ownership model.",
+              "eyebrow": "Ончейн-слой",
+              "headline": "Три программы, одна модель владения.",
               "space": {
                 "name": "solana_ekza_space",
-                "body": "Numbered, finite Space NFTs plus on-chain settings PDAs you control."
+                "body": "Нумерованные конечные Space NFT плюс ончейн-PDA настроек под твоим контролем."
               },
               "stellar": {
                 "name": "solana_stellar",
-                "body": "Collaboration, asset lineage, releases, vaults, and contributor revenue shares."
+                "body": "Коллаборация, происхождение ассетов, релизы, хранилища и доли соавторов."
               },
               "arena": {
                 "name": "solana-ekza-arena",
-                "body": "Publishes finalized Stellar releases into Arena-owned card records for the game."
+                "body": "Публикует финализированные релизы Stellar в карточные записи Arena для игры."
               }
             },
             "stellar": {
-              "eyebrow": "For developers",
-              "headline": "Stellar — collaborative asset universes.",
-              "subcopy": "solana_stellar is an open Anchor program: open a universe, register typed assets, connect them into a lineage graph, finalize releases with vaults, and split revenue by basis points down the chain.",
-              "createUniverse": "Open a collaborative universe that holds typed assets and releases.",
-              "createAsset": "Register a typed asset and connect it into the lineage graph with add_asset_parent.",
-              "finalizeRelease": "Snapshot an approved asset into an immutable release with its own vault and contributor-share record.",
-              "depositRevenue": "Deposit lamports into a finalized release's vault for later distribution.",
-              "claimRevenue": "Contributors claim pro-rata by basis points (out of 10,000); claims are pull-based.",
-              "cta": "Read the program on GitHub"
+              "eyebrow": "Разработчикам",
+              "headline": "Stellar — совместные вселенные ассетов.",
+              "subcopy": "solana_stellar — открытая Anchor-программа: открой вселенную, зарегистрируй типизированные ассеты, соедини их в граф происхождения, финализируй релизы и распределяй доход.",
+              "createUniverse": "Открывает совместную вселенную с типизированными ассетами и релизами.",
+              "createAsset": "Регистрирует типизированный ассет и соединяет его в граф через add_asset_parent.",
+              "finalizeRelease": "Снимает слепок одобренного ассета в неизменяемый релиз со своим хранилищем и записью долей соавторов.",
+              "depositRevenue": "Вносит lamports в хранилище финализированного релиза для последующего распределения.",
+              "claimRevenue": "Соавторы забирают доли пропорционально базисным пунктам (из 10 000); выплаты по запросу.",
+              "cta": "Читать программу на GitHub"
             },
             "verify": {
-              "eyebrow": "Trust, but verify",
-              "headline": "Inspect every transaction on-chain.",
-              "body": "Mints and settings updates are real Solana devnet transactions. Look up the program, decode the PDAs, and watch the events on any Solana explorer.",
-              "chip1": "Network: Solana devnet",
-              "chip2": "Programs: open source",
-              "chip3": "Events: indexable",
-              "note": "Early alpha on devnet — addresses and metadata hosts may change before mainnet."
+              "eyebrow": "Доверяй, но проверяй",
+              "headline": "Проверь каждую транзакцию ончейн.",
+              "body": "Минты и обновления настроек — настоящие транзакции Solana devnet. Найди программу, декодируй PDA и наблюдай события в любом Solana-эксплорере.",
+              "chip1": "Сеть: Solana devnet",
+              "chip2": "Программы: открытый код",
+              "chip3": "События: индексируемы",
+              "note": "Ранняя альфа в devnet — адреса и хосты метаданных могут измениться до мейннета."
             },
             "githubCta": {
-              "headline": "Read the code.",
-              "subcopy": "Everything is open. Clone the programs, run them on devnet, and build on Ekza.",
-              "primary": "View on GitHub",
-              "secondary": "Reserve a Space"
+              "headline": "Читай код.",
+              "subcopy": "Всё открыто. Клонируй программы, запускай в devnet и строй на Ekza.",
+              "primary": "Смотреть на GitHub",
+              "secondary": "Забронировать Space"
             }
           }
         }
@@ -1758,426 +1758,426 @@
         },
         "v2": {
           "hero": {
-            "eyebrow": "Solana-native 3D ownership protocol",
-            "headline": "Own your worlds, on-chain.",
-            "subhead": "Ekza Space turns virtual rooms, scenes, and arenas into a finite collection of numbered Spaces — each a 1/1 NFT with live, on-chain settings you control.",
-            "description": "Mint a numbered Space, point it at an IPFS scene manifest, and open it to the world. Ownership is proven by the NFT; the world is described by the PDA. Built for games, virtual worlds, and Ekza Arena.",
-            "footer": "Creator-owned infrastructure for web3 worlds",
+            "eyebrow": "原生 3D 所有权协议",
+            "headline": "你的世界，链上拥有。",
+            "subhead": "Ekza Space 把虚拟房间、场景和竞技场变成有限的编号 Space 收藏——每个都是 1/1 NFT，配有你可控制的链上实时设置。",
+            "description": "铸造一个编号 Space，将它指向 IPFS 场景清单，并向世界开放。NFT 证明所有权，PDA 描述世界。为游戏、虚拟世界和 Ekza Arena 而建。",
+            "footer": "创作者拥有的 web3 世界基础设施",
             "buttons": {
-              "joinWaitlist": "Join Waitlist",
-              "openApp": "Open App",
-              "readDocs": "Read Docs"
+              "joinWaitlist": "加入候补名单",
+              "openApp": "打开应用",
+              "readDocs": "查看程序"
             },
-            "builtBy": "Built by Wotori Studio · Live on Solana devnet"
+            "builtBy": "由 Wotori Studio 打造 · 运行于 Solana devnet"
           },
           "whatIsSpace": {
-            "eyebrow": "The primitive",
-            "headline": "A Space is more than an image NFT.",
-            "subcopy": "Each Space is two things working together: a 1/1 Metaplex NFT that proves who owns it, and a Solana PDA that stores the live settings and a link to the scene. Transfer the NFT, transfer the world.",
+            "eyebrow": "核心原语",
+            "headline": "Space 不只是一张图片 NFT。",
+            "subcopy": "每个 Space 由两部分协同工作：证明归属的 1/1 Metaplex NFT，以及存储实时设置和场景链接的 Solana PDA。转让 NFT，就转让了整个世界。",
             "nft": {
-              "title": "The NFT — proof of ownership",
-              "body": "A single 1/1 token. Mint authority is revoked at mint, so supply can never be inflated. Holding it is what authorizes every settings change."
+              "title": "NFT——所有权证明",
+              "body": "单一的 1/1 代币。铸造时即撤销铸造权限，供应量永不增发。持有它是修改 Space 设置的唯一钥匙。"
             },
             "pda": {
-              "title": "The PDA — the live world",
-              "body": "On-chain settings — name, open/closed, editability, editor allowlist — plus space_config_uri, an IPFS manifest describing the scene, spawn point, and the assets loaded into it."
+              "title": "PDA——活着的世界",
+              "body": "链上设置——名称、开放/关闭、可编辑性、编辑者白名单——以及 space_config_uri，一个描述场景、出生点和加载资产的 IPFS 清单。"
             },
-            "fieldsLabel": "From the on-chain Space account"
+            "fieldsLabel": "来自链上 Space 账户"
           },
           "howItWorks": {
-            "eyebrow": "How it works",
-            "headline": "Mint it. Configure it. Use it anywhere.",
+            "eyebrow": "如何运作",
+            "headline": "铸造。配置。随处使用。",
             "step1": {
-              "title": "Mint the next Space",
-              "body": "Call mint_next_space and you receive Space #N — the next ID in the collection. SOL goes to the treasury, a 1/1 NFT lands in your wallet, mint authority is revoked, and the Space PDA is created. A SpaceMinted event fires on-chain."
+              "title": "铸造下一个 Space",
+              "body": "调用 mint_next_space 即获得 Space #N——收藏中的下一个编号。SOL 进入金库，1/1 NFT 进入你的钱包，铸造权限被撤销，Space PDA 被创建，链上发出 SpaceMinted 事件。"
             },
             "step2": {
-              "title": "Configure your world",
-              "body": "As the NFT holder, set the name, flip is_open and is_editable_by_others, and point space_config_uri at an IPFS manifest with your scene, spawn point, and assets. Add up to 10 collaborators to the editor allowlist."
+              "title": "配置你的世界",
+              "body": "作为 NFT 持有者，设置名称，切换 is_open 和 is_editable_by_others，并将 space_config_uri 指向包含场景、出生点和资产的 IPFS 清单。最多可添加 10 位协作编辑者。"
             },
             "step3": {
-              "title": "Open it and use it",
-              "body": "Open Spaces can be entered by others and loaded into games and virtual worlds. Editors — or anyone, when shared editing is on — can update the live room state, so worlds evolve without giving up ownership."
+              "title": "开放并使用",
+              "body": "开放的 Space 可供他人进入，并加载到游戏和虚拟世界中。编辑者——在共享编辑开启时是任何人——都能更新实时房间状态，世界在不放弃所有权的前提下持续演化。"
             }
           },
           "primitives": {
-            "eyebrow": "Why it's built this way",
-            "headline": "On-chain by design.",
+            "eyebrow": "为什么这样设计",
+            "headline": "生而链上。",
             "finite": {
-              "title": "Finite collection",
-              "body": "Supply is capped on-chain by total_spaces. Every Space is numbered 1..=N — verifiable, scarce, and never duplicated."
+              "title": "有限收藏",
+              "body": "供应量由 total_spaces 在链上封顶。每个 Space 编号为 1..=N——可验证、稀缺、永不重复。"
             },
             "ownership": {
-              "title": "True ownership",
-              "body": "A 1/1 NFT with mint authority revoked. Possession of the token is the only key to editing the Space."
+              "title": "真正的所有权",
+              "body": "铸造权限已撤销的 1/1 NFT。持有代币是编辑 Space 的唯一钥匙。"
             },
             "configurable": {
-              "title": "Configurable worlds",
-              "body": "Settings live in a PDA, not in a frozen JSON. Rename, open, close, and re-point the scene manifest at any time."
+              "title": "可配置的世界",
+              "body": "设置存于 PDA，而非冻结的 JSON。随时重命名、开放、关闭并重新指向场景清单。"
             },
             "collaboration": {
-              "title": "Collaboration built in",
-              "body": "is_editable_by_others plus a 10-slot editor allowlist let teams co-build a world while one wallet keeps authoritative ownership."
+              "title": "内置协作",
+              "body": "is_editable_by_others 加上 10 席编辑者白名单，让团队共建世界，同时由一个钱包保持最终所有权。"
             },
             "portable": {
-              "title": "Portable scenes",
-              "body": "space_config_uri points to an IPFS manifest (ekza.space.config.v1) describing scene, spawn, and assets — loadable by any compatible runtime."
+              "title": "可移植场景",
+              "body": "space_config_uri 指向 IPFS 清单（ekza.space.config.v1），描述场景、出生点和资产——任何兼容运行时都能加载。"
             },
             "events": {
-              "title": "Verifiable events",
-              "body": "Every mint and settings change emits an on-chain event (SpaceMinted, SpaceSettingsUpdated, ConfigUpdated) — fully indexable."
+              "title": "可验证事件",
+              "body": "每次铸造和设置变更都会发出链上事件（SpaceMinted、SpaceSettingsUpdated、ConfigUpdated）——完全可索引。"
             }
           },
           "arena": {
-            "eyebrow": "In the game",
-            "headline": "Spaces become arenas.",
-            "subcopy": "Ekza Arena is a composable-avatar auto-battler built on the Ekza asset layer. Players bring creator-owned avatars and modifiers; Spaces serve as the rooms and arenas they play in — all resolved through the same ownership and manifest path.",
+            "eyebrow": "在游戏中",
+            "headline": "Space 化身竞技场。",
+            "subcopy": "Ekza Arena 是构建在 Ekza 资产层上的可组合头像自动战斗游戏。玩家带来创作者拥有的头像和模组；Space 是他们游玩的房间和竞技场——都通过同一条所有权和清单路径解析。",
             "avatars": {
-              "title": "Composable avatars",
-              "body": "Base avatars plus mintable modifiers are equipped slot-by-slot, drawn from creator-published assets."
+              "title": "可组合头像",
+              "body": "基础头像加可铸造模组，按槽位装备，全部来自创作者发布的资产。"
             },
             "cards": {
-              "title": "Creator-owned cards",
-              "body": "An on-chain Arena registry publishes finalized Stellar releases into Arena-owned card records, so creator assets flow into the game."
+              "title": "创作者拥有的卡牌",
+              "body": "链上 Arena 注册表把已定稿的 Stellar 发布写入 Arena 卡牌记录，创作者资产由此流入游戏。"
             },
             "bridge": {
-              "title": "Shared asset bridge",
-              "body": "ekza-bevy-sdk gives the game stable character IDs and model manifests, keeping assets reusable across products."
+              "title": "共享资产桥",
+              "body": "ekza-bevy-sdk 为游戏提供稳定的角色 ID 和模型清单，让资产在各产品间可复用。"
             },
-            "statusNote": "Ekza Arena is an early Bevy prototype. NFT mint and equip are on the roadmap."
+            "statusNote": "Ekza Arena 是早期 Bevy 原型。NFT 铸造与装备在路线图中。"
           },
           "developers": {
-            "eyebrow": "For developers",
-            "headline": "An open Anchor program on Solana.",
-            "subcopy": "No black box. solana_ekza_space is an open Anchor program with four instructions, two PDAs, and emitted events you can index. Resolve ownership, fetch settings, load the scene.",
-            "initConfig": "Create the global Config PDA: total_spaces, price, treasury, optional collection mint.",
-            "updateConfig": "Authority-gated: update mint price and treasury.",
-            "mintNextSpace": "Mint the next Space NFT + PDA; pay the treasury; emit SpaceMinted.",
-            "updateSpaceSettings": "NFT-gated: update name, flags, editors, and the scene URI.",
-            "cta": "Read the program on GitHub",
-            "programIdLabel": "Program ID",
-            "copy": "Copy",
-            "copied": "Copied",
-            "verified": "Verified on devnet"
+            "eyebrow": "面向开发者",
+            "headline": "Solana 上的开源 Anchor 程序。",
+            "subcopy": "没有黑箱。solana_ekza_space 是开源 Anchor 程序：四条指令、两个 PDA、可索引的事件。解析所有权，读取设置，加载场景。",
+            "initConfig": "创建全局 Config PDA：total_spaces、价格、金库、可选的收藏 mint。",
+            "updateConfig": "仅限管理权限：更新铸造价格和金库。",
+            "mintNextSpace": "铸造下一个 Space NFT + PDA；支付金库；发出 SpaceMinted。",
+            "updateSpaceSettings": "仅限 NFT 持有者：更新名称、标志位、编辑者和场景 URI。",
+            "cta": "在 GitHub 阅读程序",
+            "programIdLabel": "程序 ID",
+            "copy": "复制",
+            "copied": "已复制",
+            "verified": "已在 devnet 验证"
           },
           "ecosystem": {
-            "eyebrow": "The ecosystem",
-            "headline": "One asset layer, many surfaces.",
-            "subcopy": "One asset graph powers everything — collaborative releases, owned places, portable avatars, and games. The graph is rail-agnostic: verifiable ownership today, conventional payments too.",
-            "statusNote": "Early alpha. Open source.",
-            "credit": "Created and backed by Wotori Studio",
+            "eyebrow": "生态系统",
+            "headline": "一个资产层，多个产品面。",
+            "subcopy": "一张资产图驱动一切——协作发布、拥有的场所、可移植头像和游戏。资产图本身与结算轨道无关：今天是可验证的所有权记录，也同样适用于传统支付。",
+            "statusNote": "早期 alpha。开源。",
+            "credit": "由 Wotori Studio 创建并支持",
             "projects": {
-              "stellar": "The collaboration layer: universes, typed assets, lineage, releases, vaults, and contributor revenue shares.",
-              "avatar": "Portable 3D identities with verifiable ownership, linkable to finalized Stellar releases.",
-              "space": "Numbered virtual rooms and arenas — owned outright, with live settings the owner controls."
+              "stellar": "协作层：宇宙、类型化资产、谱系、发布、金库与贡献者收益分成。",
+              "avatar": "具有可验证所有权的可移植 3D 身份，可关联到已定稿的 Stellar 发布。",
+              "space": "编号的虚拟房间和竞技场——完全归你所有，实时设置由所有者控制。"
             }
           },
           "partners": {
-            "label": "Built on Ekza",
-            "heading": "Ecosystem",
+            "label": "基于 Ekza 构建",
+            "heading": "生态系统",
             "omoba": {
               "name": "Omoba",
-              "badge": "Built on Ekza",
-              "description": "Open MOBA from Wotori Studio — players bring custom avatars and game-ready assets, running end-to-end on Ekza infrastructure."
+              "badge": "基于 Ekza 构建",
+              "description": "Wotori Studio 的开放 MOBA——玩家带着自定义头像和游戏级资产进场，端到端运行在 Ekza 基础设施上。"
             },
             "arena": {
               "name": "Ekza Arena",
-              "badge": "Built on the Ekza SDK",
-              "description": "On-chain loot arena built on the Ekza SDK — gear, drops, and progression run on Ekza protocol primitives. Not a partner studio, a product of the protocol itself."
+              "badge": "基于 Ekza SDK 构建",
+              "description": "基于 Ekza SDK 的链上战利品竞技场——装备、掉落与成长都运行在 Ekza 协议原语之上。"
             }
           },
           "cta": {
-            "headline": "Claim a Space before they're gone.",
-            "subcopy": "The collection is finite. Join the waitlist to mint early and follow the build.",
-            "joinWaitlist": "Join Waitlist",
+            "headline": "趁还有名额，认领一个 Space。",
+            "subcopy": "收藏是有限的。加入候补名单，抢先铸造并关注构建进展。",
+            "joinWaitlist": "加入候补名单",
             "discord": "Discord",
             "x": "X",
             "telegram": "Telegram"
           },
           "factStrip": {
-            "items": "Finite supply|1/1 NFT|Mint authority revoked|On-chain settings|IPFS scenes|Open Anchor program"
+            "items": "有限供应|1/1 NFT|铸造权限已撤销|链上设置|IPFS 场景|开源 Anchor 程序"
           },
           "problem": {
-            "eyebrow": "The problem",
-            "headline": "Creators lose their worlds the moment they export a file.",
-            "subcopy": "A 3D world ships into a game or platform and the creator's claim to it disappears — no portable proof of ownership, no control over how it's used, no record that travels with the work. Engines lock it in. Marketplaces flatten it into a static file. The world stops being yours.",
+            "eyebrow": "问题所在",
+            "headline": "文件一经导出，创作者就失去了自己的世界。",
+            "subcopy": "一个 3D 世界被交付进游戏或平台后，创作者对它的主张随即消失——没有可携带的所有权证明，无法演化，收益也不再回流。",
             "beats": {
               "ownership": {
-                "title": "No portable ownership",
-                "body": "Once exported, a world has no on-chain owner. Possession lives wherever the file landed."
+                "title": "没有可携带的所有权",
+                "body": "一旦导出，世界就没有链上所有者。归属权落在文件所到之处。"
               },
               "frozen": {
-                "title": "Frozen, not configurable",
-                "body": "Most 3D NFTs are a static link. The world can't be opened, renamed, or evolved without re-minting."
+                "title": "被冻结，无法配置",
+                "body": "多数 3D NFT 只是一个静态链接。不重新铸造，世界无法开放、改名或演化。"
               },
               "entered": {
-                "title": "Not built to be entered",
-                "body": "A picture of a world isn't a world. Nothing makes it loadable, playable, or co-editable."
+                "title": "不是为进入而生",
+                "body": "世界的图片不是世界。没有任何机制让它可加载、可游玩、可共同编辑。"
               }
             },
-            "transition": "Ekza Space fixes the ownership layer first."
+            "transition": "Ekza Space 先修好所有权这一层。"
           },
           "credibility": {
-            "eyebrow": "Don't trust — verify",
-            "headline": "It's real, it's working, and it's open.",
-            "subcopy": "Ekza runs as open-source infrastructure with a public, verifiable ownership record. Read the source, inspect the live registry, follow the build.",
+            "eyebrow": "不必信任——请验证",
+            "headline": "它是真的，它在运行，而且开源。",
+            "subcopy": "Ekza 是开源基础设施，配有公开、可验证的所有权记录。阅读源码，检视实时注册表，跟进构建。",
             "openSource": {
-              "title": "Open source",
-              "body": "The full stack is open source — collaboration & revenue sharing, numbered Spaces, and portable identity. Read every line on GitHub.",
-              "link": "View on GitHub"
+              "title": "开源",
+              "body": "整个栈都开源——协作与收益分成、编号 Space、可移植身份。每一行代码都在 GitHub。",
+              "link": "在 GitHub 查看"
             },
             "onChain": {
-              "title": "Public & verifiable",
-              "body": "The ownership registry is live and publicly inspectable — every Space, owner, and setting is public state you can check yourself.",
-              "link": "Inspect the live registry"
+              "title": "公开且可验证",
+              "body": "所有权注册表实时运行、公开可查——每个 Space、所有者和设置都是你可以亲自核对的公开状态。",
+              "link": "检视实时注册表"
             },
             "builtInOpen": {
-              "title": "Built in the open",
-              "body": "Created and backed by Wotori Studio, in development since 2019, with Omoba building on top. Working alpha today; production launch on the roadmap.",
+              "title": "公开构建",
+              "body": "由 Wotori Studio 创建并支持，自 2019 年持续开发，Omoba 在其上构建。今天是可用的 alpha；正式上线在路线图中。",
               "link": "Wotori Studio"
             },
-            "statusRibbon": "Status: early alpha — working public registry. Production launch on the roadmap.",
+            "statusRibbon": "状态：早期 alpha——公开注册表已运行。正式上线在路线图中。",
             "roadmap": {
               "now": {
-                "title": "Now",
-                "body": "Space claiming & settings stable; avatar ownership live."
+                "title": "现在",
+                "body": "Space 认领与设置已稳定；头像所有权已上线。"
               },
               "next": {
-                "title": "Next",
-                "body": "Asset Passport (ekza.asset.passport.v1), public Space pages, consolidated TypeScript SDK."
+                "title": "接下来",
+                "body": "资产护照（ekza.asset.passport.v1）、公开 Space 页面、整合的 TypeScript SDK。"
               },
               "later": {
-                "title": "Later",
-                "body": "Marketplace, license checkout, creator royalties & profit-sharing dashboards."
+                "title": "之后",
+                "body": "市场、许可结账、创作者版税与分成看板。"
               }
             }
           },
           "nav": {
-            "universe": "Universe",
-            "protocol": "Protocol",
-            "developers": "Developers",
-            "app": "App",
-            "reserve": "Reserve your Space",
-            "deck": "Deck"
+            "universe": "宇宙",
+            "protocol": "协议",
+            "developers": "开发者",
+            "app": "应用",
+            "reserve": "预订你的 Space",
+            "deck": "演示文稿"
           },
           "home": {
             "hero": {
-              "eyebrow": "Collaborative 3D asset ownership",
-              "headline": "Own what you make. Together.",
-              "subhead": "Ekza is the ownership layer for collaboratively made 3D assets. Story, concept, model, rig, animation — every contribution is tracked in the asset graph and keeps earning each time the asset is sold, rented, or licensed.",
-              "description": "The idea does not depend on crypto. Lineage, licensing, and revenue splits work over any settlement rail — ordinary contracts and bank payments included. A programmable ledger is simply the first rail we automate them on.",
-              "footerLeft": "Built by Wotori Studio · Working open-source alpha",
-              "footerCenter": "Create on Stellar · License bundles · Play in Omoba & Arena",
+              "eyebrow": "协作式 3D 资产所有权",
+              "headline": "你创造的，共同拥有。",
+              "subhead": "Ekza 是协作创作 3D 资产的所有权层。剧情、概念、模型、绑定、动画——每份贡献都记录在资产图中，资产每次被出售、出租或授权时都持续获得收益。",
+              "description": "这个理念不依赖加密货币。谱系、许可和收益分成适用于任何结算轨道——包括普通合同和银行支付。可编程账本只是我们首先用来自动化它们的轨道。",
+              "footerLeft": "由 Wotori Studio 打造 · 可用的开源 alpha",
+              "footerCenter": "在 Stellar 创作 · 授权资产包 · 在 Omoba 与 Arena 游玩",
               "buttons": {
-                "reserve": "Reserve your Space",
-                "howItWorks": "See how it works",
-                "developers": "For developers"
+                "reserve": "预订你的 Space",
+                "howItWorks": "了解如何运作",
+                "developers": "面向开发者"
               }
             },
             "factStrip": {
-              "items": "Made by teams|Lineage tracked|Programmable revenue splits|License-ready bundles|Game integrations|Open source|Working alpha"
+              "items": "团队共创|谱系可追溯|可编程收益分成|可授权资产包|游戏集成|开源|可用的 alpha"
             },
             "howPiecesFit": {
-              "eyebrow": "How the pieces fit",
-              "headline": "Create it. License it. Play it.",
-              "subcopy": "One asset graph, three surfaces. Each does one job — and revenue flows back through all of them.",
+              "eyebrow": "各部分如何协作",
+              "headline": "创作。授权。游玩。",
+              "subcopy": "一张资产图，三个产品面。各司其职——收益回流贯穿所有环节。",
               "step1": {
-                "title": "Stellar — create together",
-                "body": "Contribute a layer — story, concept art, model, rig, animation. The asset graph records who made what, and every contributor keeps a programmable share of future revenue.",
-                "link": "Explore the protocol"
+                "title": "Stellar——共同创作",
+                "body": "贡献一层——剧情、概念图、模型、绑定、动画。资产图记录谁做了什么，每位贡献者都持有未来收益的可编程份额。",
+                "link": "探索协议"
               },
               "step2": {
-                "title": "Bundles — license and earn",
-                "body": "Curated, game-ready bundles are sold, rented, or licensed with clear rights. Every transaction routes payouts to the full contributor graph automatically — no invoices, no chasing.",
-                "link": "Back it early — reserve a Space"
+                "title": "资产包——授权与收益",
+                "body": "精选的游戏级资产包以清晰的权利出售、出租或授权。每笔交易自动把收益分发到完整的贡献者图谱——无需开票，无需催款。",
+                "link": "尽早支持——预订一个 Space"
               },
               "step3": {
-                "title": "Omoba & Arena — play it",
-                "body": "Assets flow straight into playable environments — Omoba and Ekza Arena, our first controlled game contexts — while Spaces are the owned 3D places where they come alive.",
-                "badge": "Roadmap — early prototype"
+                "title": "Omoba 与 Arena——游玩",
+                "body": "资产直接进入可游玩的环境——Omoba 和 Ekza Arena 是我们最早的受控游戏场景，而 Space 是它们栖身的自有 3D 场所。",
+                "badge": "路线图——早期原型"
               }
             },
             "spaceOffer": {
-              "eyebrow": "Back the build",
-              "headline": "Own a numbered Space.",
-              "subcopy": "Spaces are the genesis drop: 1,000 finite, numbered 3D places, each provably yours and reconfigurable any time. Owning one is how early believers back the build — the long game is the licensing economy on top.",
-              "bullet1": "Provably yours — a finite, numbered place with supply that can never be inflated.",
-              "bullet2": "Yours to shape — rename it, open it, and point it at your scene whenever you want.",
-              "bullet3": "First in line — reserve now to claim from the genesis batch and follow the build.",
-              "cta": "Reserve your Space",
-              "microcopy": "Early open-source alpha. No payment today — reserving holds your place in the genesis batch.",
-              "secondary": "What exactly do I own?"
+              "eyebrow": "支持这场构建",
+              "headline": "拥有一个编号 Space。",
+              "subcopy": "Space 是创世发行：1,000 个有限编号的 3D 场所，每个都可证明归你所有并可随时重新配置。拥有一个，就是早期支持者参与构建的方式——真正的长线是其上的授权经济。",
+              "bullet1": "可证明归你——有限编号的场所，供应量永不增发。",
+              "bullet2": "由你塑造——随时改名、开放，并指向你的场景。",
+              "bullet3": "排在最前——现在预订即可从创世批次认领，并跟进构建。",
+              "cta": "预订你的 Space",
+              "microcopy": "早期开源 alpha。今天无需付款——预订即锁定你在创世批次中的位置。",
+              "secondary": "我到底拥有什么？"
             },
             "whyOwn": {
-              "eyebrow": "What you own",
-              "headline": "More than a file. A place you own.",
-              "subcopy": "A Space is a place you actually control: proof of ownership plus live settings — name, access, the scene itself. Transfer it, and the whole world moves with it.",
-              "link": "See all six primitives + the full mechanics",
+              "eyebrow": "你拥有的",
+              "headline": "不止是文件，是归你所有的场所。",
+              "subcopy": "Space 是你真正控制的场所：所有权证明加实时设置——名称、访问权、场景本身。转让它，整个世界随之而去。",
+              "link": "查看全部六个原语与完整机制",
               "cards": {
                 "ownership": {
-                  "title": "True ownership",
-                  "body": "Provably yours — a single verifiable record proves who owns each Space, and holding it is the only key to changing the world."
+                  "title": "真正的所有权",
+                  "body": "可证明归你——一条可验证的记录证明每个 Space 的归属，持有它是改变世界的唯一钥匙。"
                 },
                 "configurable": {
-                  "title": "Configurable worlds",
-                  "body": "Settings are live, not frozen. Rename, open, close, and re-point the scene at any time — the world evolves while ownership stays put."
+                  "title": "可配置的世界",
+                  "body": "设置是实时的，而非冻结的。随时改名、开放、关闭、重新指向场景——世界演化，所有权不变。"
                 },
                 "finite": {
-                  "title": "Finite collection",
-                  "body": "Supply is capped forever. Every Space is numbered — verifiable, scarce, and never duplicated."
+                  "title": "有限收藏",
+                  "body": "供应量永久封顶。每个 Space 都有编号——可验证、稀缺、永不重复。"
                 }
               }
             },
             "roadmap": {
-              "eyebrow": "The trajectory",
-              "headline": "Build the assets now. The economy comes next.",
+              "eyebrow": "发展轨迹",
+              "headline": "现在构建资产，经济随后而来。",
               "now": {
-                "badge": "Working alpha",
-                "title": "Now",
-                "body": "Collaborative asset creation with lineage and contributor shares, live on Stellar. Space claiming and configuration work end-to-end."
+                "badge": "可用的 alpha",
+                "title": "现在",
+                "body": "带谱系和贡献者分成的协作资产创作已在 Stellar 上线。Space 的认领与配置端到端可用。"
               },
               "next": {
-                "badge": "In build",
-                "title": "Next",
-                "body": "Game-ready character bundles — buy, rent, license — with automatic contributor payouts, landing first in Omoba and Ekza Arena."
+                "badge": "构建中",
+                "title": "接下来",
+                "body": "游戏级角色资产包——购买、租用、授权——附带自动贡献者分成，率先登陆 Omoba 和 Ekza Arena。"
               },
               "later": {
-                "badge": "The dream",
-                "title": "Later",
-                "body": "Creator-owned asset infrastructure at scale — and a Minecraft/Roblox-scale universe built out of what creators make."
+                "badge": "梦想",
+                "title": "之后",
+                "body": "规模化的创作者自有资产基础设施——以及一个由创作者作品构成的 Minecraft/Roblox 量级宇宙。"
               },
-              "footnote": "Honest status: early open-source alpha. We're raising to build full-time — owning a Space helps fund it."
+              "footnote": "诚实的现状：早期开源 alpha。我们正在融资以全职构建——拥有一个 Space 就是在资助它。"
             },
             "finalCta": {
-              "headline": "Claim your place in the universe.",
-              "subcopy": "Reserve a numbered Space to back the build and claim from the genesis batch — or join the newsletter and follow the licensing economy as it ships.",
-              "cta": "Reserve your Space",
-              "pitchdeck": "投资者 Pitchdeck",
-              "beijingDeck": "ITEC 北京路演 (PDF)"
+              "headline": "在宇宙中认领你的位置。",
+              "subcopy": "预订一个编号 Space 来支持构建并从创世批次认领——或订阅通讯，跟随授权经济逐步上线。",
+              "cta": "预订你的 Space",
+              "pitchdeck": "投资者演示",
+              "beijingDeck": "ITEC 北京演示（PDF）"
             },
             "liveWorld": {
-              "eyebrow": "See it live",
-              "headline": "Step inside the world.",
-              "subcopy": "Ekza Space runs in your browser — real-time 3D where owned places and creator-made assets come together. This is an early prototype.",
-              "cta": "Enter the live world",
-              "ctaMobile": "Open the live world",
-              "note": "Loads space.ekza.io · early alpha",
-              "close": "Close live world",
-              "loading": "Loading the live world…",
-              "openTab": "Open in a new tab"
+              "eyebrow": "实时体验",
+              "headline": "走进这个世界。",
+              "subcopy": "Ekza Space 在浏览器中运行——实时 3D，自有场所与创作者资产在此交汇。这是早期原型。",
+              "cta": "进入实时世界",
+              "ctaMobile": "打开实时世界",
+              "note": "加载 space.ekza.io · 早期 alpha",
+              "close": "关闭实时世界",
+              "loading": "正在加载实时世界…",
+              "openTab": "在新标签页打开"
             }
           },
           "protocol": {
             "hero": {
-              "eyebrow": "Stellar — the protocol of collective creation",
-              "headline": "Create together. Own forever.",
-              "subhead": "Stellar is the protocol behind Ekza: a way to make creative work as a group where every contribution keeps its provenance and its share of the upside. Built on Solana, designed to be used far beyond Ekza.",
-              "btnReserve": "Reserve a Space",
-              "btnPrograms": "Read the programs",
-              "footerLeft": "Stellar · solana_stellar on Solana devnet",
-              "footerCenter": "Universe · Assets · Lineage · Releases · Vaults · Revenue shares"
+              "eyebrow": "Stellar——集体创作协议",
+              "headline": "共同创作，永久拥有。",
+              "subhead": "Stellar 是 Ekza 背后的协议：一种团队创作方式，让每份贡献都被记录、可追溯，并在作品产生收益时获得回报。",
+              "btnReserve": "预订一个 Space",
+              "btnPrograms": "阅读程序",
+              "footerLeft": "Stellar · solana_stellar 运行于 Solana devnet",
+              "footerCenter": "宇宙 · 资产 · 谱系 · 发布 · 金库 · 收益分成"
             },
             "thesis": {
-              "eyebrow": "The thesis",
-              "headline": "Creative work should compound — and the people who made it should keep owning it.",
-              "body": "Most creative pipelines erase the contributor. You make something, it gets used, and the value flows past you. Stellar inverts that: contributions are typed and tracked, lineage records who built on what, and revenue shares follow the chain of creation. Your work stays yours, and it keeps earning as others build on it.",
-              "quote": "\"Do not lose rights to your work. Plug into a system where your contribution lives on and generates income forever.\""
+              "eyebrow": "核心主张",
+              "headline": "创意工作应当复利增长——而创造它的人应当持续拥有它。",
+              "body": "多数创作流水线抹去了贡献者。你做了作品，它被使用，价值却流向别处。Stellar 把每份贡献记录在链上谱系中，并让收益按记录的份额回流。",
+              "quote": "“不要失去对作品的权利。接入一个让你的贡献延续并持续产生收益的系统。”"
             },
             "creationFlow": {
-              "eyebrow": "The flow",
-              "headline": "From idea to income.",
+              "eyebrow": "流程",
+              "headline": "从想法到收入。",
               "step1": {
-                "title": "Create",
-                "body": "Make a typed asset — a model, a texture, an avatar part — on your own or with collaborators."
+                "title": "创作",
+                "body": "制作一个类型化资产——模型、贴图、头像部件——独自或与协作者一起。"
               },
               "step2": {
-                "title": "Lineage",
-                "body": "Every asset records its provenance: what it was built from and who contributed. The chain of creation is permanent."
+                "title": "谱系",
+                "body": "每个资产都记录其来源：基于什么构建、谁做出了贡献。创作链条公开可验证。"
               },
               "step3": {
-                "title": "Releases",
-                "body": "Bundle finalized work into releases — versioned, shareable outputs ready to load into games and worlds."
+                "title": "发布",
+                "body": "把定稿作品打包为发布——带版本、可分享的成果，随时可加载进游戏和世界。"
               },
               "step4": {
-                "title": "Vaults",
-                "body": "Each release owns an on-chain vault PDA that custodies deposited lamports and the rules around them."
+                "title": "金库",
+                "body": "每个发布拥有链上金库 PDA，托管存入的 lamports 及其规则。"
               },
               "step5": {
-                "title": "Revenue shares",
-                "body": "Contributors hold basis-point shares; revenue deposited to a finalized release is claimed pro-rata down the lineage."
+                "title": "收益分成",
+                "body": "贡献者按基点持有份额；存入已定稿发布的收益按比例领取，链上直接结算。"
               }
             },
             "spaceDeep": {
-              "eyebrow": "The Space primitive",
-              "headline": "What a Space really is.",
-              "subcopy": "Stellar is where assets are created; a Space is where they live. Here's the full mechanics of the place you own."
+              "eyebrow": "Space 原语",
+              "headline": "Space 究竟是什么。",
+              "subcopy": "Stellar 是资产诞生的地方；Space 是它们栖居的地方。这里是这个场所原语的完整机制。"
             },
             "beyond": {
-              "eyebrow": "Not just for Ekza",
-              "headline": "A creation layer any world can build on.",
-              "body": "Stellar isn't locked to Ekza. The same protocol — typed assets, lineage, releases, vaults, revenue shares — can power other games, engines, and apps. Ekza is the first universe built on it, not the only one. That portability is the point: create once, own everywhere.",
-              "point1": "Open Anchor programs on Solana",
-              "point2": "Standard manifests any runtime can load",
-              "point3": "Ownership and royalties that travel with the asset"
+              "eyebrow": "不止服务于 Ekza",
+              "headline": "任何世界都能构建其上的创作层。",
+              "body": "Stellar 不锁定于 Ekza。同一协议——类型化资产、谱系、发布、金库、收益分成——任何游戏或平台都可以采用。",
+              "point1": "Solana 上的开源 Anchor 程序",
+              "point2": "任何运行时都能加载的标准清单",
+              "point3": "随资产同行的所有权与版税"
             },
             "cta": {
-              "headline": "Own a piece of the universe.",
-              "subcopy": "Stellar is the engine; a Space is how you own your place in it. Reserve yours now.",
-              "primary": "Reserve your Space",
-              "secondary": "For developers"
+              "headline": "拥有宇宙的一部分。",
+              "subcopy": "Stellar 是引擎；Space 是你在其中拥有一席之地的方式。现在就预订。",
+              "primary": "预订你的 Space",
+              "secondary": "面向开发者"
             }
           },
           "dev": {
             "hero": {
-              "eyebrow": "For developers",
-              "headline": "Open Anchor programs on Solana.",
-              "subhead": "No black box. Ekza's on-chain layer is a set of open Anchor programs with deterministic PDAs and emitted events you can index. Resolve ownership, fetch settings, load the scene.",
-              "btnGithub": "View on GitHub",
-              "btnReserve": "Reserve a Space",
-              "footerLeft": "Open source · Solana devnet",
+              "eyebrow": "面向开发者",
+              "headline": "Solana 上的开源 Anchor 程序。",
+              "subhead": "没有黑箱。Ekza 的链上层是一组开源 Anchor 程序，具有确定性 PDA 和可索引的事件。",
+              "btnGithub": "在 GitHub 查看",
+              "btnReserve": "预订一个 Space",
+              "footerLeft": "开源 · Solana devnet",
               "footerCenter": "solana_ekza_space · solana_stellar · solana-ekza-arena"
             },
             "programs": {
-              "eyebrow": "The on-chain layer",
-              "headline": "Three programs, one ownership model.",
+              "eyebrow": "链上层",
+              "headline": "三个程序，一个所有权模型。",
               "space": {
                 "name": "solana_ekza_space",
-                "body": "Numbered, finite Space NFTs plus on-chain settings PDAs you control."
+                "body": "有限编号的 Space NFT，加上由你控制的链上设置 PDA。"
               },
               "stellar": {
                 "name": "solana_stellar",
-                "body": "Collaboration, asset lineage, releases, vaults, and contributor revenue shares."
+                "body": "协作、资产谱系、发布、金库与贡献者收益分成。"
               },
               "arena": {
                 "name": "solana-ekza-arena",
-                "body": "Publishes finalized Stellar releases into Arena-owned card records for the game."
+                "body": "把已定稿的 Stellar 发布写入游戏的 Arena 卡牌记录。"
               }
             },
             "stellar": {
-              "eyebrow": "For developers",
-              "headline": "Stellar — collaborative asset universes.",
-              "subcopy": "solana_stellar is an open Anchor program: open a universe, register typed assets, connect them into a lineage graph, finalize releases with vaults, and split revenue by basis points down the chain.",
-              "createUniverse": "Open a collaborative universe that holds typed assets and releases.",
-              "createAsset": "Register a typed asset and connect it into the lineage graph with add_asset_parent.",
-              "finalizeRelease": "Snapshot an approved asset into an immutable release with its own vault and contributor-share record.",
-              "depositRevenue": "Deposit lamports into a finalized release's vault for later distribution.",
-              "claimRevenue": "Contributors claim pro-rata by basis points (out of 10,000); claims are pull-based.",
-              "cta": "Read the program on GitHub"
+              "eyebrow": "面向开发者",
+              "headline": "Stellar——协作资产宇宙。",
+              "subcopy": "solana_stellar 是开源 Anchor 程序：开启一个宇宙，注册类型化资产，把它们连入谱系图，定稿发布并分配收益。",
+              "createUniverse": "开启一个容纳类型化资产与发布的协作宇宙。",
+              "createAsset": "注册类型化资产，并用 add_asset_parent 将其连入谱系图。",
+              "finalizeRelease": "把已批准的资产快照为不可变的发布，附带自己的金库和贡献者份额记录。",
+              "depositRevenue": "向已定稿发布的金库存入 lamports，供后续分配。",
+              "claimRevenue": "贡献者按基点（万分制）比例领取；领取为拉取式。",
+              "cta": "在 GitHub 阅读程序"
             },
             "verify": {
-              "eyebrow": "Trust, but verify",
-              "headline": "Inspect every transaction on-chain.",
-              "body": "Mints and settings updates are real Solana devnet transactions. Look up the program, decode the PDAs, and watch the events on any Solana explorer.",
-              "chip1": "Network: Solana devnet",
-              "chip2": "Programs: open source",
-              "chip3": "Events: indexable",
-              "note": "Early alpha on devnet — addresses and metadata hosts may change before mainnet."
+              "eyebrow": "信任，但要验证",
+              "headline": "在链上检视每一笔交易。",
+              "body": "铸造和设置更新都是真实的 Solana devnet 交易。查找程序、解码 PDA，在任意 Solana 浏览器中观察事件。",
+              "chip1": "网络：Solana devnet",
+              "chip2": "程序：开源",
+              "chip3": "事件：可索引",
+              "note": "devnet 上的早期 alpha——地址和元数据主机在主网前可能变更。"
             },
             "githubCta": {
-              "headline": "Read the code.",
-              "subcopy": "Everything is open. Clone the programs, run them on devnet, and build on Ekza.",
-              "primary": "View on GitHub",
-              "secondary": "Reserve a Space"
+              "headline": "阅读代码。",
+              "subcopy": "一切开放。克隆程序，在 devnet 上运行，并在 Ekza 之上构建。",
+              "primary": "在 GitHub 查看",
+              "secondary": "预订一个 Space"
             }
           }
         }
