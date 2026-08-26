@@ -76,7 +76,7 @@ export function HomeView() {
   return (
     <main className="font-ekza text-ekza-on">
       <HeroSection
-        imageUrl="/img/ekza_wotori_space.jpeg"
+        imageUrl="/img/world-portal.jpg"
         imageAlt="Ekza — a universe built together"
         quoteEyebrow={t("ekza.v2.home.hero.eyebrow")}
         title={t("ekza.v2.home.hero.headline")}

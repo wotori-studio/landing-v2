@@ -64,7 +64,7 @@ export function LiveWorldEmbed() {
             {/* Poster (idle) — also stays underneath while the iframe loads */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/img/ekza_wotori_space.jpeg"
+              src="/img/world-portal.jpg"
               alt=""
               className={`absolute inset-0 h-full w-full object-cover transition duration-700 ${
                 active ? "scale-105 blur-sm" : "group-hover:scale-[1.03]"

@@ -37,7 +37,7 @@ export function ArenaSection() {
               />
               <div className="relative overflow-hidden rounded-3xl border border-ekza-border/25 bg-ekza-card shadow-ekza-card dark:border-white/10 dark:shadow-ekza-card-dark">
                 <img
-                  src="/img/ekza_wotori_space.jpeg"
+                  src="/img/world-portal.jpg"
                   alt="Ekza Arena scene"
                   className="aspect-[4/3] w-full object-cover"
                   loading="lazy"
