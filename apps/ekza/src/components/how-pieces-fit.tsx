@@ -11,18 +11,21 @@ export function HowPiecesFit() {
   const steps = [
     {
       n: "01",
+      img: "/img/hpf-create.jpg",
       title: t("ekza.v2.home.howPiecesFit.step1.title"),
       body: t("ekza.v2.home.howPiecesFit.step1.body"),
       link: { label: t("ekza.v2.home.howPiecesFit.step1.link"), href: "/protocol" },
     },
     {
       n: "02",
+      img: "/img/hpf-bundle.jpg",
       title: t("ekza.v2.home.howPiecesFit.step2.title"),
       body: t("ekza.v2.home.howPiecesFit.step2.body"),
       link: { label: t("ekza.v2.home.howPiecesFit.step2.link"), href: "#space-offer" },
     },
     {
       n: "03",
+      img: "/img/hpf-play.jpg",
       title: t("ekza.v2.home.howPiecesFit.step3.title"),
       body: t("ekza.v2.home.howPiecesFit.step3.body"),
       badge: t("ekza.v2.home.howPiecesFit.step3.badge"),
@@ -64,6 +67,15 @@ export function HowPiecesFit() {
                   →
                 </span>
               )}
+              <div className="relative -mx-7 -mt-7 mb-6 aspect-[16/9] overflow-hidden rounded-t-2xl">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={step.img}
+                  alt=""
+                  className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+              </div>
               <span className="font-headline text-5xl font-bold leading-none text-ekza-primary/40 dark:text-cyan-300/40">
                 {step.n}
               </span>
