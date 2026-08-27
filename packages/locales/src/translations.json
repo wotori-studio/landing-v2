@@ -154,6 +154,7 @@
             "vidBody": "A generative 3D pipeline turning prompts and reference assets into fully rendered motion clips — cinematic output at a fraction of the time and cost.",
             "omobaBody": "An open MOBA where players own their heroes — creator avatars moving from design into live gameplay. Open the case for the breakdown.",
             "arenaBody": "An on-chain loot arena — gear, drops, and progression settled directly on Solana via the Ekza protocol. Open the case for the breakdown.",
+            "mirrorBody": "A native iPhone AR playground — point the camera at a friend and ARKit body tracking wraps them in an Ekza avatar in real time, with every frame staying on the device.",
             "opusBody": "A social network for musicians to publish live performances and connect with audiences, built for direct creator visibility.",
             "caseLabelProblem": "Problem",
             "caseLabelBuild": "What we built",
@@ -421,7 +422,8 @@
             "projects": {
               "stellar": "The collaboration layer: universes, typed assets, lineage, releases, vaults, and contributor revenue shares.",
               "avatar": "Portable 3D identities with verifiable ownership, linkable to finalized Stellar releases.",
-              "space": "Numbered virtual rooms and arenas — owned outright, with live settings the owner controls."
+              "space": "Numbered virtual rooms and arenas — owned outright, with live settings the owner controls.",
+              "mirror": "The playground lens: ARKit body tracking drops an Ekza avatar onto a real person, in real time and entirely on the phone."
             }
           },
           "partners": {
@@ -878,6 +880,7 @@
             "vidBody": "Генеративный 3D-пайплайн: из промптов и референсов — готовые отрендеренные ролики. Кинематографично, за долю времени и бюджета.",
             "omobaBody": "Открытая MOBA, где игроки владеют своими героями — аватары креаторов из дизайна попадают прямо в живой геймплей. Откройте кейс с разбором.",
             "arenaBody": "On-chain лутер-арена — экипировка, дропы и прогресс фиксируются прямо в Solana через протокол Ekza. Откройте кейс с разбором.",
+            "mirrorBody": "Нативная AR-площадка для iPhone — наведите камеру на друга, и ARKit-трекинг тела в реальном времени надевает на него аватар Ekza; все кадры остаются на устройстве.",
             "opusBody": "Соцсеть для музыкантов: публикуйте живые выступления и находите аудиторию. Прямая видимость для авторов.",
             "caseLabelProblem": "Проблема",
             "caseLabelBuild": "Что собрали",
@@ -1145,7 +1148,8 @@
             "projects": {
               "stellar": "Слой коллаборации: вселенные, типизированные ассеты, происхождение, релизы, хранилища и доли соавторов.",
               "avatar": "Переносимые 3D-идентичности с проверяемым владением, связываемые с финализированными релизами Stellar.",
-              "space": "Нумерованные виртуальные комнаты и арены — полностью твои, с живыми настройками под контролем владельца."
+              "space": "Нумерованные виртуальные комнаты и арены — полностью твои, с живыми настройками под контролем владельца.",
+              "mirror": "Игровая линза: ARKit-трекинг тела надевает аватар Ekza на живого человека — в реальном времени и целиком на самом телефоне."
             }
           },
           "partners": {
@@ -1602,6 +1606,7 @@
             "vidBody": "生成式 3D 流程：将提示词与参考资产转化为完整渲染的动态短片 — 以极少的时间和成本实现电影级效果。",
             "omobaBody": "一款开放 MOBA，玩家真正拥有自己的英雄 — 创作者虚拟形象从设计直接走进实时游戏。打开案例查看拆解。",
             "arenaBody": "链上装备竞技场 — 装备、掉落与成长通过 Ekza 协议直接结算在 Solana 上。打开案例查看拆解。",
+            "mirrorBody": "iPhone 原生 AR 玩场 — 把镜头对准朋友，ARKit 人体追踪就实时为他套上 Ekza 虚拟形象，所有画面都留在设备本地。",
             "opusBody": "面向音乐人的社交网络：发布现场演出并连接观众，为创作者提供直接曝光。",
             "caseLabelProblem": "问题",
             "caseLabelBuild": "我们构建了什么",
@@ -1869,7 +1874,8 @@
             "projects": {
               "stellar": "协作层：宇宙、类型化资产、谱系、发布版本、金库与贡献者收益分成。",
               "avatar": "具有可验证所有权的可移植 3D 身份，可关联到已定稿的 Stellar 发布版本。",
-              "space": "编号的虚拟房间和竞技场——完全归你所有，实时设置由你掌控。"
+              "space": "编号的虚拟房间和竞技场——完全归你所有，实时设置由你掌控。",
+              "mirror": "游玩之镜：ARKit 人体追踪把 Ekza 虚拟形象实时套在真人身上，全程在手机端完成，画面从不外传。"
             }
           },
           "partners": {

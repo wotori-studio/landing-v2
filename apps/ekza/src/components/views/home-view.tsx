@@ -46,6 +46,14 @@ export function HomeView() {
       link: "https://space.ekza.io",
       isFlip: true,
     },
+    {
+      projectName: "Mirror",
+      imgPath: "/img/eco-mirror.jpg",
+      imgPath2: "",
+      text: t("ekza.v2.ecosystem.projects.mirror"),
+      link: "https://mirror.ekza.io",
+      isFlip: true,
+    },
   ];
 
   const heroButtons = [

@@ -1,0 +1,459 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   EKZA MIRROR — design system
+   Concept: a mirror seam. Reality on one side, the universe on
+   the other, a thin prism line where they meet.
+   Every bespoke utility is prefixed `mir-`.
+   ============================================================ */
+
+@layer base {
+  :root {
+    /* the prism — the single signature gradient of the brand */
+    --mir-prism: linear-gradient(100deg, #7c5cff 0%, #ff5fa2 52%, #35e8ff 100%);
+    --mir-prism-soft: linear-gradient(
+      100deg,
+      rgba(124, 92, 255, 0.55) 0%,
+      rgba(255, 95, 162, 0.55) 52%,
+      rgba(53, 232, 255, 0.55) 100%
+    );
+
+    --mir-void: #07070c;
+    --mir-deep: #0d0d16;
+    --mir-surface: #14141f;
+    --mir-chrome: #e9ecf5;
+    --mir-silver: #a8b0c4;
+    --mir-violet: #7c5cff;
+    --mir-rose: #ff5fa2;
+    --mir-aqua: #35e8ff;
+
+    /* shared easing + radii so every surface feels like one object */
+    --mir-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --mir-radius: 18px;
+
+    /* grain: inline feTurbulence, no network request */
+    --mir-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* header is sticky — keep anchor targets clear of it */
+    scroll-padding-top: 84px;
+  }
+
+  body {
+    @apply bg-mirror-void text-mirror-chrome antialiased;
+  }
+
+  ::selection {
+    background: rgba(124, 92, 255, 0.35);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--mir-aqua);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer utilities {
+  /* ----------------------------------------------------------
+     mir-mesh — page / section background field
+     ---------------------------------------------------------- */
+  .mir-mesh {
+    background-color: var(--mir-void);
+    background-image:
+      radial-gradient(ellipse 80% 55% at 50% -18%, rgba(124, 92, 255, 0.22), transparent),
+      radial-gradient(ellipse 60% 45% at 100% 42%, rgba(53, 232, 255, 0.1), transparent),
+      radial-gradient(ellipse 55% 60% at 0% 84%, rgba(255, 95, 162, 0.09), transparent),
+      linear-gradient(180deg, #07070c 0%, #0d0d16 46%, #07070c 100%);
+  }
+
+  /* ----------------------------------------------------------
+     mir-glass — the card surface
+     ---------------------------------------------------------- */
+  .mir-glass {
+    @apply rounded-2xl border border-white/10 bg-white/[0.035] backdrop-blur-xl;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.07),
+      0 24px 60px rgba(0, 0, 0, 0.5);
+  }
+
+  /* mir-glass-hover — motif 5, prism edge: hover raises the border to a
+     prism-tinted glow and lifts the card. */
+  .mir-glass-hover {
+    transition:
+      transform 0.4s var(--mir-ease),
+      border-color 0.3s ease,
+      background-color 0.3s ease,
+      box-shadow 0.4s ease;
+  }
+  .mir-glass-hover:hover,
+  .mir-glass-hover:focus-within {
+    transform: translateY(-5px);
+    border-color: rgba(124, 92, 255, 0.45);
+    background-color: rgba(255, 255, 255, 0.06);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      0 0 0 1px rgba(255, 95, 162, 0.14),
+      0 26px 70px rgba(0, 0, 0, 0.55),
+      0 0 46px rgba(124, 92, 255, 0.22);
+  }
+
+  /* ----------------------------------------------------------
+     Buttons — motif 4, chrome sheen
+     ---------------------------------------------------------- */
+  .mir-btn-primary {
+    @apply relative inline-flex items-center justify-center overflow-hidden rounded-xl px-7 py-3.5 font-display text-sm font-semibold tracking-wide text-mirror-void;
+    background: linear-gradient(100deg, #7c5cff 0%, #ff5fa2 100%);
+    box-shadow:
+      0 0 26px rgba(124, 92, 255, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    transition:
+      transform 0.3s var(--mir-ease),
+      box-shadow 0.3s ease,
+      filter 0.3s ease;
+  }
+  .mir-btn-primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.45),
+      transparent
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s var(--mir-ease);
+  }
+  .mir-btn-primary:hover {
+    transform: translateY(-2px);
+    filter: saturate(1.08);
+    box-shadow:
+      0 0 40px rgba(255, 95, 162, 0.42),
+      inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  }
+  .mir-btn-primary:hover::before,
+  .mir-btn-primary:focus-visible::before {
+    transform: translateX(100%);
+  }
+
+  .mir-btn-secondary {
+    @apply relative inline-flex items-center justify-center overflow-hidden rounded-xl border border-white/20 bg-white/[0.06] px-7 py-3.5 font-display text-sm font-semibold tracking-wide text-mirror-chrome backdrop-blur-md;
+    transition:
+      transform 0.3s var(--mir-ease),
+      border-color 0.3s ease,
+      background-color 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+  .mir-btn-secondary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.18),
+      transparent
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s var(--mir-ease);
+  }
+  .mir-btn-secondary:hover {
+    transform: translateY(-2px);
+    border-color: rgba(53, 232, 255, 0.5);
+    background-color: rgba(53, 232, 255, 0.08);
+    box-shadow: 0 0 30px rgba(53, 232, 255, 0.18);
+  }
+  .mir-btn-secondary:hover::before,
+  .mir-btn-secondary:focus-visible::before {
+    transform: translateX(100%);
+  }
+
+  /* opt-in sheen for any other surface (cards, media frames) */
+  .mir-sheen {
+    position: relative;
+    overflow: hidden;
+  }
+  .mir-sheen::after {
+    content: "";
+    position: absolute;
+    top: -60%;
+    bottom: -60%;
+    left: -40%;
+    width: 40%;
+    background: linear-gradient(
+      100deg,
+      transparent,
+      rgba(255, 255, 255, 0.14),
+      transparent
+    );
+    transform: translateX(-160%) rotate(12deg);
+    transition: transform 0.8s var(--mir-ease);
+    pointer-events: none;
+  }
+  .mir-sheen:hover::after,
+  .mir-sheen:focus-within::after {
+    transform: translateX(420%) rotate(12deg);
+  }
+
+  /* ----------------------------------------------------------
+     mir-kicker — lowercase / uppercase micro-label with hairline
+     ---------------------------------------------------------- */
+  .mir-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-mirror-display), system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mir-silver);
+  }
+  .mir-kicker::before {
+    content: "";
+    width: 26px;
+    height: 1px;
+    flex: none;
+    background-image: var(--mir-prism);
+  }
+
+  /* ----------------------------------------------------------
+     mir-grad — prism gradient text
+     ---------------------------------------------------------- */
+  .mir-grad {
+    background-image: var(--mir-prism);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* ----------------------------------------------------------
+     mir-seam — motif 1. 1px prism line. Horizontal by default,
+     `.mir-seam-v` for the vertical (wipe-handle) form.
+     ---------------------------------------------------------- */
+  .mir-seam {
+    display: block;
+    width: 100%;
+    height: 1px;
+    border: 0;
+    background-image: var(--mir-prism);
+    opacity: 0.75;
+  }
+  .mir-seam-v {
+    display: block;
+    width: 1px;
+    height: 100%;
+    border: 0;
+    background-image: linear-gradient(
+      180deg,
+      rgba(124, 92, 255, 0) 0%,
+      #7c5cff 18%,
+      #ff5fa2 52%,
+      #35e8ff 82%,
+      rgba(53, 232, 255, 0) 100%
+    );
+    box-shadow: 0 0 18px rgba(124, 92, 255, 0.65);
+  }
+
+  /* ----------------------------------------------------------
+     mir-reflect — motif 2. Flipped, blurred, fading ghost.
+     Put the duplicate content inside an element with this class,
+     directly under the original. aria-hidden it.
+     ---------------------------------------------------------- */
+  .mir-reflect {
+    transform: scaleY(-1);
+    transform-origin: top center;
+    filter: blur(4px);
+    opacity: 0.18;
+    pointer-events: none;
+    user-select: none;
+    /* mask is applied pre-flip: "to top" fades the VISUAL bottom */
+    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 34%);
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 34%);
+  }
+
+  /* ----------------------------------------------------------
+     mir-grain — motif 3. Overlay; place as a fixed/absolute child.
+     ---------------------------------------------------------- */
+  .mir-grain {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: var(--mir-noise);
+    background-size: 180px 180px;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+  }
+
+  /* ----------------------------------------------------------
+     mir-stat — hero / section stat tile
+     ---------------------------------------------------------- */
+  .mir-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    background: linear-gradient(
+      180deg,
+      rgba(124, 92, 255, 0.1),
+      rgba(53, 232, 255, 0.04)
+    );
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition:
+      transform 0.35s var(--mir-ease),
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+  .mir-stat:hover {
+    transform: translateY(-3px);
+    border-color: rgba(124, 92, 255, 0.42);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      0 0 38px rgba(124, 92, 255, 0.18);
+  }
+  .mir-stat__metric {
+    font-family: var(--font-mirror-display), system-ui, sans-serif;
+    font-size: clamp(1.15rem, 0.95rem + 0.85vw, 1.6rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    hyphens: none;
+    color: var(--mir-chrome);
+  }
+  .mir-stat__label {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    color: var(--mir-silver);
+  }
+
+  /* ----------------------------------------------------------
+     mir-marquee — the three-beat band
+     ---------------------------------------------------------- */
+  .mir-marquee {
+    overflow: hidden;
+    width: 100%;
+    padding: 14px 0;
+    white-space: nowrap;
+    border-block: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(13, 13, 22, 0.65);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  }
+  .mir-marquee__track {
+    display: inline-flex;
+    align-items: center;
+    animation: mir-scroll 34s linear infinite;
+  }
+  .mir-marquee__item {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mirror-display), system-ui, sans-serif;
+    font-size: clamp(0.9rem, 0.78rem + 0.7vw, 1.35rem);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(233, 236, 245, 0.82);
+  }
+  .mir-marquee__sep {
+    margin: 0 clamp(16px, 3vw, 40px);
+    font-style: normal;
+    font-size: 0.55em;
+    color: var(--mir-rose);
+  }
+  @keyframes mir-scroll {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* ----------------------------------------------------------
+     mir-reveal — scroll reveal. Visible by default; hidden only
+     once JS marks <html> with `mir-anim-ready` (see AnimReady).
+     ---------------------------------------------------------- */
+  .mir-reveal {
+    transition:
+      opacity 0.8s var(--mir-ease),
+      transform 0.8s var(--mir-ease);
+  }
+  .mir-anim-ready .mir-reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    will-change: opacity, transform;
+  }
+  .mir-anim-ready .mir-reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ----------------------------------------------------------
+     Small shared helpers
+     ---------------------------------------------------------- */
+  .mir-shell {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+  }
+  .mir-section {
+    @apply relative py-20 sm:py-28;
+  }
+  .mir-h2 {
+    @apply font-display text-3xl font-bold leading-[1.08] tracking-[-0.03em] text-mirror-chrome sm:text-4xl md:text-5xl;
+  }
+  .mir-lead {
+    @apply text-base leading-relaxed text-mirror-silver sm:text-lg;
+  }
+  /* image frames always sit on a prism fallback so a missing file
+     never leaves an empty white box */
+  .mir-frame-fallback {
+    background-color: var(--mir-surface);
+    background-image:
+      radial-gradient(ellipse at 30% 20%, rgba(124, 92, 255, 0.35), transparent 60%),
+      radial-gradient(ellipse at 75% 80%, rgba(255, 95, 162, 0.28), transparent 58%),
+      linear-gradient(160deg, #14141f 0%, #07070c 100%);
+  }
+}
+
+/* ============================================================
+   Reduced motion — kill marquee, sweeps and reveals.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .mir-marquee__track,
+  .mir-btn-primary::before,
+  .mir-btn-secondary::before,
+  .mir-sheen::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .mir-marquee__track {
+    transform: none !important;
+  }
+  .mir-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .mir-glass-hover:hover,
+  .mir-glass-hover:focus-within,
+  .mir-btn-primary:hover,
+  .mir-btn-secondary:hover,
+  .mir-stat:hover {
+    transform: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

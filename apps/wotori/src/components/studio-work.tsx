@@ -68,6 +68,14 @@ const WORK: Project[] = [
     case: "arena",
   },
   {
+    name: "Ekza Mirror",
+    cats: ["games", "animation"],
+    kind: "iOS · AR avatars",
+    year: "2026",
+    bodyKey: "work.mirrorBody",
+    href: "https://mirror.ekza.io",
+  },
+  {
     name: "DJ Wotori",
     cats: ["design", "animation"],
     kind: "Character · AI generation",

@@ -20,6 +20,13 @@ const apps = [
     hint: "omoba.io",
     accent: "from-sky-500/20 to-indigo-500/10 border-sky-500/30",
   },
+  {
+    name: "Ekza Mirror",
+    port: 3003,
+    href: "http://localhost:3003",
+    hint: "mirror.ekza.io",
+    accent: "from-fuchsia-500/20 to-cyan-500/10 border-fuchsia-500/30",
+  },
 ];
 
 export default function DevHubPage() {
