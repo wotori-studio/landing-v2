@@ -17,10 +17,11 @@ const inter = Inter({
   display: "swap",
 });
 
-const mirrorTitle = "Ekza Mirror | Wear the universe — AR avatars on iPhone";
+const mirrorTitle = "Ekza Mirror | AR avatars for iPhone — App Store soon";
 const mirrorDescription =
-  "Ekza Mirror is a native iPhone AR playground. Point the camera at a friend, they become an Ekza avatar, hit record. ARKit body tracking, fully on-device — camera frames never leave the phone.";
+  "Ekza Mirror turns a friend into a full-body 3D avatar on iPhone. Join the private beta before the App Store release. ARKit tracking runs fully on-device.";
 const mirrorUrl = "https://mirror.ekza.io";
+const mirrorOgImage = new URL("/og.png", mirrorUrl).toString();
 
 export const metadata: Metadata = {
   metadataBase: new URL(mirrorUrl),
@@ -33,6 +34,7 @@ export const metadata: Metadata = {
     "ARKit body tracking",
     "RealityKit",
     "iPhone AR app",
+    "iPhone beta app",
     "on-device AR",
     "VRM avatars",
     "portable 3D identity",
@@ -54,7 +56,7 @@ export const metadata: Metadata = {
     description: mirrorDescription,
     images: [
       {
-        url: "/opengraph-image",
+        url: mirrorOgImage,
         width: 1200,
         height: 630,
         alt: "Ekza Mirror social preview",
@@ -67,7 +69,7 @@ export const metadata: Metadata = {
     creator: "@EkzaSpace",
     title: mirrorTitle,
     description: mirrorDescription,
-    images: ["/twitter-image"],
+    images: [mirrorOgImage],
   },
   robots: {
     index: true,
@@ -127,6 +129,8 @@ export default function RootLayout({
                 description: mirrorDescription,
                 applicationCategory: "EntertainmentApplication",
                 operatingSystem: "iOS 17+",
+                releaseNotes:
+                  "App Store release coming soon. Private beta registration is open.",
                 publisher: {
                   "@type": "Organization",
                   name: "Wotori Studio",

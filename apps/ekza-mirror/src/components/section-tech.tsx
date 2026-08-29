@@ -147,7 +147,7 @@ export function SectionTech() {
         {/* requirements strip */}
         <Reveal delay={280} className="mt-6">
           <h3 className="sr-only">Requirements</h3>
-          <ul className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+          <ul className="grid grid-cols-1 gap-3 min-[360px]:grid-cols-2 sm:gap-4 lg:grid-cols-4">
             {REQUIREMENTS.map((req) => (
               <li key={req.value} className="mir-stat rounded-2xl">
                 <span className="font-display text-base font-bold tracking-[-0.01em] text-mirror-chrome sm:text-lg">

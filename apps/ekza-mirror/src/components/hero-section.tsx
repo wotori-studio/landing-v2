@@ -10,18 +10,12 @@ import {
   type KeyboardEvent as ReactKeyboardEvent,
   type PointerEvent as ReactPointerEvent,
 } from "react";
+import { BetaSignupForm } from "@/components/beta-signup-form";
 import { Reveal } from "@/components/motion";
-import { MIRROR_LINKS } from "@/lib/links";
-
-const STATS = [
-  { metric: "on-device", label: "Frames never leave the phone" },
-  { metric: "1 tap", label: "Record & share" },
-  { metric: "iOS 17+", label: "A12 Bionic or newer" },
-];
 
 // One type ramp, used twice: once for the headline, once for its reflection.
 const H1_TYPE =
-  "font-display text-[2.6rem] font-bold leading-[0.95] tracking-[-0.03em] sm:text-6xl lg:text-[4.4rem]";
+  "font-display text-[2.45rem] font-bold leading-[0.95] tracking-[-0.03em] sm:text-6xl lg:text-[4.4rem]";
 
 /* ------------------------------------------------------------------ *
  * Mirror wipe
@@ -216,7 +210,7 @@ function MirrorWipe() {
   );
 
   return (
-    <div className="relative mx-auto w-[min(74vw,264px)] sm:w-[296px] lg:w-[332px]">
+    <div className="relative mx-auto w-[min(58vw,218px)] sm:w-[250px] md:w-[min(32vw,270px)] lg:w-[288px] xl:w-[306px]">
       <div
         aria-hidden
         className="pointer-events-none absolute -inset-10 rounded-[3.5rem] bg-[radial-gradient(55%_45%_at_50%_18%,rgba(182,255,26,0.18),transparent_70%),radial-gradient(45%_35%_at_65%_92%,rgba(110,242,68,0.12),transparent_70%)] blur-2xl"
@@ -257,7 +251,7 @@ function MirrorWipe() {
                 width={1200}
                 height={1600}
                 priority
-                sizes="(max-width: 640px) 74vw, 332px"
+                sizes="(max-width: 640px) 58vw, (max-width: 1024px) 32vw, 306px"
                 onError={() => setMissing((m) => ({ ...m, before: true }))}
                 className="pointer-events-none relative z-[1] h-full w-full object-cover object-center"
               />
@@ -274,7 +268,7 @@ function MirrorWipe() {
                 width={1200}
                 height={1600}
                 priority
-                sizes="(max-width: 640px) 74vw, 332px"
+                sizes="(max-width: 640px) 58vw, (max-width: 1024px) 32vw, 306px"
                 onError={() => setMissing((m) => ({ ...m, after: true }))}
                 className="pointer-events-none relative z-[1] h-full w-full object-cover object-center"
               />
@@ -300,7 +294,12 @@ function MirrorWipe() {
               className="pointer-events-auto absolute left-0 top-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize items-center justify-center rounded-full border border-mirror-chrome/50 bg-mirror-void/70 shadow-[0_0_24px_rgba(182,255,26,0.28)] backdrop-blur"
               style={{ touchAction: "none" }}
             >
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" focusable="false">
+              <svg
+                viewBox="0 0 24 24"
+                className="h-4 w-4"
+                fill="none"
+                focusable="false"
+              >
                 <path
                   d="M9.5 8 6 12l3.5 4M14.5 8l3.5 4-3.5 4"
                   stroke="#EDF2E9"
@@ -330,7 +329,7 @@ function MirrorWipe() {
       {/* floor reflection */}
       <div
         aria-hidden
-        className="pointer-events-none mx-auto mt-3 h-16 w-[80%] rounded-[50%] bg-[radial-gradient(50%_50%_at_50%_0%,rgba(182,255,26,0.16),transparent_70%)] blur-xl"
+        className="pointer-events-none mx-auto mt-2 h-10 w-[80%] rounded-[50%] bg-[radial-gradient(50%_50%_at_50%_0%,rgba(182,255,26,0.16),transparent_70%)] blur-xl md:mt-3 md:h-14"
       />
     </div>
   );
@@ -344,28 +343,31 @@ export function HeroSection() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pb-20 pt-28 sm:pb-28 sm:pt-32"
+      className="relative flex flex-col justify-center overflow-hidden py-7 sm:py-9 md:py-8 lg:min-h-[min(52rem,calc(100svh-65px))] lg:py-10"
     >
       <div className="mir-mesh absolute inset-0" aria-hidden />
-      <div className="mir-grain pointer-events-none absolute inset-0" aria-hidden />
+      <div
+        className="mir-grain pointer-events-none absolute inset-0"
+        aria-hidden
+      />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(110,242,68,0.5),rgba(182,255,26,0.65),rgba(231,255,176,0.5),transparent)]"
       />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-14 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-12">
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-9 px-4 sm:px-6 md:grid-cols-[minmax(0,1.05fr)_minmax(240px,0.75fr)] md:items-center md:gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12">
         <div>
           <Reveal as="p" className="mir-kicker text-mirror-acid">
-            prototype · iphone · on-device
+            App Store release · coming soon
           </Reveal>
 
-          <Reveal className="relative mt-6" delay={70}>
+          <Reveal className="relative mt-5" delay={70}>
             <h1 className={`${H1_TYPE} text-mirror-chrome`}>
               Wear the <span className="mir-grad">universe</span>.
             </h1>
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-x-0 top-full -z-10 translate-y-full select-none"
+              className="pointer-events-none absolute inset-x-0 top-full -z-10 hidden translate-y-full select-none sm:block"
             >
               <div className={`mir-reflect ${H1_TYPE} text-mirror-chrome`}>
                 Wear the universe.
@@ -376,50 +378,40 @@ export function HeroSection() {
           <Reveal
             as="p"
             delay={140}
-            className="mt-9 max-w-xl text-lg leading-relaxed text-mirror-silver sm:mt-10 sm:text-xl"
+            className="mt-5 max-w-xl text-base leading-relaxed text-mirror-silver sm:mt-7 sm:text-lg lg:text-xl"
           >
-            Point the camera at a friend. They become an Ekza avatar. Hit record.
+            Point an iPhone at a friend. Ekza Mirror turns them into a full-body
+            avatar that follows every move.
           </Reveal>
 
-          <Reveal delay={200} className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <Reveal delay={200} className="mt-6 max-w-xl sm:mt-7">
+            <BetaSignupForm source="hero" />
+          </Reveal>
+
+          <Reveal
+            delay={270}
+            className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2"
+          >
+            <p className="font-display text-[0.65rem] uppercase tracking-[0.16em] text-mirror-silver">
+              iOS 17+ · on-device · camera stays private
+            </p>
             <a
-              href={MIRROR_LINKS.discord}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mir-btn-primary text-center"
+              href="#how"
+              className="font-display text-xs font-semibold text-mirror-chrome underline decoration-mirror-acid/60 underline-offset-4 transition hover:text-mirror-acid"
             >
-              Get on the list
-            </a>
-            <a href="#how" className="mir-btn-secondary text-center">
-              See how it works
+              See how it works ↓
             </a>
           </Reveal>
-
-          <dl className="mt-12 grid max-w-xl gap-3 sm:grid-cols-3">
-            {STATS.map((stat, i) => (
-              <Reveal key={stat.metric} className="mir-stat" delay={260 + i * 80}>
-                <dt className="mir-stat__metric mir-grad">{stat.metric}</dt>
-                <dd className="mir-stat__label">{stat.label}</dd>
-              </Reveal>
-            ))}
-          </dl>
         </div>
 
-        <Reveal delay={120} className="lg:pl-4">
+        <Reveal delay={120} className="md:pl-2 lg:pl-4">
           <MirrorWipe />
-          <p className="mx-auto mt-6 max-w-[15rem] text-center text-xs leading-relaxed text-mirror-silver/80 sm:max-w-xs">
+          <p className="mx-auto mt-3 hidden max-w-xs text-center text-xs leading-relaxed text-mirror-silver/80 sm:block md:mt-4">
             Drag the seam. Left is the room, right is the render — same frame,
             same phone.
           </p>
         </Reveal>
       </div>
-
-      <a
-        href="#how"
-        className="relative z-10 mx-auto mt-14 hidden font-display text-[0.65rem] uppercase tracking-[0.3em] text-mirror-silver transition hover:text-mirror-acid sm:block"
-      >
-        point · wear · record ↓
-      </a>
     </section>
   );
 }

@@ -13,17 +13,20 @@ them that copies their motion. Point the phone at a friend, they become someone
 from the Ekza universe, record, share.
 
 It is not a second economy. It is **the playground lens of the Ekza universe** —
-the piece that lets you *feel* what portable, owned 3D identity is like when it
+the piece that lets you _feel_ what portable, owned 3D identity is like when it
 walks around your living room. Avatars come from the Ekza avatar catalog
 (VRM/USDZ, provenance and SHA-256 resolved by a small FastAPI resolver).
 
-**Current state: working prototype.** Procedural volumetric avatar ships today;
-real rigged Ekza characters (VRM → ARKit USDZ retarget) are the next milestone.
-Six verified VRM avatars on devnet. Status wording is always
-`prototype · iphone · on-device`. Never imply App Store or live TestFlight —
-the only ask is the waitlist.
+**Current state: private beta, preparing for the App Store.** The on-device
+body-tracking build and in-app capture run today; the public App Store release
+is the next milestone. Six verified VRM avatars live on devnet, with the
+VRM → ARKit USDZ retarget and launch avatar pack still in progress. Hero status
+wording is `app store release · coming soon`; elsewhere use
+`beta · iphone · on-device`. The primary ask is the email beta list. Never imply
+the app is available now, approved by Apple, or tied to a date we have not announced.
 
 ### Facts we are allowed to state (and must not inflate)
+
 - Runs on-device. Camera frames never leave the iPhone. No cloud vision, no external ML.
 - ARKit body tracking → smoothed 3D skeleton joints; RealityKit avatar rendering.
 - Requires iOS 17+, iPhone with A12 Bionic or newer. Simulator unsupported.
@@ -36,14 +39,14 @@ the only ask is the waitlist.
 
 Short, playful, imperative. **Toy energy with engineer honesty.**
 
-| Do | Don't |
-|---|---|
-| Verbs first: "Point. Wear. Record." | Noun soup: "an immersive AR identity solution" |
-| Lowercase kickers (`prototype · iphone · on-device`) | SHOUTING HEADLINES |
-| Sentence-case headlines | Title Case Every Word |
-| Name the limits plainly ("one person at a time") | Hiding limits behind "currently optimizing" |
-| Three-beat rhythm: **point · wear · record** | Four-clause corporate sentences |
-| One exclamation mark per page, at most | Exclamation spam |
+| Do                                               | Don't                                          |
+| ------------------------------------------------ | ---------------------------------------------- |
+| Verbs first: "Point. Wear. Record."              | Noun soup: "an immersive AR identity solution" |
+| Lowercase kickers (`beta · iphone · on-device`)  | SHOUTING HEADLINES                             |
+| Sentence-case headlines                          | Title Case Every Word                          |
+| Name the limits plainly ("one person at a time") | Hiding limits behind "currently optimizing"    |
+| Three-beat rhythm: **point · wear · record**     | Four-clause corporate sentences                |
+| One exclamation mark per page, at most           | Exclamation spam                               |
 
 Rhythm rule: whenever you need a list, try three beats first. The product is a
 three-beat product.
@@ -57,29 +60,29 @@ Tailwind namespace `mirror` (`bg-mirror-void`, `text-mirror-silver`, …).
 Acid green on black. **One hue, three chroma levels** — where the old system
 separated things by hue, this one separates them by chroma, value and area.
 
-| Token | Hex | Contrast on void | Use |
-|---|---|---|---|
-| `mirror.void` | `#07080A` | — | page background, primary-button label color |
-| `mirror.deep` | `#0C0F0C` | — | alternate section background, 3D canvas clear |
-| `mirror.surface` | `#131813` | — | cards, media frames |
-| `mirror.chrome` | `#EDF2E9` | 17.6:1 | primary text |
-| `mirror.silver` | `#9AA79A` | 8.0:1 | muted / secondary text |
-| `mirror.acid` | `#B6FF1A` | 16.5:1 | **tier A** — primary accent |
-| `mirror.toxic` | `#6EF244` | 13.8:1 | **atmosphere** — the gradient's dark end, ambient glow |
-| `mirror.bone` | `#E7FFB0` | 18.4:1 | **tier B** — the quiet label colour |
+| Token            | Hex       | Contrast on void | Use                                                    |
+| ---------------- | --------- | ---------------- | ------------------------------------------------------ |
+| `mirror.void`    | `#07080A` | —                | page background, primary-button label color            |
+| `mirror.deep`    | `#0C0F0C` | —                | alternate section background, 3D canvas clear          |
+| `mirror.surface` | `#131813` | —                | cards, media frames                                    |
+| `mirror.chrome`  | `#EDF2E9` | 17.6:1           | primary text                                           |
+| `mirror.silver`  | `#9AA79A` | 8.0:1            | muted / secondary text                                 |
+| `mirror.acid`    | `#B6FF1A` | 16.5:1           | **tier A** — primary accent                            |
+| `mirror.toxic`   | `#6EF244` | 13.8:1           | **atmosphere** — the gradient's dark end, ambient glow |
+| `mirror.bone`    | `#E7FFB0` | 18.4:1           | **tier B** — the quiet label colour                    |
 
 ### The emphasis ladder
 
 The single accent only stays loud if it is rationed. Three tiers:
 
-- **Tier A — acid.** Either *the one thing to click* or *the one claim the page
-  is built on*. Primary button fill, focus ring, selected state, live/recording
+- **Tier A — acid.** Either _the one thing to click_ or _the one claim the page
+  is built on_. Primary button fill, focus ring, selected state, live/recording
   indicators, text selection, link hover, and exactly two section kickers:
   the hero and the CTA. Nothing else.
 - **Tier B — bone.** Every in-card micro-label, note, tag, caption and badge
   that used to be a second or third hue. Reads as off-white with a green cast,
   not as an accent.
-- **Tier C — silver.** The back-matter kickers (tech's *current limits*,
+- **Tier C — silver.** The back-matter kickers (tech's _current limits_,
   roadmap, FAQ, footer) take `.mir-kicker`'s own silver with no accent class.
   The decrescendo through the lower half of the page is deliberate.
 
@@ -93,14 +96,14 @@ chrome on acid is 1.07:1. Text on an acid fill is always `mirror.void`
 linear-gradient(100deg, #6EF244 0%, #B6FF1A 55%, #E7FFB0 100%);
 ```
 
-It is now a *value* ramp inside one hue rather than a hue ramp, so it reads as
+It is now a _value_ ramp inside one hue rather than a hue ramp, so it reads as
 a light sweep across the seam. Use it for: gradient text (one phrase per
 screen, no more), the seam, kicker hairlines, the primary button fill, the
-logo's right half. Never as a large flat field — it is a *line and an edge*,
+logo's right half. Never as a large flat field — it is a _line and an edge_,
 not a wallpaper.
 
 **Glow alphas.** The green prism runs ~2.2x the luminance of the old one, so
-every *fill, wash and glow* alpha inherited from the old palette is roughly
+every _fill, wash and glow_ alpha inherited from the old palette is roughly
 halved. Hairlines, 1px seams, borders and focus rings keep their alpha — they
 are supposed to be loud.
 
@@ -114,20 +117,20 @@ cyan/gold. Mirror is near-black chrome + acid.
 
 ## 4. Type
 
-| Role | Face | Spec |
-|---|---|---|
+| Role    | Face                                                        | Spec                                      |
+| ------- | ----------------------------------------------------------- | ----------------------------------------- |
 | Display | **Space Grotesk** (`--font-mirror-display`, `font-display`) | headlines, kickers, buttons, stat metrics |
-| Body | **Inter** (`--font-mirror-sans`, `font-sans`) | everything else |
+| Body    | **Inter** (`--font-mirror-sans`, `font-sans`)               | everything else                           |
 
-| Style | Size | Weight | Tracking |
-|---|---|---|---|
-| H1 | `clamp(2.6rem, 1.6rem + 5vw, 5.2rem)` | 700 | `-0.03em` |
-| H2 (`.mir-h2`) | `1.875rem → 3rem` | 700 | `-0.03em` |
-| H3 | `1.25rem` | 600 | `-0.01em` |
-| Lead (`.mir-lead`) | `1rem → 1.125rem` | 400 | normal |
-| Body | `0.95rem` | 400 | normal |
-| Kicker (`.mir-kicker`) | `0.7rem` | 600 | `0.3em`, uppercase, 26px hairline |
-| Stat metric | `1.3rem → 1.9rem` | 700 | `-0.02em` |
+| Style                  | Size                                  | Weight | Tracking                          |
+| ---------------------- | ------------------------------------- | ------ | --------------------------------- |
+| H1                     | `clamp(2.6rem, 1.6rem + 5vw, 5.2rem)` | 700    | `-0.03em`                         |
+| H2 (`.mir-h2`)         | `1.875rem → 3rem`                     | 700    | `-0.03em`                         |
+| H3                     | `1.25rem`                             | 600    | `-0.01em`                         |
+| Lead (`.mir-lead`)     | `1rem → 1.125rem`                     | 400    | normal                            |
+| Body                   | `0.95rem`                             | 400    | normal                            |
+| Kicker (`.mir-kicker`) | `0.7rem`                              | 600    | `0.3em`, uppercase, 26px hairline |
+| Stat metric            | `1.3rem → 1.9rem`                     | 700    | `-0.02em`                         |
 
 Kickers are written lowercase in the copy and uppercased by CSS — so they read
 as machine labels, not as shouting.
@@ -138,12 +141,13 @@ as machine labels, not as shouting.
 
 **Mark** — a rounded square split by a vertical seam. Left half solid chrome
 (reality). Right half acid prism gradient, slightly offset and over-scaled: the
-*reflected* version of the same shape. A 1px prism seam sits where they meet.
+_reflected_ version of the same shape. A 1px prism seam sits where they meet.
 
 **Wordmark** — `EKZA MIRROR`, Space Grotesk, uppercase, tracking `0.18em`.
 `EKZA` is chrome; `MIRROR` carries the prism gradient text fill.
 
 Rules:
+
 - Ship it from `src/components/logo.tsx` only. No exported PNG/SVG files.
 - `variant="mark"` for square contexts (favicon, avatar, app tile);
   `variant="full"` for header and footer.
@@ -218,14 +222,17 @@ All bespoke classes are prefixed `mir-` and live in `src/app/globals.css`.
 ## 10. Do / Don't
 
 **Do**
+
 - Lead with the verb. "Point the camera at a friend."
+- Say "App Store release coming soon" and route the primary CTA to the beta list.
 - Keep the prism to lines, edges and one gradient phrase per screen.
 - State a limit right next to a claim — honesty is part of the toy's charm.
 - Let the seam do the dividing; skip heavy borders and boxes.
 - Put a gradient fallback behind every photo frame.
 
 **Don't**
-- Don't say "launch", "available now", "App Store" or "TestFlight".
+
+- Don't say "available now", imply Apple approval, or invent a launch date.
 - Don't call it a platform, a protocol or a metaverse.
 - Don't add a second gradient family — the prism is the only one.
 - Don't stack more than one gradient headline per viewport.

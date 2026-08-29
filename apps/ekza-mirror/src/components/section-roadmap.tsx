@@ -13,22 +13,22 @@ const PHASES: Phase[] = [
     key: "now",
     label: "now",
     live: true,
-    headline: "The prototype runs.",
+    headline: "The beta runs.",
     items: [
-      "Procedural volumetric avatar",
       "ARKit body-tracking runtime",
-      "Avatar resolver — descriptors + provenance",
+      "On-device avatar rendering",
+      "In-app capture",
     ],
   },
   {
     key: "next",
     label: "next",
     live: false,
-    headline: "Real characters step in.",
+    headline: "The App Store release.",
     items: [
+      "Private beta feedback",
       "VRM → ARKit USDZ retarget",
-      "Real rigged Ekza characters",
-      "In-app capture",
+      "Launch avatar pack",
     ],
   },
   {
@@ -68,8 +68,8 @@ export function SectionRoadmap() {
             delay={140}
             className="mt-5 max-w-xl text-base leading-relaxed text-mirror-silver sm:text-lg"
           >
-            Only the first column is real today. The other two are promises with
-            dates we have not earned yet.
+            The App Store is the next public milestone. Beta feedback decides
+            what makes the first release — no made-up launch date.
           </Reveal>
         </div>
 

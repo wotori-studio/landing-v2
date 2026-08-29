@@ -25,8 +25,8 @@ const MARQUEE = [
 
 export default function EkzaMirrorLandingPage() {
   return (
-    <div id="top" className="mir-mesh relative min-h-screen overflow-x-clip">
-      <Noise fixed />
+    <div className="mir-mesh relative min-h-screen overflow-x-clip">
+      <Noise fixed className="hidden lg:block" />
       <SayHi />
       <AnimReady />
       <SiteHeader />

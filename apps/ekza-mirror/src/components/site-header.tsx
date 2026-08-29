@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { Logo } from "@/components/logo";
-import { MIRROR_LINKS } from "@/lib/links";
 
 const NAV = [
   { label: "How", href: "#how" },
@@ -46,7 +45,10 @@ export function SiteHeader() {
           className="rounded-lg transition hover:opacity-90"
           aria-label="Ekza Mirror — home"
         >
-          <Logo variant="full" />
+          <Logo variant="mark" className="h-8 w-8 min-[390px]:hidden" />
+          <span className="hidden min-[390px]:inline-flex">
+            <Logo variant="full" />
+          </span>
         </a>
 
         <nav
@@ -66,12 +68,10 @@ export function SiteHeader() {
 
         <div className="flex shrink-0 items-center gap-2">
           <a
-            href={MIRROR_LINKS.discord}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mir-btn-primary px-4 py-2 text-xs sm:px-6 sm:text-sm"
+            href="#waitlist"
+            className="mir-btn-primary min-h-11 px-3 py-2 text-xs sm:px-6 sm:text-sm"
           >
-            Get on the list
+            Join beta
           </a>
           <button
             type="button"
@@ -79,7 +79,7 @@ export function SiteHeader() {
             aria-expanded={open}
             aria-controls="mir-mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
-            className="rounded-lg border border-white/15 p-2 text-mirror-silver transition hover:border-white/30 hover:text-mirror-chrome md:hidden"
+            className="flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-white/15 p-2 text-mirror-silver transition hover:border-white/30 hover:text-mirror-chrome md:hidden"
           >
             <svg
               viewBox="0 0 24 24"

@@ -41,7 +41,10 @@ const COLLECTIONS: CollectionChip[] = (() => {
 /** Cosmetic only — whatever the renderer reports is what gets a button. */
 function clipLabel(name: string): string {
   if (name === STOP_CLIP) return "stop";
-  return name.replace(/[_\-.]+/g, " ").trim().toLowerCase();
+  return name
+    .replace(/[_\-.]+/g, " ")
+    .trim()
+    .toLowerCase();
 }
 
 /**
@@ -49,7 +52,10 @@ function clipLabel(name: string): string {
  * when the next model happens to have the same clip; otherwise it falls back to
  * an idle-ish default. `undefined` means "renderer's own default".
  */
-function resolveClip(clips: string[], wanted: string | null): string | undefined {
+function resolveClip(
+  clips: string[],
+  wanted: string | null
+): string | undefined {
   if (wanted === STOP_CLIP) return STOP_CLIP;
   if (clips.length === 0) return wanted ?? undefined;
   if (wanted && clips.includes(wanted)) return wanted;
@@ -79,7 +85,7 @@ type RenderState = "idle" | "loading" | "ready" | "failed";
  */
 function useRenderState(
   host: RefObject<HTMLDivElement>,
-  active: boolean,
+  active: boolean
 ): RenderState {
   const [state, setState] = useState<RenderState>("idle");
 
@@ -98,7 +104,7 @@ function useRenderState(
       setState(
         value === "ready" || value === "failed" || value === "loading"
           ? value
-          : "loading",
+          : "loading"
       );
     };
 
@@ -149,7 +155,7 @@ export function SectionAvatars() {
       collection === ALL_COLLECTIONS
         ? AVATARS
         : AVATARS.filter((avatar) => avatar.collection === collection),
-    [collection],
+    [collection]
   );
 
   const markArtFailed = useCallback((id: string) => {
@@ -180,7 +186,7 @@ export function SectionAvatars() {
       setLive(true);
       setLoading(true);
     },
-    [activeId, live],
+    [activeId, live]
   );
 
   // A visible sign of life that cannot lie: a multi-megabyte file over a public
@@ -203,7 +209,7 @@ export function SectionAvatars() {
         behavior: reducedMotion ? "auto" : "smooth",
       });
     },
-    [reducedMotion],
+    [reducedMotion]
   );
 
   const credit =
@@ -249,7 +255,10 @@ export function SectionAvatars() {
          stopped the old `lg:sticky` viewer from ever sticking. */
       className="relative overflow-x-clip border-t border-mirror-chrome/10 bg-mirror-void py-20 sm:py-28"
     >
-      <div className="mir-grain pointer-events-none absolute inset-0" aria-hidden />
+      <div
+        className="mir-grain pointer-events-none absolute inset-0"
+        aria-hidden
+      />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-[radial-gradient(60%_100%_at_50%_0%,rgba(182,255,26,0.07),transparent_70%)]"
@@ -287,27 +296,20 @@ export function SectionAvatars() {
         {/*
           The layout that fixes the client's complaint.
 
-          Desktop: two columns, the stage pinned at `top-24`, the rail capped to
-          the viewport and scrolling inside itself. Browsing the catalog moves the
-          rail's own scrollbar, not the page, so the viewer cannot leave.
-
-          Mobile: one column, the stage sticky under the header, the rail a
-          bounded scroll box beneath it — the same deal, stacked.
-
-          Nothing here captures the wheel and no container sets
-          `overscroll-behavior`, so a rail scrolled to its end chains to the page
-          as usual and the visitor scrolls straight out of the section.
+          Desktop keeps the stage pinned while the catalog rail scrolls. Mobile
+          stays in normal document flow: no sticky stage + nested vertical
+          scroller competing for the same touch gesture.
         */}
         <div className="mt-10 flex flex-col gap-4 sm:mt-12 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-start lg:gap-10">
           {/* ---------------------------------------------------- stage */}
-          <div className="sticky top-16 z-20 -mx-4 bg-mirror-void px-4 pb-3 sm:-mx-6 sm:px-6 lg:top-24 lg:mx-0 lg:bg-transparent lg:px-0 lg:pb-0">
+          <div className="lg:sticky lg:top-24">
             <div className="mir-glass relative overflow-hidden p-2">
               <div
                 ref={viewerRef}
                 className="relative h-[40svh] min-h-[15rem] w-full overflow-hidden rounded-xl bg-mirror-surface sm:h-[52svh] lg:h-[calc(100svh-15rem)] lg:min-h-[22rem] lg:max-h-[44rem]"
               >
                 {live ? (
-                  <div className="absolute inset-0">
+                  <div className="mir-avatar-canvas absolute inset-0">
                     <Avatar3D
                       animation={clip}
                       fallback={still}
@@ -355,7 +357,7 @@ export function SectionAvatars() {
                         setLive(true);
                         setLoading(true);
                       }}
-                      className="mir-btn-primary px-4 py-2 text-xs"
+                      className="mir-btn-primary min-h-11 px-4 py-2 text-xs"
                     >
                       render live
                     </button>
@@ -452,7 +454,7 @@ export function SectionAvatars() {
                       return (
                         <button
                           aria-pressed={on}
-                          className={`shrink-0 whitespace-nowrap rounded-full border px-3 py-1 font-display text-[0.6rem] uppercase tracking-[0.16em] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-mirror-acid focus-visible:ring-offset-2 focus-visible:ring-offset-mirror-void ${
+                          className={`min-h-11 shrink-0 whitespace-nowrap rounded-full border px-3 py-1 font-display text-[0.6rem] uppercase tracking-[0.16em] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-mirror-acid focus-visible:ring-offset-2 focus-visible:ring-offset-mirror-void ${
                             on
                               ? "border-mirror-acid/70 bg-mirror-acid/15 text-mirror-chrome"
                               : "border-mirror-chrome/15 text-mirror-silver hover:border-mirror-bone/40 hover:text-mirror-chrome"
@@ -496,7 +498,7 @@ export function SectionAvatars() {
                 return (
                   <button
                     aria-pressed={on}
-                    className={`shrink-0 whitespace-nowrap rounded-full border px-3 py-1.5 font-display text-[0.6rem] uppercase tracking-[0.16em] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-mirror-acid focus-visible:ring-offset-2 focus-visible:ring-offset-mirror-void ${
+                    className={`min-h-11 shrink-0 whitespace-nowrap rounded-full border px-3 py-1.5 font-display text-[0.6rem] uppercase tracking-[0.16em] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-mirror-acid focus-visible:ring-offset-2 focus-visible:ring-offset-mirror-void ${
                       on
                         ? "border-mirror-bone/60 bg-mirror-bone/10 text-mirror-chrome"
                         : "border-mirror-chrome/10 text-mirror-silver hover:border-mirror-bone/30 hover:text-mirror-chrome"
@@ -517,7 +519,7 @@ export function SectionAvatars() {
 
             <div className="relative mt-3">
               <div
-                className="max-h-[46svh] overflow-y-auto pr-1 sm:max-h-[54svh] lg:max-h-[calc(100svh-16rem)]"
+                className="lg:max-h-[calc(100svh-16rem)] lg:overflow-y-auto lg:pr-1"
                 ref={railRef}
                 style={{ scrollbarWidth: "thin" }}
               >
@@ -579,7 +581,9 @@ export function SectionAvatars() {
                             <span
                               aria-hidden
                               className={`h-1.5 w-1.5 shrink-0 rounded-full transition ${
-                                selected ? "bg-mirror-acid" : "bg-mirror-chrome/25"
+                                selected
+                                  ? "bg-mirror-acid"
+                                  : "bg-mirror-chrome/25"
                               }`}
                             />
                           </span>

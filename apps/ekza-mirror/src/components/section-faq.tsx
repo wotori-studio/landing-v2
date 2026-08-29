@@ -15,6 +15,10 @@ const FAQ_CSS = `
 
 const QA = [
   {
+    q: "When can I get it from the App Store?",
+    a: "The App Store release is coming soon, but we are not publishing a date until the build earns it. Join the beta list and we will email you when a testing wave opens — and again when the public release is ready.",
+  },
+  {
     q: "Do I need a special phone?",
     a: "An iPhone with an A12 Bionic chip or newer, running iOS 17 or later. Body tracking uses the rear camera, and the simulator will not do — it has to be a real device. No Android, no iPad-only tricks, no desktop.",
   },

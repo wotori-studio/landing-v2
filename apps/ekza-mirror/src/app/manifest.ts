@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Ekza Mirror — Wear the universe",
     short_name: "Ekza Mirror",
     description:
-      "A native iPhone AR playground: point the camera at a friend, they become an Ekza avatar, hit record. Fully on-device.",
+      "Full-body AR avatars on iPhone, fully on-device. Join the private beta before the App Store release.",
     start_url: "/",
     display: "standalone",
     background_color: "#07080A",

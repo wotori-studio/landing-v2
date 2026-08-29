@@ -26,7 +26,7 @@ export function SiteFooter() {
               Point the camera at a friend. They become an Ekza avatar. Hit
               record.
             </p>
-            <p className="mir-kicker">prototype · iphone · on-device</p>
+            <p className="mir-kicker">beta · iphone · on-device</p>
           </div>
 
           <div className="flex flex-wrap gap-10">
@@ -94,7 +94,13 @@ export function SiteFooter() {
             </a>{" "}
             ecosystem
           </p>
-          <p>© {new Date().getFullYear()} Ekza Mirror</p>
+          <p className="flex items-center gap-3">
+            <a href="/privacy" className="transition hover:text-mirror-chrome">
+              Privacy
+            </a>
+            <span aria-hidden>·</span>
+            <span>© {new Date().getFullYear()} Ekza Mirror</span>
+          </p>
         </div>
       </div>
     </footer>

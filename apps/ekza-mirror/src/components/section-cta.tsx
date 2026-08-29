@@ -1,3 +1,4 @@
+import { BetaSignupForm } from "@/components/beta-signup-form";
 import { Reveal } from "@/components/motion";
 import { MIRROR_LINKS } from "@/lib/links";
 
@@ -47,7 +48,7 @@ export function SectionCta() {
   return (
     <section
       id="waitlist"
-      className="mir-mesh relative overflow-hidden border-t border-mirror-chrome/10 py-24 sm:py-32"
+      className="mir-mesh relative overflow-hidden border-t border-mirror-chrome/10 py-[4.5rem] sm:py-28"
     >
       <div
         className="mir-grain pointer-events-none absolute inset-0"
@@ -63,7 +64,7 @@ export function SectionCta() {
           />
 
           <div className="bg-prism relative rounded-[28px] p-px">
-            <div className="relative overflow-hidden rounded-[27px] bg-mirror-surface px-6 py-16 text-center sm:px-12 sm:py-20">
+            <div className="relative overflow-hidden rounded-[27px] bg-mirror-surface px-5 py-12 text-center sm:px-12 sm:py-16">
               <div
                 aria-hidden="true"
                 className="bg-prism pointer-events-none absolute -left-24 -top-32 h-72 w-72 rounded-full opacity-[0.12] blur-3xl"
@@ -71,33 +72,42 @@ export function SectionCta() {
 
               <div className="relative">
                 <p className="mir-kicker justify-center text-mirror-acid">
-                  the list
+                  private beta
                 </p>
 
                 <h2 className="mt-6 font-display text-4xl font-bold leading-[1.03] tracking-[-0.02em] text-mirror-chrome sm:text-5xl md:text-6xl">
-                  Get on the <span className="mir-grad">list</span>.
+                  Try it before the <span className="mir-grad">App Store</span>.
                 </h2>
 
                 <p className="mx-auto mt-6 max-w-xl text-base text-mirror-silver sm:text-lg">
-                  We hand the first build to the people already in the room.
-                  Point, wear, record — then tell us what broke.
+                  The App Store release is coming soon. Join the beta list for
+                  an early build, then tell us what feels magical — and what
+                  broke.
                 </p>
 
-                <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                <BetaSignupForm
+                  source="final_cta"
+                  className="mx-auto mt-9 max-w-2xl"
+                />
+
+                <p className="mt-7 text-xs text-mirror-silver/65">
+                  Follow the build while you wait.
+                </p>
+                <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
                   <a
                     href={MIRROR_LINKS.discord}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mir-btn-primary inline-flex items-center justify-center gap-2.5"
+                    className="mir-btn-secondary min-h-11 gap-2 px-4 py-2 text-xs"
                   >
                     <DiscordIcon />
-                    Join Discord
+                    Discord
                   </a>
                   <a
                     href={MIRROR_LINKS.telegram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mir-btn-secondary inline-flex items-center justify-center gap-2.5"
+                    className="mir-btn-secondary min-h-11 gap-2 px-4 py-2 text-xs"
                   >
                     <TelegramIcon />
                     Telegram
@@ -106,17 +116,17 @@ export function SectionCta() {
                     href={MIRROR_LINKS.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mir-btn-secondary inline-flex items-center justify-center gap-2.5"
+                    className="mir-btn-secondary min-h-11 gap-2 px-4 py-2 text-xs"
                   >
                     <XIcon />
                     Follow on X
                   </a>
                 </div>
 
-                <div className="mx-auto mt-12 max-w-sm">
+                <div className="mx-auto mt-10 max-w-md">
                   <div className="mir-seam" aria-hidden="true" />
                   <p className="mt-5 font-display text-[0.7rem] uppercase tracking-[0.22em] text-mirror-silver/70">
-                    Prototype. iPhone only. Sign-ups get the first build.
+                    iPhone only · iOS 17+ · App Store release coming soon
                   </p>
                 </div>
               </div>
