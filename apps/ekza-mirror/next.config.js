@@ -2,25 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ["@repo/analytics", "@repo/ui"],
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "ekza.mypinata.cloud",
-        pathname: "/ipfs/**",
-      },
-      {
-        protocol: "https",
-        hostname: "arweave.net",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "gateway.pinata.cloud",
-        pathname: "/ipfs/**",
-      },
-    ],
-  },
+  // No `images.remotePatterns`: every <Image> src in this app is now a local
+  // asset under `public/` (avatar cards live in `public/img/cards`). The VRM
+  // `modelUrl`s still point at arweave/pinata, but those are plain `fetch`
+  // downloads in the browser, not `next/image` requests, so they need no
+  // pattern here.
 };
 
 module.exports = nextConfig;
