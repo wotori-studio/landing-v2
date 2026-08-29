@@ -13,23 +13,26 @@ module.exports = {
       },
       colors: {
         mirror: {
-          void: "#07070C",
-          deep: "#0D0D16",
-          surface: "#14141F",
-          chrome: "#E9ECF5",
-          silver: "#A8B0C4",
-          violet: "#7C5CFF",
-          rose: "#FF5FA2",
-          aqua: "#35E8FF",
+          void: "#07080A",
+          deep: "#0C0F0C",
+          surface: "#131813",
+          chrome: "#EDF2E9",
+          silver: "#9AA79A",
+          /* one hue, three chroma levels — loudness is chroma, not hue */
+          acid: "#B6FF1A",
+          toxic: "#6EF244",
+          bone: "#E7FFB0",
         },
       },
       backgroundImage: {
-        prism: "linear-gradient(100deg, #7C5CFF 0%, #FF5FA2 52%, #35E8FF 100%)",
+        prism: "linear-gradient(100deg, #6EF244 0%, #B6FF1A 55%, #E7FFB0 100%)",
       },
       boxShadow: {
-        prism: "0 0 44px rgba(124, 92, 255, 0.28)",
-        "prism-rose": "0 0 40px rgba(255, 95, 162, 0.22)",
-        "prism-aqua": "0 0 40px rgba(53, 232, 255, 0.2)",
+        /* the greens run ~2.2x brighter than the old prism, so every glow
+           alpha is roughly halved to keep the same apparent bloom */
+        prism: "0 0 44px rgba(182, 255, 26, 0.14)",
+        "prism-toxic": "0 0 40px rgba(110, 242, 68, 0.12)",
+        "prism-bone": "0 0 40px rgba(231, 255, 176, 0.1)",
         glass: "0 24px 60px rgba(0, 0, 0, 0.5)",
       },
       animation: {

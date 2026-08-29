@@ -82,7 +82,7 @@ export function SectionTech() {
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-2xl">
-          <Reveal as="p" className="mir-kicker text-mirror-rose">
+          <Reveal as="p" className="mir-kicker text-mirror-bone">
             the honest part
           </Reveal>
           <Reveal
@@ -101,11 +101,11 @@ export function SectionTech() {
         >
           <div
             aria-hidden="true"
-            className="bg-prism pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full opacity-20 blur-3xl"
+            className="bg-prism pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full opacity-[0.09] blur-3xl"
           />
           <div className="relative flex flex-col gap-8 md:flex-row md:items-center md:gap-12">
             <div className="md:flex-1">
-              <p className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-mirror-aqua">
+              <p className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-mirror-acid">
                 on-device
               </p>
               <h3 className="mt-4 font-display text-2xl font-bold leading-tight text-mirror-chrome sm:text-3xl">
@@ -131,7 +131,7 @@ export function SectionTech() {
               delay={200 + i * 90}
               className="mir-glass mir-glass-hover rounded-2xl p-6 sm:p-8"
             >
-              <p className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-mirror-violet">
+              <p className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-mirror-bone">
                 {item.tag}
               </p>
               <h3 className="mt-4 font-display text-lg font-semibold text-mirror-chrome">
@@ -164,7 +164,7 @@ export function SectionTech() {
           <div className="mir-seam" aria-hidden="true" />
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="mir-kicker text-mirror-aqua">current limits</p>
+              <p className="mir-kicker">current limits</p>
               <h3 className="mt-4 font-display text-2xl font-bold text-mirror-chrome sm:text-3xl">
                 What it can&apos;t do yet.
               </h3>

@@ -26,20 +26,20 @@ export function Logo({
     >
       <defs>
         <linearGradient id="mirLogoPrism" x1="0" y1="64" x2="64" y2="0">
-          <stop offset="0%" stopColor="#7C5CFF" />
-          <stop offset="52%" stopColor="#FF5FA2" />
-          <stop offset="100%" stopColor="#35E8FF" />
+          <stop offset="0%" stopColor="#6EF244" />
+          <stop offset="55%" stopColor="#B6FF1A" />
+          <stop offset="100%" stopColor="#E7FFB0" />
         </linearGradient>
         <linearGradient id="mirLogoChrome" x1="0" y1="0" x2="0" y2="64">
           <stop offset="0%" stopColor="#FFFFFF" />
-          <stop offset="55%" stopColor="#E9ECF5" />
-          <stop offset="100%" stopColor="#A8B0C4" />
+          <stop offset="55%" stopColor="#EDF2E9" />
+          <stop offset="100%" stopColor="#9AA79A" />
         </linearGradient>
         <linearGradient id="mirLogoSeam" x1="0" y1="0" x2="0" y2="64">
-          <stop offset="0%" stopColor="#35E8FF" stopOpacity="0" />
-          <stop offset="22%" stopColor="#7C5CFF" stopOpacity="1" />
-          <stop offset="60%" stopColor="#FF5FA2" stopOpacity="1" />
-          <stop offset="100%" stopColor="#35E8FF" stopOpacity="0" />
+          <stop offset="0%" stopColor="#6EF244" stopOpacity="0" />
+          <stop offset="22%" stopColor="#6EF244" stopOpacity="1" />
+          <stop offset="60%" stopColor="#B6FF1A" stopOpacity="1" />
+          <stop offset="100%" stopColor="#E7FFB0" stopOpacity="0" />
         </linearGradient>
         <clipPath id="mirLogoClip">
           <rect x="2" y="2" width="60" height="60" rx="17" />
@@ -47,7 +47,7 @@ export function Logo({
       </defs>
 
       <g clipPath="url(#mirLogoClip)">
-        <rect x="0" y="0" width="64" height="64" fill="#07070C" />
+        <rect x="0" y="0" width="64" height="64" fill="#07080A" />
         {/* reality — solid chrome */}
         <rect x="2" y="2" width="30" height="60" fill="url(#mirLogoChrome)" />
         {/* the universe — the reflected half, offset + over-scaled */}

@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "A native iPhone AR playground: point the camera at a friend, they become an Ekza avatar, hit record. Fully on-device.",
     start_url: "/",
     display: "standalone",
-    background_color: "#07070C",
-    theme_color: "#7C5CFF",
+    background_color: "#07080A",
+    theme_color: "#07080A",
     lang: "en",
     categories: ["entertainment", "photo", "technology"],
     icons: [

@@ -54,32 +54,61 @@ three-beat product.
 
 Tailwind namespace `mirror` (`bg-mirror-void`, `text-mirror-silver`, …).
 
-| Token | Hex | Use |
-|---|---|---|
-| `mirror.void` | `#07070C` | page background, primary-button label color |
-| `mirror.deep` | `#0D0D16` | alternate section background |
-| `mirror.surface` | `#14141F` | cards, media frames |
-| `mirror.chrome` | `#E9ECF5` | primary text |
-| `mirror.silver` | `#A8B0C4` | muted / secondary text |
-| `mirror.violet` | `#7C5CFF` | prism 1 — primary accent, focus glow |
-| `mirror.rose` | `#FF5FA2` | prism 2 — hot accent, marquee separators |
-| `mirror.aqua` | `#35E8FF` | prism 3 — cool accent, focus ring |
+Acid green on black. **One hue, three chroma levels** — where the old system
+separated things by hue, this one separates them by chroma, value and area.
+
+| Token | Hex | Contrast on void | Use |
+|---|---|---|---|
+| `mirror.void` | `#07080A` | — | page background, primary-button label color |
+| `mirror.deep` | `#0C0F0C` | — | alternate section background, 3D canvas clear |
+| `mirror.surface` | `#131813` | — | cards, media frames |
+| `mirror.chrome` | `#EDF2E9` | 17.6:1 | primary text |
+| `mirror.silver` | `#9AA79A` | 8.0:1 | muted / secondary text |
+| `mirror.acid` | `#B6FF1A` | 16.5:1 | **tier A** — primary accent |
+| `mirror.toxic` | `#6EF244` | 13.8:1 | **atmosphere** — the gradient's dark end, ambient glow |
+| `mirror.bone` | `#E7FFB0` | 18.4:1 | **tier B** — the quiet label colour |
+
+### The emphasis ladder
+
+The single accent only stays loud if it is rationed. Three tiers:
+
+- **Tier A — acid.** Either *the one thing to click* or *the one claim the page
+  is built on*. Primary button fill, focus ring, selected state, live/recording
+  indicators, text selection, link hover, and exactly two section kickers:
+  the hero and the CTA. Nothing else.
+- **Tier B — bone.** Every in-card micro-label, note, tag, caption and badge
+  that used to be a second or third hue. Reads as off-white with a green cast,
+  not as an accent.
+- **Tier C — silver.** The back-matter kickers (tech's *current limits*,
+  roadmap, FAQ, footer) take `.mir-kicker`'s own silver with no accent class.
+  The decrescendo through the lower half of the page is deliberate.
+
+**Never** put acid, bone or chrome text on an acid or bone fill —
+chrome on acid is 1.07:1. Text on an acid fill is always `mirror.void`
+(16.5:1). Toxic is never a text colour.
 
 **The prism** — the one signature gradient, exposed as `--mir-prism`:
 
 ```css
-linear-gradient(100deg, #7C5CFF 0%, #FF5FA2 52%, #35E8FF 100%);
+linear-gradient(100deg, #6EF244 0%, #B6FF1A 55%, #E7FFB0 100%);
 ```
 
-Use the prism for: gradient text (one phrase per screen, no more), the seam,
-kicker hairlines, the primary button fill, the logo's right half. Never as a
-large flat field — it is a *line and an edge*, not a wallpaper.
+It is now a *value* ramp inside one hue rather than a hue ramp, so it reads as
+a light sweep across the seam. Use it for: gradient text (one phrase per
+screen, no more), the seam, kicker hairlines, the primary button fill, the
+logo's right half. Never as a large flat field — it is a *line and an edge*,
+not a wallpaper.
 
-Body copy is `mirror.silver` on `mirror.void` (contrast ≈ 9.5:1). Never drop
-body text below `mirror.silver` in brightness.
+**Glow alphas.** The green prism runs ~2.2x the luminance of the old one, so
+every *fill, wash and glow* alpha inherited from the old palette is roughly
+halved. Hairlines, 1px seams, borders and focus rings keep their alpha — they
+are supposed to be loud.
+
+Body copy is `mirror.silver` on `mirror.void` (contrast ≈ 8.0:1, AAA for body).
+Never drop body text below `mirror.silver` in brightness.
 
 Deliberately unlike its siblings: ekza.io is light and cyan-clean, omoba is
-cyan/gold. Mirror is dark chrome + prism.
+cyan/gold. Mirror is near-black chrome + acid.
 
 ---
 
@@ -108,7 +137,7 @@ as machine labels, not as shouting.
 ## 5. Logo
 
 **Mark** — a rounded square split by a vertical seam. Left half solid chrome
-(reality). Right half prism gradient, slightly offset and over-scaled: the
+(reality). Right half acid prism gradient, slightly offset and over-scaled: the
 *reflected* version of the same shape. A 1px prism seam sits where they meet.
 
 **Wordmark** — `EKZA MIRROR`, Space Grotesk, uppercase, tracking `0.18em`.
@@ -139,10 +168,11 @@ least two.
    opacity `0.035`. Enough to kill banding, never enough to notice.
 4. **Chrome sheen** (`.mir-sheen`, and built into both buttons) — a slow diagonal
    highlight that sweeps across a surface on hover.
-5. **Prism edge** (`.mir-glass-hover`) — on hover a card's hairline border warms
-   to a prism-tinted glow and the card lifts 5px.
+5. **Acid edge** (`.mir-glass-hover`) — on hover a card's hairline border warms
+   to an acid-tinted glow and the card lifts 5px.
 
-Supporting textures: `.mir-mesh` (the violet/rose/aqua background field) and
+Supporting textures: `.mir-mesh` (the acid/toxic/bone background field — three
+chroma characters, one hue, so the page keeps its depth without a second hue) and
 `.mir-frame-fallback` (the gradient that must sit behind every image so a
 missing file never leaves a white box).
 
@@ -175,7 +205,9 @@ All bespoke classes are prefixed `mir-` and live in `src/app/globals.css`.
 
 ## 9. Accessibility
 
-- Focus ring: 2px `mirror.aqua`, 3px offset — visible on every dark surface.
+- Focus ring: 2px `mirror.acid`, 3px offset — 16.5:1 on void, 14.8:1 on
+  surface. The offset keeps the ring on the page background, so it stays
+  visible even around the acid-filled primary button.
 - The hero wipe is a real slider: `role="slider"`, `aria-valuenow`, arrow keys.
 - Every image needs alt text; decorative layers get `aria-hidden="true"`.
 - Body copy holds AA contrast (`mirror.silver` or lighter on dark).

@@ -94,7 +94,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <meta name="theme-color" content="#07070C" />
+        <meta name="theme-color" content="#07080A" />
         <Script
           id="ekza-mirror-structured-data"
           type="application/ld+json"

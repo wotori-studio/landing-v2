@@ -102,12 +102,12 @@ export function SectionLens() {
       />
       <div
         aria-hidden
-        className="bg-prism pointer-events-none absolute left-1/2 top-0 h-64 w-[min(120vw,900px)] -translate-x-1/2 opacity-[0.13] blur-3xl"
+        className="bg-prism pointer-events-none absolute left-1/2 top-0 h-64 w-[min(120vw,900px)] -translate-x-1/2 opacity-[0.06] blur-3xl"
       />
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-2xl">
-          <Reveal as="p" className="mir-kicker text-mirror-aqua">
+          <Reveal as="p" className="mir-kicker text-mirror-bone">
             why mirror exists
           </Reveal>
           <Reveal
@@ -153,7 +153,7 @@ export function SectionLens() {
               >
                 {node.terminal ? (
                   <span className="relative flex h-4 w-4 items-center justify-center">
-                    <span className="bg-prism absolute inline-flex h-full w-full rounded-full opacity-60 motion-safe:animate-ping" />
+                    <span className="bg-prism absolute inline-flex h-full w-full rounded-full opacity-30 motion-safe:animate-ping" />
                     <span className="bg-prism relative h-3 w-3 rounded-full ring-4 ring-mirror-deep" />
                   </span>
                 ) : (
@@ -237,7 +237,7 @@ export function SectionLens() {
                           you are here
                         </span>
                       ) : (
-                        <span className="text-mirror-aqua transition group-hover:text-mirror-chrome">
+                        <span className="text-mirror-bone transition group-hover:text-mirror-chrome">
                           {node.href.replace("https://", "")}
                           <span aria-hidden="true"> ↗</span>
                         </span>

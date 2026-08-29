@@ -59,18 +59,18 @@ export function SectionCta() {
           {/* prism light spilling out from behind the panel */}
           <div
             aria-hidden="true"
-            className="bg-prism pointer-events-none absolute -inset-6 rounded-[40px] opacity-30 blur-3xl sm:-inset-10"
+            className="bg-prism pointer-events-none absolute -inset-6 rounded-[40px] opacity-[0.14] blur-3xl sm:-inset-10"
           />
 
           <div className="bg-prism relative rounded-[28px] p-px">
             <div className="relative overflow-hidden rounded-[27px] bg-mirror-surface px-6 py-16 text-center sm:px-12 sm:py-20">
               <div
                 aria-hidden="true"
-                className="bg-prism pointer-events-none absolute -left-24 -top-32 h-72 w-72 rounded-full opacity-25 blur-3xl"
+                className="bg-prism pointer-events-none absolute -left-24 -top-32 h-72 w-72 rounded-full opacity-[0.12] blur-3xl"
               />
 
               <div className="relative">
-                <p className="mir-kicker justify-center text-mirror-aqua">
+                <p className="mir-kicker justify-center text-mirror-acid">
                   the list
                 </p>
 

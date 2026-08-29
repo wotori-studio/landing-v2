@@ -11,23 +11,28 @@
 
 @layer base {
   :root {
-    /* the prism — the single signature gradient of the brand */
-    --mir-prism: linear-gradient(100deg, #7c5cff 0%, #ff5fa2 52%, #35e8ff 100%);
+    /* the prism — the single signature gradient of the brand.
+       It is now a VALUE ramp inside one hue (toxic → acid → bone),
+       not a hue ramp, so it reads as a light sweep across the seam. */
+    --mir-prism: linear-gradient(100deg, #6ef244 0%, #b6ff1a 55%, #e7ffb0 100%);
     --mir-prism-soft: linear-gradient(
       100deg,
-      rgba(124, 92, 255, 0.55) 0%,
-      rgba(255, 95, 162, 0.55) 52%,
-      rgba(53, 232, 255, 0.55) 100%
+      rgba(110, 242, 68, 0.4) 0%,
+      rgba(182, 255, 26, 0.4) 55%,
+      rgba(231, 255, 176, 0.4) 100%
     );
 
-    --mir-void: #07070c;
-    --mir-deep: #0d0d16;
-    --mir-surface: #14141f;
-    --mir-chrome: #e9ecf5;
-    --mir-silver: #a8b0c4;
-    --mir-violet: #7c5cff;
-    --mir-rose: #ff5fa2;
-    --mir-aqua: #35e8ff;
+    --mir-void: #07080a;
+    --mir-deep: #0c0f0c;
+    --mir-surface: #131813;
+    --mir-chrome: #edf2e9;
+    --mir-silver: #9aa79a;
+    /* One accent hue at three chroma levels. Loudness is chroma:
+       acid = max (actions, focus, selection), toxic = atmosphere only,
+       bone = the quiet label tier that used to be a third hue. */
+    --mir-acid: #b6ff1a;
+    --mir-toxic: #6ef244;
+    --mir-bone: #e7ffb0;
 
     /* shared easing + radii so every surface feels like one object */
     --mir-ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -48,12 +53,17 @@
   }
 
   ::selection {
-    background: rgba(124, 92, 255, 0.35);
-    color: #fff;
+    /* small, transient, user-driven — acid is allowed to be loud here.
+       Near-black text on acid = 14.2:1. */
+    background: rgba(182, 255, 26, 0.85);
+    color: #07080a;
   }
 
   :focus-visible {
-    outline: 2px solid var(--mir-aqua);
+    /* acid, 16.5:1 on void / 14.8:1 on surface. The 3px offset keeps the
+       ring on the page background, so it stays visible even around the
+       acid-filled primary button. */
+    outline: 2px solid var(--mir-acid);
     outline-offset: 3px;
     border-radius: 6px;
   }
@@ -66,10 +76,11 @@
   .mir-mesh {
     background-color: var(--mir-void);
     background-image:
-      radial-gradient(ellipse 80% 55% at 50% -18%, rgba(124, 92, 255, 0.22), transparent),
-      radial-gradient(ellipse 60% 45% at 100% 42%, rgba(53, 232, 255, 0.1), transparent),
-      radial-gradient(ellipse 55% 60% at 0% 84%, rgba(255, 95, 162, 0.09), transparent),
-      linear-gradient(180deg, #07070c 0%, #0d0d16 46%, #07070c 100%);
+      /* three fields, three chroma characters — depth without a second hue */
+      radial-gradient(ellipse 80% 55% at 50% -18%, rgba(182, 255, 26, 0.09), transparent),
+      radial-gradient(ellipse 60% 45% at 100% 42%, rgba(110, 242, 68, 0.05), transparent),
+      radial-gradient(ellipse 55% 60% at 0% 84%, rgba(231, 255, 176, 0.035), transparent),
+      linear-gradient(180deg, #07080a 0%, #0c0f0c 46%, #07080a 100%);
   }
 
   /* ----------------------------------------------------------
@@ -94,13 +105,13 @@
   .mir-glass-hover:hover,
   .mir-glass-hover:focus-within {
     transform: translateY(-5px);
-    border-color: rgba(124, 92, 255, 0.45);
+    border-color: rgba(182, 255, 26, 0.35);
     background-color: rgba(255, 255, 255, 0.06);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.12),
-      0 0 0 1px rgba(255, 95, 162, 0.14),
+      0 0 0 1px rgba(110, 242, 68, 0.1),
       0 26px 70px rgba(0, 0, 0, 0.55),
-      0 0 46px rgba(124, 92, 255, 0.22);
+      0 0 46px rgba(182, 255, 26, 0.12);
   }
 
   /* ----------------------------------------------------------
@@ -108,9 +119,10 @@
      ---------------------------------------------------------- */
   .mir-btn-primary {
     @apply relative inline-flex items-center justify-center overflow-hidden rounded-xl px-7 py-3.5 font-display text-sm font-semibold tracking-wide text-mirror-void;
-    background: linear-gradient(100deg, #7c5cff 0%, #ff5fa2 100%);
+    /* acid fill, near-black label — 16.5:1 */
+    background: linear-gradient(100deg, #6ef244 0%, #b6ff1a 100%);
     box-shadow:
-      0 0 26px rgba(124, 92, 255, 0.4),
+      0 0 26px rgba(182, 255, 26, 0.22),
       inset 0 1px 0 rgba(255, 255, 255, 0.35);
     transition:
       transform 0.3s var(--mir-ease),
@@ -134,7 +146,7 @@
     transform: translateY(-2px);
     filter: saturate(1.08);
     box-shadow:
-      0 0 40px rgba(255, 95, 162, 0.42),
+      0 0 40px rgba(182, 255, 26, 0.34),
       inset 0 1px 0 rgba(255, 255, 255, 0.45);
   }
   .mir-btn-primary:hover::before,
@@ -165,9 +177,9 @@
   }
   .mir-btn-secondary:hover {
     transform: translateY(-2px);
-    border-color: rgba(53, 232, 255, 0.5);
-    background-color: rgba(53, 232, 255, 0.08);
-    box-shadow: 0 0 30px rgba(53, 232, 255, 0.18);
+    border-color: rgba(182, 255, 26, 0.45);
+    background-color: rgba(182, 255, 26, 0.06);
+    box-shadow: 0 0 30px rgba(182, 255, 26, 0.12);
   }
   .mir-btn-secondary:hover::before,
   .mir-btn-secondary:focus-visible::before {
@@ -244,7 +256,9 @@
     height: 1px;
     border: 0;
     background-image: var(--mir-prism);
-    opacity: 0.75;
+    /* the green prism carries ~2.2x the luminance of the old one, so the
+       seam is trimmed a touch to stay a line rather than a light bar */
+    opacity: 0.65;
   }
   .mir-seam-v {
     display: block;
@@ -253,13 +267,13 @@
     border: 0;
     background-image: linear-gradient(
       180deg,
-      rgba(124, 92, 255, 0) 0%,
-      #7c5cff 18%,
-      #ff5fa2 52%,
-      #35e8ff 82%,
-      rgba(53, 232, 255, 0) 100%
+      rgba(110, 242, 68, 0) 0%,
+      #6ef244 18%,
+      #b6ff1a 52%,
+      #e7ffb0 82%,
+      rgba(231, 255, 176, 0) 100%
     );
-    box-shadow: 0 0 18px rgba(124, 92, 255, 0.65);
+    box-shadow: 0 0 18px rgba(182, 255, 26, 0.4);
   }
 
   /* ----------------------------------------------------------
@@ -305,8 +319,8 @@
     border-radius: 16px;
     background: linear-gradient(
       180deg,
-      rgba(124, 92, 255, 0.1),
-      rgba(53, 232, 255, 0.04)
+      rgba(182, 255, 26, 0.05),
+      rgba(110, 242, 68, 0.02)
     );
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
     transition:
@@ -316,10 +330,10 @@
   }
   .mir-stat:hover {
     transform: translateY(-3px);
-    border-color: rgba(124, 92, 255, 0.42);
+    border-color: rgba(182, 255, 26, 0.32);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.12),
-      0 0 38px rgba(124, 92, 255, 0.18);
+      0 0 38px rgba(182, 255, 26, 0.1);
   }
   .mir-stat__metric {
     font-family: var(--font-mirror-display), system-ui, sans-serif;
@@ -345,7 +359,7 @@
     padding: 14px 0;
     white-space: nowrap;
     border-block: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(13, 13, 22, 0.65);
+    background: rgba(12, 15, 12, 0.65);
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
     mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
   }
@@ -362,13 +376,13 @@
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: rgba(233, 236, 245, 0.82);
+    color: rgba(237, 242, 233, 0.82);
   }
   .mir-marquee__sep {
     margin: 0 clamp(16px, 3vw, 40px);
     font-style: normal;
     font-size: 0.55em;
-    color: var(--mir-rose);
+    color: var(--mir-acid);
   }
   @keyframes mir-scroll {
     to {
@@ -415,9 +429,9 @@
   .mir-frame-fallback {
     background-color: var(--mir-surface);
     background-image:
-      radial-gradient(ellipse at 30% 20%, rgba(124, 92, 255, 0.35), transparent 60%),
-      radial-gradient(ellipse at 75% 80%, rgba(255, 95, 162, 0.28), transparent 58%),
-      linear-gradient(160deg, #14141f 0%, #07070c 100%);
+      radial-gradient(ellipse at 30% 20%, rgba(182, 255, 26, 0.1), transparent 60%),
+      radial-gradient(ellipse at 75% 80%, rgba(110, 242, 68, 0.075), transparent 58%),
+      linear-gradient(160deg, #131813 0%, #07080a 100%);
   }
 }
 

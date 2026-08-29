@@ -6,9 +6,9 @@ import { Reveal } from "@/components/motion";
 
 const PRISM_STOPS = (
   <>
-    <stop offset="0%" stopColor="#7C5CFF" />
-    <stop offset="52%" stopColor="#FF5FA2" />
-    <stop offset="100%" stopColor="#35E8FF" />
+    <stop offset="0%" stopColor="#6EF244" />
+    <stop offset="55%" stopColor="#B6FF1A" />
+    <stop offset="100%" stopColor="#E7FFB0" />
   </>
 );
 
@@ -27,7 +27,7 @@ function DiagramPoint() {
       </g>
       {/* framed body outline */}
       <g
-        stroke="rgba(233,236,245,0.45)"
+        stroke="rgba(237,242,233,0.45)"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -36,9 +36,9 @@ function DiagramPoint() {
         <path d="M80 49v26M80 55 66 68M80 55l14 13M73 75l-6 24M87 75l6 24" />
       </g>
       {/* scan sweep + focus dot */}
-      <path d="M30 60h100" stroke="rgba(53,232,255,0.35)" strokeWidth="1" strokeDasharray="3 6" />
-      <circle cx="80" cy="60" r="3" fill="#35E8FF" />
-      <circle cx="80" cy="60" r="9" stroke="rgba(53,232,255,0.4)" strokeWidth="1" />
+      <path d="M30 60h100" stroke="rgba(231,255,176,0.3)" strokeWidth="1" strokeDasharray="3 6" />
+      <circle cx="80" cy="60" r="3" fill="#B6FF1A" />
+      <circle cx="80" cy="60" r="9" stroke="rgba(182,255,26,0.4)" strokeWidth="1" />
     </svg>
   );
 }
@@ -52,13 +52,13 @@ function DiagramWear() {
           {PRISM_STOPS}
         </linearGradient>
         <radialGradient id="mirStepWearGlow" cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0%" stopColor="#7C5CFF" stopOpacity="0.45" />
-          <stop offset="100%" stopColor="#7C5CFF" stopOpacity="0" />
+          <stop offset="0%" stopColor="#B6FF1A" stopOpacity="0.22" />
+          <stop offset="100%" stopColor="#B6FF1A" stopOpacity="0" />
         </radialGradient>
       </defs>
       <ellipse cx="80" cy="62" rx="52" ry="46" fill="url(#mirStepWearGlow)" />
       {/* ghost of the real body underneath */}
-      <g stroke="rgba(233,236,245,0.16)" strokeWidth="2" strokeLinecap="round">
+      <g stroke="rgba(237,242,233,0.16)" strokeWidth="2" strokeLinecap="round">
         <circle cx="74" cy="41" r="8" />
         <path d="M74 49v25M74 55 62 67M74 55l12 12M68 74l-5 24M80 74l5 24" />
       </g>
@@ -69,7 +69,7 @@ function DiagramWear() {
         <path d="M80 50v26M80 56 66 69M80 56l14 13M73 76l-6 23M87 76l6 23" strokeWidth="2.5" />
       </g>
       {/* joints */}
-      <g fill="#E9ECF5">
+      <g fill="#EDF2E9">
         <circle cx="80" cy="50" r="2.2" />
         <circle cx="66" cy="69" r="2.2" />
         <circle cx="94" cy="69" r="2.2" />
@@ -89,7 +89,7 @@ function DiagramRecord() {
           {PRISM_STOPS}
         </linearGradient>
       </defs>
-      <circle cx="52" cy="52" r="24" stroke="rgba(233,236,245,0.2)" strokeWidth="2" />
+      <circle cx="52" cy="52" r="24" stroke="rgba(237,242,233,0.2)" strokeWidth="2" />
       <circle
         cx="52"
         cy="52"
@@ -99,11 +99,11 @@ function DiagramRecord() {
         strokeLinecap="round"
         strokeDasharray="98 152"
       />
-      <circle cx="52" cy="52" r="11" fill="#FF5FA2" className="animate-pulse motion-reduce:animate-none" />
+      <circle cx="52" cy="52" r="11" fill="#B6FF1A" className="animate-pulse motion-reduce:animate-none" />
       <text
         x="90"
         y="46"
-        fill="#E9ECF5"
+        fill="#EDF2E9"
         fontSize="17"
         letterSpacing="1.6"
         className="font-display"
@@ -113,7 +113,7 @@ function DiagramRecord() {
       <text
         x="90"
         y="62"
-        fill="#A8B0C4"
+        fill="#9AA79A"
         fontSize="8"
         letterSpacing="2.4"
         className="font-display"
@@ -161,7 +161,7 @@ export function SectionSteps() {
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-2xl">
-          <Reveal as="p" className="mir-kicker text-mirror-rose">
+          <Reveal as="p" className="mir-kicker text-mirror-bone">
             three beats
           </Reveal>
           <Reveal
@@ -206,7 +206,7 @@ export function SectionSteps() {
               <p className="mt-3 text-sm leading-relaxed text-mirror-silver">
                 {step.body}
               </p>
-              <p className="mt-4 font-display text-[0.62rem] uppercase tracking-[0.24em] text-mirror-aqua">
+              <p className="mt-4 font-display text-[0.62rem] uppercase tracking-[0.24em] text-mirror-bone">
                 {step.note}
               </p>
             </Reveal>

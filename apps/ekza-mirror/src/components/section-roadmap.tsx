@@ -53,7 +53,7 @@ export function SectionRoadmap() {
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-2xl">
-          <Reveal as="p" className="mir-kicker text-mirror-violet">
+          <Reveal as="p" className="mir-kicker">
             where this goes
           </Reveal>
           <Reveal
@@ -102,13 +102,13 @@ export function SectionRoadmap() {
                   className={`absolute left-[7px] top-6 w-px md:hidden ${
                     i < PHASES.length - 1 ? "-bottom-10" : "bottom-0"
                   }`}
-                  style={{ backgroundImage: "var(--mir-prism)", opacity: 0.32 }}
+                  style={{ backgroundImage: "var(--mir-prism)", opacity: 0.16 }}
                 />
 
                 <div className="absolute left-0 top-0 md:relative md:left-auto md:top-auto">
                   {phase.live ? (
                     <span className="relative flex h-[15px] w-[15px] items-center justify-center">
-                      <span className="bg-prism absolute inline-flex h-full w-full rounded-full opacity-70 motion-safe:animate-ping" />
+                      <span className="bg-prism absolute inline-flex h-full w-full rounded-full opacity-35 motion-safe:animate-ping" />
                       <span className="bg-prism relative block h-[13px] w-[13px] rounded-full ring-[5px] ring-mirror-deep" />
                     </span>
                   ) : (

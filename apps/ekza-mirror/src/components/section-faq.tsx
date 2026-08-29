@@ -50,7 +50,7 @@ export function SectionFaq() {
 
       <div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6">
         <div className="max-w-2xl">
-          <Reveal as="p" className="mir-kicker text-mirror-aqua">
+          <Reveal as="p" className="mir-kicker">
             straight answers
           </Reveal>
           <Reveal

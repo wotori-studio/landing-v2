@@ -58,8 +58,8 @@ function WipeScene({ variant }: { variant: SceneVariant }) {
       aria-hidden
       className={
         isAvatar
-          ? "absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_10%,rgba(124,92,255,0.55),transparent_60%),radial-gradient(90%_70%_at_70%_100%,rgba(53,232,255,0.35),transparent_65%),linear-gradient(180deg,#120C24_0%,#0B0B16_70%,#07070C_100%)]"
-          : "absolute inset-0 bg-[radial-gradient(110%_70%_at_50%_0%,rgba(233,236,245,0.14),transparent_60%),linear-gradient(180deg,#191924_0%,#101019_55%,#07070C_100%)]"
+          ? "absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_10%,rgba(182,255,26,0.26),transparent_60%),radial-gradient(90%_70%_at_70%_100%,rgba(110,242,68,0.18),transparent_65%),linear-gradient(180deg,#0D160A_0%,#090C09_70%,#07080A_100%)]"
+          : "absolute inset-0 bg-[radial-gradient(110%_70%_at_50%_0%,rgba(237,242,233,0.14),transparent_60%),linear-gradient(180deg,#181C17_0%,#0F120F_55%,#07080A_100%)]"
       }
     >
       <svg
@@ -71,13 +71,13 @@ function WipeScene({ variant }: { variant: SceneVariant }) {
       >
         <defs>
           <linearGradient id="mirWipeFigure" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#7C5CFF" />
-            <stop offset="52%" stopColor="#FF5FA2" />
-            <stop offset="100%" stopColor="#35E8FF" />
+            <stop offset="0%" stopColor="#6EF244" />
+            <stop offset="55%" stopColor="#B6FF1A" />
+            <stop offset="100%" stopColor="#E7FFB0" />
           </linearGradient>
         </defs>
         <g
-          stroke={isAvatar ? "url(#mirWipeFigure)" : "rgba(233,236,245,0.22)"}
+          stroke={isAvatar ? "url(#mirWipeFigure)" : "rgba(237,242,233,0.22)"}
           strokeLinecap="round"
           opacity={isAvatar ? 0.95 : 0.75}
         >
@@ -91,10 +91,10 @@ function WipeScene({ variant }: { variant: SceneVariant }) {
           cx="50"
           cy="42"
           r="13"
-          fill={isAvatar ? "url(#mirWipeFigure)" : "rgba(233,236,245,0.2)"}
+          fill={isAvatar ? "url(#mirWipeFigure)" : "rgba(237,242,233,0.2)"}
         />
         {isAvatar ? (
-          <g fill="#E9ECF5" opacity="0.9">
+          <g fill="#EDF2E9" opacity="0.9">
             <circle cx="50" cy="62" r="2" />
             <circle cx="30" cy="100" r="2" />
             <circle cx="70" cy="100" r="2" />
@@ -219,11 +219,11 @@ function MirrorWipe() {
     <div className="relative mx-auto w-[min(74vw,264px)] sm:w-[296px] lg:w-[332px]">
       <div
         aria-hidden
-        className="pointer-events-none absolute -inset-10 rounded-[3.5rem] bg-[radial-gradient(55%_45%_at_50%_18%,rgba(124,92,255,0.42),transparent_70%),radial-gradient(45%_35%_at_65%_92%,rgba(53,232,255,0.24),transparent_70%)] blur-2xl"
+        className="pointer-events-none absolute -inset-10 rounded-[3.5rem] bg-[radial-gradient(55%_45%_at_50%_18%,rgba(182,255,26,0.18),transparent_70%),radial-gradient(45%_35%_at_65%_92%,rgba(110,242,68,0.12),transparent_70%)] blur-2xl"
       />
 
       {/* phone shell */}
-      <div className="relative rounded-[2.4rem] border border-mirror-chrome/15 bg-mirror-surface/70 p-2 shadow-[0_40px_120px_-40px_rgba(124,92,255,0.65)] backdrop-blur-xl">
+      <div className="relative rounded-[2.4rem] border border-mirror-chrome/15 bg-mirror-surface/70 p-2 shadow-[0_40px_120px_-40px_rgba(182,255,26,0.3)] backdrop-blur-xl">
         <div
           aria-hidden
           className="absolute left-1/2 top-[0.85rem] z-30 h-1 w-16 -translate-x-1/2 rounded-full bg-mirror-chrome/20"
@@ -245,7 +245,7 @@ function MirrorWipe() {
           onPointerCancel={endDrag}
           onKeyDown={onKeyDown}
           style={{ touchAction: "pan-y" }}
-          className="relative aspect-[9/16] w-full cursor-ew-resize select-none overflow-hidden rounded-[1.9rem] bg-mirror-void outline-none focus-visible:ring-2 focus-visible:ring-mirror-aqua focus-visible:ring-offset-2 focus-visible:ring-offset-mirror-void"
+          className="relative aspect-[9/16] w-full cursor-ew-resize select-none overflow-hidden rounded-[1.9rem] bg-mirror-void outline-none focus-visible:ring-2 focus-visible:ring-mirror-acid focus-visible:ring-offset-2 focus-visible:ring-offset-mirror-void"
         >
           {/* left of the seam — the room */}
           <div className="absolute inset-0 z-[1]">
@@ -281,7 +281,7 @@ function MirrorWipe() {
             )}
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(124,92,255,0.28),transparent_38%)]"
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(182,255,26,0.14),transparent_38%)]"
             />
           </div>
 
@@ -292,18 +292,18 @@ function MirrorWipe() {
           >
             <div
               aria-hidden
-              className="absolute inset-y-0 left-0 w-6 -translate-x-1/2 bg-[linear-gradient(90deg,transparent,rgba(255,95,162,0.28),transparent)] blur-md"
+              className="absolute inset-y-0 left-0 w-6 -translate-x-1/2 bg-[linear-gradient(90deg,transparent,rgba(182,255,26,0.16),transparent)] blur-md"
             />
             <div className="mir-seam-v absolute inset-y-0 left-0 -translate-x-1/2" />
             <div
               aria-hidden
-              className="pointer-events-auto absolute left-0 top-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize items-center justify-center rounded-full border border-mirror-chrome/50 bg-mirror-void/70 shadow-[0_0_24px_rgba(124,92,255,0.55)] backdrop-blur"
+              className="pointer-events-auto absolute left-0 top-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize items-center justify-center rounded-full border border-mirror-chrome/50 bg-mirror-void/70 shadow-[0_0_24px_rgba(182,255,26,0.28)] backdrop-blur"
               style={{ touchAction: "none" }}
             >
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" focusable="false">
                 <path
                   d="M9.5 8 6 12l3.5 4M14.5 8l3.5 4-3.5 4"
-                  stroke="#E9ECF5"
+                  stroke="#EDF2E9"
                   strokeWidth="1.6"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -330,7 +330,7 @@ function MirrorWipe() {
       {/* floor reflection */}
       <div
         aria-hidden
-        className="pointer-events-none mx-auto mt-3 h-16 w-[80%] rounded-[50%] bg-[radial-gradient(50%_50%_at_50%_0%,rgba(124,92,255,0.32),transparent_70%)] blur-xl"
+        className="pointer-events-none mx-auto mt-3 h-16 w-[80%] rounded-[50%] bg-[radial-gradient(50%_50%_at_50%_0%,rgba(182,255,26,0.16),transparent_70%)] blur-xl"
       />
     </div>
   );
@@ -350,12 +350,12 @@ export function HeroSection() {
       <div className="mir-grain pointer-events-none absolute inset-0" aria-hidden />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(124,92,255,0.6),rgba(255,95,162,0.6),rgba(53,232,255,0.6),transparent)]"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(110,242,68,0.5),rgba(182,255,26,0.65),rgba(231,255,176,0.5),transparent)]"
       />
 
       <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-14 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-12">
         <div>
-          <Reveal as="p" className="mir-kicker text-mirror-aqua">
+          <Reveal as="p" className="mir-kicker text-mirror-acid">
             prototype · iphone · on-device
           </Reveal>
 
@@ -416,7 +416,7 @@ export function HeroSection() {
 
       <a
         href="#how"
-        className="relative z-10 mx-auto mt-14 hidden font-display text-[0.65rem] uppercase tracking-[0.3em] text-mirror-silver transition hover:text-mirror-aqua sm:block"
+        className="relative z-10 mx-auto mt-14 hidden font-display text-[0.65rem] uppercase tracking-[0.3em] text-mirror-silver transition hover:text-mirror-acid sm:block"
       >
         point · wear · record ↓
       </a>
