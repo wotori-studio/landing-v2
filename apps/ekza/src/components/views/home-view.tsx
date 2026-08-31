@@ -8,6 +8,7 @@ import { LiveWorldEmbed } from "../live-world-embed";
 import { SpaceOffer } from "../space-offer";
 import { PrimitiveGrid } from "../primitive-grid";
 import { CredibilityBand } from "../credibility-band";
+import { FounderBand } from "../founder-band";
 import { Roadmap } from "../roadmap";
 import ProjectCards from "../project-cards";
 import { PartnerSpotlight } from "../partner-spotlight";
@@ -114,6 +115,8 @@ export function HomeView() {
       />
 
       <CredibilityBand showRoadmap={false} />
+
+      <FounderBand />
 
       <Roadmap />
 

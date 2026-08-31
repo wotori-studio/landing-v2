@@ -116,6 +116,18 @@
             "stat3Metric": "end-to-end",
             "stat3Label": "one vision, no handoffs"
           },
+          "founder": {
+            "index": "(01·5) — The founder",
+            "heading": "A studio with a face.",
+            "name": "Dmitrii Sobolev — Wotori",
+            "role": "Founder · Creative technologist",
+            "bio": "Wotori Studio is led hands-on by its founder: 15 years in 3D and game technology, 7 years of commercial software development, a Master of Computer Science earned in Beijing and a Master of Design from HSE. Every project ships under his direct creative and technical lead — you talk to the person who actually builds.",
+            "f1": "15 yrs · 3D & game tech",
+            "f2": "7 yrs · commercial software",
+            "f3": "MSc CS — Beijing · MDes — HSE",
+            "f4": "HackAtom VI · 2nd place",
+            "cta": "Talk to the founder"
+          },
           "services": {
             "index": "(02) — What we build",
             "heading": "One studio for the whole world of your brand.",
@@ -506,6 +518,20 @@
               }
             }
           },
+          "founder": {
+            "eyebrow": "Who's building this",
+            "headline": "Founder-led, built in the open.",
+            "name": "Dmitrii Sobolev (Wotori)",
+            "role": "Founder · Creative technologist",
+            "bio": "Ekza is created and led by Dmitrii Sobolev — 15 years in 3D and game technology, 7 years of commercial software development, a Master of Computer Science earned in Beijing and a Master of Design from HSE. Behind him stands the Wotori Studio bench of senior specialists engaged per build.",
+            "facts": {
+              "f1": "15 yrs · 3D & game tech",
+              "f2": "7 yrs · commercial software",
+              "f3": "MSc CS — Beijing, 2024 · MDes — HSE",
+              "f4": "HackAtom VI · 2nd place · Solana & Cosmos builder"
+            },
+            "studioLink": "Wotori Studio"
+          },
           "nav": {
             "universe": "Universe",
             "protocol": "Protocol",
@@ -841,6 +867,18 @@
             "stat2Label": "дизайн → разработка → запуск",
             "stat3Metric": "под ключ",
             "stat3Label": "один вижн, без стыков"
+          },
+          "founder": {
+            "index": "(01·5) — Основатель",
+            "heading": "У студии есть лицо.",
+            "name": "Дмитрий Соболев — Wotori",
+            "role": "Основатель · креативный технолог",
+            "bio": "Wotori Studio ведёт сам основатель: 15 лет в 3D и игровых технологиях, 7 лет коммерческой разработки, магистр Computer Science (Пекин) и магистр дизайна (НИУ ВШЭ). Каждый проект выходит под его прямым креативным и техническим руководством — вы общаетесь с тем, кто реально делает.",
+            "f1": "15 лет · 3D и игровые технологии",
+            "f2": "7 лет · коммерческая разработка",
+            "f3": "MSc CS — Пекин · MDes — ВШЭ",
+            "f4": "HackAtom VI · 2 место",
+            "cta": "Написать основателю"
           },
           "services": {
             "index": "(02) — Что мы строим",
@@ -1232,6 +1270,20 @@
               }
             }
           },
+          "founder": {
+            "eyebrow": "Кто это строит",
+            "headline": "Проект с лицом основателя.",
+            "name": "Дмитрий Соболев (Wotori)",
+            "role": "Основатель · креативный технолог",
+            "bio": "Ekza создаёт и ведёт Дмитрий Соболев — 15 лет в 3D и игровых технологиях, 7 лет коммерческой разработки, магистр Computer Science (Пекин) и магистр дизайна (НИУ ВШЭ). За ним — команда senior-специалистов Wotori Studio, подключаемых под задачу.",
+            "facts": {
+              "f1": "15 лет · 3D и игровые технологии",
+              "f2": "7 лет · коммерческая разработка",
+              "f3": "MSc CS — Пекин, 2024 · MDes — ВШЭ",
+              "f4": "HackAtom VI · 2 место · Solana и Cosmos"
+            },
+            "studioLink": "Wotori Studio"
+          },
           "nav": {
             "universe": "Вселенная",
             "protocol": "Протокол",
@@ -1567,6 +1619,18 @@
             "stat2Label": "设计 → 开发 → 上线",
             "stat3Metric": "端到端",
             "stat3Label": "一个愿景，无交接"
+          },
+          "founder": {
+            "index": "(01·5) — 创始人",
+            "heading": "工作室有一张面孔。",
+            "name": "Dmitrii Sobolev — Wotori",
+            "role": "创始人 · 创意技术专家",
+            "bio": "Wotori Studio 由创始人亲自主导：15 年 3D 与游戏技术经验，7 年商业软件开发，北京取得的计算机科学硕士与 HSE 设计硕士。每个项目都在他的直接创意与技术把控下交付 — 与你对话的就是真正动手做的人。",
+            "f1": "15 年 · 3D 与游戏技术",
+            "f2": "7 年 · 商业软件开发",
+            "f3": "计算机硕士 — 北京 · 设计硕士 — HSE",
+            "f4": "HackAtom VI · 亚军",
+            "cta": "联系创始人"
           },
           "services": {
             "index": "(02) — 我们构建什么",
@@ -1957,6 +2021,20 @@
                 "body": "交易市场、授权购买、创作者版税与分成看板。"
               }
             }
+          },
+          "founder": {
+            "eyebrow": "谁在打造它",
+            "headline": "创始人亲自主导，公开构建。",
+            "name": "Dmitrii Sobolev（Wotori）",
+            "role": "创始人 · 创意技术专家",
+            "bio": "Ekza 由 Dmitrii Sobolev 创立并亲自主导 — 15 年 3D 与游戏技术经验，7 年商业软件开发，北京取得的计算机科学硕士与 HSE 设计硕士。他身后是 Wotori Studio 按项目组建的资深专家团队。",
+            "facts": {
+              "f1": "15 年 · 3D 与游戏技术",
+              "f2": "7 年 · 商业软件开发",
+              "f3": "计算机硕士 — 北京 2024 · 设计硕士 — HSE",
+              "f4": "HackAtom VI · 亚军 · Solana 与 Cosmos 开发者"
+            },
+            "studioLink": "Wotori Studio"
           },
           "nav": {
             "universe": "宇宙",

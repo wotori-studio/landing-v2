@@ -84,6 +84,41 @@ export default function WotoriHomePage() {
           </div>
         </section>
 
+        {/* Founder */}
+        <section className="ws-section ws-founder" id="founder">
+          <div className="ws-shell ws-founder__inner">
+            <Reveal className="ws-founder__media">
+              <img src="/img/founder.jpg" alt={k("founder.name")} loading="lazy" />
+            </Reveal>
+            <div className="ws-founder__body">
+              <Reveal as="p" className="ws-index">{k("founder.index")}</Reveal>
+              <Reveal as="h2" className="ws-h2" delay={80}>
+                {k("founder.heading")}
+              </Reveal>
+              <Reveal as="p" className="ws-founder__name" delay={140}>
+                {k("founder.name")}
+                <span className="ws-founder__role"> — {k("founder.role")}</span>
+              </Reveal>
+              <Reveal as="p" className="ws-founder__bio" delay={200}>
+                {k("founder.bio")}
+              </Reveal>
+              <Reveal as="ul" className="ws-founder__facts" delay={260}>
+                {[1, 2, 3, 4].map((n) => (
+                  <li key={n}>{k(`founder.f${n}`)}</li>
+                ))}
+              </Reveal>
+              <Reveal delay={320}>
+                <a className="ws-btn ws-btn--primary" href="#contact">
+                  {k("founder.cta")}
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </a>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
         {/* Services */}
         <section className="ws-section ws-section--alt" id="services">
           <div className="ws-shell">
